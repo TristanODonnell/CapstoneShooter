@@ -294,6 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b9bcee2c85e0c40bfdd680f3da6af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -0.41
 --- !u!1 &73669090
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,12 +894,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e07d3ad6f19ac0d43a2970d92441c75b, type: 3}
---- !u!4 &165511458 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5505649760170264425, guid: e07d3ad6f19ac0d43a2970d92441c75b,
-    type: 3}
-  m_PrefabInstance: {fileID: 165511457}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &184461742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1314,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 126772466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26.562}
+--- !u!1 &216482146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 216482148}
+  - component: {fileID: 216482147}
+  m_Layer: 0
+  m_Name: 65
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &216482147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216482146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccefa2fe8f95a04b97612d21ddba5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.55
+  jump: []
+  drop: []
+  next:
+  - {fileID: 1617205640}
+  - {fileID: 1431491430}
+--- !u!4 &216482148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216482146}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.1079, y: -0.341, z: 0.14949995}
+  m_LocalScale: {x: 0.013802219, y: 0.16945656, z: 0.016162863}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 348137109}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &238715896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,7 +1776,7 @@ MonoBehaviour:
   gravitation: {fileID: 309392892}
   movement_speed: 4
   movement: {fileID: 309392891}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -1771,7 +1816,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 309392884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -2041,6 +2086,7 @@ Transform:
   - {fileID: 618630516}
   - {fileID: 983131905}
   - {fileID: 1028921558}
+  - {fileID: 216482148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348137110
@@ -2124,6 +2170,7 @@ MonoBehaviour:
   - {fileID: 618630515}
   - {fileID: 983131904}
   - {fileID: 1028921557}
+  - {fileID: 216482147}
 --- !u!33 &348137111
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3479,7 +3526,7 @@ MonoBehaviour:
   gravitation: {fileID: 769661050}
   movement_speed: 4
   movement: {fileID: 769661045}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -3558,7 +3605,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 769661044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -4492,6 +4539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b9bcee2c85e0c40bfdd680f3da6af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: 6
 --- !u!1 &1143490467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,7 +4863,7 @@ MonoBehaviour:
   gravitation: {fileID: 1313792985}
   movement_speed: 4
   movement: {fileID: 1313792980}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -4894,7 +4942,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1313792979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -5247,6 +5295,7 @@ MonoBehaviour:
   - {fileID: 1806282230}
   - {fileID: 1498558199}
   - {fileID: 983131904}
+  - {fileID: 216482147}
 --- !u!4 &1431491431
 Transform:
   m_ObjectHideFlags: 0
@@ -5328,6 +5377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b9bcee2c85e0c40bfdd680f3da6af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -0.41
 --- !u!1 &1454714351
 GameObject:
   m_ObjectHideFlags: 0
@@ -5390,7 +5440,7 @@ MonoBehaviour:
   gravitation: {fileID: 1454714357}
   movement_speed: 4
   movement: {fileID: 1454714352}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -5469,7 +5519,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1454714351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -6229,6 +6279,7 @@ MonoBehaviour:
   - {fileID: 1431491430}
   next:
   - {fileID: 1574138959}
+  - {fileID: 216482147}
 --- !u!4 &1617205641
 Transform:
   m_ObjectHideFlags: 0
@@ -6826,7 +6877,7 @@ MonoBehaviour:
   gravitation: {fileID: 1836861010}
   movement_speed: 4
   movement: {fileID: 1836861005}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -6905,7 +6956,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1836861004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -7023,7 +7074,7 @@ MonoBehaviour:
   gravitation: {fileID: 1868307607}
   movement_speed: 4
   movement: {fileID: 1868307602}
-  movement_target: {fileID: 165511458}
+  movement_target: {fileID: 0}
   jumpForce: 5
   jump: 0
   spot_delayNewPoint:
@@ -7102,7 +7153,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868307601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7128ad97fcdd0064892efb16a1c6b086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentGravity: -9.81
@@ -7956,6 +8007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be0fb544616fcc4eb4e5d35b7bf1c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: -3.2
 --- !u!4 &1998204831
 Transform:
   m_ObjectHideFlags: 0
