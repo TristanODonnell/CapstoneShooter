@@ -366,8 +366,7 @@ public class PathNode : MonoBehaviour
 
 				var closesToEnd = closest.GetSqrDistanceTo(end);
 				var closestFromNext = closest.GetSqrDistanceTo(lastChecked.transform.position);
-				if (lastChecked.jump.Contains(closest))
-					closesToEnd *= 2f;
+
 
 				var closestTCost = closesToEnd + closestFromNext;
 
@@ -378,7 +377,7 @@ public class PathNode : MonoBehaviour
 					break;
 				}
 
-				if (tCost > closestTCost)
+				if (tCost > closestTCost || closestFromNext > closesToEnd)
 				{
 					hasReachedEndSpot = false;
 

@@ -34,15 +34,17 @@ public class PathFinderManager : MonoBehaviour
 	{
 		var closestDistance = float.MaxValue;
 		var closestNode = (PathNode)null;
-		foreach (var managers in FindObjectsByType<PathFinderManager>(FindObjectsInactive.Include, FindObjectsSortMode.None))
-			foreach (var node in managers.nodes) {
-				var distance = (node.transform.position - pos).sqrMagnitude;
-				if (closestDistance > distance)
-				{
-					closestDistance = distance;
-					closestNode = node;
-				}
+		foreach (var node in FindObjectsByType<PathNode>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+		{
+			var distance = (node.transform.position - pos).sqrMagnitude;
+
+			if (closestDistance > distance)
+			{
+				closestDistance = distance;
+				closestNode = node;
 			}
+		}
+
 		return closestNode;
 	}
 
