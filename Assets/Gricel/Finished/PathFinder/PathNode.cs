@@ -377,7 +377,8 @@ public class PathNode : MonoBehaviour
 					break;
 				}
 
-				if (tCost > closestTCost || closestFromNext > closesToEnd)
+				if (tCost > closestTCost || closestFromNext >
+					closesToEnd)
 				{
 					hasReachedEndSpot = false;
 
