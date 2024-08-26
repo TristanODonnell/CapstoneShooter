@@ -6,13 +6,15 @@
         public float unprotected;
         public float energyShield;
         public float armor;
+        public float stun;
 
 
-        public ProtectionValues(float shrapnel, float energy, float heavy)
+        public ProtectionValues(float shrapnel, float energy, float heavy, float stun)
         {
             this.unprotected = shrapnel;
             this.energyShield = energy;
             this.armor = heavy;
+            this.stun = stun;
         }
 
 
@@ -28,6 +30,7 @@
             Absoluted(ref a.unprotected);
             Absoluted(ref a.energyShield);
             Absoluted(ref a.armor);
+            Absoluted(ref a.stun);
             return a;
         }
         public static ProtectionValues operator +(ProtectionValues a) => a;
@@ -38,6 +41,7 @@
             l.unprotected -= r.unprotected;
             l.energyShield -= r.energyShield;
             l.armor -= r.armor;
+            l.stun -= r.stun;
             return l;
         }
         public static ProtectionValues operator +(ProtectionValues l, ProtectionValues r)
@@ -52,6 +56,7 @@
             b.unprotected *= mult;
             b.energyShield *= mult;
             b.armor *= mult;
+            b.stun *= mult;
             return b;
         }
 

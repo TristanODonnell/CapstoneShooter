@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace gricel
 {
+    [SelectionBase]
 	public class HealthSystem : MonoBehaviour
     {
         [System.Serializable]
@@ -17,10 +18,13 @@ namespace gricel
             }
             public HealthT protection;
 
-            public float health_Max;
+            public float health_Max = 40f;
             public float health { get; private set; }
 
-            public float healthRegenPerS;
+            public float healthRegenPerS = 11f;
+
+            [SerializeField]
+            private UnityEngine.Events.UnityEvent OnDepleted;
 
             public bool H_IsDamaged() => health < health_Max;
             public bool H_IsDepleted() => health <= 0f;
@@ -37,9 +41,11 @@ namespace gricel
 
             public void H_ModifyHealth(ref float addSub, HealthT _protection)
             {
-                if (_protection != protection || addSub == 0f)
+                if (_protection != protection || addSub == 0f || (addSub < 0f && H_IsDepleted()))
                     return;
                 health = Mathf.Clamp(health + addSub, 0f, health_Max);
+                if (H_IsDepleted())
+                    OnDepleted.Invoke();
                 addSub = 0f;
             }
         }
@@ -47,10 +53,23 @@ namespace gricel
         [SerializeField]
         public Health[] healthBars = new Health[1];
 
-        public float regenDelay_Max;
+        public float regenDelay_Max = 6f;
         private float regenDelay;
         private byte regen_Index = 0;
 
+        [SerializeField]
+        private float stunMax = 0.8f;
+        [SerializeField]
+        [Range(0, 1f)]
+        private float stunWeakness = 1f;
+
+
+        [SerializeField]
+        private UnityEngine.Events.UnityEvent OnRegeneration;
+        [SerializeField]
+        private UnityEngine.Events.UnityEvent onDeath;
+
+        public float stun { get; private set; }
         public void HS_Damage(ProtectionValues damage)
         {
             bool DoExit()
@@ -67,6 +86,8 @@ namespace gricel
             regenDelay = regenDelay_Max;
             damage = -damage.Absolute();
 
+            stun = Mathf.Clamp(stun + damage.stun * stunWeakness, 0f, stunMax);
+
 			for (var i = healthBars.Length - 1; i >= 0; i--)
             {
 				Health h = healthBars[i];
@@ -77,8 +98,10 @@ namespace gricel
                 h.H_ModifyHealth(ref damage.energyShield, Health.HealthT.energyShield);
                 h.H_ModifyHealth(ref damage.armor, Health.HealthT.armor);
                 if (DoExit())
-                    return;
+                    break;
             }
+            if (healthBars[0].H_IsDepleted())
+                onDeath.Invoke();
         }
         public void HS_Damage_Indiscriminately(float damage)
         {
@@ -117,7 +140,7 @@ namespace gricel
 
             if (DoExit())
                 return;
-
+            stun = 0;
             regenDelay = 0f;
             regenerate = regenerate.Absolute();
 
@@ -136,6 +159,7 @@ namespace gricel
         {
             if (heal < 0)
                 heal = -heal;
+            stun = 0;
             for (var i = healthBars.Length - 1; i >= 0; i--)
             {
                 if (heal <= 0)
@@ -162,9 +186,12 @@ namespace gricel
                 return;
 
             hb.H_Regenerate(Time.deltaTime * (float)healthBars.Length);
+            if(regenDelay != 0f)
+                OnRegeneration.Invoke();
+
             regenDelay = 0f;
         }
-
+        public bool isStunned => stun > 0f;
 
         void Start()
         {
@@ -174,6 +201,10 @@ namespace gricel
 
         void Update()
         {
+            if (stun > 0)
+                stun -= Time.deltaTime;
+
+
             if (regenDelay > 0f)
                 regenDelay -= Time.deltaTime;
             else
