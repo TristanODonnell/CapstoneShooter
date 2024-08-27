@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 2174882120291665293}
   - component: {fileID: 3451648727230288731}
   - component: {fileID: 4064175703137294824}
-  - component: {fileID: 4760226521987465770}
+  - component: {fileID: 659764644062308712}
   - component: {fileID: 4159032662921158955}
   m_Layer: 0
   m_Name: Player
@@ -743,7 +743,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4760226521987465770
+--- !u!114 &659764644062308712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -752,15 +752,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 8296928949807555558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17bb3db4ac4f86a449b2ba11282ede95, type: 3}
+  m_Script: {fileID: 11500000, guid: d86257eb20db9544c8098dad0ffc9dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 150
-  healthPoints: 150
-  isDead: 0
-  OnHealthChanged:
+  healthBars:
+  - protection: 0
+    health_Max: 40
+    healthRegenPerS: 11
+    OnDepleted:
+      m_PersistentCalls:
+        m_Calls: []
+  regenDelay_Max: 6
+  stunMax: 0.8
+  stunWeakness: 1
+  OnRegeneration:
     m_PersistentCalls:
       m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4159032662921158955
 MonoBehaviour:
   m_ObjectHideFlags: 0

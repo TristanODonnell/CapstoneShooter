@@ -75,11 +75,11 @@ public class WeaponData : ScriptableObject, IInteractable
             if (Physics.Raycast(position, rotation * Vector3.forward, out hit, range))
             {
                 Debug.Log("Hitscan hit something...");
-                HealthSystem healthSystem = hit.transform.GetComponent<HealthSystem>();
-                if (healthSystem != null)
-                {
-                    healthSystem.Damage(damage);
-                }
+               // HealthSystem healthSystem = hit.transform.GetComponent<HealthSystem>();
+             //   if (healthSystem != null)
+              //  {
+                 //   healthSystem.Damage(damage);
+             //   }
             }
             else
             {
@@ -94,11 +94,11 @@ public class WeaponData : ScriptableObject, IInteractable
             {
                 {
                     Debug.Log("Melee hit something...");
-                    HealthSystem healthSystem = hit.transform.GetComponent<HealthSystem>();
-                    if (healthSystem != null)
-                    {
-                        healthSystem.Damage(damage);
-                    }
+                  //  HealthSystem healthSystem = hit.transform.GetComponent<HealthSystem>();
+                   // if (healthSystem != null)
+                   // {
+                   //     healthSystem.Damage(damage);
+                  //  }
                 }
             }
         }

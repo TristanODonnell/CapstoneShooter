@@ -8,10 +8,10 @@ public class Bullet : MonoBehaviour
     public int damage;
     private void OnCollisionEnter(Collision collision)
     {
-        HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
-        if (healthSystem != null)
+        //HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+     //   if (healthSystem != null)
         {
-            healthSystem.Damage(damage);
+           // healthSystem.Damage(damage);
 
         }
         Destroy(gameObject, 2f);

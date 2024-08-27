@@ -1,37 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using gricel;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour, ILootSource
 {
-    public UnityEvent onEnemyDeath;
-    public Transform GetLootSpawnPoint()
+    public HealthSystem healthSystem;
+    public string enemyName;
+    public int creditCost;
+    public float spawnChance = 1.0f;
+    public GameObject enemyPrefab;
+    public EnemyTier enemyTier;
+    public enum EnemyTier { High, Low }
+
+    public UnityEvent onEnemyDeath = new UnityEvent();
+
+    private void Update()
     {
-        throw new System.NotImplementedException();
+        Die();
     }
+    public Enemy(string name, int creditCost, GameObject prefab)
+    {
+        enemyName = name;
+        this.creditCost = creditCost;
+        enemyPrefab = prefab;
+    }
+
+
+
+
+
+
+
+
+
+
+    
+    
 
     public void SpawnLoot()
     {
+        
+    }
+
+    public void Die() 
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            
+            Destroy(gameObject);
+            healthSystem.onDeath.Invoke();
+            
+        }
+        
+        
+    }
+
+    
+
+    public Transform GetLootSpawnPoint()
+    {
         throw new System.NotImplementedException();
-    }
-
-    public void Die()
-    {
-        onEnemyDeath.Invoke();
-        
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
