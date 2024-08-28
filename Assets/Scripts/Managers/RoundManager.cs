@@ -46,6 +46,16 @@ public class RoundManager : MonoBehaviour
         while (true)
         {
             StartNextRound();
+
+            while (spawnedEnemies.Count < 50 && currentRoundCredits >= GetMinCreditCost())
+            {
+                if (!isSpawningEnemies)
+                {
+                    StartCoroutine(SpawnEnemiesCoroutine());
+                }
+                yield return null;
+            }
+
             yield return new WaitUntil(() => areAllEnemiesDestroyed());
 
             EndRound();
@@ -102,20 +112,12 @@ public class RoundManager : MonoBehaviour
     private bool isSpawningEnemies = false;
     private IEnumerator SpawnEnemiesCoroutine()
     {
-        while (true)
+        isSpawningEnemies = true;
+        while (currentRoundCredits >= GetMinCreditCost())
         {
-            if(spawnedEnemies.Count < 50 && currentRoundCredits >= GetMinCreditCost())
-            {
-                yield return StartCoroutine(SpawnEnemies());
-            }
-            else
-            {
-                yield break;
-            }
-           
-
+            yield return StartCoroutine(SpawnEnemies());
         }
-
+        isSpawningEnemies = false;
     }
     private int GetMinCreditCost()
     {
@@ -137,10 +139,6 @@ public class RoundManager : MonoBehaviour
             }
         }
         return minCreditCost;
-    }
-    private void SpawnEnemiesUsingCredits()
-    {
-        StartCoroutine(SpawnEnemies());
     }
     private IEnumerator SpawnEnemies()
     {
@@ -176,6 +174,13 @@ public class RoundManager : MonoBehaviour
                         continue;
                     }
                 }
+            }
+
+            // If highTierCredits are not enough to spawn a high-tier enemy, add the remaining credits to lowTierCredits
+            if (highTierCredits > 0)
+            {
+                lowTierCredits += highTierCredits;
+                highTierCredits = 0;
             }
 
             if (lowTierCredits > 0)
@@ -218,8 +223,13 @@ public class RoundManager : MonoBehaviour
         Debug.Log("Method called");
         spawnedEnemies.Remove(enemy);
         Destroy(enemy);
-        
+        if (spawnedEnemies.Count < 50 && currentRoundCredits > 0)
+        {
+            StartCoroutine(SpawnEnemiesCoroutine());
+        }
     }
+
+
 
     private bool areAllEnemiesDestroyed()
     {

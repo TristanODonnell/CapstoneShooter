@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public SpawnManager spawnManager;
     public RoundManager roundManager;
     public ConvoyDefenseManager convoyDefenseManager;
     public string[] scenesList;
@@ -64,8 +65,14 @@ public class GameManager : MonoBehaviour
     {
         string sceneName = "Asteroid TEST Arena"; 
         LoadScene(sceneName);
+
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            spawnManager.GetSpawnPoints();
+            InitializeArenaMode();
+            
+        };
         
-        SceneManager.sceneLoaded += (scene, mode) => InitializeArenaMode();
     }
 
     public void LoadConvoyDefenseMode()
@@ -74,6 +81,8 @@ public class GameManager : MonoBehaviour
         LoadScene(sceneName);
 
         SceneManager.sceneLoaded += (scene, mode) => InitializeConvoyDefenseMode();
+        
+
     }
 
     public void InitializeArenaMode()

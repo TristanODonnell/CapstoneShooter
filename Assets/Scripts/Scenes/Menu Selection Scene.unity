@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10fd7390ac27f84994c3f199f9fece7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnManager: {fileID: 471976301}
   roundManager: {fileID: 471976299}
   convoyDefenseManager: {fileID: 471976302}
   scenesList:
@@ -465,9 +466,9 @@ MonoBehaviour:
   lowTierEnemies: []
   currentRound: 0
   currentRoundCredits: 0
-  roundCreditMultiplier: 1000
+  roundCreditMultiplier: 6000
   highTierPercentage: 0.25
-  enemySpawnDelayTime: 5
+  enemySpawnDelayTime: 0.75
   spawnChanceMultiplier: 2
   roundFinishTimerValue: 5
   spawnedEnemies: []
