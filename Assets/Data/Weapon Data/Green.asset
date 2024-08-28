@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponType: 0
   ammoType: 0
   weaponName: Green
+  itemCost: 200
   weaponModel: {fileID: 1245693381092401322, guid: 7c4f2d1c9e4b5d944b148a9003054cd1,
     type: 3}
   damage: 0

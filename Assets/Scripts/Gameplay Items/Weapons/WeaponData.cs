@@ -20,6 +20,7 @@ public class WeaponData : ScriptableObject, IInteractable
 
 
     [SerializeField] protected string weaponName;
+    [SerializeField] protected int itemCost;
     [SerializeField] protected GameObject weaponModel;
     [SerializeField] protected int damage;
     [SerializeField] protected float bulletSpeed;
@@ -29,6 +30,7 @@ public class WeaponData : ScriptableObject, IInteractable
     [SerializeField] private GameObject projectilePrefab;
 
     public string WeaponName => weaponName;
+    public int ItemCost => itemCost;
     public GameObject GetWeaponModel() => weaponModel;
 
     public int Damage => damage;

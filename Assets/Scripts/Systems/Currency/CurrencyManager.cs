@@ -22,6 +22,11 @@ public class CurrencyManager : MonoBehaviour
     public int totalCurrency {  get; private set; }
     public int currencyAdded { get; private set; }
 
+    public void SetTotalCurrency(int value)
+    {
+        totalCurrency = value;
+    }
+
     public void AddCurrency(int amount)
     {
         totalCurrency += amount;

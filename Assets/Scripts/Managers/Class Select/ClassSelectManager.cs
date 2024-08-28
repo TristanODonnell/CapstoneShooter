@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ClassSelectManager : MonoBehaviour
 {
+    public GameObject playerPrefab;
+    public GameObject player;
+    public PlayerData selectedPlayerData;
+
+
     public static ClassSelectManager Singleton
     {
         get; private set;
     }
-    public PlayerData playerData;
-
 
     private void Awake()
     {
@@ -26,18 +29,36 @@ public class ClassSelectManager : MonoBehaviour
         
     }
 
-    public void DataReset()
+    private void Start()
     {
-        playerData.playerWeaponData.Clear();
-        playerData.playerPassiveData = null;
-        playerData.playerEquipmentData.Clear();
+        DataReset();
+
     }
 
-    public void ChooseWeapon(WeaponData weaponData)
+    public void AssignPlayerToController(PlayerData playerData)
     {
-        if (playerData.playerWeaponData.Count < 3 )
+        player = Instantiate(playerPrefab);
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        playerController.AssignPlayerData(playerData);
+    }
+
+
+
+
+    public void DataReset()
+    {
+        selectedPlayerData.playerWeaponData.Clear();
+        selectedPlayerData.playerPassiveData = null;
+        selectedPlayerData.playerEquipmentData.Clear();
+    }
+
+    public void ChooseWeapon(int weaponIndex)
+    {
+        WeaponData weaponData = DataManager.Singleton.weapons[weaponIndex];
+
+        if (selectedPlayerData.playerWeaponData.Count < 3 )
         {
-            playerData.playerWeaponData.Add(weaponData);
+            selectedPlayerData.playerWeaponData.Add(weaponData);
         }
         else
         {
@@ -47,16 +68,18 @@ public class ClassSelectManager : MonoBehaviour
     }
 
 
-    public void ChoosePassive(PassiveData passiveData)
+    public void ChoosePassive(int passiveIndex)
     {
-        playerData.playerPassiveData = passiveData;
+        PassiveData passiveData = DataManager.Singleton.passive[passiveIndex];
+        selectedPlayerData.playerPassiveData = passiveData;
     }
 
-    public void ChooseEquipment(EquipmentData equipmentData)
+    public void ChooseEquipment(int equipmentIndex)
     {
-        if (playerData.playerEquipmentData.Count < 2)
+        EquipmentData equipmentData = DataManager.Singleton.equipment[equipmentIndex];
+        if (selectedPlayerData.playerEquipmentData.Count < 2)
         {
-            playerData.playerEquipmentData.Add(equipmentData);
+            selectedPlayerData.playerEquipmentData.Add(equipmentData);
         }
         else
         {

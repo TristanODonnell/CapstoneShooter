@@ -9,22 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+   
     public SpawnManager spawnManager;
     public RoundManager roundManager;
     public ConvoyDefenseManager convoyDefenseManager;
     public string[] scenesList;
 
-    public GameObject playerPrefab;
-    public GameObject player;
-
-    
     public static GameManager Singleton
     {
         get; private set;
     }
-
-
-
     private void Awake()
     {
         if (Singleton == null)
@@ -37,7 +31,6 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     public void LoadScene(string sceneName)
     {
         if (scenesList.Contains(sceneName))
@@ -50,17 +43,6 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Scene not found: " + sceneName);
         }
     }
-
-
-
-    public void AssignPlayerToController(PlayerData playerData)
-    {
-        player = Instantiate(playerPrefab);
-        PlayerController playerController = player.GetComponent<PlayerController>();
-        playerController.AssignPlayerData(playerData);
-    }
-
-
     public void LoadArenaMode() 
     {
         string sceneName = "Asteroid TEST Arena"; 
@@ -70,21 +52,10 @@ public class GameManager : MonoBehaviour
         {
             spawnManager.GetSpawnPoints();
             InitializeArenaMode();
-            
+            ClassSelectManager.Singleton.AssignPlayerToController(ClassSelectManager.Singleton.selectedPlayerData);
         };
         
     }
-
-    public void LoadConvoyDefenseMode()
-    {
-        string sceneName = "Test Convoy";
-        LoadScene(sceneName);
-
-        SceneManager.sceneLoaded += (scene, mode) => InitializeConvoyDefenseMode();
-        
-
-    }
-
     public void InitializeArenaMode()
     {
         //WIN CONDITION
@@ -92,6 +63,28 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(roundManager.RunRoundLoop());
 
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    //holding off for now 
+    public void LoadConvoyDefenseMode()
+    {
+        string sceneName = "Test Convoy";
+        LoadScene(sceneName);
+
+        SceneManager.sceneLoaded += (scene, mode) => InitializeConvoyDefenseMode();
+        
 
     }
 
@@ -103,7 +96,6 @@ public class GameManager : MonoBehaviour
 
         //truck roadmapUI
     }
-
     public void InitializeNuclearOverrideMode()
     {
         //Win Condition

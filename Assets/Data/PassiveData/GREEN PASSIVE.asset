@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: GREEN PASSIVE
   m_EditorClassIdentifier: 
   passiveName: 'GREEN PASSIVE '
+  itemCost: 300
   worldPassiveModel: {fileID: 6722248565901615611, guid: c02acc62c97c5ab43b0493a3b0b3e6e7,
     type: 3}

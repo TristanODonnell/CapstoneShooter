@@ -7,11 +7,13 @@ using UnityEngine;
 public class EquipmentData : ScriptableObject
 {
     [SerializeField] protected string equipmentName;
+    [SerializeField] protected int itemCost;
     [SerializeField] protected GameObject equipmentVisual;
     [SerializeField] protected GameObject worldEquipmentModel;
 
 
     public string EquipmentName => equipmentName;
+    public int ItemCost => itemCost;
     public GameObject GetPlayerEquipmentVisual() => equipmentVisual;
     public GameObject GetWorldEquipment() => worldEquipmentModel;
 

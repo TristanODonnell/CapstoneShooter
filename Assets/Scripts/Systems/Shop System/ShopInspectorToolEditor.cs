@@ -18,6 +18,7 @@ public class ShopInspectorToolEditor : Editor
         ShopManager.singleton = shopManager;
     }
 
+    /*
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
@@ -43,4 +44,5 @@ public class ShopInspectorToolEditor : Editor
         }
 
     }
+    */
 } 

@@ -8,13 +8,8 @@ using static ShopManager;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager singleton;
+    public ItemSpawner itemSpawner;
     public bool isShopOpen;
-    
-    // Category names
-    public enum Category { ShrapnelWeapons, EnergyWeapons, HeavyWeapons, Throwables, Equipment, Passives }
-    
-    public Dictionary <Category, List<ShopItemData>> items = new Dictionary <Category, List<ShopItemData>>();
-
     private void Awake()
     {
         if (singleton == null)
@@ -28,44 +23,69 @@ public class ShopManager : MonoBehaviour
     }
     private void Start()
     {
-        foreach (Category category in System.Enum.GetValues(typeof(Category)))
-        {
-            items[category] = new List<ShopItemData>();
-        }
-
-        //ITEM DATA HERE FOR EACH CATEGORY, ADD IN FINAL ITEMS LATER, following this template 
-        items[Category.ShrapnelWeapons].Add(new ShopItemData("Weapon", 100, "Weapon", "DESCRIPTION LISTED HERE", "Physical"));
+        //CurrencyManager.singleton.SetTotalCurrency(5000); //testing
     }
-    
-    public void BuyItem(Category category, int index)
+     
+    public void BuyWeapon(int weaponIndex)
     {
-        ShopItemData itemData = items[category][index];
-
-        if(CurrencyManager.singleton.totalCurrency >= itemData.price)
+        //do the selection via assigned from button and data manager list
+        WeaponData purchasedWeaponData = DataManager.Singleton.weapons[weaponIndex];
+        int weaponItemCost = purchasedWeaponData.ItemCost;
+        if (canAffordPurchase(weaponItemCost))
         {
-            CurrencyManager.singleton.SubtractCurrency(itemData.price);
-            
-            switch (itemData.itemType)
-            {
-                case "Physical":
-                    itemData.PhysicalItemPurchaseSpawn(itemData);
-                    break;
-                case "Inventory":
-                    itemData.InventoryItemPurchaseInitialize(itemData); 
-                    break;
-                case "Ammo":
-                    itemData.PhysicalItemPurchaseSpawn(itemData);
-                    break;
-            }
+            itemSpawner.SpawnWeapon(purchasedWeaponData);
+            CurrencyManager.singleton.SubtractCurrency(weaponItemCost);
         }
+        else
+        {
+            UnityEngine.Debug.Log("Not enough currency to buy ");
+        }
+    }
 
-         
+    public void BuyEquipment(int equipmentIndex)
+    {
+        //do the selection via assigned from button and data manager list
+        EquipmentData purchasedEquipmentData = DataManager.Singleton.equipment[equipmentIndex];
+        int equipmentItemCost = purchasedEquipmentData.ItemCost;
+        if (canAffordPurchase(equipmentItemCost))
+        {
+            itemSpawner.SpawnEquipment(purchasedEquipmentData);
+            CurrencyManager.singleton.SubtractCurrency(equipmentItemCost);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Not enough currency to buy ");
+        }
+    }
+
+    public void BuyPassive(int passiveIndex)
+    {
+        //do the selection via assigned from button and data manager list
+        PassiveData purchasedPassiveData = DataManager.Singleton.passive[passiveIndex];
+        int passiveItemCost = purchasedPassiveData.ItemCost;
+        if (canAffordPurchase(passiveItemCost))
+        {
+            itemSpawner.SpawnPassive(purchasedPassiveData);
+            CurrencyManager.singleton.SubtractCurrency(passiveItemCost);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Not enough currency to buy ");
+        }
+    }
+
+    private bool canAffordPurchase(int itemCost)
+    {
+        int playerCurrency = CurrencyManager.singleton.totalCurrency;
+
+        return playerCurrency >= itemCost;
     }
 
     public void OpenShop()
     {
         isShopOpen = true;
         //OPEN UI Shop here, ititialize anything
+        //have buttons active here 
     }
 
     public void CloseShop()

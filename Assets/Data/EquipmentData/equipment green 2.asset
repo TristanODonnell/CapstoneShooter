@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: equipment green 2
   m_EditorClassIdentifier: 
   equipmentName: 'Equipment Green 2 '
+  itemCost: 400
   equipmentVisual: {fileID: 3638984592193359804, guid: 20617319bbe56764fa4db70ae5b869bf,
     type: 3}
   worldEquipmentModel: {fileID: 3638984592193359804, guid: 20617319bbe56764fa4db70ae5b869bf,

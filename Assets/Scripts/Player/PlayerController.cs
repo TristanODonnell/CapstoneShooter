@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerData playerData;
+    public PlayerData attachedPlayerData;
 
 
 
@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-       // Cursor.visible = false;
+        
     }
 
     // Update is called once per frame
@@ -83,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
     public void AssignPlayerData(PlayerData playerData)
     {
-        this.playerData = playerData;
+        attachedPlayerData = playerData;
 
         
         for (int i = 0; i < 3; i++)
@@ -94,7 +93,8 @@ public class PlayerController : MonoBehaviour
         equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
         passive.attachedPassive = playerData.playerPassiveData;
 
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 

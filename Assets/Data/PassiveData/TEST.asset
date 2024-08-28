@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
-  m_Name: RED PASSIVE
+  m_Name: TEST
   m_EditorClassIdentifier: 
-  passiveName: 'RED PASSIVE '
-  itemCost: 300
+  passiveName: 
   worldPassiveModel: {fileID: 0}
