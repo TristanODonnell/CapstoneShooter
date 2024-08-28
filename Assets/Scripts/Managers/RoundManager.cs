@@ -20,6 +20,7 @@ public class RoundManager : MonoBehaviour
     [Header("Parameter Values")]
     public int roundCreditMultiplier;
     public float highTierPercentage;
+    public float enemySpawnDelayTime;
     public int spawnChanceMultiplier;
     public int roundFinishTimerValue;
 
@@ -105,19 +106,17 @@ public class RoundManager : MonoBehaviour
         {
             if(spawnedEnemies.Count < 50 && currentRoundCredits >= GetMinCreditCost())
             {
-                isSpawningEnemies = true;
-                SpawnEnemiesUsingCredits();
+                yield return StartCoroutine(SpawnEnemies());
             }
             else
             {
-                isSpawningEnemies = false;
+                yield break;
             }
-            yield return new WaitForSeconds(0.1f);
+           
 
         }
 
     }
-
     private int GetMinCreditCost()
     {
         int minCreditCost = int.MaxValue;
@@ -141,72 +140,72 @@ public class RoundManager : MonoBehaviour
     }
     private void SpawnEnemiesUsingCredits()
     {
-
-        while (spawnedEnemies.Count < 50 && currentRoundCredits > 0)
-        {
-            int highTierCredits = (int)(currentRoundCredits * highTierPercentage);
-            int lowTierCredits = currentRoundCredits - highTierCredits;
-
-            SpawnHighTierEnemies(highTierCredits);
-            SpawnLowTierEnemies(lowTierCredits);
-        }
-    } 
-    private void SpawnHighTierEnemies(int tierCredit)
-    {
-
-        while (tierCredit > 0 && currentRoundCredits > 0 && spawnedEnemies.Count < 50)
-        {
-            int randomIndex = Random.Range(0, highTierEnemies.Count);
-            GameObject highTierEnemyPrefab = highTierEnemies[randomIndex];
-            if (highTierEnemyPrefab != null)
-            {
-                int creditCost = highTierEnemyPrefab.GetComponent<Enemy>().creditCost;
-                if (creditCost <= tierCredit)
-                {
-                    //spawning a high tier enemy 
-                    GameObject highTierEnemy = spawnManager.SpawnEnemy(highTierEnemyPrefab, EnemyTier.High);
-                    HealthSystem enemyHealth = highTierEnemy.GetComponent<HealthSystem>();
-                    enemyHealth.onDeath.AddListener(() => RemoveEnemyFromList(highTierEnemy));
-                    spawnedEnemies.Add(highTierEnemy);
-                    tierCredit -= creditCost;
-                    currentRoundCredits -= creditCost;
-                    IncreaseSpawnChance(highTierEnemy);
-                    
-
-                }
-                else
-                {
-                    break;
-                }
-            }   
-        }    
-    }              
-    private void SpawnLowTierEnemies(int tierCredit)
-    {
-        
-        while (tierCredit > 0 && currentRoundCredits > 0 && spawnedEnemies.Count < 50)
-        {
-
-            int randomIndex = Random.Range(0, lowTierEnemies.Count);
-
-            GameObject lowTierEnemyPrefab = lowTierEnemies[randomIndex];
-            int creditCost = lowTierEnemyPrefab.GetComponent<Enemy>().creditCost;
-            if (lowTierEnemyPrefab != null && creditCost <= currentRoundCredits)
-            {
-                GameObject lowTierEnemy = spawnManager.SpawnEnemy(lowTierEnemyPrefab, EnemyTier.Low);
-                HealthSystem enemyHealth = lowTierEnemy.GetComponent<HealthSystem>();
-                enemyHealth.onDeath.AddListener(() => RemoveEnemyFromList(lowTierEnemy));
-                spawnedEnemies.Add(lowTierEnemy);
-                currentRoundCredits -= creditCost;
-                IncreaseSpawnChance(lowTierEnemy);
-                
-            }
-            else
-            {
-                break;
-            }
-        }
+        StartCoroutine(SpawnEnemies());
     }
+    private IEnumerator SpawnEnemies()
+    {
+        int highTierCredits = (int)(currentRoundCredits * highTierPercentage);
+        int lowTierCredits = currentRoundCredits - highTierCredits;
+        Debug.Log($"Starting SpawnEnemies Coroutine - HighTierCredits: {highTierCredits}, LowTierCredits: {lowTierCredits}, CurrentRoundCredits: {currentRoundCredits}");
+
+        while (currentRoundCredits > 0 && spawnedEnemies.Count < 50)
+        {
+            bool spawnHighTier = Random.value > 0.5f;
+
+            if (spawnHighTier && highTierCredits > 0)
+            {
+                int randomIndex = Random.Range(0, highTierEnemies.Count);
+                GameObject highTierEnemyPrefab = highTierEnemies[randomIndex];
+
+                if (highTierEnemyPrefab != null)
+                {
+                    int creditCost = highTierEnemyPrefab.GetComponent<Enemy>().creditCost;
+                    if (creditCost <= highTierCredits)
+                    {
+                        //spawning a high tier enemy 
+                        GameObject highTierEnemy = spawnManager.SpawnEnemy(highTierEnemyPrefab, EnemyTier.High);
+                        HealthSystem enemyHealth = highTierEnemy.GetComponent<HealthSystem>();
+                        enemyHealth.onDeath.AddListener(() => RemoveEnemyFromList(highTierEnemy));
+                        spawnedEnemies.Add(highTierEnemy);
+                        highTierCredits -= creditCost;
+                        currentRoundCredits -= creditCost;
+                        IncreaseSpawnChance(highTierEnemy);
+
+                        
+                        yield return new WaitForSeconds(enemySpawnDelayTime);
+                        continue;
+                    }
+                }
+            }
+
+            if (lowTierCredits > 0)
+            {
+                int randomIndex = Random.Range(0, lowTierEnemies.Count);
+                GameObject lowTierEnemyPrefab = lowTierEnemies[randomIndex];
+
+                if (lowTierEnemyPrefab != null)
+                {
+                    int creditCost = lowTierEnemyPrefab.GetComponent<Enemy>().creditCost;
+                    if (creditCost <= lowTierCredits)
+                    {
+                        GameObject lowTierEnemy = spawnManager.SpawnEnemy(lowTierEnemyPrefab, EnemyTier.Low);
+                        HealthSystem enemyHealth = lowTierEnemy.GetComponent<HealthSystem>();
+                        enemyHealth.onDeath.AddListener(() => RemoveEnemyFromList(lowTierEnemy));
+                        spawnedEnemies.Add(lowTierEnemy);
+                        currentRoundCredits -= creditCost;
+                        IncreaseSpawnChance(lowTierEnemy);
+
+                       
+
+                        yield return new WaitForSeconds(enemySpawnDelayTime);
+                        continue;
+                    }
+                }
+            }
+            Debug.Log("Exiting Coroutine Early - Not enough credits or max enemies spawned.");
+            yield break;
+        }
+    }           
     private void IncreaseSpawnChance(GameObject enemy)
     {
         Enemy enemyScript = enemy.GetComponent<Enemy>();

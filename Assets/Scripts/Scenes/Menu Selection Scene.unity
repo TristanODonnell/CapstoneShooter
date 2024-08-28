@@ -465,8 +465,9 @@ MonoBehaviour:
   lowTierEnemies: []
   currentRound: 0
   currentRoundCredits: 0
-  roundCreditMultiplier: 500
+  roundCreditMultiplier: 1000
   highTierPercentage: 0.25
+  enemySpawnDelayTime: 5
   spawnChanceMultiplier: 2
   roundFinishTimerValue: 5
   spawnedEnemies: []
