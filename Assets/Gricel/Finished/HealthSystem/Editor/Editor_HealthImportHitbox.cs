@@ -19,6 +19,7 @@ public class Editor_HealthImportHitbox : Editor
 		{
 			if (GUILayout.Button("Display tools v"))
 				displayTools = true;
+
 			GUILayout.EndVertical();
 			return;
 		}
@@ -28,16 +29,23 @@ public class Editor_HealthImportHitbox : Editor
 				displayTools = false;
 		}
 
+		GUILayout.EndVertical();
 		if (hitboxes.Length == 0)
 		{
+
+			GUILayout.BeginVertical();
 			if (GUILayout.Button("Add Hitboxes"))
 			{
 				SetHitBoxesInRenderers(t);
+
 				EditorUtility.SetDirty(t);
 			}
+
+			GUILayout.EndVertical();
 		}
 		else
 		{
+
 			var hitBox = t.gameObject.GetComponentsInChildren<Hitbox>(true);
 			foreach (var i in hitBox)
 			{
@@ -63,6 +71,7 @@ public class Editor_HealthImportHitbox : Editor
 			}
 
 
+			GUILayout.BeginVertical();
 			for (int i = 0; i < 5; i++)
 				GUILayout.Label(" ");
 			GUILayout.EndVertical();

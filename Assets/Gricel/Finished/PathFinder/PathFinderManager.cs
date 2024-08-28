@@ -33,18 +33,21 @@ public class PathFinderManager : MonoBehaviour
 	public static PathNode GetClosestPathNode(Vector3 pos)
 	{
 		var closestDistance = float.MaxValue;
-		var closestNode = (PathNode)null;
-		foreach (var node in FindObjectsByType<PathNode>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+		var pathNodesAll = FindObjectsByType<PathNode>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+		var closestNode = pathNodesAll[0];
+		foreach (var node in pathNodesAll)
 		{
-			var distance = (node.transform.position - pos).sqrMagnitude;
-
+			var ps = node.transform.position - pos;
+			ps.y *= 4f;
+			var distance = (ps).sqrMagnitude;
 			if (closestDistance > distance)
 			{
 				closestDistance = distance;
 				closestNode = node;
+				if (node.IsInRadius(pos))
+					return node;
 			}
 		}
-
 		return closestNode;
 	}
 
