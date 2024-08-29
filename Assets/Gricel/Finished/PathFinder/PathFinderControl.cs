@@ -376,21 +376,22 @@ public class PathFinderControl : EditorWindow
 		}
 
 		if (nodes.Length == 2)
-			if (Button($"Disconnect {nodes[0].name} & {nodes[1].name} From each other",
-				"Disconnects all selected items from the other nodes"))
-			{
-				foreach (var disconnect in nodes)
+			if (!nodes[0] || !nodes[1])
+				if (Button($"Disconnect {nodes[0].name} & {nodes[1].name} From each other",
+					"Disconnects all selected items from the other nodes"))
 				{
-					var otherNode = disconnect == nodes[0] ? nodes[1] : nodes[0];
+					foreach (var disconnect in nodes)
+					{
+						var otherNode = disconnect == nodes[0] ? nodes[1] : nodes[0];
 
-					while (disconnect.next.Contains(otherNode))
-						disconnect.next.Remove(otherNode);
-					while (disconnect.jump.Contains(otherNode))
-						disconnect.jump.Remove(otherNode);
-					while (disconnect.drop.Contains(otherNode))
-						disconnect.drop.Remove(otherNode);
+						while (disconnect.next.Contains(otherNode))
+							disconnect.next.Remove(otherNode);
+						while (disconnect.jump.Contains(otherNode))
+							disconnect.jump.Remove(otherNode);
+						while (disconnect.drop.Contains(otherNode))
+							disconnect.drop.Remove(otherNode);
+					}
 				}
-			}
 
 
 		if (Button($"Disconnect {nodes.Length}",

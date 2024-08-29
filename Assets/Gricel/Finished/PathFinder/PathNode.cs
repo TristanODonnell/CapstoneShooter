@@ -298,7 +298,6 @@ public class PathNode : MonoBehaviour
 	public PathNode Pathfind_ReviseInterconnection(Vector3 end,  List<PathNode> revised)
 	{
 		revised.Add(this);
-
 		List<PathNode> listOfConnected = new();
 		listOfConnected.AddRange(next);
 		listOfConnected.AddRange(jump);

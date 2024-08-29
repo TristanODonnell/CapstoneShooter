@@ -11,16 +11,21 @@ namespace gricel
         [SerializeField] protected GravitationalBehaviour gravity;
         [SerializeField] protected RagdollRig ragdoll;
         [SerializeField] protected gricel.HealthSystem health;
+        [SerializeField] private Transform eyes;
+        [SerializeField] private EnemyGun gun;
 
 
         [Header("Fighting style")]
         [SerializeField] private float fight_Range_Short_distance = 12f;
-        [SerializeField] private float fight_Range_Long_distance = 20f;
         [SerializeField] private float fight_Detection_distance = 20f;
+        [Range(10, 180)] [SerializeField]private float fight_Detection_visionAngle = 90f;
         [SerializeField] private Countdown_AutoReset fight_attemptDetect = new(1f);
         [SerializeField] private Countdown fight_beginChaseDelay = new(4);
-        [SerializeField] private LayerMask fight_wallGroundLayer;
-        private Vector3 fight_playerLastKnownPosition;
+        [SerializeField] private Countdown_AutoReset fight_changePosition = new(4);
+        [SerializeField] private Countdown fight_shootInPlace = new(4);
+        [SerializeField] private Countdown fight_shootTriggerHold = new(1);
+        [SerializeField] private Countdown fight_shootTriggerRelease = new(2);
+        private bool fight_facePlayerWalkBack;
 
         [Header("Pathfinding")]
         private PathNode path_current;
@@ -44,7 +49,6 @@ namespace gricel
             }
 			set
 			{
-                value = value.normalized;
                 animator.SetFloat("LookX", value.x);
                 animator.SetFloat("LookY", value.y);
             }
@@ -69,11 +73,12 @@ namespace gricel
 
         [SerializeField] private float movement_speed = 4f;
 
-        protected enum States
+        protected enum States : int
 		{
             wander,
             chase,
-            fight
+            Aggresive,
+            fight,
 		}
         [SerializeField] protected States enemy_State = States.wander;
 
@@ -88,7 +93,7 @@ namespace gricel
 
         protected void OnState_Wander()
         {
-
+            enemy_State = TryToDetectPlayer();
             if (!path_current)
                 path_current = PathFinderManager.GetClosestPathNode(transform.position);
             if (!wander_ThinkWhereToGoNext.CountdownReturn())
@@ -128,6 +133,7 @@ namespace gricel
                     wander_walkTime = Random.Range(0.5f, 1f) * wander_MaxwalkTime;
 
                     movement_vision = Vector2.zero;
+                    movement_walk = Random.value * 0.9f + 0.1f;
 
                     RotateToWardsPosition(path_Target, 90f);
 
@@ -139,7 +145,6 @@ namespace gricel
 
 
             movement_specialAnimation = true;
-            movement_walk = 0.3f;
 
             MoveForward();
 
@@ -147,7 +152,10 @@ namespace gricel
 
             wander_walkTime -= Time.deltaTime;
             if (wander_walkTime < 0)
+            {
                 wander_ThinkWhereToGoNext.Countdown_Restart();
+                movement_vision = Vector2.zero;
+            }
 
             if (!path_current.IsInRadius(transform))
             {
@@ -167,6 +175,7 @@ namespace gricel
         }
         protected void OnState_Chase()
         {
+            enemy_State = TryToDetectPlayer();
             if (!path_current)
 			{
                 fight_beginChaseDelay.Countdown_Restart();
@@ -176,36 +185,37 @@ namespace gricel
 
             if (!fight_beginChaseDelay.CountdownReturn())
 			{
-                if(fight_beginChaseDelay.mReviseCountdownIsOver)
+                if (fight_beginChaseDelay.mReviseCountdownIsOver)
+                {
+                    path_current = PathFinderManager.GetClosestPathNode(transform.position);
                     path_moveTowards = PathNode.Pathfind_List(path_current, Player_Detection.singleton.transform.position);
+                }
                 return;
             }
 
 
 
-            var stop = (path_current.transform.position - transform.position).sqrMagnitude < Time.deltaTime * movement_speed * Time.deltaTime * movement_speed;
-            movement_walk = stop? movement_walk - Time.deltaTime * 2f: 1f;
+            movement_walk = 1f;
             RotateToWardsPosition(path_Target, 720f);
             MoveForward();
 
 
-            if(path_current.IsInRadius(transform))
-                if (path_moveTowards.Count > 0)
-                {
+            var distanceToTarget = (path_Target - transform.position);
+            distanceToTarget.y = 0f;
+            var minDistance = movement_speed * 1.25f;
+            if (path_current.IsInRadius(transform) && distanceToTarget.sqrMagnitude < minDistance * minDistance)
+            {
 
-                    mustJump = path_current.jump.Contains(path_next);
-                    path_moveTowards.Remove(path_current);
-                    path_current = path_next;
-                    if (path_current)
-                        path_Target = path_current.transform.position;
+                mustJump = path_current.jump.Contains(path_next);
+                path_moveTowards.Remove(path_current);
+                path_current = path_next;
+            }
+            if(path_current)
+				if (!path_current.IsInRadius(path_Target))
+				{
+                    var randomVector = Player_Detection.singleton.transform.position - transform.position;
+                    path_Target = path_current.transform.position + randomVector.normalized * 0.7f * path_current.radius;
                 }
-			    else
-			    {
-                    path_Target = fight_playerLastKnownPosition;
-                    if (Vector3.Distance(path_Target, transform.position) < fight_Range_Short_distance)
-                        path_current = null;
-                }
-
 
             var movement = movement_speed * movement_speed;
             if (mustJump && (path_current.transform.position - transform.position).sqrMagnitude < movement)
@@ -213,17 +223,111 @@ namespace gricel
         }
         protected void OnState_Fight()
         {
+            enemy_State = TryToDetectPlayer();
+            if (fight_attemptDetect.mReviseCountdownIsOver)
+                --enemy_State;
+
+            var visionDirection = (Player_Detection.singleton.transform.position - 
+                transform.position);
+
+            movement_vision = visionDirection;
+            movement_specialAnimation = false;
+
+            if (!fight_shootInPlace.CountdownReturn())
+            {
+                RotateToWardsPosition(Player_Detection.singleton.transform.position, 60f);
+                Attack_HandleShooting();
+                movement_walk = 0;
+                path_current = null;
+                return;
+			}
+
+
             if (!path_current)
-                path_current = PathFinderManager.GetClosestPathNode(transform.position);
-            movement_walk = 0f;
+			{
+                path_current = PathFinderManager.GetClosestPathNode(transform.position + transform.forward * (Random.value-0.5f) );
+                Attack_ChangePosition();
+            }
 
-            fight_attemptDetect.Countdown_Restart();
 
-            RotateToWardsPosition(fight_playerLastKnownPosition);
+
+
+
+
+
+            if (fight_facePlayerWalkBack)
+            {
+                var dir = transform.position - path_Target;
+                dir.y = 0;
+                var nRot = Quaternion.LookRotation(dir);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, nRot, 45 * Time.deltaTime);
+            }
+			else
+                RotateToWardsPosition(path_Target, 90);
+
+            Attack_HandleShooting();
+
+
+
+
+            var distanceToTarget = Player_Detection.singleton.transform.position - transform.position;
+            MoveForward();
+            if(distanceToTarget.sqrMagnitude < movement_speed * movement_speed ||
+                fight_changePosition.CountdownReturn()||
+                (path_Target-transform.position).sqrMagnitude < movement_speed*movement_speed)
+			{
+                var randomOption = Random.value;
+                if (randomOption > 0.9)
+                    path_current = path_current.next[Random.Range(0, path_current.next.Count)];
+                else if (randomOption > 0.5)
+                {
+                    Attack_ChangePosition();
+                    if (Random.value > 0.7)
+                        Jump();
+                }
+                else if (randomOption > 0.25)
+                    path_current = null;
+                else
+                {
+                    fight_shootInPlace.Countdown_Restart();
+                }
+                return;
+			}
         }
 
+        protected void Attack_ChangePosition()
+		{
+
+            var randomSpot = Vector3.zero;
+            randomSpot.x = Random.Range(-1f, 1f);
+            randomSpot.z = Random.Range(-1f, 1f);
+            randomSpot *= path_current.radius * 1.01f;
+            var visionDirection = Player_Detection.singleton.transform.position -
+                eyes.transform.position;
+
+            var q = Quaternion.Euler(transform.forward);
+            var r = Quaternion.Euler(visionDirection);
+            fight_facePlayerWalkBack = Quaternion.Angle(q, r) > 90f;
+
+            path_Target = path_current.transform.position + randomSpot;
+            if (!path_current.IsInRadius(transform))
+                path_Target = path_current.transform.position;
+            movement_walk = Random.Range(0.1f, 1f) * (fight_facePlayerWalkBack ? -1f : 1f);
+        }
+        protected void Attack_HandleShooting()
+		{
+
+			if (!fight_shootTriggerHold.CountdownReturn())
+			{
+                fight_shootTriggerRelease.Countdown_Restart();
+                gun.Shoot();
+                return;
+			}
+            if (fight_shootTriggerRelease.CountdownReturn())
+                fight_shootTriggerHold.Countdown_Restart();
 
 
+        }
         protected void MoveForward()
 		{
             var mW = movement_walk;
@@ -241,43 +345,54 @@ namespace gricel
 		{
             if (!gravity.isJumping)
                 gravity.Jump(path_JumpForce);
-        }
-
-
-        protected bool TryToDetectPlayer()
-		{
-            if (!fight_attemptDetect.CountdownReturn() || !Player_Detection.singleton)
-                return false;
-            if (!IsInRadius(fight_Detection_distance))
-                return false;
-
-            ShootEyeRaycast(out var hit, fight_Detection_distance);
-            var dir = Player_Detection.singleton.transform.position - transform.position;
-            var angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(dir));
-            if (angle > 180)
-                return false;
-
-            if (hit.collider)
-                return false;
-
-            ForcePlayerDetection();
-            return true;
-        }
-        private bool ShootEyeRaycast(out RaycastHit hit, float maxDistance)
-		{
-            var pos = transform.position + Vector3.up * controller.height * 0.75f;
-            var tpos = Player_Detection.singleton.transform.position;
-            var dir = tpos - pos;
-            var rc = Physics.Raycast(pos, dir, out hit, maxDistance, fight_wallGroundLayer);
-
-            return rc;
-        }
-        private void ForcePlayerDetection()
-		{
-            enemy_State = States.fight;
             path_current = PathFinderManager.GetClosestPathNode(transform.position);
-            fight_playerLastKnownPosition = Player_Detection.singleton.transform.position;
-            RotateToWardsPosition(fight_playerLastKnownPosition);
+        }
+
+		private void OnDrawGizmosSelected()
+		{
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, path_Target);
+		}
+		protected States TryToDetectPlayer()
+        {
+            if (!fight_attemptDetect.CountdownReturn())
+                return enemy_State;
+
+            var rOrigin = eyes.position;
+            var rEnd = Player_Detection.singleton.transform.position;
+            var rDirection = rEnd - rOrigin;
+
+            if (rDirection.sqrMagnitude > fight_Detection_distance * fight_Detection_distance)
+                return enemy_State;
+
+
+            var angOrigin = eyes.rotation;
+            angOrigin.x = 0;
+            angOrigin.z = 0;
+            var angEnd = Quaternion.LookRotation(rDirection);
+            angEnd.x = 0;
+            angEnd.z = 0;
+            var angTotal = Quaternion.Angle(angOrigin, angEnd);
+
+            if (angTotal > fight_Detection_visionAngle)
+                return enemy_State;
+
+
+
+            var raycasts = Physics.RaycastAll(rOrigin, rDirection,
+                fight_Detection_distance);
+
+            foreach (var r in raycasts)
+            {
+                if (r.collider.gameObject == Player_Detection.singleton.gameObject)
+                {
+                    path_moveTowards.Clear();
+                    return States.fight;
+                }
+                if (!r.collider.GetComponent<Enemy>() && !r.collider.GetComponent<Hitbox>())
+                    return enemy_State;
+            }
+            return enemy_State;
         }
 
         protected bool IsInRadius(float radius)
@@ -309,18 +424,19 @@ namespace gricel
         }
         private void Start()
 		{
-            path_Target = transform.position;
+            var v3 = Vector3.zero;
+            v3.x = Random.Range(-1f, 1f);
+            v3.z = Random.Range(-1f, 1f);
+            transform.forward = v3;
+            path_Target = transform.position + transform.forward * 100;
             path_current = PathFinderManager.GetClosestPathNode(transform.position + transform.forward * wander_MaxwalkTime);
-
+            fight_changePosition.Countdown_ForceSeconds(0);
         }
 
 		// Update is called once per frame
 		void Update()
         {
-
             movement_isFalling = gravity.isJumping;
-            if (!TryToDetectPlayer() && enemy_State == States.fight)
-                enemy_State = States.chase;
             switch (enemy_State)
             {
                 case States.wander:
@@ -330,6 +446,7 @@ namespace gricel
                     OnState_Chase();
                     break;
                 case States.fight:
+                case States.Aggresive:
                     OnState_Fight();
                     break;
             }
