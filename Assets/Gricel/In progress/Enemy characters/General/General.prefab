@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6539916201280021279}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.37, z: 0.671}
+  m_LocalPosition: {x: 0, y: 3.37, z: 1.693}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316,7 +316,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6564110589767753816}
+      addedObject: {fileID: 2325913509712453620}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1892125571136063889}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       insertIndex: -1
@@ -914,27 +918,18 @@ MonoBehaviour:
   animator: {fileID: 7671070620378538317}
   controller: {fileID: 4597665051121821318}
   gravity: {fileID: 8069538274860447009}
-  ragdoll: {fileID: 6564110589767753816}
+  ragdoll: {fileID: 0}
   health: {fileID: 1345855183452054674}
   eyes: {fileID: 7033098129512001344}
-  eyes_wallGroundLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  fight_Range_Short_distance: 10.3
-  fight_Range_Long_distance: 20
-  fight_Detection_distance: 20
-  fight_attemptDetect:
+  gun: {fileID: 0}
+  state_Base: {fileID: 2325913509712453620}
+  state_detection: {fileID: 1892125571136063889}
+  detectionAttempt_Timer:
     maximumCount: 1
-  fight_beginChaseDelay:
-    maximumCount: 4
-  path_JumpForce: 8
+  detectionAttempt_VisionDistance: 20
+  detectionAttempt_VisionAngle: 90
   movement_speed: 4
-  enemy_State: 0
-  wander_ThinkWhereToGoNext:
-    maximumCount: 6
-  wander_LookAroundTime:
-    maximumCount: 8.04
-  wander_MaxwalkTime: 4
+  path_JumpForce: 8
 --- !u!143 &4597665051121821318
 CharacterController:
   m_ObjectHideFlags: 0
@@ -961,7 +956,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 2, z: 0}
---- !u!114 &6564110589767753816
+--- !u!114 &2325913509712453620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -970,9 +965,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 5853008533798575668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df34bca109b8d584580406318c8a2baf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f2d96b50f206fa4da88651d155e35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state_next: {fileID: 1892125571136063889}
+  wander_ThinkWhereToGoNext:
+    maximumCount: 6
+  wander_LookAroundTime:
+    maximumCount: 2
+  wander_JumpToState:
+    maximumCount: 300
+--- !u!114 &1892125571136063889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853008533798575668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42346a40547f97749b62ba5feefef749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state_next: {fileID: 2325913509712453620}
+  fight_beginChaseDelay:
+    maximumCount: 4
 --- !u!114 &8069538274860447009
 MonoBehaviour:
   m_ObjectHideFlags: 0

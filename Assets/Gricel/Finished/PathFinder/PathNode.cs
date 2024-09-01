@@ -438,11 +438,11 @@ public class PathNode : MonoBehaviour
 	}
 	public bool IsInRadiusOfJump(Vector3 positionInRange, float offsetRadius)
 	{
-		var pos = (positionInRange - transform.position);
+		var pos = (positionInRange - transform.position + radius * Vector3.one);
 		var jump = transform.position.y > positionInRange.y;
 		pos.y = 0f;
 		var radiusOffset = Mathf.Abs(offsetRadius);
-		return pos.sqrMagnitude < radius * radius + radiusOffset * radiusOffset && jump;
+		return pos.sqrMagnitude < radiusOffset * radiusOffset && jump;
 	}
 	
 	public float GetSqrDistanceTo(Vector3 destination)
