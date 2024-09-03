@@ -40,6 +40,13 @@ public class Countdown
 		return maximumCount- countdown;
 	}
 
+	public void CountdownResetRandomized(float normalOffset = 0f)
+	{
+		normalOffset = Mathf.Clamp01(normalOffset);
+		var resetTime = Random.Range(normalOffset, 1f);
+		countdown = maximumCount * (resetTime);
+	}
+
 	public float normalized => Normalized();
 	float Normalized()
 	{

@@ -67,7 +67,7 @@ public class Editor_HealthImportHitbox : Editor
 
 
 				if (EditorGUI.EndChangeCheck())
-					EditorUtility.SetDirty(t);
+					EditorUtility.SetDirty(i);
 			}
 
 

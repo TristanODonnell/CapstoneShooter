@@ -6,7 +6,7 @@ using UnityEngine;
 public class PathNode : MonoBehaviour
 {
 	public float radius;
-
+	public Vector3 position => transform.position;
 	public List<PathNode> jump, drop, next;
 
 	private void OnDrawGizmos()
@@ -411,11 +411,27 @@ public class PathNode : MonoBehaviour
 			}
 		}
 
+		List<PathNode> purgedPath = new(path);
+		for (var i = 0; i < path.Count-2; ++i)
+		{
+			var iSurrounding = path[i].AllSurroundingPaths();
+			for (int j = i+2; j < path.Count; j++)
+				if (iSurrounding.Contains(path[j]))
+					for (int k = i; k < j; k++)
+						purgedPath.Remove(path[k]);
+		}
 
-		return path;
+		return purgedPath;
 	}
 
-
+	public List<PathNode> AllSurroundingPaths()
+	{
+		List<PathNode> l = new();
+		l.AddRange(next);
+		l.AddRange(drop);
+		l.AddRange(jump);
+		return l;
+	}
 	public PathFinderManager ParentID()
 	{
 		return transform.parent.GetComponent<PathFinderManager>();

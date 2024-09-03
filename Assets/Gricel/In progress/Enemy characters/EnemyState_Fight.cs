@@ -34,32 +34,52 @@ public class EnemyState_Fight : Enemy_State
 
     public override void ActionUpdate()
     {
+
+        if (state_goToNext.CountdownReturn())
+        {
+            SetAction_Next();
+            return;
+        }
+
+		Fight_UseGun();
+
         Fight_KeepEyesLookingAtPlayer();
+        id.DetectPlayer_CancelDetection();
         if (fight_runToNextPathnode.CountdownReturn())
             Fight_Run();
         else
             id.movement_walk = 0;
 
-        var distanceToTarget = path_target - transform.position;
-        distanceToTarget.y = 0;
-        if ((distanceToTarget).sqrMagnitude < stopDistance * stopDistance)
-            Fight_ChangeTarget();
-        if (state_goToNext.CountdownReturn())
-            SetAction_Next();
+        
+        
+
+
         if(path_current)
             if (path_current.IsInRadiusOfJump(transform.position, 2f) && mustJump)
                 id.Jump();
+
+
+		var distanceToTarget = path_target - transform.position;
+		distanceToTarget.y = 0;
+		if ((distanceToTarget).sqrMagnitude < stopDistance * stopDistance)
+			Fight_ChangeTarget();
+	}
+
+    private void Fight_UseGun()
+	{
+
+        if (fight_shootTriggerRelease.CountdownReturn())
+            return;
+        if (fight_shootTriggerHold.CountdownReturn())
+            id.ShootWeapon();
     }
 
 	private void Fight_ChangeTarget()
 	{
-		if (!id.TryToDetectPlayer(true))
-		{
-            SetAction_Custom(playerOffSight);
-            return;
-		}
 
         List<PathNode> l = new();
+        if(!path_current)
+            path_current = PathFinderManager.GetClosestPathNode(transform.position);
         l.Add(path_current);
         l.AddRange(path_current.jump);
         l.AddRange(path_current.next);
@@ -78,30 +98,40 @@ public class EnemyState_Fight : Enemy_State
 
             var desiredPosition = selected.radius * randomPosition + selected.transform.position;
 
-            var rOrgn = selected.transform.position + Vector3.up;
+            var rOrgn = selected.transform.position + Vector3.up* 2f;
             var rEnd = Player_Detection.position;
             var rDir = rEnd - rOrgn;
-            var raycast = Physics.RaycastAll(rOrgn, rEnd, id.GetVisionDistance(), -1, QueryTriggerInteraction.Ignore);
+            var raycast = Physics.RaycastAll(rOrgn, rDir, rDir.magnitude, -1, QueryTriggerInteraction.Ignore);
+
+            var desPosDistToPlayer = rEnd - desiredPosition;
+            desPosDistToPlayer.y = 0f;
 
             var hasHitWall = false;
-			foreach (var r in raycast)
-				if (!r.collider.GetComponent<CharacterController>())
-				{
-                    hasHitWall = true;
-                    break;
-				}
+            foreach (var r in raycast)
+            {
+                if (!r.collider.GetComponent<CharacterController>())
+                {
+					Debug.Log($"{selected.name} => hit {r.collider.name}");
 
-            if (desiredPosition.sqrMagnitude >= id.GetVisionDistance() * id.GetVisionDistance() || hasHitWall)
+					hasHitWall = true;
+                    break;
+                }
+            }
+
+            if ((desPosDistToPlayer).sqrMagnitude >= (id.GetVisionDistance() * id.GetVisionDistance()) || hasHitWall)
             {
                 l.Remove(selected);
                 if (l.Count == 0)
-                {
-                    SetAction_Custom(playerOffSight);
-                    break;
+				{
+                    state_goToNext.Countdown_ForceSeconds(-1f);
+                    id.DetectPlayer_CancelDetection();
+					Debug.Log($"{selected.name} called state");
+					return;
                 }
                 continue;
             }
-            path_current = selected;
+
+			path_current = selected;
             path_target = desiredPosition;
 		}
         mustJump = prev.jump.Contains(path_current);
@@ -120,16 +150,13 @@ public class EnemyState_Fight : Enemy_State
 
 
 
-        Debug.Log($"Angle {totalRotation}");
         if (totalRotation < 90)
         {
             walkAxisPriority -= Time.deltaTime;
-            Debug.Log("X--");
         }
         else
         {
             walkAxisPriority += Time.deltaTime*2f;
-            Debug.Log("X++");
         }
         walkAxisPriority = Mathf.Clamp(walkAxisPriority, -1f, 1f);
 
@@ -141,11 +168,11 @@ public class EnemyState_Fight : Enemy_State
 
 	private void Fight_KeepEyesLookingAtPlayer()
 	{
-        var toPlayer = Player_Detection.position - transform.position;
-        var multiplication = Quaternion.FromToRotation(transform.forward, toPlayer);
+		var toPlayer = Player_Detection.position - transform.position;
+		var multiplication = Quaternion.FromToRotation(transform.forward, toPlayer);
 
-        var toVision = Vector3.zero;
-        toVision.Set(multiplication.y * 2f, multiplication.x, 0f);
-        id.movement_vision = toVision;
+		var toVision = Vector3.zero;
+		toVision.Set(multiplication.y * 2f, multiplication.x, 0f);
+		id.movement_vision = toVision;
 	}
 }

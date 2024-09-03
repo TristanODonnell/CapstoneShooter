@@ -7,7 +7,7 @@ namespace gricel
     {
         [Header("References")]
         [SerializeField] private Animator animator;
-        [SerializeField] private CharacterController controller;
+        [SerializeField] public CharacterController controller;
         [SerializeField] private GravitationalBehaviour gravity;
         [SerializeField] private RagdollRig ragdoll;
         [SerializeField] private gricel.HealthSystem health;
@@ -21,10 +21,11 @@ namespace gricel
         [SerializeField] private Enemy_State state_detection;
         private System.Action action;
 
-        [SerializeField] private Countdown_AutoReset detectionAttempt_Timer = new(1f);
+        [SerializeField] private Countdown_AutoReset detectionAttempt_Timer = new(0.2f);
         [SerializeField] private float detectionAttempt_VisionDistance = 20f;
         [Range(10, 180)] [SerializeField] private float detectionAttempt_VisionAngle = 90f;
         public float GetVisionDistance() => detectionAttempt_VisionDistance;
+        private bool detectFull360 = false;
 
 
         public Vector2 movement_vision
@@ -64,9 +65,21 @@ namespace gricel
 
 
 
-
-        public void SetState(Enemy_State state)
+		private void OnDrawGizmosSelected()
+		{
+            if (eyes) {
+                Gizmos.color = Color.blue;
+                Gizmos.matrix = transform.localToWorldMatrix;
+                Gizmos.DrawSphere(eyes.localPosition, 0.4f);
+                Gizmos.DrawFrustum(eyes.localPosition, detectionAttempt_VisionAngle, detectionAttempt_VisionDistance, 0, 0.999f);
+                Gizmos.color = Color.white;
+                Gizmos.DrawWireSphere(eyes.localPosition, detectionAttempt_VisionDistance);
+            }
+		}
+		public void SetState(Enemy_State state)
         {
+            if (state == null)
+                return;
             if (action == state.ActionUpdate)
                 return;
             state.ActionStart();
@@ -140,11 +153,6 @@ namespace gricel
             return false;
         }
 
-		private void OnDrawGizmosSelected()
-		{
-            Gizmos.color = Color.red;
-
-		}
 		public bool TryToDetectPlayer(bool cancelCountdown = false)
         {
             if (!detectionAttempt_Timer.CountdownReturn() && !cancelCountdown)
@@ -154,7 +162,7 @@ namespace gricel
             var rEnd = Player_Detection.singleton.transform.position;
             var rDirection = rEnd - rOrigin;
 
-            if (rDirection.sqrMagnitude > detectionAttempt_VisionDistance * detectionAttempt_VisionDistance)
+            if (rDirection.sqrMagnitude > detectionAttempt_VisionDistance * detectionAttempt_VisionDistance && !detectFull360)
                 return false;
 
 
@@ -165,6 +173,8 @@ namespace gricel
             angEnd.x = 0;
             angEnd.z = 0;
             var angTotal = Quaternion.Angle(angOrigin, angEnd);
+            detectFull360 = false;
+
 
             if (angTotal > detectionAttempt_VisionAngle)
                 return false;
@@ -177,6 +187,19 @@ namespace gricel
                 if (!r.collider.GetComponent<CharacterController>())
                     return false;
             return true;
+        }
+        public void DetectPlayer_CancelDetection()
+        {
+            detectionAttempt_Timer.Countdown_ForceSeconds(detectionAttempt_Timer.maximumCount);
+        }
+        public void DetectPlayer_SeeInFull360DegreesOnce()
+        {
+            detectFull360 = true;
+        }
+        public void UseSpecialAnimation(bool loop = false)
+        {
+            animator.Play("Punch", 0);
+            movement_specialAnimation = loop;
         }
 
         public void Component_Enforce<T>(ref T setVariable) where T: Component

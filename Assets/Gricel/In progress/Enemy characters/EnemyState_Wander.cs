@@ -17,15 +17,19 @@ public class EnemyState_Wander : Enemy_State
     private bool mustJump;
     private bool TryGivingUp()
 	{
-        var prevDistanceToGiveUp = distanceToGiveUp;
-        distanceToGiveUp = (path_Target - transform.position).sqrMagnitude;
-        if (distanceToGiveUp > prevDistanceToGiveUp && giveUp > 0)
+        var dTGiveUp = distanceToGiveUp;
+        var nDGiveUp = (path_Target - transform.position).sqrMagnitude;
+        if (dTGiveUp < nDGiveUp)
+            distanceToGiveUp = nDGiveUp;
+
+        if (distanceToGiveUp > dTGiveUp && giveUp > 0)
             giveUp--;
         return giveUp == 0;
 	}
     private void ResetGiveUp()
 	{
-        giveUp = 10;
+        distanceToGiveUp = (path_Target - transform.position).sqrMagnitude * 2f;
+        giveUp = 255;
 	}
     private float current_walkNormalizedSpeed;
 

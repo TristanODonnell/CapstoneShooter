@@ -17,8 +17,12 @@ public class EnemyState_Chase : Enemy_State
 	public override void ActionStart()
     {
         path_current = PathFinderManager.GetClosestPathNode(transform.position);
-        fight_beginChaseDelay.Countdown_Restart();
+        fight_beginChaseDelay.Countdown_ForceSeconds(-1);
+        path_Target = transform.position;
+        path_moveTowards = PathNode.Pathfind_List(path_current, Player_Detection.singleton.transform.position);
         id.movement_walk = 0;
+        path_LastEffort = Player_Detection.singleton.transform.position;
+
     }
 
 	public override void ActionUpdate()
@@ -33,8 +37,7 @@ public class EnemyState_Chase : Enemy_State
         if (!fight_beginChaseDelay.CountdownReturn())
         {
             if (fight_beginChaseDelay.mReviseCountdownIsOver) {
-                path_LastEffort = Player_Detection.singleton.transform.position;
-                path_moveTowards = PathNode.Pathfind_List(path_current, Player_Detection.singleton.transform.position);
+                ActionStart();
             }
             return;
         }
