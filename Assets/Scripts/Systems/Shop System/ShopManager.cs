@@ -82,7 +82,7 @@ public class ShopManager : MonoBehaviour
         int refillCost = grenadeItemCost * totalGrenades;
         if (canAffordPurchase(refillCost))
         {
-            //player.grenadeManager.GrenadeRefill();
+            GameManager.Singleton.grenadeManager.GrenadeRefill();
             CurrencyManager.singleton.SubtractCurrency(refillCost);
         }
         else

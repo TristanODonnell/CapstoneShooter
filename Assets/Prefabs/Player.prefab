@@ -476,16 +476,18 @@ GameObject:
   - component: {fileID: 5505649760170264425}
   - component: {fileID: 171450825944137780}
   - component: {fileID: 8457631081482580195}
+  - component: {fileID: 6576053233215072034}
   - component: {fileID: 2001258778796343695}
   - component: {fileID: 529518353722779152}
   - component: {fileID: 8680911425828354541}
   - component: {fileID: 4129678702875310515}
   - component: {fileID: 8616827764196862292}
   - component: {fileID: 2174882120291665293}
-  - component: {fileID: 3451648727230288731}
   - component: {fileID: 4064175703137294824}
+  - component: {fileID: 911240226784932234}
   - component: {fileID: 659764644062308712}
   - component: {fileID: 4159032662921158955}
+  - component: {fileID: 8885450184161055222}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -569,20 +571,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedPlayerData: {fileID: 0}
+  grenadeManager: {fileID: 0}
   look: {fileID: 2174882120291665293}
-  jump: {fileID: 3451648727230288731}
   move: {fileID: 8616827764196862292}
   shoot: {fileID: 4129678702875310515}
   grenade: {fileID: 8680911425828354541}
-  grenadeManager: {fileID: 0}
   equipment: {fileID: 529518353722779152}
   passive: {fileID: 2001258778796343695}
+  gravitational: {fileID: 6576053233215072034}
+  jumpForce: 0
   myCamera: {fileID: 1681489009076498514}
   interactableFilter:
     serializedVersion: 2
     m_Bits: 6400
   shop: {fileID: 4159032662921158955}
   totalPlayerCurrency: 0
+--- !u!114 &6576053233215072034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778d86fa05a05574fa8602d93927e2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGravity: -9.81
+  characterController: {fileID: 4064175703137294824}
 --- !u!114 &2001258778796343695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,23 +693,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookSensitivity: 150
   myCamera: {fileID: 1681489009076498514}
---- !u!114 &3451648727230288731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296928949807555558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37adaf2dd278653408f2fdd502d5786f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 4064175703137294824}
-  layerFilter:
-    serializedVersion: 2
-    m_Bits: 8
-  jumpForce: 10
 --- !u!143 &4064175703137294824
 CharacterController:
   m_ObjectHideFlags: 0
@@ -719,6 +719,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &911240226784932234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 8885450184161055222}
+  health: {fileID: 659764644062308712}
+  damagePercentage: 1
 --- !u!114 &659764644062308712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,3 +786,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7105407c445eae448b669f56e702cc24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &8885450184161055222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerData attachedPlayerData;
-
+    public GrenadeManager grenadeManager;
 
 
 
@@ -17,29 +17,23 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Behavior")]
     [SerializeField] private LookBehavior look;
-    [SerializeField] private JumpBehavior jump;
+    
     [SerializeField] private MovementBehavior move;
     public ShootBehavior shoot;
-
-
     public GrenadeBehavior grenade;
-    public GrenadeManager grenadeManager;
-
     public EquipmentBehavior equipment;
-    
     public PassiveBehavior passive;
-    
+    public GravitationalBehaviour gravitational;
+    [SerializeField] private float jumpForce;
+
+
     [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask interactableFilter;
     public IInteractable selectedInteraction;
 
     [SerializeField] private ShopBehavior shop;
     private bool isShopOpen = false;
-
-    public int totalPlayerCurrency; //TESTING
-
-    // [SerializeField] WeaponInventory weaponInventory;
-    
+    public int totalPlayerCurrency; 
 
     void Start()
     {
@@ -54,12 +48,12 @@ public class PlayerController : MonoBehaviour
         CheckSprintInput();
         CheckGrenadeInput();
         
-        CheckGravity();
+        
         CheckJumpInput();
         CheckLookInput();
         CheckAimDownSightInput();
         CheckReloadInput();
-        CheckGravity();
+        
         ChangeWeaponInput();
         CheckShopInput();
 
@@ -325,14 +319,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Player jumped");
-            jump.JumpPlayer();
+            gravitational.Jump(jumpForce);
         }
-    }
-
-    private void CheckGravity()
-    {
-        jump.GravityCalculation();
-        
     }
 
     private void CheckLookInput()
