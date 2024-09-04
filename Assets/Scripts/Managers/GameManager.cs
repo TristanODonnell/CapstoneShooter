@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public RoundManager roundManager;
     public ConvoyDefenseManager convoyDefenseManager;
     public string[] scenesList;
+    public GrenadeManager grenadeManager;
 
     public static GameManager Singleton
     {
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
             spawnManager.GetSpawnPoints();
             InitializeArenaMode();
             ClassSelectManager.Singleton.AssignPlayerToController(ClassSelectManager.Singleton.selectedPlayerData);
+            
         };
         
     }

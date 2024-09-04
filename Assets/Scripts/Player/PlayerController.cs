@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -22,7 +25,6 @@ public class PlayerController : MonoBehaviour
     public GrenadeBehavior grenade;
     public GrenadeManager grenadeManager;
 
-
     public EquipmentBehavior equipment;
     
     public PassiveBehavior passive;
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
     }
 
     // Update is called once per frame
@@ -83,8 +85,6 @@ public class PlayerController : MonoBehaviour
     public void AssignPlayerData(PlayerData playerData)
     {
         attachedPlayerData = playerData;
-
-        
         for (int i = 0; i < 3; i++)
         {
             shoot.weapons.Add(playerData.playerWeaponData[i]);
@@ -95,9 +95,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
-
-
 
     private void PassiveInteract()
     {

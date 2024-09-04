@@ -478,7 +478,6 @@ GameObject:
   - component: {fileID: 8457631081482580195}
   - component: {fileID: 2001258778796343695}
   - component: {fileID: 529518353722779152}
-  - component: {fileID: 3915385867959663382}
   - component: {fileID: 8680911425828354541}
   - component: {fileID: 4129678702875310515}
   - component: {fileID: 8616827764196862292}
@@ -569,13 +568,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3faf100e6a8838b438c557daa92c04a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
+  attachedPlayerData: {fileID: 0}
   look: {fileID: 2174882120291665293}
   jump: {fileID: 3451648727230288731}
   move: {fileID: 8616827764196862292}
   shoot: {fileID: 4129678702875310515}
   grenade: {fileID: 8680911425828354541}
-  grenadeManager: {fileID: 3915385867959663382}
+  grenadeManager: {fileID: 0}
   equipment: {fileID: 529518353722779152}
   passive: {fileID: 2001258778796343695}
   myCamera: {fileID: 1681489009076498514}
@@ -614,29 +613,6 @@ MonoBehaviour:
   attachedEquipmentModel2: {fileID: 0}
   playerEquipmentData2: {fileID: 0}
   equipmentPosition: {fileID: 8999154444275611782}
---- !u!114 &3915385867959663382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296928949807555558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9aa606ef43e3349bf9a2aed5ffa8b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenadeDataArray:
-  - {fileID: 11400000, guid: f73347f1bb9e3d7418d69197e448f958, type: 2}
-  - {fileID: 11400000, guid: 8f20ed41349bda447bf58d7d57ba6af7, type: 2}
-  - {fileID: 11400000, guid: f5911c6e02554ce4ebe4a49af8d70e82, type: 2}
-  - {fileID: 11400000, guid: dc96e3a8a5d2dc647b39601d651f797c, type: 2}
-  - {fileID: 11400000, guid: 9e1783811d7ada54aa0db96602cc52ca, type: 2}
-  - {fileID: 11400000, guid: b41f6f924e2ccf040bb2a89f3a789318, type: 2}
-  grenadeCounts: 
-  grenadeBehavior: {fileID: 8680911425828354541}
-  currentGrenade: {fileID: 0}
-  currentIndex: 0
 --- !u!114 &8680911425828354541
 MonoBehaviour:
   m_ObjectHideFlags: 0

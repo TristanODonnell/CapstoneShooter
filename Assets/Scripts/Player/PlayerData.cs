@@ -8,8 +8,9 @@ public class PlayerData : ScriptableObject
     public PassiveData playerPassiveData;
     public List<EquipmentData> playerEquipmentData = new List<EquipmentData>();
     public List<WeaponData> playerWeaponData = new List<WeaponData>();
+    public GrenadeData playerGrenadeSelect;
 
-
+    
 
 
 

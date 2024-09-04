@@ -18,4 +18,5 @@ public class ItemSpawner : MonoBehaviour
     {
         Instantiate(passiveData.GetWorldPassive(), new Vector3(0, 0, 0), Quaternion.identity);
     }
+
 }

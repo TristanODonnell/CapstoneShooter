@@ -7,7 +7,7 @@ public class ClassSelectManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject player;
     public PlayerData selectedPlayerData;
-
+    public GrenadeManager grenadeManager;
 
     public static ClassSelectManager Singleton
     {
@@ -50,6 +50,7 @@ public class ClassSelectManager : MonoBehaviour
         selectedPlayerData.playerWeaponData.Clear();
         selectedPlayerData.playerPassiveData = null;
         selectedPlayerData.playerEquipmentData.Clear();
+        selectedPlayerData.playerGrenadeSelect = null;
     }
 
     public void ChooseWeapon(int weaponIndex)
@@ -85,9 +86,27 @@ public class ClassSelectManager : MonoBehaviour
         {
             Debug.LogError("Maximum number of equipment reached!");
         }
+         
 
+    }
+     
+    
+    public void ChooseGrenade(int grenadeIndex)  
+    {
+        GrenadeData grenadeData = DataManager.Singleton.grenades[grenadeIndex];
+        grenadeManager.currentIndex = grenadeIndex;
+        grenadeManager.currentGrenade = grenadeData;
+        grenadeManager.grenadeCounts[grenadeIndex] = 2;
 
+        for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)
+        {
+            grenadeManager.grenadeCounts[i] = 0;
+        }
+        grenadeManager.grenadeCounts[grenadeIndex] = 2;
+
+        Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
+        Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
     }
 
     
-}
+} 

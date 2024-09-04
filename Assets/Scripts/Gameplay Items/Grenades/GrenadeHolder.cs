@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,12 @@ public class GrenadeHolder : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
-        player.grenadeManager.AddGrenade(myGrenadeData, 1);
-        Destroy(gameObject);
+        int index = DataManager.Singleton.grenades.IndexOf(myGrenadeData);
+        if(index != -1 && GameManager.Singleton.grenadeManager.grenadeCounts[index] < 2)
+        {
+            GameManager.Singleton.grenadeManager.AddGrenade(myGrenadeData, 1);
+            Destroy(gameObject);
+        }
     }
 }
+ 

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grenadeName: 'EMP Grenade '
   worldGrenadeModel: {fileID: 0}
+  itemCost: 200

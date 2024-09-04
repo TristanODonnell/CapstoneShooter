@@ -7,6 +7,7 @@ using static ShopManager;
 
 public class ShopManager : MonoBehaviour
 {
+    private PlayerController player;
     public static ShopManager singleton;
     public ItemSpawner itemSpawner;
     public bool isShopOpen;
@@ -23,7 +24,7 @@ public class ShopManager : MonoBehaviour
     }
     private void Start()
     {
-        //CurrencyManager.singleton.SetTotalCurrency(5000); //testing
+        CurrencyManager.singleton.SetTotalCurrency(5000); //testing
     }
      
     public void BuyWeapon(int weaponIndex)
@@ -67,6 +68,22 @@ public class ShopManager : MonoBehaviour
         {
             itemSpawner.SpawnPassive(purchasedPassiveData);
             CurrencyManager.singleton.SubtractCurrency(passiveItemCost);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Not enough currency to buy ");
+        }
+    }
+    public int totalGrenades = 6;
+    public void BuyGrenadeRefill()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        int grenadeItemCost = DataManager.Singleton.grenades[0].ItemCost;
+        int refillCost = grenadeItemCost * totalGrenades;
+        if (canAffordPurchase(refillCost))
+        {
+            //player.grenadeManager.GrenadeRefill();
+            CurrencyManager.singleton.SubtractCurrency(refillCost);
         }
         else
         {
