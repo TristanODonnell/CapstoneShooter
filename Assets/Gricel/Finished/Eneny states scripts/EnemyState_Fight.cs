@@ -10,19 +10,14 @@ public class EnemyState_Fight : Enemy_State
     [SerializeField] private Countdown fight_shootTriggerHold = new(1);
     [SerializeField] private Countdown fight_shootTriggerRelease = new(8);
     [SerializeField] private float stopDistance = 1f;
-    [SerializeField] private float walkAxisPriority;
+    private float walkAxisPriority;
+    [SerializeField] private float rotationPerSecond = 720f;
 
 
     [Header("Pathfinding")]
     private PathNode path_current;
     private Vector3 path_target;
     private bool mustJump;
-
-	private void OnDrawGizmos()
-	{
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(path_target, Vector3.one);
-	}
 
 	public override void ActionStart()
     {
@@ -125,7 +120,6 @@ public class EnemyState_Fight : Enemy_State
 				{
                     state_goToNext.Countdown_ForceSeconds(-1f);
                     id.DetectPlayer_CancelDetection();
-					Debug.Log($"{selected.name} called state");
 					return;
                 }
                 continue;
@@ -161,9 +155,9 @@ public class EnemyState_Fight : Enemy_State
         walkAxisPriority = Mathf.Clamp(walkAxisPriority, -1f, 1f);
 
         if (walkAxisPriority < 0)
-            id.MoveTowardsBackward(path_target, 1, 360f, stopDistance * 0.5f);
+            id.MoveTowardsBackward(path_target, 1, rotationPerSecond, stopDistance * 0.5f);
         else
-            id.MoveTowardsForward(path_target, 1, 360f, stopDistance * 0.5f);
+            id.MoveTowardsForward(path_target, 1, rotationPerSecond, stopDistance * 0.5f);
     }
 
 	private void Fight_KeepEyesLookingAtPlayer()

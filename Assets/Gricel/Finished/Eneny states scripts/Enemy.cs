@@ -89,6 +89,10 @@ namespace gricel
         {
             SetState(state_Base);
         }
+        public void SetAlertedState()
+        {
+            SetState(state_detection);
+        }
         public void ShootWeapon()
 		{
             if(gun)
@@ -222,12 +226,15 @@ namespace gricel
 		{
             SetBaseState();
             transform.forward = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
+            health.onDamaged.AddListener(SetAlertedState);
         }
 
 
 		void Update()
         {
-            movement_isFalling = gravity.isJumping;
+            movement_isFalling = gravity.isJumping || health.isStunned;
+            if (health.isStunned)
+                return;
             if (action != state_detection.ActionUpdate)
                 if (TryToDetectPlayer())
                     SetState(state_detection);

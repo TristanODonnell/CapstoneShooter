@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Maggot_Animation
+  m_Controller: {fileID: 9100000, guid: afd3681aa129acb4f8a4d767f12e8345, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 32b51bddc3867d249955598bf893faf0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e2b7c9224fd28d046a749ef881cd6c62, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c7b1422a12a8482408f2b2cf18cc5373, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2a2ee42cd7c6bd94ab27fb9de0266747, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8ed187497231908409663acc686fc338, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 141b7dbf09707944c80e2ebf62d4d1bf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fa83b5f236635e14da02c1c3639bf87e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 571f59c26914b6944b567a75599bc05d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7d51d0c4bada32e4c9a8a13269312055, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cab6321306604ec439f87069d6f02811, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a7ea64c2da8d47a48ac892fb3f9642d7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4957d5def10df634eb9862a3f67e53a1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 999abd52b53e9fd4887dbcfffde49de4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cd8ade42d95c4484eb08c4180ff96725, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 044f5fc0eb10cb740a965ae611ba68b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0e55d1d1afd60c9439e88594688203e6, type: 2}
