@@ -68,11 +68,7 @@ public class EnemyState_Wander : Enemy_State
         if ((path_Target - transform.position).sqrMagnitude * 1.1f < path_current.radius * path_current.radius && mustJump)
             id.Jump();
     }
-	private void OnDrawGizmos()
-	{
-        Gizmos.color = Color.blue;
-        Gizmos.DrawCube(path_Target, Vector3.one);
-	}
+
 	private void Walk_ToTarget()
     {
         id.movement_specialAnimation = true;

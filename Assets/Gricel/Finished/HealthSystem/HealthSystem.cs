@@ -66,10 +66,12 @@ namespace gricel
 
         [SerializeField]
         private UnityEngine.Events.UnityEvent OnRegeneration;
-        [SerializeField]
-        public UnityEngine.Events.UnityEvent onDeath;
+		[SerializeField]
+		public UnityEngine.Events.UnityEvent onDeath;
+		[SerializeField]
+		public UnityEngine.Events.UnityEvent onDamaged;
 
-        public float stun { get; private set; }
+		public float stun { get; private set; }
         public void HS_Damage(ProtectionValues damage)
         {
             bool DoExit()

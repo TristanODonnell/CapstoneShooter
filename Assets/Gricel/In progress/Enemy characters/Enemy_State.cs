@@ -6,7 +6,8 @@ public abstract class Enemy_State : MonoBehaviour
 {
 	public gricel.Enemy id { get; private set; }
 	[SerializeField] private Enemy_State state_next;
-	private void OnValidate()
+	protected Vector3 playerPosition => Player_Detection.position;
+    private void OnValidate()
 	{
 		if (!id)
 			id = GetComponent<gricel.Enemy>();
