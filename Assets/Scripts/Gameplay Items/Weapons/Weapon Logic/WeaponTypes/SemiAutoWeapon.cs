@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using gricel;
 using UnityEngine;
-using static WeaponData;
+
 
 public class SemiAutoWeapon : WeaponLogic
 {
-    public SemiAutoWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, DamageType damageType) 
-        : base(shootBehavior)
+    public SemiAutoWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter) : base(shootBehavior, weaponData, objectPool, shooter)
     {
-        currentWeaponData = weaponData;
+    currentWeaponData = weaponData;
         this.objectPool = objectPool;
-        
+        this.shooter = shooter;
     }
     public override void ReloadLogic()
     {
@@ -38,7 +38,7 @@ public class SemiAutoWeapon : WeaponLogic
                     Debug.LogError("Object pool is not initialized for weapon: ");
                     return; // Exit if the object pool is not initialized
                 }
-                ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed);
+                ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, this.shooter);
                 ApplyRecoil();
                 currentWeaponData.currentMagazineAmmo -= 1;
                 
@@ -69,13 +69,13 @@ public class SemiAutoWeapon : WeaponLogic
             ReloadLogic();
         }
     }
-    public override void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range,  float bulletSpeed)
+    public override void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range,  float bulletSpeed, GameObject shooter)
     {
-        base.ProjectileWeaponFire(position, rotation, range,  bulletSpeed);
+        base.ProjectileWeaponFire(position, rotation, range,  bulletSpeed, shooter);
     }
     public override void HitscanWeaponFire(Vector3 position, Quaternion rotation, float range)
     {
-        Debug.Log($"HitscanWeaponFire called with Position: {position}, Rotation: {rotation}, Range: {range}");
+        //Debug.Log($"HitscanWeaponFire called with Position: {position}, Rotation: {rotation}, Range: {range}");
         base.HitscanWeaponFire(position, rotation, range);
     }
 
@@ -83,4 +83,6 @@ public class SemiAutoWeapon : WeaponLogic
     {
         base.ApplyRecoil();
     }
+
+    
 }

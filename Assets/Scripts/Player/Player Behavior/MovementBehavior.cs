@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 
 public class MovementBehavior : MonoBehaviour
 {
-    
-    [SerializeField] private float speed; 
+    public Modifiers modifiers;
+    public Modifiers.Speed speed = new Modifiers.Speed(5.0f);
+    public float SpeedValue
+    {
+        get { return speed.baseSpeed * speed.multiplier ; }
+        set { speed.baseSpeed = value; }
+    }
+
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float walkMultiplier;
     [SerializeField] private CharacterController controller;
@@ -30,4 +36,6 @@ public class MovementBehavior : MonoBehaviour
     {
         this.isSprinting = isSprinting;
     }
+
+
 }

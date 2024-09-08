@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Marksman Rifle
   m_EditorClassIdentifier: 
   weaponName: Marksman Rifle
+  weaponType: 0
+  ProtectionValues:
+    unprotected: 40
+    energyShield: 10
+    armor: 6
+    stun: 2
+  currentMagazineAmmo: 6
+  totalAmmo: 534
   magazineSize: 20
   maxAmmo: 1000
-  currentMagazineAmmo: 20
-  totalAmmo: 1000
   reloadTime: 3
+  originalMagazineSize: 20
+  originalMaxAmmo: 1000
+  originalReloadTime: 3
   weaponModel: {fileID: 3704450478042210213, guid: 83deefb305e141b41b156f6ae9c7471e,
     type: 3}
   worldWeapon: {fileID: 4262508997570520343, guid: c24003e9b74944c4bace153206ccc0a9,
@@ -36,5 +45,3 @@ MonoBehaviour:
   adsZoomLevel: 15
   itemCost: 0
   ammoRefillCost: 0
-  weaponType: 0
-  damageType: 0

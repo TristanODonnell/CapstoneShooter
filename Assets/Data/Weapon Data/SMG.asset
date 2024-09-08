@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
   m_Name: SMG
   m_EditorClassIdentifier: 
+  ProtectionValues:
+    unprotected: 1
+    energyShield: 0
+    armor: 0
+    stun: 0
   weaponName: SMG
+  currentMagazineAmmo: 0
+  totalAmmo: 1900
   magazineSize: 40
-  maxAmmo: 300
-  currentMagazineAmmo: 40
-  totalAmmo: 300
+  maxAmmo: 2000
   reloadTime: 5
+  originalMagazineSize: 0
+  originalMaxAmmo: 0
+  originalReloadTime: 0
   weaponModel: {fileID: 176970525094188448, guid: 7642d3c94873e704ba14c92c8016b1c4,
     type: 3}
   worldWeapon: {fileID: 0}

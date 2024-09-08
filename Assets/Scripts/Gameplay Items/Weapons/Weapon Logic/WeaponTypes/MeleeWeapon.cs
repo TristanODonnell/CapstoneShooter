@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleeWeapon : WeaponLogic
 {
-    public MeleeWeapon(ShootBehavior shootBehavior) : base(shootBehavior)
+    public MeleeWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter) : base(shootBehavior, weaponData, objectPool, shooter)
     {
     }
 

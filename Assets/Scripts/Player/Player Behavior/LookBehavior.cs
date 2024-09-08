@@ -34,7 +34,7 @@ public class LookBehavior : MonoBehaviour
 
         lookDirection.y += totalVerticalRecoil;
         lookDirection.x += totalHorizontalRecoil;
-        Debug.Log($"Test Recoil Applied: lookDirection.x = {lookDirection.x}, lookDirection.y = {lookDirection.y}");
+        //Debug.Log($"Test Recoil Applied: lookDirection.x = {lookDirection.x}, lookDirection.y = {lookDirection.y}");
         myCamera.transform.localRotation = Quaternion.Euler(-lookDirection.y, 0, 0);
         transform.rotation = Quaternion.Euler(0, lookDirection.x, 0);
     }

@@ -15,15 +15,11 @@ public abstract class WeaponLogic
     protected float lastFireTime = 0f;
     protected float totalVerticalRecoil = 0f;
     protected float totalHorizontalRecoil = 0f;
-    public WeaponLogic(ShootBehavior shootBehavior, DamageType damageType) 
-    {
-        this.shootBehavior = shootBehavior;
-        lookBehavior = shootBehavior.lookBehavior;
-    }
+    protected GameObject shooter;
 
-    protected WeaponLogic(ShootBehavior shootBehavior)
+    protected WeaponLogic(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter)
     {
-        this.shootBehavior = shootBehavior; lookBehavior = shootBehavior.lookBehavior;
+        this.shootBehavior = shootBehavior; lookBehavior = shootBehavior.lookBehavior; this.shooter = shooter;
     }
 
     private void OnReloadComplete()
@@ -53,7 +49,7 @@ public abstract class WeaponLogic
 
     }
 
-    public virtual void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range, float bulletSpeed)
+    public virtual void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range, float bulletSpeed, GameObject shooter)
     {
         PooledObject pooledObject = objectPool.RetrievePoolObject();
     if (pooledObject == null)
@@ -71,6 +67,7 @@ public abstract class WeaponLogic
             bullet.transform.position = position;
             bullet.transform.rotation = rotation;
             bullet.gameObject.SetActive(true);
+            bullet.SetShooter(shooter);
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
 
             if (rb != null)
@@ -89,16 +86,38 @@ public abstract class WeaponLogic
     }
     }
 
-    public virtual void HitscanWeaponFire(Vector3 position, Quaternion rotation, float range)
+    public virtual void HitscanWeaponFire(Vector3 position, Quaternion rotation, float range )
     {
 
         RaycastHit hit;
         Vector3 direction = rotation * Vector3.forward;
-
-        if (Physics.Raycast(position, direction, out hit, range))
+        int layerMask = LayerMask.GetMask("Enemy");
+        if (Physics.Raycast(position, direction, out hit, range, layerMask))
         {
-            Debug.Log("Hitscan hit something...");
-            //DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
+            Debug.Log($"Raycast hit at position: {hit.point}");
+            Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
+            if (hitbox != null)
+            {
+                hitbox.Damage(currentWeaponData.ProtectionValues);
+                HealthSystem healthSystem = hit.transform.GetComponentInParent<HealthSystem>();
+                if (healthSystem != null)
+                {
+                    if (healthSystem.healthBars[0].H_IsDepleted())
+                    {
+                        // Enemy is dead, do something (e.g., destroy the enemy, play a death animation, etc.)
+                        Debug.Log("Enemy is dead!");
+                    }
+                    else
+                    {
+                        // Enemy is damaged, do something (e.g., play a hurt animation, etc.)
+                        Debug.Log("Enemy is damaged!");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("No HealthSystem component found on the hit object.");
+                }
+            }
         }
         else
         {
@@ -118,7 +137,7 @@ public abstract class WeaponLogic
         {
             {
                 Debug.Log("Melee hit something...");
-                //DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
+                
             }
         }
     }
@@ -126,21 +145,8 @@ public abstract class WeaponLogic
     {
         float randomVertical = UnityEngine.Random.Range(0, currentWeaponData.verticalRecoil);
         float randomHorizontal = UnityEngine.Random.Range(-currentWeaponData.horizontalRecoil, currentWeaponData.horizontalRecoil);
-        Debug.Log($"Generated Recoil - Vertical: {randomVertical}, Horizontal: {randomHorizontal}");
+        //Debug.Log($"Generated Recoil - Vertical: {randomVertical}, Horizontal: {randomHorizontal}");
         lookBehavior.ApplyCameraRecoil(randomVertical, randomHorizontal);
     }
 
-    /*
-    public virtual void DealDamage(Transform transform)
-    {
-        ProtectionValues damageType = GetProtectionValues(currentWeaponData.damageType);
-        DealDamage(damageType, transform);
-    }
-
-    public virtual void DealDamage(ProtectionValues protectionValues, Transform transform)
-    {
-        Hitbox hitbox = transform.GetComponent<Hitbox>();
-        hitbox.Damage(protectionValues);
-    }
-    */
 }

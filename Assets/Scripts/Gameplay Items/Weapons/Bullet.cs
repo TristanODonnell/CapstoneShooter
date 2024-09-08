@@ -6,17 +6,59 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private GameObject shooter;
 
-    public int damage;
     public ObjectPool objectPool;
     private bool isReturning = false;
     public WeaponLogic weaponLogic;
     public WeaponData currentWeaponData;
+
+    public void SetShooter(GameObject shooter)
+    {
+        this.shooter = shooter;
+
+        // Ignore collision between the bullet and the shooter
+        Collider shooterCollider = shooter.GetComponent<Collider>();
+        Collider bulletCollider = GetComponent<Collider>();
+
+        if (shooterCollider != null && bulletCollider != null)
+        {
+            Physics.IgnoreCollision(bulletCollider, shooterCollider);
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        //ProtectionValues protectionValues = WeaponData.GetProtectionValues(currentWeaponData.damageType);
-        //weaponLogic.DealDamage(protectionValues, collision.transform);
-        Invoke(nameof(ReturnToPool), 2f);
+        Hitbox hitbox = collision.transform.GetComponent<Hitbox>();
+        if (hitbox != null)
+        {
+            hitbox.Damage(currentWeaponData.ProtectionValues);
+            HealthSystem healthSystem = collision.gameObject.GetComponentInParent<HealthSystem>();
+            if (healthSystem != null)
+            {
+                
+                if (healthSystem.healthBars[0].H_IsDepleted())
+                {
+                    // Enemy is dead, do something (e.g., destroy the enemy, play a death animation, etc.)
+                    Debug.Log("Enemy is dead!");
+                }
+                else
+                {
+                    // Enemy is damaged, do something (e.g., play a hurt animation, etc.)
+                    Debug.Log("Enemy is damaged!");
+                }
+            }
+            else
+            {
+                Debug.LogError("No HealthSystem component found on the hit object.");
+            }
+        }
+        StartCoroutine(ReturnProjectileToPool(0.1f));
+    }
+
+    IEnumerator ReturnProjectileToPool(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ReturnToPool();
     }
     private void ReturnToPool()
     {

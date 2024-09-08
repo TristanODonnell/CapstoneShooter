@@ -2,30 +2,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using gricel;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerData attachedPlayerData;
+    
     public GrenadeManager grenadeManager;
-
-
-
+    public HealthSystem healthSystem;
+    public Hitbox hitBox;
+    public SkillTree skillTree;
 
 
 
     [Header("Player Behavior")]
     [SerializeField] private LookBehavior look;
     
-    [SerializeField] private MovementBehavior move;
+    public MovementBehavior move;
     public ShootBehavior shoot;
     public GrenadeBehavior grenade;
     public EquipmentBehavior equipment;
     public PassiveBehavior passive;
     public GravitationalBehaviour gravitational;
-    [SerializeField] private float jumpForce;
-
+    public float jumpForce;
+    
+    
 
     [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask interactableFilter;
@@ -38,11 +41,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+
 
     // Update is called once per frame
     void Update()
     {
+
         CheckMoveInput();
         CheckShootInput();
         CheckSprintInput();
@@ -87,9 +94,6 @@ public class PlayerController : MonoBehaviour
         equipment.playerEquipmentData1 = playerData.playerEquipmentData[0];
         equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
         passive.attachedPassive = playerData.playerPassiveData;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
     }
 
@@ -317,6 +321,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckJumpInput()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Player jumped");

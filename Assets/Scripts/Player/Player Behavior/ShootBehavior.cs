@@ -30,20 +30,20 @@ public class ShootBehavior : MonoBehaviour
         {
             SetUpWeaponAmmo(weapons[i]); // Set up ammo for each weapon
         }
-       // Cursor.lockState = CursorLockMode.Locked;
-       // Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private WeaponLogic GetWeaponLogic(string weaponName)
     {
         switch (weaponName)
-        {
+        { 
             case "Marksman Rifle":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Shrapnel);
+                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, gameObject);
             case "Hitscan Sniper Test":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Energy);
+                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, gameObject);
             case "SMG":
-                return new AutomaticWeapon(this, currentWeapon, currentObjectPool, DamageType.Stun);
+                return new AutomaticWeapon(this, currentWeapon, currentObjectPool, gameObject);
             // ...
             default:
                 throw new ArgumentException("Unknown weapon name", nameof(weaponName));
@@ -51,8 +51,21 @@ public class ShootBehavior : MonoBehaviour
     }
     public void SetUpWeaponAmmo(WeaponData weapon)
     {
+        //setting original values 
+        weapon.originalMaxAmmo = weapon.maxAmmo;
+        weapon.originalMagazineSize = weapon.magazineSize;
+        weapon.originalReloadTime = weapon.reloadTime;
+
+        //set to total ammo and mag size 
         weapon.totalAmmo = weapon.maxAmmo;
         weapon.currentMagazineAmmo = weapon.magazineSize;
+    }
+
+    public void ResetWeaponAmmo(WeaponData weapon)
+    {
+        weapon.maxAmmo = weapon.originalMaxAmmo;
+        weapon.magazineSize = weapon.originalMagazineSize;
+        weapon.reloadTime = weapon.originalReloadTime;
     }
     public IEnumerator Reload(Action onReloadComplete)
     {

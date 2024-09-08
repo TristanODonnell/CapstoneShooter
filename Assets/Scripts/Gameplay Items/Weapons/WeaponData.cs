@@ -8,20 +8,25 @@ using UnityEngine;
 [System.Serializable]
 public class WeaponData : ScriptableObject, IInteractable
 {
-    public enum DamageType { Shrapnel, Energy, Heavy, Stun }
-    public enum WeaponType { Projectile, Hitscan, Melee }
-
     public string weaponName;
-
-    [Header("Editor Set Ammo Fields")]
-    public int magazineSize;
-    public int maxAmmo;
+    public enum WeaponType { Projectile, Hitscan, Melee }
+    public WeaponType weaponType;
+    [SerializeField] public ProtectionValues ProtectionValues;
+    public ProtectionValues GetProtectionValues() { return ProtectionValues; }
 
     [Header("Gameplay Variable Ammo Fields")]
     public int currentMagazineAmmo;
     public int totalAmmo;
 
+    public int magazineSize;
+    public int maxAmmo;
     public float reloadTime;
+
+    [Header("Editor Set Ammo Fields")]
+    public int originalMagazineSize;
+    public int originalMaxAmmo;
+    public float originalReloadTime;
+
 
     [Header("Game Object Assignment")]
     public GameObject weaponModel;
@@ -46,9 +51,6 @@ public class WeaponData : ScriptableObject, IInteractable
     [Header("Shop Settings")]
     public int itemCost;
     public int ammoRefillCost;
-
-    public WeaponType weaponType;
-    public DamageType damageType;
     public int AmmoRefillCost => ammoRefillCost;
     public string WeaponName => weaponName;
     public int ItemCost => itemCost;
@@ -61,26 +63,6 @@ public class WeaponData : ScriptableObject, IInteractable
     public float Range => range;
     public float FireRate => fireRate;
     public float ReloadTime => reloadTime;
-
-
-    public static ProtectionValues GetProtectionValues(DamageType damageType)
-    {
-        {
-            switch (damageType)
-            {
-                case DamageType.Shrapnel:
-                    return new ProtectionValues(1f, 0f, 0f, 0f); // Shrapnel damage values
-                case DamageType.Energy:
-                    return new ProtectionValues(0f, 1f, 0f, 0f); // Energy damage values
-                case DamageType.Heavy:
-                    return new ProtectionValues(0f, 0f, 1f, 0f); // Heavy damage values
-                case DamageType.Stun:
-                    return new ProtectionValues(0f, 0f, 0f, 1f); // Stun damage values
-                default:
-                    throw new ArgumentException("Invalid ammo type", nameof(damageType));
-            }
-        }
-    }
     public void OnHoverEnter()
     {
         Debug.Log("Weapon pickup available");

@@ -6,12 +6,13 @@ using static WeaponData;
 public class AutomaticWeapon : WeaponLogic
 {
     private bool isFiring = false;
-    public AutomaticWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, DamageType damageType)
-        : base(shootBehavior)
+
+    public AutomaticWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter) : base(shootBehavior, weaponData, objectPool, shooter)
     {
-        currentWeaponData = weaponData; 
+        currentWeaponData = weaponData;
         this.objectPool = objectPool;
     }
+
     public override void ReloadLogic()
     {
         base.ReloadLogic();
@@ -31,7 +32,7 @@ public class AutomaticWeapon : WeaponLogic
                 {
                     return; // Exit if the object pool is not initialized
                 }
-                ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed);
+                ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
                 ApplyRecoil();
                 currentWeaponData.currentMagazineAmmo -= 1;
             }
@@ -65,7 +66,7 @@ public class AutomaticWeapon : WeaponLogic
                         {
                             return; // Exit if the object pool is not initialized
                         }
-                        ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed);
+                        ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
                         ApplyRecoil();
                         currentWeaponData.currentMagazineAmmo -= 1;
                     }
@@ -92,10 +93,7 @@ public class AutomaticWeapon : WeaponLogic
             ReloadLogic();
         }
     }
-    public override void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range, float bulletSpeed)
-    {
-        base.ProjectileWeaponFire(position, rotation, range, bulletSpeed);
-    }
+    public override void ProjectileWeaponFire(Vector3 position, Quaternion rotation, float range, float bulletSpeed, GameObject shooter) => base.ProjectileWeaponFire(position, rotation, range, bulletSpeed, shooter);
     public override void HitscanWeaponFire(Vector3 position, Quaternion rotation, float range)
     {
         Debug.Log($"HitscanWeaponFire called with Position: {position}, Rotation: {rotation}, Range: {range}");
