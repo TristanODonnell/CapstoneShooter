@@ -14,8 +14,8 @@ public class Bullet : MonoBehaviour
     public WeaponData currentWeaponData;
     private void OnCollisionEnter(Collision collision)
     {
-        ProtectionValues protectionValues = WeaponData.GetProtectionValues(currentWeaponData.damageType);
-        weaponLogic.DealDamage(protectionValues, collision.transform);
+        //ProtectionValues protectionValues = WeaponData.GetProtectionValues(currentWeaponData.damageType);
+        //weaponLogic.DealDamage(protectionValues, collision.transform);
         Invoke(nameof(ReturnToPool), 2f);
     }
     private void ReturnToPool()

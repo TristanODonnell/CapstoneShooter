@@ -23,7 +23,7 @@ public abstract class WeaponLogic
 
     protected WeaponLogic(ShootBehavior shootBehavior)
     {
-        this.shootBehavior = shootBehavior;
+        this.shootBehavior = shootBehavior; lookBehavior = shootBehavior.lookBehavior;
     }
 
     private void OnReloadComplete()
@@ -98,7 +98,7 @@ public abstract class WeaponLogic
         if (Physics.Raycast(position, direction, out hit, range))
         {
             Debug.Log("Hitscan hit something...");
-            DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
+            //DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
         }
         else
         {
@@ -118,7 +118,7 @@ public abstract class WeaponLogic
         {
             {
                 Debug.Log("Melee hit something...");
-                DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
+                //DealDamage(GetProtectionValues(currentWeaponData.damageType), hit.transform);
             }
         }
     }
@@ -130,6 +130,7 @@ public abstract class WeaponLogic
         lookBehavior.ApplyCameraRecoil(randomVertical, randomHorizontal);
     }
 
+    /*
     public virtual void DealDamage(Transform transform)
     {
         ProtectionValues damageType = GetProtectionValues(currentWeaponData.damageType);
@@ -141,4 +142,5 @@ public abstract class WeaponLogic
         Hitbox hitbox = transform.GetComponent<Hitbox>();
         hitbox.Damage(protectionValues);
     }
+    */
 }

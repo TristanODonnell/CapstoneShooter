@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         
         CheckJumpInput();
         CheckLookInput();
-       // CheckAimDownSightInput();
+      //  CheckAimDownSightInput();
         CheckReloadInput();
         
         ChangeWeaponInput();
@@ -350,21 +350,22 @@ public class PlayerController : MonoBehaviour
             isShooting = false;
         }
     }    
-
-    /*private void CheckAimDownSightInput()
+    /*
+    private void CheckAimDownSightInput()
     {
-        if (Input.GetMouseButton(1) && shoot.isAimingDownSight == false)
+        if (Input.GetMouseButton(1) && look.isAimingDownSight == false)
         {
-          //  shoot.AimDownSightStart();
+          look.AimDownSightStart();
         }
-        if (Input.GetMouseButtonUp(1) && shoot.isAimingDownSight )
+        if (Input.GetMouseButtonUp(1) && look.isAimingDownSight )
         {
-          //  shoot.AimDownSightEnd();
+            look.AimDownSightEnd();
         }
         
 
     }
     */
+    
     private void CheckGrenadeInput()
     {
         if (Input.GetKeyDown(KeyCode.G))

@@ -11,32 +11,42 @@ public class WeaponData : ScriptableObject, IInteractable
     public enum DamageType { Shrapnel, Energy, Heavy, Stun }
     public enum WeaponType { Projectile, Hitscan, Melee }
 
-    private bool isReloading = false;
+    public string weaponName;
+
+    [Header("Editor Set Ammo Fields")]
     public int magazineSize;
-    public int currentMagazineAmmo;
-    public int totalAmmo;
     public int maxAmmo;
 
-    public float reloadTime;
-    public WeaponType weaponType;
-    public DamageType damageType;
-   
+    [Header("Gameplay Variable Ammo Fields")]
+    public int currentMagazineAmmo;
+    public int totalAmmo;
 
+    public float reloadTime;
+
+    [Header("Game Object Assignment")]
+    public GameObject weaponModel;
+    public GameObject worldWeapon;
+    
+    [SerializeField] protected GameObject reticle;
+    [SerializeField] protected GameObject weaponVisual;
+
+    [Header("Projectile Specific Parameters")]
+    public GameObject projectilePrefab;
+    public int poolSize;
+
+    [Header("Weapon Settings")]
     public float verticalRecoil;
     public float horizontalRecoil;
     public float recoilResetSpeed;
-
-    public string weaponName;
-    public int itemCost;
-    public GameObject weaponModel;
-    public GameObject worldWeapon;
-    public int damage;
     public float bulletSpeed; 
     public float range;
     public float fireRate;
 
-    public GameObject projectilePrefab;
-    public int poolSize;
+    [Header("Shop Settings")]
+    public int itemCost;
+
+    public WeaponType weaponType;
+    public DamageType damageType;
     public string WeaponName => weaponName;
     public int ItemCost => itemCost;
     public int PoolSize => poolSize;
@@ -44,23 +54,11 @@ public class WeaponData : ScriptableObject, IInteractable
     public GameObject GetProjectilePrefab() => projectilePrefab;
     public GameObject GetWorldWeapon() => worldWeapon;
     public int MagazineSize => magazineSize;
-    public int Damage => damage;
     public float BulletSpeed => bulletSpeed;
     public float Range => range;
     public float FireRate => fireRate;
     public float ReloadTime => reloadTime;
-    //VISUALS, change out later for specific variable we need 
-    [SerializeField] protected GameObject reticle;
-    [SerializeField] protected GameObject weaponVisual;
-    public void OnHoverEnter()
-    {
-        Debug.Log("Weapon pickup available");
-    }
 
-    public void OnHoverExit()
-    {
-
-    }
 
     public static ProtectionValues GetProtectionValues(DamageType damageType)
     {
@@ -80,8 +78,14 @@ public class WeaponData : ScriptableObject, IInteractable
             }
         }
     }
+    public void OnHoverEnter()
+    {
+        Debug.Log("Weapon pickup available");
+    }
+    public void OnHoverExit()
+    {
 
-
+    }
     public void Interact(PlayerController player, WeaponHolder weaponHolder)
     {
 
@@ -111,12 +115,10 @@ public class WeaponData : ScriptableObject, IInteractable
             Debug.LogWarning("WeaponHolder or myweaponData is null. Cannot interact.");
         }
     }
-
     public void Interact(PlayerController player, EquipmentHolder equipmentHolder)
     {
         throw new System.NotImplementedException();
     }
-
     public void Interact(PlayerController player, EquipmentData equipmentData)
     {
         throw new System.NotImplementedException();

@@ -11,20 +11,17 @@ using static WeaponData;
 
 public class ShootBehavior : MonoBehaviour
 {
-    //  [SerializeField] ObjectPool bulletPool;
-    public WeaponCameraSystem weaponCameraSystem;
+    public Transform weaponTip;
+    public Transform weaponPosition;
+    public bool isReloading = false;
     public List<WeaponData> weapons = new List<WeaponData>();
+    public LookBehavior lookBehavior;
+    [Header("Current Weapon Information")]
     public int currentWeaponIndex = 0;
-
     public WeaponData currentWeapon;
     public GameObject currentWeaponModel;
     public WeaponLogic currentWeaponLogic;
-    public bool isReloading = false;
-    public Transform weaponTip;
-    public Transform weaponPosition;
-
     public ObjectPool currentObjectPool;
-    public LookBehavior lookBehavior;
     void Start()
     {
         currentWeaponIndex = 0;
@@ -36,26 +33,27 @@ public class ShootBehavior : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    public void StartShooting()
-    {
-        
-        currentWeaponLogic.StartShooting(weaponTip);
-    } 
-    public void Shooting()
-    {
-        currentWeaponLogic.Shooting(weaponTip);
 
+    private WeaponLogic GetWeaponLogic(string weaponName)
+    {
+        switch (weaponName)
+        {
+            case "Marksman Rifle":
+                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Shrapnel);
+            case "Hitscan Sniper Test":
+                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Energy);
+            case "SMG":
+                return new AutomaticWeapon(this, currentWeapon, currentObjectPool, DamageType.Stun);
+            // ...
+            default:
+                throw new ArgumentException("Unknown weapon name", nameof(weaponName));
+        }
     }
-
-    public void StopShooting()
+    public void SetUpWeaponAmmo(WeaponData weapon)
     {
-        currentWeaponLogic.StopShooting(weaponTip);
+        weapon.totalAmmo = weapon.maxAmmo;
+        weapon.currentMagazineAmmo = weapon.magazineSize;
     }
-
-    public void Reloading()
-    {
-        currentWeaponLogic.ReloadLogic();
-    }    
     public IEnumerator Reload(Action onReloadComplete)
     {
         
@@ -83,7 +81,6 @@ public class ShootBehavior : MonoBehaviour
         onReloadComplete?.Invoke();
         yield break;
     }
-
     public void ChangeWeapon(int index)
     {
         Debug.Log("Changing to weapon at index: " + index);
@@ -107,8 +104,6 @@ public class ShootBehavior : MonoBehaviour
         }
         currentWeaponLogic = GetWeaponLogic(currentWeapon.WeaponName);
     } 
-    
-
     public void DropWeapon(int index)
     {
         if (index >= 0 && index < weapons.Count)
@@ -178,27 +173,7 @@ public class ShootBehavior : MonoBehaviour
         ChangeWeapon(currentWeaponIndex);
     }
 
-    public void SetUpWeaponAmmo(WeaponData weapon)
-    {
-        weapon.totalAmmo = weapon.maxAmmo;
-        weapon.currentMagazineAmmo = weapon.magazineSize;
-    }
-    private WeaponLogic GetWeaponLogic(string weaponName)
-    {
-        switch (weaponName)
-        {
-            case "Marksman Rifle":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Shrapnel);
-            case "Hitscan Sniper Test":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, DamageType.Energy);
-            case "SMG":
-                return new AutomaticWeapon(this, currentWeapon, currentObjectPool, DamageType.Stun);
-            // ...
-            default:
-                throw new ArgumentException("Unknown weapon name", nameof(weaponName));
-        }
-    }
-
+    //Ammo Pickup
     public void OnTriggerEnter(Collider other)
     {
         
@@ -229,5 +204,23 @@ public class ShootBehavior : MonoBehaviour
                 }
             }
         }
+    }
+    public void StartShooting()
+    {
+
+        currentWeaponLogic.StartShooting(weaponTip);
+    }
+    public void Shooting()
+    {
+        currentWeaponLogic.Shooting(weaponTip);
+
+    }
+    public void StopShooting()
+    {
+        currentWeaponLogic.StopShooting(weaponTip);
+    }
+    public void Reloading()
+    {
+        currentWeaponLogic.ReloadLogic();
     }
 }
