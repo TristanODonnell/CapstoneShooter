@@ -30,8 +30,8 @@ public class ShootBehavior : MonoBehaviour
         {
             SetUpWeaponAmmo(weapons[i]); // Set up ammo for each weapon
         }
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
+       // Cursor.visible = false;
     }
 
     private WeaponLogic GetWeaponLogic(string weaponName)

@@ -8,8 +8,11 @@ public class LookBehavior : MonoBehaviour
     private Vector2 lookDirection;
     [SerializeField] private float lookSensitivity;
     [SerializeField] private Camera myCamera;
-    
-
+    public ShootBehavior shootBehavior;
+    private float originalFieldOfView;
+    private bool isAimingDownSight = false;
+    private float adsZoomLevel;
+    private float zoomSensitivity = 0.5f;
     private void Start()
     {
         
@@ -34,6 +37,30 @@ public class LookBehavior : MonoBehaviour
         Debug.Log($"Test Recoil Applied: lookDirection.x = {lookDirection.x}, lookDirection.y = {lookDirection.y}");
         myCamera.transform.localRotation = Quaternion.Euler(-lookDirection.y, 0, 0);
         transform.rotation = Quaternion.Euler(0, lookDirection.x, 0);
+    }
+    public void AimDownSightStart()
+    {
+        if (!isAimingDownSight)
+        {
+            adsZoomLevel = shootBehavior.currentWeapon.adsZoomLevel / zoomSensitivity;
+            originalFieldOfView = myCamera.fieldOfView; // Store the original field of view
+            myCamera.fieldOfView = adsZoomLevel; // Set the camera's field of view to the ADS zoom level
+            isAimingDownSight = true; // Set the flag to true
+        }
+    }
+
+    public void AimDownSightEnd()
+    {
+        if (isAimingDownSight)
+        {
+            myCamera.fieldOfView = originalFieldOfView; // Reset the camera's field of view
+            isAimingDownSight = false; // Set the flag to false
+        }
+    }
+
+    public bool IsAimingDownSight()
+    {
+        return isAimingDownSight; // Return the current state of the flag
     }
 
 }

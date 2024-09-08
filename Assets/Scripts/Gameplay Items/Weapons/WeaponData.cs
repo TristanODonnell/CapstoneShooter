@@ -40,13 +40,16 @@ public class WeaponData : ScriptableObject, IInteractable
     public float recoilResetSpeed;
     public float bulletSpeed; 
     public float range;
-    public float fireRate;
+    public float fireRate; 
+    public float adsZoomLevel; 
 
     [Header("Shop Settings")]
     public int itemCost;
+    public int ammoRefillCost;
 
     public WeaponType weaponType;
     public DamageType damageType;
+    public int AmmoRefillCost => ammoRefillCost;
     public string WeaponName => weaponName;
     public int ItemCost => itemCost;
     public int PoolSize => poolSize;

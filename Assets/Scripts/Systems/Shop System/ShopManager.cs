@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using static ShopManager;
 
@@ -84,6 +85,24 @@ public class ShopManager : MonoBehaviour
         {
             GameManager.Singleton.grenadeManager.GrenadeRefill();
             CurrencyManager.singleton.SubtractCurrency(refillCost);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Not enough currency to buy ");
+        }
+    }
+
+    public void BuyAmmoRefill()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        int ammoRefillCost = DataManager.Singleton.weapons[0].AmmoRefillCost;
+        if (canAffordPurchase(ammoRefillCost))
+        {
+            for (int i = 0; i < player.shoot.weapons.Count; i++)
+            {
+                CurrencyManager.singleton.SubtractCurrency(ammoRefillCost);
+                player.shoot.SetUpWeaponAmmo(player.shoot.weapons[i]); // Set up ammo for each weapon
+            }
         }
         else
         {
