@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour, ILootSource
     public EnemyTier enemyTier;
     public enum EnemyTier { High, Low }
 
-    public UnityEvent onEnemyDeath = new UnityEvent();
-
     private void Update()
     {
         Die();

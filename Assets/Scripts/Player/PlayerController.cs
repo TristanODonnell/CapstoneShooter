@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         
         CheckJumpInput();
         CheckLookInput();
-        CheckAimDownSightInput();
+       // CheckAimDownSightInput();
         CheckReloadInput();
         
         ChangeWeaponInput();
@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             shoot.weapons.Add(playerData.playerWeaponData[i]);
+            shoot.SetUpWeaponAmmo(shoot.weapons[i]);
         }
         equipment.playerEquipmentData1 = playerData.playerEquipmentData[0];
         equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
@@ -327,19 +328,30 @@ public class PlayerController : MonoBehaviour
     {
         look.RotatePlayer();
     }
+    private bool isShooting = false;
 
     private void CheckShootInput()
     {
-        if(Input.GetMouseButtonDown(0)) //CLICKING TO SHOOT 
+        if (Input.GetMouseButtonDown(0))
         {
-          //  shoot.Shoot();
-
+            shoot.StartShooting();
+            isShooting = true;
         }
-
-        //MAY NEED ADDITIONAL INPUT FOR HOLDING DOWN TO SHOOT burst, or melee
+        if (Input.GetMouseButton(0) && isShooting)
+        {
+            if (!Input.GetMouseButtonDown(0)) // add this check
+            {
+                shoot.Shooting();
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            shoot.StopShooting();
+            isShooting = false;
+        }
     }    
 
-    private void CheckAimDownSightInput()
+    /*private void CheckAimDownSightInput()
     {
         if (Input.GetMouseButton(1) && shoot.isAimingDownSight == false)
         {
@@ -352,7 +364,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
-
+    */
     private void CheckGrenadeInput()
     {
         if (Input.GetKeyDown(KeyCode.G))
@@ -395,12 +407,19 @@ public class PlayerController : MonoBehaviour
             grenadeManager.CurrentGrenadeSelect();
         }
     }
-
     private void CheckReloadInput()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R ))
         {
-            //shoot.PlayerReload();
+            if (!shoot.isReloading)
+            {
+                Debug.Log("Reload key pressed!");
+                shoot.StopShooting();
+                Debug.Log("Stopping shooting and starting reload...");
+                shoot.Reloading();
+                Debug.Log("Reload coroutine started.");
+            }
+            
         }
     }
 

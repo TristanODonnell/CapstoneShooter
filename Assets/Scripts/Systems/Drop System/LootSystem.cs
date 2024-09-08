@@ -12,7 +12,7 @@ public class LootSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy.onEnemyDeath.AddListener(SpawnLoot);
+       // enemy.onEnemyDeath.AddListener(SpawnLoot);
         lootSource = enemy.gameObject.GetComponent<ILootSource>();
     }
 
