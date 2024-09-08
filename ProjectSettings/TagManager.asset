@@ -22,8 +22,8 @@ TagManager:
   - 'Equipment '
   - Passive
   - EntityBody
-  - 
-  - 
+  - Bullet
+  - Player
   - 
   - 
   - 

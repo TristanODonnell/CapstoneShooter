@@ -10,19 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
-  m_Name: Grey
+  m_Name: Assault Rifle
   m_EditorClassIdentifier: 
-  weaponType: 0
+  magazineSize: 25
+  currentMagazineAmmo: 25
+  totalAmmo: 194
+  maxAmmo: 500
+  reloadTime: 0
+  weaponType: 1
   ammoType: 0
-  weaponName: Grey
-  weaponModel: {fileID: 1245693381092401322, guid: 080029d9412763540a48f140835c5a6e,
+  verticalRecoil: 0
+  horizontalRecoil: 0
+  recoilResetSpeed: 0
+  weaponName: 
+  itemCost: 0
+  weaponModel: {fileID: 6679221836753238110, guid: 227593fd810c60a4d80b9342d53c5275,
+    type: 3}
+  worldWeapon: {fileID: 6679221836753238110, guid: 203416b7b325b1b4580b215448488fa2,
     type: 3}
   damage: 0
   bulletSpeed: 0
   range: 0
   fireRate: 0
-  reloadTime: 0
   projectilePrefab: {fileID: 0}
+  poolSize: 0
   reticle: {fileID: 0}
-  weaponVisual: {fileID: 1245693381092401322, guid: 080029d9412763540a48f140835c5a6e,
-    type: 3}
+  weaponVisual: {fileID: 0}

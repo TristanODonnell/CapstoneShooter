@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static WeaponData;
 
 public class LookBehavior : MonoBehaviour
 {
@@ -17,6 +18,17 @@ public class LookBehavior : MonoBehaviour
 
         myCamera.transform.localRotation = Quaternion.Euler(-lookDirection.y, 0, 0);
         transform.rotation = Quaternion.Euler(0, lookDirection.x, 0);
+
+    }
+
+    public void ApplyCameraRecoil(float totalVerticalRecoil, float totalHorizontalRecoil)
+    {
+            
+            lookDirection.y += totalVerticalRecoil;
+            lookDirection.x += totalHorizontalRecoil;
+            Debug.Log($"Test Recoil Applied: lookDirection.x = {lookDirection.x}, lookDirection.y = {lookDirection.y}");
+            myCamera.transform.localRotation = Quaternion.Euler(-lookDirection.y, 0, 0);
+            transform.rotation = Quaternion.Euler(0, lookDirection.x, 0);
     }
 }
  
