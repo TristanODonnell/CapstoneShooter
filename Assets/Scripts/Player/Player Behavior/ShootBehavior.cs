@@ -39,13 +39,30 @@ public class ShootBehavior : MonoBehaviour
         switch (weaponName)
         { 
             case "Marksman Rifle":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, gameObject);
             case "Hitscan Sniper Test":
+            case "Blazing Falcon":
+            case "Burst Cannon":
+            case "Grenade Launcher":
+            case "PumpShotgun":
+            case "Railgun":
+            case "RocketLauncher":
                 return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, gameObject);
             case "SMG":
+            case "Assault Rifle":
+            case "BarrelShotgunx2":
+            case "Laser":
+            case "Machine Revolver":
+            case "Minigun":
+
                 return new AutomaticWeapon(this, currentWeapon, currentObjectPool, gameObject);
-            // ...
-            default:
+            case "Chainsaw":
+            case "Light Dagger":
+            case "Machete":
+            case "ShovelAxe":
+                return new MeleeWeapon(this, currentWeapon, currentObjectPool, gameObject);
+
+
+			default:
                 throw new ArgumentException("Unknown weapon name", nameof(weaponName));
         }
     }

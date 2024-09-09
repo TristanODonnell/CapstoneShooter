@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: Chainsaw
   weaponType: 2
   ProtectionValues:
     unprotected: 0
