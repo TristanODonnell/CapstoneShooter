@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
-  m_Name: Assault Rifle
+  m_Name: LightDagger
   m_EditorClassIdentifier: 
   weaponName: 
-  weaponType: 1
+  weaponType: 2
   ProtectionValues:
     unprotected: 0
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 25
-  totalAmmo: 194
-  magazineSize: 25
-  maxAmmo: 500
+  currentMagazineAmmo: 0
+  totalAmmo: 0
+  magazineSize: 0
+  maxAmmo: 0
   reloadTime: 0
   originalMagazineSize: 0
   originalMaxAmmo: 0
   originalReloadTime: 0
-  weaponModel: {fileID: 919132149155446097, guid: 2872adb08cb9a114e834356135efb308,
+  weaponModel: {fileID: 919132149155446097, guid: 2db8e1ab9c53dbd49aaa1e9f924f6499,
     type: 3}
-  worldWeapon: {fileID: 6679221836753238110, guid: 203416b7b325b1b4580b215448488fa2,
-    type: 3}
+  worldWeapon: {fileID: 0}
   reticle: {fileID: 0}
   weaponVisual: {fileID: 0}
   projectilePrefab: {fileID: 0}

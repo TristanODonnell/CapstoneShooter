@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7531293433063106066}
+  - component: {fileID: 179063187664745958}
   m_Layer: 0
   m_Name: SMG
   m_TagString: Untagged
@@ -64,6 +65,28 @@ Transform:
   - {fileID: 2732501071873280989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &179063187664745958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323353297967709619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 7139484512218377869}
+  weaponPosition: {fileID: 7531293433063106066}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: 207697d7fc8820f4d8ea4c4c1a45f8b7, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: 207697d7fc8820f4d8ea4c4c1a45f8b7, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1001 &2477386898492681270
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,37 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
-  m_Name: Assault Rifle
+  m_Name: BarrelShotgunx2
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponType: 1
+  weaponName: BarrelShotgunx2
+  weaponType: 0
   ProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
-    stun: 0
-  currentMagazineAmmo: 25
-  totalAmmo: 194
-  magazineSize: 25
-  maxAmmo: 500
-  reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
-  weaponModel: {fileID: 919132149155446097, guid: 2872adb08cb9a114e834356135efb308,
+    unprotected: 90.4
+    energyShield: 71.5
+    armor: 46.22
+    stun: 0.59
+  currentMagazineAmmo: 4
+  totalAmmo: 24
+  magazineSize: 4
+  maxAmmo: 24
+  reloadTime: 1.8
+  originalMagazineSize: 4
+  originalMaxAmmo: 24
+  originalReloadTime: 2.49
+  weaponModel: {fileID: 919132149155446097, guid: b0e8dd5b28e83c74aaeb687c3cf3084d,
     type: 3}
-  worldWeapon: {fileID: 6679221836753238110, guid: 203416b7b325b1b4580b215448488fa2,
-    type: 3}
+  worldWeapon: {fileID: 0}
   reticle: {fileID: 0}
   weaponVisual: {fileID: 0}
   projectilePrefab: {fileID: 0}
   poolSize: 0
-  verticalRecoil: 0
+  verticalRecoil: 2.63
   horizontalRecoil: 0
-  recoilResetSpeed: 0
-  bulletSpeed: 0
-  range: 0
-  fireRate: 0
+  recoilResetSpeed: 0.28
+  bulletSpeed: 24.39
+  range: 17.76
+  fireRate: 0.8
   adsZoomLevel: 0
   itemCost: 0
   ammoRefillCost: 0

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3975180468529420123}
+  - component: {fileID: 2278137876203410620}
   m_Layer: 0
   m_Name: Machine Revolver
   m_TagString: Untagged
@@ -33,6 +34,28 @@ Transform:
   - {fileID: 3240832101895055211}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2278137876203410620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115152727676638554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 7133989527071404178}
+  weaponPosition: {fileID: 3975180468529420123}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: e46b24adca9a7974b925510989909a55, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: e46b24adca9a7974b925510989909a55, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1 &4569089203415529399
 GameObject:
   m_ObjectHideFlags: 0

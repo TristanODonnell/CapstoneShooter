@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8756335717236279024}
+  - component: {fileID: 188133204346622309}
   m_Layer: 0
   m_Name: BarrelShotGunx2
   m_TagString: Untagged
@@ -33,6 +34,28 @@ Transform:
   - {fileID: 6536502334367016910}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188133204346622309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803538909067964040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 8756335717236279024}
+  weaponPosition: {fileID: 7633560702120052580}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: decd490a020130b4da57b4966b1dc579, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: decd490a020130b4da57b4966b1dc579, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1 &8252680654309896093
 GameObject:
   m_ObjectHideFlags: 0

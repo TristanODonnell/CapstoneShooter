@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7503807960960851697}
+  - component: {fileID: 4562245070304410426}
   m_Layer: 0
   m_Name: Blazing Falcon
   m_TagString: Untagged
@@ -56,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 8706930617933202707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.057, z: 0.29}
+  m_LocalPosition: {x: 0, y: 0.057, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -64,6 +65,28 @@ Transform:
   - {fileID: 8388487377604874809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4562245070304410426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706930617933202707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 7145102158082901691}
+  weaponPosition: {fileID: 7503807960960851697}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: d6d46309f2594d344be7461708dd9fbe, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: d6d46309f2594d344be7461708dd9fbe, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1001 &8350621136354145746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,7 +108,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6a9ee56e64678264492e813ec0c6370a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.251
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6a9ee56e64678264492e813ec0c6370a,
         type: 3}

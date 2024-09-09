@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5935334411795759233}
+  - component: {fileID: 6764228764870617362}
   m_Layer: 0
   m_Name: LightDagger
   m_TagString: Untagged
@@ -33,6 +34,28 @@ Transform:
   - {fileID: 186574789401693320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6764228764870617362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073827014280007513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 2959804706350217679}
+  weaponPosition: {fileID: 5935334411795759233}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: 7b5cf028526b3a14795f2755449ff0a2, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: 7b5cf028526b3a14795f2755449ff0a2, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1 &6392777444297627124
 GameObject:
   m_ObjectHideFlags: 0

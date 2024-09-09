@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
-  m_Name: Assault Rifle
+  m_Name: BurstCannon
   m_EditorClassIdentifier: 
-  weaponName: 
+  weaponName: Burst Cannon
   weaponType: 1
   ProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
-    stun: 0
-  currentMagazineAmmo: 25
-  totalAmmo: 194
-  magazineSize: 25
-  maxAmmo: 500
+    unprotected: 3.21
+    energyShield: 9.06
+    armor: 4.16
+    stun: 0.15
+  currentMagazineAmmo: 13
+  totalAmmo: 39
+  magazineSize: 13
+  maxAmmo: 78
   reloadTime: 0
   originalMagazineSize: 0
   originalMaxAmmo: 0
   originalReloadTime: 0
-  weaponModel: {fileID: 919132149155446097, guid: 2872adb08cb9a114e834356135efb308,
+  weaponModel: {fileID: 919132149155446097, guid: 48743fcf7ab15ea4bab22bcb7d2671f3,
     type: 3}
-  worldWeapon: {fileID: 6679221836753238110, guid: 203416b7b325b1b4580b215448488fa2,
-    type: 3}
+  worldWeapon: {fileID: 0}
   reticle: {fileID: 0}
   weaponVisual: {fileID: 0}
   projectilePrefab: {fileID: 0}

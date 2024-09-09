@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4998559598504696913}
+  - component: {fileID: 5572457537261025010}
   m_Layer: 0
   m_Name: Marksman
   m_TagString: Untagged
@@ -64,6 +65,28 @@ Transform:
   - {fileID: 8546926876531742451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5572457537261025010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2197341519502528375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 4292821376078975918}
+  weaponPosition: {fileID: 4998559598504696913}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1001 &8148825682035912984
 PrefabInstance:
   m_ObjectHideFlags: 0

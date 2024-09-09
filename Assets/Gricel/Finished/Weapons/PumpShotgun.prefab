@@ -40,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8381146333572886397}
+  - component: {fileID: 2843813833998854485}
   m_Layer: 0
   m_Name: PumpShotgun
   m_TagString: Untagged
@@ -64,6 +65,28 @@ Transform:
   - {fileID: 395386111950458497}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2843813833998854485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2845443028309881923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e133927c53d999646938c6855b3c6bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTip: {fileID: 2822857943993367100}
+  weaponPosition: {fileID: 8381146333572886397}
+  isReloading: 0
+  weapons:
+  - {fileID: 11400000, guid: 41298def74eec9943b3ee830bf3f17fd, type: 2}
+  lookBehavior: {fileID: 0}
+  currentWeaponIndex: 0
+  currentWeapon: {fileID: 11400000, guid: 41298def74eec9943b3ee830bf3f17fd, type: 2}
+  currentWeaponModel: {fileID: 0}
+  currentObjectPool: {fileID: 0}
 --- !u!1001 &213367857375045994
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
-  m_Name: Assault Rifle
+  m_Name: PumpShotgun
   m_EditorClassIdentifier: 
-  weaponName: 
-  weaponType: 1
+  weaponName: PumpShotgun
+  weaponType: 0
   ProtectionValues:
     unprotected: 0
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 25
-  totalAmmo: 194
-  magazineSize: 25
-  maxAmmo: 500
-  reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
-  weaponModel: {fileID: 919132149155446097, guid: 2872adb08cb9a114e834356135efb308,
+  currentMagazineAmmo: 8
+  totalAmmo: 32
+  magazineSize: 8
+  maxAmmo: 32
+  reloadTime: 2
+  originalMagazineSize: 8
+  originalMaxAmmo: 32
+  originalReloadTime: 2
+  weaponModel: {fileID: 919132149155446097, guid: ed2e260dcdcbabf4d947ea27a841b6d7,
     type: 3}
-  worldWeapon: {fileID: 6679221836753238110, guid: 203416b7b325b1b4580b215448488fa2,
+  worldWeapon: {fileID: 919132149155446097, guid: ed2e260dcdcbabf4d947ea27a841b6d7,
     type: 3}
   reticle: {fileID: 0}
   weaponVisual: {fileID: 0}
