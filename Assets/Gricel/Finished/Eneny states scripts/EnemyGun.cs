@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour
 {
-	[SerializeField] ShootBehavior[] weapons;
+	[SerializeField] ShootBehavior[] weapons = new ShootBehavior[0];
 	Countdown shooting = new(0.2f);
+
+	private void OnValidate()
+	{
+		if (weapons.Length == 0)
+		{
+			var enemy = GetComponentInParent<gricel.Enemy>();
+			if (enemy == null) return;
+			enemy.gun = this;
+			weapons = enemy.GetComponentsInChildren<ShootBehavior>();
+		}
+	}
 
 	private void Start()
 	{

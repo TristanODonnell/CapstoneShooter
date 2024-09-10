@@ -186,5 +186,3 @@ public class Countdown_Hour : Countdown_Minutes
 {
 	public Countdown_Hour(byte Hours, byte Minutes, float Seconds) : base(Minutes, Seconds) { }
 }
-
-

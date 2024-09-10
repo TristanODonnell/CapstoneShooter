@@ -42,17 +42,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -52.67458
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.106384
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 110.765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
@@ -192,7 +192,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       propertyPath: m_Name
-      value: General
+      value: GeneralBase
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
@@ -332,7 +332,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 453372004096267549}
+      addedObject: {fileID: 4036519708409909792}
     - targetCorrespondingSourceObject: {fileID: 2400521439639264318, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       insertIndex: -1
@@ -890,6 +890,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!95 &7671070620378538317
 Animator:
   serializedVersion: 5
@@ -929,7 +932,7 @@ MonoBehaviour:
   ragdoll: {fileID: 0}
   health: {fileID: 1345855183452054674}
   eyes: {fileID: 7033098129512001344}
-  gun: {fileID: 453372004096267549}
+  gun: {fileID: 4036519708409909792}
   state_Base: {fileID: 2325913509712453620}
   state_detection: {fileID: 2336991549427097644}
   detectionAttempt_Timer:
@@ -1021,7 +1024,7 @@ MonoBehaviour:
   fight_shootTriggerRelease:
     maximumCount: 8
   stopDistance: 1
-  walkAxisPriority: 0
+  rotationPerSecond: 720
 --- !u!114 &8069538274860447009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGravity: -9.81
   characterController: {fileID: 4597665051121821318}
---- !u!114 &453372004096267549
+--- !u!114 &4036519708409909792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1048,8 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot_firerate:
-    maximumCount: 0.2
+  weapons: []
 --- !u!4 &6517202258425578638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,

@@ -12,7 +12,7 @@ namespace gricel
         [SerializeField] private RagdollRig ragdoll;
         [SerializeField] public gricel.HealthSystem health;
         [SerializeField] private Transform eyes;
-        [SerializeField] private EnemyGun gun;
+        [SerializeField] public EnemyGun gun;
 
 
 
