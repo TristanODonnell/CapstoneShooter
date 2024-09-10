@@ -10,7 +10,7 @@ namespace gricel
         [SerializeField] public CharacterController controller;
         [SerializeField] private GravitationalBehaviour gravity;
         [SerializeField] private RagdollRig ragdoll;
-        [SerializeField] private gricel.HealthSystem health;
+        [SerializeField] public gricel.HealthSystem health;
         [SerializeField] private Transform eyes;
         [SerializeField] private EnemyGun gun;
 

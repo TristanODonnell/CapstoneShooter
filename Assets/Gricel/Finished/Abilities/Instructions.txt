@@ -1,0 +1,31 @@
+This are the new abilities for the player
+
+First, attach the "Player_AbilityBehaviour"
+to the player and pass the reference to the
+character controller and gravity.
+
+Second, you will see that there is a drop
+down menu where ability prefabs are needed
+those are in the "Ability Modules" folder
+
+In code you can grant the player an ability,
+nothing happens if the player doesnt have an
+ability anyway. The code in "Player_AbilityBehaviour" is
+"SetAbility(ability)" and
+the argument is any of the abilities in the
+"AbilityReferences" variable
+
+If any of the stats for the abilities does not
+convince you, you can modify the values in the
+"Ability Modules" folder which contains 6 prefabs
+for abilities.
+
+Last but not least, if you need to modify the button
+that activates the abilities in code, you can do so with
+"AbilitySelected.AbilityCustomizeKey(KeyCode key)"
+in any of the "AbilityBase" type class, but
+first you got to call "SetAbility" before anything
+if you approach by code, but you can also modify the
+ability key by modifying the prefab in "Ability Modules"
+I recommend leaving the keys as they are in both jetpack
+skills
