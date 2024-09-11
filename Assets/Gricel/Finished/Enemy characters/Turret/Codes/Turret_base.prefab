@@ -473,7 +473,7 @@ MonoBehaviour:
   animator: {fileID: 1367377341591232868}
   controller: {fileID: 146559392393508983}
   gravity: {fileID: 8577968814410228532}
-  ragdoll: {fileID: 0}
+  ragdoll: {fileID: 117918580135974347, guid: 206324b587c57e5498766de9913c3ccf, type: 3}
   health: {fileID: 5055096542908913295}
   eyes: {fileID: 3117899677914772997}
   gun: {fileID: 0}

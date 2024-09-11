@@ -92,7 +92,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b14bd703825991448a9cd39af3e6b8d3,
         type: 3}
       propertyPath: m_Name
-      value: Protector
+      value: Protector base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -593,7 +593,7 @@ MonoBehaviour:
   animator: {fileID: 1191174931262254295}
   controller: {fileID: 5382132916945583663}
   gravity: {fileID: 7487346283487963128}
-  ragdoll: {fileID: 0}
+  ragdoll: {fileID: 6553504105986014183, guid: 6b8140740ad6f3a4b944aae6e798ff6d, type: 3}
   health: {fileID: 2407866634661683011}
   eyes: {fileID: 6783304678238473664}
   gun: {fileID: 0}

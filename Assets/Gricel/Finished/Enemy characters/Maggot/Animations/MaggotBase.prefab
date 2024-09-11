@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 802b1107f0ffd3a4a8db6062ff323d43,
         type: 3}
       propertyPath: m_Name
-      value: Maggot
+      value: MaggotBase
       objectReference: {fileID: 0}
     - target: {fileID: 1890497754040257241, guid: 802b1107f0ffd3a4a8db6062ff323d43,
         type: 3}
@@ -806,6 +806,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4197841202200645633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,7 +824,7 @@ MonoBehaviour:
   animator: {fileID: 3068175979407407998}
   controller: {fileID: 1680544318528507860}
   gravity: {fileID: 6332949237744606030}
-  ragdoll: {fileID: 0}
+  ragdoll: {fileID: 5410012210574427525, guid: f6ef2610b643b0847825a4af5a8a3188, type: 3}
   health: {fileID: 6476777328567968596}
   eyes: {fileID: 4574002145499401431}
   gun: {fileID: 0}
@@ -936,6 +939,7 @@ MonoBehaviour:
   fight_shootTriggerRelease:
     maximumCount: 8
   stopDistance: 1
+  rotationPerSecond: 720
 --- !u!1 &8591225487299078948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 966785754663453105, guid: 802b1107f0ffd3a4a8db6062ff323d43,

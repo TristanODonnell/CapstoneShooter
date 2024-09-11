@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e15b46e0a203128429c553d168a5a753,
         type: 3}
       propertyPath: m_Name
-      value: Gunslinger
+      value: Gunslinger_BAse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   animator: {fileID: 8214312524115807239}
   controller: {fileID: 8312705122653324713}
   gravity: {fileID: 4605396821293866188}
-  ragdoll: {fileID: 0}
+  ragdoll: {fileID: 561700843462690990, guid: 036df78034d5a1141916c79324236ba1, type: 3}
   health: {fileID: 907154861247411598}
   eyes: {fileID: 7077222711394029584}
   gun: {fileID: 0}

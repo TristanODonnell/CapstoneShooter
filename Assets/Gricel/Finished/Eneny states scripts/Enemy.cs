@@ -227,6 +227,13 @@ namespace gricel
             SetBaseState();
             transform.forward = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
             health.onDamaged.AddListener(SetAlertedState);
+            health.onDeath.AddListener(Death);
+        }
+
+        private void Death()
+        {
+            ragdoll.Spawn(transform);
+            Destroy(gameObject);
         }
 
 

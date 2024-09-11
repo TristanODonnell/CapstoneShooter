@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f4d69eeab812a64cbc7a11d25115894,
         type: 3}
       propertyPath: m_Name
-      value: Mecha
+      value: Mecha_Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -428,6 +428,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8570405808112571742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +446,7 @@ MonoBehaviour:
   animator: {fileID: 3839279434106307320}
   controller: {fileID: 4056807502048725727}
   gravity: {fileID: 7669356519374000617}
-  ragdoll: {fileID: 0}
+  ragdoll: {fileID: 6934180856773322854, guid: d5445bfc6cfc93648b9ce99eae6bf4ac, type: 3}
   health: {fileID: 8969275712243535865}
   eyes: {fileID: 2521042269132080882}
   gun: {fileID: 0}
