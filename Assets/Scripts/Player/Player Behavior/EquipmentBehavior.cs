@@ -65,8 +65,9 @@ public class EquipmentBehavior : MonoBehaviour
 
     }
     
-    
+    public void UseEquipment()
+    {
 
+    }
 
-    
 }

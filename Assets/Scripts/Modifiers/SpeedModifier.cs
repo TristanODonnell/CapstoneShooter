@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Modifiers : MonoBehaviour
+public class SpeedModifier : MonoBehaviour
 {
     //speed 
     [System.Serializable]
@@ -32,10 +32,16 @@ public class Modifiers : MonoBehaviour
         }
     }
 
-        //health ---- protection values
-        //cooldown for ability use
-        //ammo, magazine, weapon, weapon damage, etc
-        //jump
-        //speed
-        //xp gain
-    }
+    //ammo, magazine, weapon, weapon damage, etc
+
+
+    //health ---- protection values
+
+
+
+    //cooldown for ability use
+
+    //jump
+    //speed
+    //xp gain
+}

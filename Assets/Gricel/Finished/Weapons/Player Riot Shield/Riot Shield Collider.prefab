@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3704450478042210213
+--- !u!1 &861003198885002567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4822115221777223989}
-  - component: {fileID: 2973713670149239849}
-  - component: {fileID: 4774851215418170405}
-  - component: {fileID: 8494792130075675356}
-  - component: {fileID: -110912943878990472}
-  m_Layer: 8
-  m_Name: MarksmanRifle
-  m_TagString: Weapon
+  - component: {fileID: 5592945378396328442}
+  - component: {fileID: 4843942354093283085}
+  - component: {fileID: 2053710259312642802}
+  - component: {fileID: 561717148556753486}
+  m_Layer: 0
+  m_Name: Riot Shield Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4822115221777223989
+--- !u!4 &5592945378396328442
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704450478042210213}
+  m_GameObject: {fileID: 861003198885002567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3066222, y: -8.31, z: 0.3942287}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.771, y: 1.79, z: -58.605}
+  m_LocalScale: {x: 1.6164722, y: 2.3247, z: 0.6123804}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2973713670149239849
+--- !u!33 &4843942354093283085
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704450478042210213}
+  m_GameObject: {fileID: 861003198885002567}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4774851215418170405
+--- !u!23 &2053710259312642802
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704450478042210213}
-  m_Enabled: 1
+  m_GameObject: {fileID: 861003198885002567}
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -85,35 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8494792130075675356
-MonoBehaviour:
+--- !u!65 &561717148556753486
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704450478042210213}
+  m_GameObject: {fileID: 861003198885002567}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fb74d4520185b418482e89a31feca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObject: {fileID: 0}
-  poolSize: 0
-  availableObjects: []
-  unavailableObjects: []
---- !u!114 &-110912943878990472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3704450478042210213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myweaponData: {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
-  currentWorldWeapon: {fileID: 4262508997570520343, guid: c24003e9b74944c4bace153206ccc0a9,
-    type: 3}
-  groundTotalAmmo: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -13,33 +13,44 @@ MonoBehaviour:
   m_Name: BurstCannon
   m_EditorClassIdentifier: 
   weaponName: Burst Cannon
-  weaponType: 1
+  weaponType: 0
   ProtectionValues:
     unprotected: 3.21
     energyShield: 9.06
     armor: 4.16
     stun: 0.15
   currentMagazineAmmo: 13
-  totalAmmo: 39
+  totalAmmo: 78
   magazineSize: 13
   maxAmmo: 78
   reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalMagazineSize: 13
+  originalMaxAmmo: 78
   originalReloadTime: 0
   weaponModel: {fileID: 919132149155446097, guid: 48743fcf7ab15ea4bab22bcb7d2671f3,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
-  verticalRecoil: 0
-  horizontalRecoil: 0
-  recoilResetSpeed: 0
-  bulletSpeed: 0
-  range: 0
-  fireRate: 0
-  adsZoomLevel: 0
+  worldWeapon: {fileID: 6768899903094093715, guid: e48d0ad38d81361479aea7b32a8e0d2a,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6506065545221884263, guid: 6f7bb2ecfbd87ea4f963c9f7e8f9b84a,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0.3
+  verticalRecoil: 2
+  horizontalRecoil: 2
+  recoilResetSpeed: 1
+  bulletSpeed: 100
+  range: 60
+  fireRate: 1
+  adsZoomLevel: 15
+  penetration: 5
+  penetrationPerHit: 1
+  burstSize: 4
+  burstDelay: 0.005
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

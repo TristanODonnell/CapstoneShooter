@@ -15,31 +15,42 @@ MonoBehaviour:
   weaponName: RocketLauncher
   weaponType: 0
   ProtectionValues:
-    unprotected: 0
+    unprotected: 10
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 0
-  totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
-  reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
+  currentMagazineAmmo: 10
+  totalAmmo: 1000
+  magazineSize: 10
+  maxAmmo: 1000
+  reloadTime: 1
+  originalMagazineSize: 10
+  originalMaxAmmo: 1000
+  originalReloadTime: 1
   weaponModel: {fileID: 919132149155446097, guid: fd2ac8ff659263a46afd261af2bf2558,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 4596841790794293450, guid: 661c11503fc22534aadf4fac6b696b4e,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6506065545221884263, guid: 6f7bb2ecfbd87ea4f963c9f7e8f9b84a,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
+  objectPoolType: 0
+  bulletType: 2
+  bulletScale: 0.5
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
-  bulletSpeed: 0
-  range: 0
-  fireRate: 0
-  adsZoomLevel: 0
+  bulletSpeed: 30
+  range: 50
+  fireRate: 1
+  adsZoomLevel: 15
+  penetration: 1
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 15
   itemCost: 0
   ammoRefillCost: 0

@@ -9,15 +9,12 @@ public class SlowJumperKit : PassiveAttribute
     {
     }
 
-
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        //Increases the jumping strength by 150%
-        //player.playerModifiers.jumpForceMultiplier = 1.5f;
-        //Reduces the speed to 75%
-       // player.playerModifiers.speedMultiplier = 0.75f;
+        throw new System.NotImplementedException();
     }
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
         throw new System.NotImplementedException();
     }

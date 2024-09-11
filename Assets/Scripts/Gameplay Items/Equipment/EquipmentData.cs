@@ -6,21 +6,15 @@ using UnityEngine;
 [System.Serializable]
 public class EquipmentData : ScriptableObject
 {
-    [SerializeField] protected string equipmentName;
-    [SerializeField] protected int itemCost;
-    [SerializeField] protected GameObject equipmentVisual;
-    [SerializeField] protected GameObject worldEquipmentModel;
+    public string equipmentName;
+    [SerializeField] private int itemCost;
+    [SerializeField] private GameObject equipmentVisual;
+    [SerializeField] private GameObject worldEquipmentModel;
+    public float equipmentCooldown;
 
-
-    public string EquipmentName => equipmentName;
+    public string EquipmentName { get; private set; }
     public int ItemCost => itemCost;
     public GameObject GetPlayerEquipmentVisual() => equipmentVisual;
     public GameObject GetWorldEquipment() => worldEquipmentModel;
 
-    
-
-    public virtual void UseEquipment()
-    {
-
-    }
 }

@@ -9,13 +9,12 @@ public class NoPassive : PassiveAttribute
     {
     }
 
-    
-
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-      //nothing here
+        throw new System.NotImplementedException();
     }
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
         throw new System.NotImplementedException();
     }

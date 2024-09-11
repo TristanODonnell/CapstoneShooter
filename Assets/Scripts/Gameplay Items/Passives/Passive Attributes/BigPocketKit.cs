@@ -9,19 +9,12 @@ public class BigPocketKit : PassiveAttribute
     {
     }
 
-   
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        //Increases the max ammount of magazines +4
-        //and the magazine size by 200% but
-        //increases reload time by 250%
-
-      //  player.playerModifiers.magazineSizeMultiplier = 2; // 200% increase
-       // player.playerModifiers.maxAmmoAddition = 4;
-      //  player.playerModifiers.reloadTimeMultiplier = 2.5f; // 250% increase
+        //Increases the max ammount of magazines +4 and the magazine size by 200% but increases reload time by 250%
     }
 
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
         throw new System.NotImplementedException();
     }

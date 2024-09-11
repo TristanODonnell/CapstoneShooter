@@ -2,25 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using gricel;
 using UnityEngine;
+using static gricel.HealthSystem;
 
 public class XPKit : PassiveAttribute
 {
+
     public XPKit(PassiveData passiveData) : base(passiveData) { }
-    
 
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        //Makes the player gain a boost of 250 % xp gain
-        //but reduces all health bars to a 80 % and max ammunition by 80 %
-
-        //health 80%
-        //health 80%
-        //health 80%
-        //250% xp gain, need to add XP system still 
+        // Makes the player gain a boost of 250 % xp gain 
+        passiveBehavior.xpSystem.ApplyXPModifiers(2.5f);
+           // but reduces all health bars to a 80 %
+           // and max ammunition by 80 %
     }
 
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+        passiveBehavior.xpSystem.ApplyXPModifiers(1f);
     }
 }

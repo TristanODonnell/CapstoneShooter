@@ -10,6 +10,8 @@ public class WeaponData : ScriptableObject, IInteractable
 {
     public string weaponName;
     public enum WeaponType { Projectile, Hitscan, Melee }
+    public enum BulletType { Standard, Penetrating, Explosive }
+    public enum ObjectPoolType { Shrapnel, Energy}
     public WeaponType weaponType;
     [SerializeField] public ProtectionValues ProtectionValues;
     public ProtectionValues GetProtectionValues() { return ProtectionValues; }
@@ -31,13 +33,16 @@ public class WeaponData : ScriptableObject, IInteractable
     [Header("Game Object Assignment")]
     public GameObject weaponModel;
     public GameObject worldWeapon;
-    
-    [SerializeField] protected GameObject reticle;
-    [SerializeField] protected GameObject weaponVisual;
+
+    [HideInInspector]
+    public ObjectPool ObjectPool;
 
     [Header("Projectile Specific Parameters")]
-    public GameObject projectilePrefab;
-    public int poolSize;
+    public GameObject projectileVisualPrefab;
+    public GameObject objectPoolGameObject;
+    public ObjectPoolType objectPoolType;
+    public BulletType bulletType;
+    public float bulletScale;
 
     [Header("Weapon Settings")]
     public float verticalRecoil;
@@ -46,17 +51,34 @@ public class WeaponData : ScriptableObject, IInteractable
     public float bulletSpeed; 
     public float range;
     public float fireRate; 
-    public float adsZoomLevel; 
+    public float adsZoomLevel;
+    public float penetration;
+    public float penetrationPerHit = 1f;
+
+    [Header("Burst Weapon Settings")]
+    public int burstSize;
+    public float burstDelay;
+
+    [Header("RailGun Weapon Settings")]
+
+    [Header("Riot Shield Weapon Settings")]
+    public GameObject riotShieldCollider;
+
+    [Header("Explosive Bullet Settings")]
+    public float explosionRadius;
 
     [Header("Shop Settings")]
     public int itemCost;
     public int ammoRefillCost;
+
+
+
     public int AmmoRefillCost => ammoRefillCost;
     public string WeaponName => weaponName;
     public int ItemCost => itemCost;
-    public int PoolSize => poolSize;
+    
     public GameObject GetWeaponModel() => weaponModel;
-    public GameObject GetProjectilePrefab() => projectilePrefab;
+    
     public GameObject GetWorldWeapon() => worldWeapon;
     public int MagazineSize => magazineSize;
     public float BulletSpeed => bulletSpeed;

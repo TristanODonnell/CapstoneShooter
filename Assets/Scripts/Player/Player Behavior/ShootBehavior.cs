@@ -11,6 +11,9 @@ using static WeaponData;
 
 public class ShootBehavior : MonoBehaviour
 {
+    private GameObject riotShieldColliderInstance;
+
+
     public Transform weaponTip;
     public Transform weaponPosition;
     public bool isReloading = false;
@@ -21,19 +24,18 @@ public class ShootBehavior : MonoBehaviour
     public WeaponData currentWeapon;
     public GameObject currentWeaponModel;
     public WeaponLogic currentWeaponLogic;
-    public ObjectPool currentObjectPool;
+    //public ObjectPool shrapnelObjectPool;
+    //public ObjectPool energyObjectPool;
     void Start()
     {
-        currentWeaponIndex = 0;
-        ChangeWeapon(currentWeaponIndex);
-        for (int i = 0; i < weapons.Count; i++)
-        {
-            SetUpWeaponAmmo(weapons[i]); // Set up ammo for each weapon
-        }
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
+
     }
 
+    public void SetWeaponModifiers(WeaponData weaponData)
+    {
+
+    }
     private WeaponLogic GetWeaponLogic(string weaponName)
     {
         switch (weaponName)
@@ -41,31 +43,38 @@ public class ShootBehavior : MonoBehaviour
             case "Marksman Rifle":
             case "Hitscan Sniper Test":
             case "Blazing Falcon":
-            case "Burst Cannon":
             case "Grenade Launcher":
             case "PumpShotgun":
-            case "Railgun":
             case "RocketLauncher":
-                return new SemiAutoWeapon(this, currentWeapon, currentObjectPool, gameObject);
+                return new SemiAutoWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
             case "SMG":
             case "Assault Rifle":
             case "BarrelShotgunx2":
             case "Laser":
             case "Machine Revolver":
             case "Minigun":
-
-                return new AutomaticWeapon(this, currentWeapon, currentObjectPool, gameObject);
-            case "Chainsaw":
+                return new AutomaticWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+            
             case "Light Dagger":
             case "Machete":
             case "ShovelAxe":
-                return new MeleeWeapon(this, currentWeapon, currentObjectPool, gameObject);
+                return new MeleeWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+            case "Chainsaw":
+                return new AutomaticMeleeWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+            case "Burst Cannon":
+                return new BurstWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+            case "Railgun":
+                return new RailGunWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+            case "Player Riot Shield":
+                return new RiotShieldWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
 
 
-			default:
+            default:
                 throw new ArgumentException("Unknown weapon name", nameof(weaponName));
         }
     }
+
+
     public void SetUpWeaponAmmo(WeaponData weapon)
     {
         //setting original values 
@@ -119,20 +128,29 @@ public class ShootBehavior : MonoBehaviour
         {
             Destroy(currentWeaponModel);
         }
-        currentWeapon = weapons[index];
-        
+        if (riotShieldColliderInstance != null) // Add this line
+        {
+            Destroy(riotShieldColliderInstance);
+        }
+        currentWeapon = Instantiate(weapons[index]);
+       
         currentWeaponModel = Instantiate(currentWeapon.GetWeaponModel(), weaponPosition.position, weaponPosition.rotation, weaponPosition.transform);
         currentWeaponModel.layer = LayerMask.NameToLayer("AttachedToPlayer");
-        
         Debug.Log("my weapon is now" + currentWeapon.WeaponName);
 
-        if (currentWeapon.weaponType == WeaponType.Projectile)
+        ObjectPool foundObjectPool = FindObjectOfType<ObjectPool>();
+        if (currentWeapon.objectPoolGameObject != null)
         {
-            currentObjectPool = currentWeaponModel.GetComponent<ObjectPool>();
-            PooledObject pooledObject = currentWeapon.GetProjectilePrefab().GetComponent<PooledObject>();
-            currentObjectPool.InitializePool(pooledObject, currentWeapon.PoolSize);
+            currentWeapon.ObjectPool = foundObjectPool;
+            Debug.Log("Weapon object pool assigned: " + currentWeapon.ObjectPool);
         }
+        
         currentWeaponLogic = GetWeaponLogic(currentWeapon.WeaponName);
+        if (currentWeaponLogic is RiotShieldWeapon)
+        {
+            riotShieldColliderInstance = Instantiate(currentWeapon.riotShieldCollider, weaponPosition.position, weaponPosition.rotation, weaponPosition.transform);
+            riotShieldColliderInstance.layer = LayerMask.NameToLayer("Player Riot Shield");
+        }
     } 
     public void DropWeapon(int index)
     {
@@ -253,4 +271,18 @@ public class ShootBehavior : MonoBehaviour
     {
         currentWeaponLogic.ReloadLogic();
     }
+
+    public Transform GetShootingOrigin()
+    {
+        if (lookBehavior != null)
+        {
+            return lookBehavior.myCamera.transform;
+        }
+        else
+        {
+            return weaponTip;
+        }
+        
+    }
+   
 }

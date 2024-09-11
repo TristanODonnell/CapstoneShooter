@@ -10,18 +10,15 @@ public class SpeedKit : PassiveAttribute
 
     }
 
-    
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
+        passiveBehavior.movement.SpeedValue *= 1.5f;
+        // makes the energy shield bar 75% of its usual capacity
 
-        //Increases the player speed to 150% but it makes the energy shield bar 75% of its usual capacity
-        movement.SpeedValue *= 1.5f;
-        //player.playerModifiers.speedMultiplier = 1.5f;
-        // health ENERGY SHIELD BAR 75% capacity
     }
 
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        movement.SpeedValue *= 1f;
+        passiveBehavior.movement.SpeedValue *= 1f;
     }
 }
