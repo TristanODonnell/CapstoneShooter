@@ -15,31 +15,39 @@ MonoBehaviour:
   weaponName: Chainsaw
   weaponType: 2
   ProtectionValues:
-    unprotected: 0
+    unprotected: 10
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 0
-  totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
-  reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
+  currentMagazineAmmo: 80
+  totalAmmo: 100
+  magazineSize: 100
+  maxAmmo: 100
+  reloadTime: 1
+  originalMagazineSize: 100
+  originalMaxAmmo: 100
+  originalReloadTime: 1
   weaponModel: {fileID: 919132149155446097, guid: 8595e8acbc89aac4b928efe10c613535,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 5700079142070317025, guid: 015e0a4e2d826754bbed5b2ef8e157e4,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
   bulletSpeed: 0
-  range: 0
-  fireRate: 0
+  range: 1
+  fireRate: 1
   adsZoomLevel: 0
+  penetration: 1
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

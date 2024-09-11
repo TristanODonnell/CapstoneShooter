@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class MovementBehavior : MonoBehaviour
 {
-    public Modifiers modifiers;
-    public Modifiers.Speed speed = new Modifiers.Speed(5.0f);
+    public SpeedModifier speedModifier;
+    public SpeedModifier.Speed speed = new SpeedModifier.Speed(5.0f);
     public float SpeedValue
     {
         get { return speed.baseSpeed * speed.multiplier ; }

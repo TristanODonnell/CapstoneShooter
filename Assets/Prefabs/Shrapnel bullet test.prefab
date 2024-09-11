@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7849552867276411789}
   - component: {fileID: 7484991652281784155}
   m_Layer: 14
-  m_Name: Bullet
+  m_Name: Shrapnel bullet test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -160,5 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148b5b57f058f8f4bbcd039ef05e278b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  objectPool: {fileID: 0}
+  objectPool: {fileID: 1175214297970513656, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
+  currentWeaponData: {fileID: 0}
+  bulletLifetime: 5

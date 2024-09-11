@@ -11,6 +11,7 @@ public class AutomaticWeapon : WeaponLogic
     {
         currentWeaponData = weaponData;
         this.objectPool = objectPool;
+        this.shooter = shooter;
     }
 
     public override void ReloadLogic()

@@ -5,6 +5,7 @@ using System.Linq;
 using gricel;
 using Unity.VisualScripting;
 using UnityEngine;
+using static gricel.HealthSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,20 +37,31 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private ShopBehavior shop;
     private bool isShopOpen = false;
-    public int totalPlayerCurrency; 
+    public int totalPlayerCurrency;
 
-    void Start()
+    private void Awake()
     {
-        grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    void Start()
+    {
+        shoot.currentWeaponIndex = 0;
+        shoot.ChangeWeapon(shoot.currentWeaponIndex);
+        for (int i = 0; i <     shoot.weapons.Count; i++)
+        {
+            shoot.SetUpWeaponAmmo(shoot.weapons[i]); // Set up ammo for each weapon
+        }
+        
+        grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
+       
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
+        
         CheckMoveInput();
         CheckShootInput();
         CheckSprintInput();

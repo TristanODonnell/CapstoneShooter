@@ -10,8 +10,7 @@ public abstract class PassiveAttribute
     {
         this.passiveData = passiveData;
     }
-    public abstract void ApplyEffects(PlayerController player, Hitbox hitBox, gricel.HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational);
 
-
-    public abstract void RemoveEffects(PlayerController player, Hitbox hitBox, gricel.HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational);
+    public abstract void ApplyEffects(PassiveBehavior passiveBehavior);
+    public abstract void RemoveEffects(PassiveBehavior passiveBehavior);
 }

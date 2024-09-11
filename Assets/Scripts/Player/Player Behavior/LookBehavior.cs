@@ -7,7 +7,7 @@ public class LookBehavior : MonoBehaviour
 {
     private Vector2 lookDirection;
     [SerializeField] private float lookSensitivity;
-    [SerializeField] private Camera myCamera;
+    public Camera myCamera;
     public ShootBehavior shootBehavior;
     private float originalFieldOfView;
     private bool isAimingDownSight = false;

@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponName: Marksman Rifle
   weaponType: 0
   ProtectionValues:
-    unprotected: 40
+    unprotected: 500
     energyShield: 10
     armor: 6
     stun: 2
@@ -29,19 +29,27 @@ MonoBehaviour:
   originalReloadTime: 3
   weaponModel: {fileID: 919132149155446097, guid: 0cf157e2957649d48a95548be01e3947,
     type: 3}
-  worldWeapon: {fileID: 4262508997570520343, guid: c24003e9b74944c4bace153206ccc0a9,
+  worldWeapon: {fileID: 2197341519502528375, guid: 3275b0218055f624fb14180cc89989b2,
     type: 3}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 3766763127949734870, guid: b0665eb0f8742e843b89e1160f414cb4,
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6506065545221884263, guid: 6f7bb2ecfbd87ea4f963c9f7e8f9b84a,
     type: 3}
-  poolSize: 20
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0.1
   verticalRecoil: 5
   horizontalRecoil: 2
   recoilResetSpeed: 0.5
-  bulletSpeed: 30
-  range: 50
+  bulletSpeed: 100
+  range: 600
   fireRate: 0.5
   adsZoomLevel: 15
+  penetration: 25
+  penetrationPerHit: 5
+  burstSize: 0
+  burstDelay: 0
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

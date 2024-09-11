@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad5bb8b27925ab43bb42bfff67e6765, type: 3}
+  m_Name: Player Riot Shield
+  m_EditorClassIdentifier: 
+  weaponName: Player Riot Shield
+  weaponType: 2
+  ProtectionValues:
+    unprotected: 40
+    energyShield: 0
+    armor: 0
+    stun: 0
+  currentMagazineAmmo: 45
+  totalAmmo: 50
+  magazineSize: 50
+  maxAmmo: 50
+  reloadTime: 50
+  originalMagazineSize: 50
+  originalMaxAmmo: 50
+  originalReloadTime: 50
+  weaponModel: {fileID: 919132149155446097, guid: 657b9d9f095bfa64d9109747b6f6caea,
+    type: 3}
+  worldWeapon: {fileID: 2490364257951202562, guid: 6362bc22f87eeb84ab32a3561ef7ec91,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0
+  verticalRecoil: 0
+  horizontalRecoil: 0
+  recoilResetSpeed: 0
+  bulletSpeed: 0
+  range: 2
+  fireRate: 1
+  adsZoomLevel: 0
+  penetration: 1
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 861003198885002567, guid: e23af79515fd36045bdcd0bbc9a023ef,
+    type: 3}
+  explosionRadius: 0
+  itemCost: 0
+  ammoRefillCost: 0

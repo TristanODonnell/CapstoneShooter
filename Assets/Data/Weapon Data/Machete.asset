@@ -15,31 +15,39 @@ MonoBehaviour:
   weaponName: Machete
   weaponType: 2
   ProtectionValues:
-    unprotected: 0
+    unprotected: 35
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 0
-  totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
+  currentMagazineAmmo: 83
+  totalAmmo: 100
+  magazineSize: 100
+  maxAmmo: 100
   reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalMagazineSize: 100
+  originalMaxAmmo: 100
   originalReloadTime: 0
   weaponModel: {fileID: 919132149155446097, guid: 09104f0dad3dde446a5988549057d717,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 7265341131869429774, guid: 32943bb51ae640e43b0ad174c3abcd41,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
   bulletSpeed: 0
-  range: 0
-  fireRate: 0
+  range: 0.65
+  fireRate: 1
   adsZoomLevel: 0
+  penetration: 1
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

@@ -15,16 +15,16 @@ MonoBehaviour:
   weaponName: Light Dagger
   weaponType: 2
   ProtectionValues:
-    unprotected: 0
+    unprotected: 10
     energyShield: 0
     armor: 0
     stun: 0
-  currentMagazineAmmo: 0
+  currentMagazineAmmo: 100
   totalAmmo: 0
-  magazineSize: 0
+  magazineSize: 100
   maxAmmo: 0
   reloadTime: 0
-  originalMagazineSize: 0
+  originalMagazineSize: 100
   originalMaxAmmo: 0
   originalReloadTime: 0
   weaponModel: {fileID: 919132149155446097, guid: 2db8e1ab9c53dbd49aaa1e9f924f6499,
@@ -41,5 +41,7 @@ MonoBehaviour:
   range: 0
   fireRate: 0
   adsZoomLevel: 0
+  burstSize: 0
+  burstDelay: 0
   itemCost: 0
   ammoRefillCost: 0

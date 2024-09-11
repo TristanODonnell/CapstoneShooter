@@ -11,18 +11,19 @@ public class RamboKit : PassiveAttribute
     {
     }
 
-    public override void ApplyEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
         //The flesh and armour healthbars are now decreased to 0 %,
         //the energy shield is now 100 % of the health bar, but reduced to 75 %,
         //it also increases the damage of all weapons to 150 % and
-        //magazine size to 150 %, and
-        //increases reload speed by 150 %
-
+        //magazine size to 150 %, and increases reload speed by 150 %
+     //   passiveBehavior.dataManager.ApplyMagSizeModifiers(1.5f);
+     //   passiveBehavior.dataManager.ApplyReloadTimeModifiers(1.5f);
     }
 
-    public override void RemoveEffects(PlayerController player, Hitbox hitBox, HealthSystem health, MovementBehavior movement, ShootBehavior shoot, EquipmentBehavior equipment, PassiveBehavior passive, GravitationalBehaviour gravitational)
+    public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+       // passiveBehavior.dataManager.ResetMagSizeModifiers();
+      //  passiveBehavior.dataManager.ResetReloadTimeModifiers();
     }
 }
