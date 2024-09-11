@@ -7,7 +7,7 @@ public class Hitbox : MonoBehaviour
 	[SerializeField]
 	private BoxCollider collider;
 	[SerializeField]
-	private gricel.HealthSystem health;
+	public gricel.HealthSystem health;
 	[SerializeField]
 	public float damagePercentage = 1;
 	private void OnValidate()

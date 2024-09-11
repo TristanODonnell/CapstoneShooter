@@ -11,7 +11,7 @@ public class EnemyState_Gunslinger_MediumDistanceFight : Enemy_State
 	[SerializeField] private float escape_distanceToNode = 1f;
 	[SerializeField] Countdown escape_throwGrenadeTime = new(3f);
 	[SerializeField][Range(0, 5)] private byte escape_GrenadesLeft = 5;
-	[SerializeField] private gricel.Grenade escape_grenade;
+	[SerializeField] private throwables.ThrowableItem escape_grenade;
 	[SerializeField] private Transform escape_grenadePivot;
 	[SerializeField] private float escape_grenadeThrowForce;
 
@@ -157,7 +157,7 @@ public class EnemyState_Gunslinger_MediumDistanceFight : Enemy_State
 		{
 			var position = escape_grenadePivot.position;
 			var direction = escape_grenadePivot.forward;
-			escape_grenade.Throw(position, direction, escape_grenadeThrowForce);
+			escape_grenade.Throw(id.health, position, direction, escape_grenadeThrowForce);
 			id.UseSpecialAnimation();
 		}
 
