@@ -9,7 +9,7 @@ namespace Abilities
 		protected GravitationalBehaviour gravitation;
 		[SerializeField] private KeyCode button;
 
-		public AbilityBase Ability_Set(AbilityBase reference, CharacterController controller, GravitationalBehaviour gravitation)
+		public static AbilityBase Ability_Set(AbilityBase reference, CharacterController controller, GravitationalBehaviour gravitation)
 		{
 			var ability = Instantiate(reference);
 			ability.controller = controller;

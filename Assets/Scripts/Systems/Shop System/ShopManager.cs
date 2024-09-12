@@ -77,7 +77,7 @@ public class ShopManager : MonoBehaviour
     }
     public int totalGrenades = 6;
     public void BuyGrenadeRefill()
-    {
+    {/*
         player = GameObject.Find("Player").GetComponent<PlayerController>();
         int grenadeItemCost = DataManager.Singleton.grenades[0].ItemCost;
         int refillCost = grenadeItemCost * totalGrenades;
@@ -90,6 +90,7 @@ public class ShopManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("Not enough currency to buy ");
         }
+        */
     }
 
     public void BuyAmmoRefill()

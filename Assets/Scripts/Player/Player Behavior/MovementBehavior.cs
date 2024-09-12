@@ -5,13 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MovementBehavior : MonoBehaviour
 {
-    public SpeedModifier speedModifier;
-    public SpeedModifier.Speed speed = new SpeedModifier.Speed(5.0f);
-    public float SpeedValue
-    {
-        get { return speed.baseSpeed * speed.multiplier ; }
-        set { speed.baseSpeed = value; }
-    }
+    public float speed;
 
     [SerializeField] private float sprintMultiplier;
     [SerializeField] private float walkMultiplier;
@@ -19,6 +13,10 @@ public class MovementBehavior : MonoBehaviour
     private Vector3 moveDirection;
     private bool isSprinting = false;
 
+    private void Start()
+    {
+        SetPlayerSpeedModifier();
+    }
     public void MovePlayer()
     {
         moveDirection.x = Input.GetAxisRaw("Horizontal");
@@ -37,5 +35,20 @@ public class MovementBehavior : MonoBehaviour
         this.isSprinting = isSprinting;
     }
 
+    public void SetPlayerSpeedModifier()
+    {
+        int currentSpeedLevel = ModifierManager.Singleton.currentSpeedLevel;
+
+        float speedModifier = ModifierManager.Singleton.speedModifiers[currentSpeedLevel - 1];
+
+        float modifiedSpeed = speedModifier * speed;
+        speed = modifiedSpeed;
+    }    
+
+    public void SetPassiveModifier(float speedModifier)
+    {
+        float modifiedSpeed = speedModifier * speed;
+        speed = modifiedSpeed;
+    }
 
 }

@@ -14,5 +14,6 @@ public class PassiveData : ScriptableObject
     public string PassiveName => passiveName;
     public int ItemCost => itemCost;
     public GameObject GetWorldPassive() => worldPassiveModel;
-
+    public PassiveType passiveType;
+    public enum PassiveType { TankKit, SpeedKit, CooldownKit, XPKit, RamboKit, BigPocketKit, SlowJumperKit, NoPassive}
 }

@@ -480,6 +480,7 @@ GameObject:
   - component: {fileID: 5505649760170264425}
   - component: {fileID: 171450825944137780}
   - component: {fileID: 8457631081482580195}
+  - component: {fileID: 6519115802940064383}
   - component: {fileID: 6576053233215072034}
   - component: {fileID: 2001258778796343695}
   - component: {fileID: 529518353722779152}
@@ -571,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedPlayerData: {fileID: 0}
+  abilityBehaviour: {fileID: 0}
   grenadeManager: {fileID: 0}
   healthSystem: {fileID: 0}
   hitBox: {fileID: 0}
@@ -589,6 +591,33 @@ MonoBehaviour:
     m_Bits: 6400
   shop: {fileID: 4159032662921158955}
   totalPlayerCurrency: 0
+--- !u!114 &6519115802940064383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ab592d318d9264184d5ccf54a299e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 4064175703137294824}
+  gravitation: {fileID: 6576053233215072034}
+  abilityReferences:
+    jetburst: {fileID: -5175714637659395522, guid: 8848a3bca080fe149ac8fcded10991fe,
+      type: 3}
+    teleporter: {fileID: -2714547023022830148, guid: 4ce032358ae489842bb7a3cc587b75e8,
+      type: 3}
+    dash: {fileID: 4996885520422301894, guid: b9e7777c4fe958f44afc20bf3cce6e2c, type: 3}
+    groundPound: {fileID: 1902764223411092520, guid: afab9f06325ebdb4697691c9c8e14a66,
+      type: 3}
+    extraBatery: {fileID: -1139340654579557848, guid: c3014071bcc8f354fa25ac4a9990069d,
+      type: 3}
+    jetpack: {fileID: 4858017524980985109, guid: 9fe1a8702caa9014896773d9c8fad478,
+      type: 3}
+  abilitySelected: {fileID: 0}
 --- !u!114 &6576053233215072034
 MonoBehaviour:
   m_ObjectHideFlags: 0

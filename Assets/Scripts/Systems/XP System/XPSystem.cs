@@ -9,7 +9,7 @@ public class XPSystem : MonoBehaviour
     public int playerLevel;
     public int xpRequiredForNextLevel;
     public int xpGainPerWave;
-    private float xpMultiplier = 1f;
+    [SerializeField] private float xpMultiplier;
     public static XPSystem Singleton
     {
         get; private set;
@@ -34,7 +34,7 @@ public class XPSystem : MonoBehaviour
         // Set the initial XP gain per level
         xpGainPerWave = 50; // Example value
 
-
+        SetXPModifier();
         playerLevel = 1;
         currentXP = 0;
 
@@ -63,11 +63,16 @@ public class XPSystem : MonoBehaviour
 
     }
 
-
-    public void ApplyXPModifiers(float xpMultiplier)
+    public void SetXPModifier()
     {
-        this.xpMultiplier = xpMultiplier;
+        int currentXPGainedLevel = ModifierManager.Singleton.currentXPGainedLevel;
+
+         xpMultiplier = ModifierManager.Singleton.xpGainedModifiers[currentXPGainedLevel - 1];
+
     }
+
+
+    
 }
 
 

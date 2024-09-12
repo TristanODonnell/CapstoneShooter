@@ -9,9 +9,11 @@ using UnityEngine;
 public class WeaponData : ScriptableObject, IInteractable
 {
     public string weaponName;
+    public enum WeaponCategory { Shrapnel, Energy, Heavy, Melee }
     public enum WeaponType { Projectile, Hitscan, Melee }
     public enum BulletType { Standard, Penetrating, Explosive }
     public enum ObjectPoolType { Shrapnel, Energy}
+    public WeaponCategory weaponCategory;
     public WeaponType weaponType;
     [SerializeField] public ProtectionValues ProtectionValues;
     public ProtectionValues GetProtectionValues() { return ProtectionValues; }
@@ -19,17 +21,10 @@ public class WeaponData : ScriptableObject, IInteractable
     [Header("Gameplay Variable Ammo Fields")]
     public int currentMagazineAmmo;
     public int totalAmmo;
-
     public int magazineSize;
     public int maxAmmo;
     public float reloadTime;
-
-    [Header("Editor Set Ammo Fields")]
-    public int originalMagazineSize;
-    public int originalMaxAmmo;
-    public float originalReloadTime;
-
-
+   
     [Header("Game Object Assignment")]
     public GameObject weaponModel;
     public GameObject worldWeapon;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using throwables;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
@@ -75,6 +76,6 @@ public class DataManager : MonoBehaviour
     public List<PassiveData> passive = new List<PassiveData>();
 
 
-    public List<GrenadeData> grenades = new List<GrenadeData>();
+    public List<ThrowableItem> grenades = new List<ThrowableItem>();
     
 }

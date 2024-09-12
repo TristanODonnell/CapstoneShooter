@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using gricel;
 using UnityEngine;
 using static gricel.HealthSystem;
+using static PassiveData;
 using static UnityEngine.Rendering.DebugUI;
 
 public class PassiveBehavior : MonoBehaviour
 {
+     private PassiveAttribute _currentPassiveAttribute;
     public PassiveData attachedPassive;
-    private RamboKit ramboKit;
+     
     public PlayerController player { get; private set; }
     public Hitbox hitBox { get; private set; }
     public HealthSystem health { get; private set; }
@@ -29,10 +32,9 @@ public class PassiveBehavior : MonoBehaviour
         gravitational = GetComponent<GravitationalBehaviour>();
         dataManager = DataManager.Singleton;
         xpSystem = XPSystem.Singleton;
-        ramboKit = new RamboKit(attachedPassive);
 
-        // Apply the passive effects
-        ApplyPassiveEffects(ramboKit);
+        PassiveAttribute currentPassiveAttribute = GetCurrentPassiveAttribute();
+        Debug.Log("Current passive attribute: " + currentPassiveAttribute.GetType().Name);
     }
 
     public void SwapPassive(PassiveData newPassive)
@@ -42,10 +44,49 @@ public class PassiveBehavior : MonoBehaviour
 
         GameObject droppedPassive = Instantiate(attachedPassive.GetWorldPassive(), dropPosition, dropRotation);
 
-        attachedPassive = newPassive; 
-        
+        attachedPassive = newPassive;
+        RemovePassiveEffects(GetCurrentPassiveAttribute());
 
+        PassiveAttribute newPassiveAttribute = CreatePassiveAttribute(attachedPassive);
+
+        ApplyPassiveEffects(newPassiveAttribute);
     }
+    
+    private PassiveAttribute GetCurrentPassiveAttribute()
+    {
+        if (_currentPassiveAttribute == null)
+        {
+            _currentPassiveAttribute = CreatePassiveAttribute(attachedPassive);
+        }
+        return _currentPassiveAttribute;
+    }
+    
+    private PassiveAttribute CreatePassiveAttribute(PassiveData passiveData)
+    {
+        switch (passiveData.passiveType)
+        {
+            case PassiveType.TankKit:
+                return new TankKit(passiveData);
+            case PassiveType.RamboKit:
+                return new RamboKit(passiveData);
+            case PassiveType.SpeedKit: 
+                return new SpeedKit(passiveData);
+            case PassiveType.CooldownKit: 
+                return new CooldownKit(passiveData);
+            case PassiveType.XPKit:
+                return new XPKit(passiveData);
+            case PassiveType.BigPocketKit:
+                return new BigPocketKit(passiveData);
+            case PassiveType.SlowJumperKit:
+                return new SlowJumperKit(passiveData);
+            case PassiveType.NoPassive:
+                return new NoPassive(passiveData);
+                
+            default:
+                throw new ArgumentException("Unsupported passive type", nameof(passiveData));
+        }
+    }
+
     public void ApplyPassiveEffects(PassiveAttribute passiveAttribute)
     {
         passiveAttribute.ApplyEffects(this);

@@ -30,7 +30,7 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	{
 		if (abilitySelected)
 			Destroy(abilitySelected.gameObject);
-		abilitySelected.Ability_Set(ability, controller, gravitation);
+		abilitySelected = Abilities.AbilityBase.Ability_Set(ability, controller, gravitation);
 	}
 
 	// Update is called once per frame

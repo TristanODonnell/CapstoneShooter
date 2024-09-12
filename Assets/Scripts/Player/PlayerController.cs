@@ -10,22 +10,23 @@ using static gricel.HealthSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerData attachedPlayerData;
+
+
     
-    public GrenadeManager grenadeManager;
     public HealthSystem healthSystem;
     public Hitbox hitBox;
-    public SkillTree skillTree;
 
-
-
-    [Header("Player Behavior")]
-    [SerializeField] private LookBehavior look;
     
+    public GrenadeManager grenadeManager;
+    public GrenadeBehavior grenade;
+    public Player_AbilityBehaviour abilityBehaviour;
+    [Header("Player Behavior")]
+    public LookBehavior look;
     public MovementBehavior move;
     public ShootBehavior shoot;
-    public GrenadeBehavior grenade;
-    public EquipmentBehavior equipment;
     public PassiveBehavior passive;
+
+
     public GravitationalBehaviour gravitational;
     public float jumpForce;
     
@@ -34,7 +35,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask interactableFilter;
     public IInteractable selectedInteraction;
-
     [SerializeField] private ShopBehavior shop;
     private bool isShopOpen = false;
     public int totalPlayerCurrency;
@@ -54,14 +54,111 @@ public class PlayerController : MonoBehaviour
         }
         
         grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
-       
+
+        SetPlayerAbility();
+        SetPlayerHealthModifier();
+        SetPlayerJumpModifier();
+    }
+
+    private void SetPlayerAbility()
+    {
+
+        abilityBehaviour.SetAbility(abilityBehaviour.abilityReferences.jetburst);
     }
 
 
+    public void ModifierInputTest()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            SetPlayerHealthModifier();
+            SetPlayerJumpModifier();
+        }
+    }
+    public void SetPlayerJumpModifier()
+    {
+        int currentJumpLevel = ModifierManager.Singleton.currentJumpHeightLevel;
+
+        float jumpModifier = ModifierManager.Singleton.jumpingHeightModifiers[currentJumpLevel - 1];
+
+        float modifiedJumpForce = jumpForce * jumpModifier;
+        jumpForce = modifiedJumpForce;
+    }
+    public void SetHealthPassiveModifier(float armorHealthPercentage, float fleshHealthPercentage, float energyHealthPercentage, float totalHealthMultiplier)
+    {
+        if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
+        {
+            Debug.LogError("healthSystem or healthBars is not ready!");
+            return;
+        }
+        if (armorHealthPercentage + fleshHealthPercentage + energyHealthPercentage != 1.0f)
+        {
+            Debug.LogError("Health percentages do not add up to 100%");
+            return;
+        }
+
+        float totalHealth = 0f;
+        foreach (var health in healthSystem.healthBars)
+        {
+            totalHealth += health.health_Max;
+        }
+        totalHealth *= totalHealthMultiplier;
+        float armorHealth = totalHealth * armorHealthPercentage;
+        float fleshHealth = totalHealth * fleshHealthPercentage;
+        float energyHealth = totalHealth * energyHealthPercentage;
+        foreach (var health in healthSystem.healthBars)
+        {
+            switch (health.protection)
+            {
+                case Health.HealthT.unprotected:
+                    health.health_Max = fleshHealth;
+                    break;
+                case Health.HealthT.armor:
+                    health.health_Max = armorHealth;
+                    break;
+                case Health.HealthT.energyShield:
+                    health.health_Max = energyHealth;
+                    break;
+            }
+        }
+    }
+    public void SetPlayerHealthModifier() // -- worked on input but not Start 
+    {
+        if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
+        {
+            Debug.LogError("healthSystem or healthBars is not ready!");
+            return;
+        }
+        int currentArmorLevel = ModifierManager.Singleton.currentArmorLevel;
+        int currentFleshLevel = ModifierManager.Singleton.currentFleshLevel;
+        int currentEnergyShieldLevel = ModifierManager.Singleton.currentEnergyShieldLevel;
+
+        float armorModifier = ModifierManager.Singleton.armorModifiers[currentArmorLevel - 1];
+        float fleshModifier = ModifierManager.Singleton.fleshModifiers[currentFleshLevel - 1];
+        float energyShieldModifier = ModifierManager.Singleton.energyShieldModifiers[currentEnergyShieldLevel - 1];
+        Debug.Log("Modifiers: armor=" + armorModifier + ", flesh=" + fleshModifier + ", energyShield=" + energyShieldModifier);
+        foreach (var health in healthSystem.healthBars)
+        {
+            Debug.Log("Before modification: health_Max = " + health.health_Max);
+            switch (health.protection)
+            {
+                case Health.HealthT.unprotected:
+                    health.health_Max *= fleshModifier;
+                    break;
+                case Health.HealthT.energyShield:
+                    health.health_Max *= energyShieldModifier;
+                    break;
+                case Health.HealthT.armor:
+                    health.health_Max *= armorModifier;
+                    break;
+            }
+            Debug.Log("After modification: health_Max = " + health.health_Max);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        ModifierInputTest();
         CheckMoveInput();
         CheckShootInput();
         CheckSprintInput();
@@ -76,20 +173,10 @@ public class PlayerController : MonoBehaviour
         ChangeWeaponInput();
         CheckShopInput();
 
-        EquipmentInteract();
+//EquipmentInteract();
         WeaponInteract();
         PassiveInteract();
         CurrentGrenadeSelectInput();
-
-
-
-
-
-
-
-
-        PickUpWeaponInputTest();
-        DropWeaponInputTest();
 
 
         totalPlayerCurrency = CurrencyManager.singleton.totalCurrency;
@@ -103,8 +190,8 @@ public class PlayerController : MonoBehaviour
             shoot.weapons.Add(playerData.playerWeaponData[i]);
             shoot.SetUpWeaponAmmo(shoot.weapons[i]);
         }
-        equipment.playerEquipmentData1 = playerData.playerEquipmentData[0];
-        equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
+        //equipment.playerEquipmentData1 = playerData.playerEquipmentData[0];
+        //equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
         passive.attachedPassive = playerData.playerPassiveData;
 
     }
@@ -152,7 +239,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    /*
     private void EquipmentInteract()
 
     {
@@ -204,6 +291,7 @@ public class PlayerController : MonoBehaviour
             selectedInteraction = null;
         }
     }
+    */
     private void WeaponInteract()
     {
         Ray ray = new Ray(myCamera.transform.position, myCamera.transform.forward);
@@ -249,37 +337,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-    private void PickUpWeaponInputTest()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Ray ray = new Ray(myCamera.transform.position, myCamera.transform.forward);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 2f)) // Adjust the distance (2f) as needed
-            {
-                GameObject hitObject = hit.collider.gameObject;
-
-                // Check if the hit object has the "Weapon" tag or is a weapon prefab
-                if (hitObject.CompareTag("Weapon"))
-                {
-                  //  shoot.PickUpWeapon(hitObject);
-
-                    // Optionally, destroy the object in the world after picking it up
-                    Destroy(hitObject);
-                }
-            }
-        }
-    }
-    private void DropWeaponInputTest()
-    {
-        if(Input.GetKeyDown(KeyCode.Y))
-        {
-          //  shoot.DropWeapon(shoot.currentWeaponIndex);
-
-        }
-    }
     private void CheckShopInput()
     {
         if(Input.GetKeyDown(KeyCode.M))
@@ -384,6 +441,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
+            Debug.Log("G key pressed!");
             grenadeManager.ThrowGrenade();
         }
 

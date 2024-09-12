@@ -17,11 +17,11 @@ public class EquipmentHolder : MonoBehaviour,  IInteractable
 
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            player.equipment.ReplaceEquipment(0, equipmentData);
+            //player.equipment.ReplaceEquipment(0, equipmentData);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            player.equipment.ReplaceEquipment(1, equipmentData);
+           // player.equipment.ReplaceEquipment(1, equipmentData);
         }
 
 

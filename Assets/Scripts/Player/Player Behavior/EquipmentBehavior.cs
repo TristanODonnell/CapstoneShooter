@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class EquipmentBehavior : MonoBehaviour
 {
-    
+    //we changed format to be player_abilitybehavior
+    /*
     public GameObject attachedEquipmentModel1;
     public EquipmentData playerEquipmentData1;
 
@@ -69,5 +70,5 @@ public class EquipmentBehavior : MonoBehaviour
     {
 
     }
-
+    */
 }

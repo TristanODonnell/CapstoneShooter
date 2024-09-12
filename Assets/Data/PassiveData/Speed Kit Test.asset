@@ -15,3 +15,4 @@ MonoBehaviour:
   passiveName: 
   itemCost: 0
   worldPassiveModel: {fileID: 0}
+  passiveType: 1

@@ -13,27 +13,28 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   weaponName: SMG
-  weaponType: 0
+  weaponCategory: 0
+  weaponType: 1
   ProtectionValues:
-    unprotected: 5.2
-    energyShield: 1.72
-    armor: 1.82
-    stun: -0.39
+    unprotected: 5
+    energyShield: 5
+    armor: 5
+    stun: 5
   currentMagazineAmmo: 40
-  totalAmmo: 8633
+  totalAmmo: 50
   magazineSize: 40
   maxAmmo: 2000
   reloadTime: 5
-  originalMagazineSize: 40
-  originalMaxAmmo: 2000
-  originalReloadTime: 5
   weaponModel: {fileID: 919132149155446097, guid: 85e3bceead0189343902bc33fce5b6ff,
     type: 3}
   worldWeapon: {fileID: 5323353297967709619, guid: 09d49ca82b724f145af3b76823dd136c,
     type: 3}
-  projectilePrefab: {fileID: 3766763127949734870, guid: b0665eb0f8742e843b89e1160f414cb4,
-    type: 3}
-  poolSize: 50
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  objectPoolType: 0
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 2
   horizontalRecoil: 2
   recoilResetSpeed: 0
@@ -41,7 +42,11 @@ MonoBehaviour:
   range: 50
   fireRate: 0.05
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

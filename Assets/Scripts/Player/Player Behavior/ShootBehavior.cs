@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using gricel;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -28,18 +29,14 @@ public class ShootBehavior : MonoBehaviour
     //public ObjectPool energyObjectPool;
     void Start()
     {
-        
+
 
     }
 
-    public void SetWeaponModifiers(WeaponData weaponData)
-    {
-
-    }
     private WeaponLogic GetWeaponLogic(string weaponName)
     {
         switch (weaponName)
-        { 
+        {
             case "Marksman Rifle":
             case "Hitscan Sniper Test":
             case "Blazing Falcon":
@@ -54,7 +51,7 @@ public class ShootBehavior : MonoBehaviour
             case "Machine Revolver":
             case "Minigun":
                 return new AutomaticWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
-            
+
             case "Light Dagger":
             case "Machete":
             case "ShovelAxe":
@@ -77,21 +74,94 @@ public class ShootBehavior : MonoBehaviour
 
     public void SetUpWeaponAmmo(WeaponData weapon)
     {
-        //setting original values 
-        weapon.originalMaxAmmo = weapon.maxAmmo;
-        weapon.originalMagazineSize = weapon.magazineSize;
-        weapon.originalReloadTime = weapon.reloadTime;
 
-        //set to total ammo and mag size 
-        weapon.totalAmmo = weapon.maxAmmo;
+        int currentReloadLevel = ModifierManager.Singleton.currentReloadLevel;
+        int currentMaxAmmoLevel = ModifierManager.Singleton.currentmaxAmmoLevel;
+        int currentWeaponMagazineLevel = ModifierManager.Singleton.currentWeaponMagazineLevel;
+        // Ensure that currentMaxAmmoLevel is within valid bounds
+        if (currentMaxAmmoLevel <= 0 || currentMaxAmmoLevel > ModifierManager.Singleton.maxAmmunitionModifiers.Count)
+        {
+            Debug.LogError($"Invalid currentMaxAmmoLevel: {currentMaxAmmoLevel}. Must be between 1 and {ModifierManager.Singleton.maxAmmunitionModifiers.Count}");
+            return;  // Exit the method to prevent further errors
+        }
+
+        // Ensure that currentReloadLevel and currentWeaponMagazineLevel are also within valid bounds
+        if (currentReloadLevel <= 0 || currentReloadLevel > ModifierManager.Singleton.reloadTimeModifiers.Count)
+        {
+            Debug.LogError($"Invalid currentReloadLevel: {currentReloadLevel}. Must be between 1 and {ModifierManager.Singleton.reloadTimeModifiers.Count}");
+            return;
+        }
+
+        if (currentWeaponMagazineLevel <= 0 || currentWeaponMagazineLevel > ModifierManager.Singleton.weaponMagazineModifiers.Count)
+        {
+            Debug.LogError($"Invalid currentWeaponMagazineLevel: {currentWeaponMagazineLevel}. Must be between 1 and {ModifierManager.Singleton.weaponMagazineModifiers.Count}");
+            return;
+        }
+
+        float reloadTimeModifier = ModifierManager.Singleton.reloadTimeModifiers[currentReloadLevel - 1];
+        float maxAmmoModifier = ModifierManager.Singleton.maxAmmunitionModifiers[currentMaxAmmoLevel - 1];
+        float magazineSizeModifier = ModifierManager.Singleton.weaponMagazineModifiers[currentWeaponMagazineLevel - 1];
+
+        //set up modified values
+        weapon.reloadTime *= reloadTimeModifier;
+        weapon.maxAmmo = (int)(weapon.maxAmmo * maxAmmoModifier);
+        weapon.magazineSize = (int)(weapon.magazineSize * magazineSizeModifier);
+
         weapon.currentMagazineAmmo = weapon.magazineSize;
     }
 
-    public void ResetWeaponAmmo(WeaponData weapon)
+
+    public void SetWeaponPassive(WeaponData weapon)
     {
-        weapon.maxAmmo = weapon.originalMaxAmmo;
-        weapon.magazineSize = weapon.originalMagazineSize;
-        weapon.reloadTime = weapon.originalReloadTime;
+
+    }
+    public void SetUpWeaponDamage(WeaponData weapon)
+    {
+        Debug.Log("SetUpWeaponDamage called for weapon: " + weapon.WeaponName);
+
+        int currentShrapnelWeaponDamageLevel = ModifierManager.Singleton.currentShrapnelWeaponDamageLevel;
+        int currentEnergyWeaponDamageLevel = ModifierManager.Singleton.currentEnergyWeaponDamageLevel;
+        int currentHeavyWeaponDamageLevel = ModifierManager.Singleton.currentHeavyWeaponDamageLevel;
+        int currentMeleeWeaponDamageLevel = ModifierManager.Singleton.currentMeleeWeaponDamageLevel;
+
+        Debug.Log("Current damage levels: ");
+        Debug.Log("  Shrapnel: " + currentShrapnelWeaponDamageLevel);
+        Debug.Log("  Energy: " + currentEnergyWeaponDamageLevel);
+        Debug.Log("  Heavy: " + currentHeavyWeaponDamageLevel);
+        Debug.Log("  Melee: " + currentMeleeWeaponDamageLevel);
+
+        float shrapnelDamageModifier = ModifierManager.Singleton.shrapnelWeaponDamageModifiers[currentShrapnelWeaponDamageLevel - 1];
+        float energyDamageModifier = ModifierManager.Singleton.energyWeaponDamageModifiers[currentEnergyWeaponDamageLevel - 1];
+        float heavyDamageModifier = ModifierManager.Singleton.heavyWeaponDamageModifiers[currentHeavyWeaponDamageLevel - 1];
+        float meleeDamageModifier = ModifierManager.Singleton.meleeWeaponDamageModifiers[currentMeleeWeaponDamageLevel - 1];
+
+        Debug.Log("Damage modifiers: ");
+        Debug.Log("  Shrapnel: " + shrapnelDamageModifier);
+        Debug.Log("  Energy: " + energyDamageModifier);
+        Debug.Log("  Heavy: " + heavyDamageModifier);
+        Debug.Log("  Melee: " + meleeDamageModifier);
+
+        switch (weapon.weaponCategory)
+        {
+            case WeaponCategory.Shrapnel:
+                Debug.Log("Applying Shrapnel damage modifier: " + shrapnelDamageModifier);
+                weapon.ProtectionValues = weapon.ProtectionValues * shrapnelDamageModifier;
+                break;
+            case WeaponCategory.Energy:
+                Debug.Log("Applying Energy damage modifier: " + energyDamageModifier);
+                weapon.ProtectionValues = weapon.ProtectionValues * energyDamageModifier;
+                break;
+            case WeaponCategory.Heavy:
+                Debug.Log("Applying Heavy damage modifier: " + heavyDamageModifier);
+                weapon.ProtectionValues = weapon.ProtectionValues * heavyDamageModifier;
+                break;
+            case WeaponCategory.Melee:
+                Debug.Log("Applying Melee damage modifier: " + meleeDamageModifier);
+                weapon.ProtectionValues = weapon.ProtectionValues * meleeDamageModifier;
+                break;
+        }
+
+        Debug.Log("Final ProtectionValues: " + weapon.ProtectionValues);
     }
     public IEnumerator Reload(Action onReloadComplete)
     {
@@ -195,20 +265,26 @@ public class ShootBehavior : MonoBehaviour
         if (isDifferentWeapon)
         {
             int groundTotalAmmo = weaponHolder.groundTotalAmmo;
-            weaponHolder.myweaponData.totalAmmo += groundTotalAmmo;
-            weaponHolder.myweaponData.currentMagazineAmmo = weaponHolder.myweaponData.magazineSize;
-            weapons.Add(weaponHolder.myweaponData);
+            WeaponData clone = Instantiate(weaponHolder.myweaponData);
+            SetUpWeaponAmmo(clone);
+            SetUpWeaponDamage(clone);     
+            clone.totalAmmo += groundTotalAmmo;
+           
 
             currentWeaponIndex = weapons.Count - 1;
-            currentWeapon = weaponHolder.myweaponData;
+            currentWeapon = clone;
+            weapons.Add(clone);
+           
             if (currentWeaponModel != null)
             {
                 Destroy(currentWeaponModel);
             }
             currentWeaponModel = Instantiate(currentWeapon.GetWeaponModel(), weaponPosition.position, weaponPosition.rotation, weaponPosition.transform);
             currentWeaponLogic = GetWeaponLogic(currentWeapon.WeaponName);
+
+           
         }
-       
+
     }
     public void NextWeapon()
     {

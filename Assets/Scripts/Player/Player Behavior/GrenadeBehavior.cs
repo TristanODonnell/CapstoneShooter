@@ -1,30 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using throwables;
 using UnityEngine;
+
 
 public class GrenadeBehavior : MonoBehaviour
 {
 
+    [SerializeField] private float force;
+    [SerializeField] private float upwardForce;
 
-    private void Start()
+    public GrenadeManager grenadeManager;
+    [SerializeField] private Camera myCamera;
+    public void ThrowGrenade(ThrowableItem grenade)
     {
-
-       
-
-    }
-
-
-    public void ThrowGrenade(GrenadeData currentGrenade)
-    {
-
-        GameObject worldGrenade = currentGrenade.GetWorldGrenade();
-        if (worldGrenade == null)
+        if (grenadeManager.currentGrenade != null)
         {
-            Debug.LogError("worldGrenade is null");
-            return;
-        }
+            Debug.Log("ThrowGrenade called with grenade: " + grenade);
+            gricel.HealthSystem thrower = gameObject.GetComponent<gricel.HealthSystem>();
+            Vector3 direction = myCamera.transform.forward * 1f;
+            Vector3 pivotPoint = myCamera.transform.position + direction * 0.5f;
+            float powerIncrease = 1f;
+            Vector3 forceVector = new Vector3(direction.x, upwardForce, direction.z);
 
-        Instantiate(worldGrenade);
-        //SPECIFICALLY FOR PHYSICS,INPUT, STUFF TIED TO GRENADE AND PLAYER, THE GRENADE INVENTORY TIED TO GRENADEMANGER
+            var myGrenade = grenade.Throw(thrower, pivotPoint, direction, force, powerIncrease);
+            
+        }
     }
 }
