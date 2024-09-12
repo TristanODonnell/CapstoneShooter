@@ -9,6 +9,7 @@ namespace Abilities
 		private Countdown timeOnAir = new(0.4f);
 		private bool isGroundPounding;
 		[SerializeField] private Countdown cooldown;
+		float cooldown_OriginalTime;
 		[SerializeField] private ProtectionValues damagePerFallTime;
 		[SerializeField] private float radiusPerFallTime;
 		float damageMultiplier;
@@ -62,6 +63,15 @@ namespace Abilities
 			controller.Move(Vector3.down * Time.deltaTime * damageMultiplier * damageMultiplier);
 
 			damageMultiplier += Time.deltaTime;
+		}
+
+		private void Start() => cooldown_OriginalTime = cooldown.maximumCount;
+		public override void Ability_CooldownOverride(float multiplier)
+		{
+			if (multiplier == 0f)
+				return;
+			cooldown.maximumCount = cooldown_OriginalTime / multiplier;
+			cooldown.Countdown_ForceSeconds(0);
 		}
 	}
 }

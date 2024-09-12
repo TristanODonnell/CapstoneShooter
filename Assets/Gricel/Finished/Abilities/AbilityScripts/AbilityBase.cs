@@ -31,6 +31,9 @@ namespace Abilities
 					UsePress();
 			}
 		}
+
+
+		public abstract void Ability_CooldownOverride(float multiplier = 1f);
 		protected abstract bool CanBeUsed();
 		protected virtual void UseHold(){}
 		protected virtual void UsePress() { }

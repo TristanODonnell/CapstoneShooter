@@ -6,8 +6,10 @@ namespace Abilities
 	public class Ability_Dash : AbilityBase
 	{
 		[SerializeField] private byte dash_chargesMax;
+		private byte dash_chargesOg;
 		private byte dash_charges;
 		[SerializeField] private Countdown_AutoReset dash_cooldown = new(0.6f);
+		private float dash_cooldownMax;
 		[SerializeField] private float dash_speed = 12f;
 		private Vector3 dash_Movement;
 		private float dash_NormalMovement;
@@ -16,7 +18,10 @@ namespace Abilities
 		bool hasCharges => dash_charges > 0;
 
 		protected override bool CanBeUsed() => !isCurrentlyDashing && hasCharges;
-
+		private void Start() { 
+			dash_charges = dash_chargesOg = dash_chargesMax;
+			dash_cooldownMax = dash_cooldown.maximumCount;
+		}
 		protected override void UseHold()
 		{
 			var dir = Vector3.zero ;
@@ -62,6 +67,13 @@ namespace Abilities
 			dash_NormalMovement -= Time.deltaTime;
 
 			gravitation.Jump(0f);
+		}
+
+		public override void Ability_CooldownOverride(float multiplier = 1)
+		{
+			if (multiplier == 0) return;
+			dash_chargesMax = (byte)Mathf.RoundToInt(multiplier * ((float)dash_chargesOg));
+			dash_cooldown.maximumCount = dash_cooldownMax / multiplier;
 		}
 	}
 }
