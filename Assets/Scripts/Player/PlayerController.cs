@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         float modifiedJumpForce = jumpForce * jumpModifier;
         jumpForce = modifiedJumpForce;
     }
-    public void SetHealthPassiveModifier(float armorHealthPercentage, float fleshHealthPercentage, float energyHealthPercentage, float totalHealthMultiplier)
+    public void SetHealthPassiveModifier(float armorHealthPercentage, float fleshHealthPercentage, float energyHealthPercentage, float totalHealthMultiplier = 200f)
     {
         if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
         {
