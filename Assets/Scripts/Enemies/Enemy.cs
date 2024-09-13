@@ -6,14 +6,13 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour, ILootSource
 {
-    
+    public HealthSystem healthSystem;
     public string enemyName;
     public int creditCost;
     public float spawnChance = 1.0f;
     public GameObject enemyPrefab;
     public EnemyTier enemyTier;
     public enum EnemyTier { High, Low }
-
     public Enemy(string name, int creditCost, GameObject prefab)
     {
         enemyName = name;
@@ -21,12 +20,15 @@ public class Enemy : MonoBehaviour, ILootSource
         enemyPrefab = prefab;
     }
 
+
+
     public void SpawnLoot()
     {
         
     }
 
     
+
     public Transform GetLootSpawnPoint()
     {
         throw new System.NotImplementedException();
