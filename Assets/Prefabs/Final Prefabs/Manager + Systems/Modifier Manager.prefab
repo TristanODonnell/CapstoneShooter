@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4948766110672343337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2864384879644296848}
+  - component: {fileID: 1969187412110142302}
+  m_Layer: 0
+  m_Name: Modifier Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2864384879644296848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948766110672343337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.35043, y: 2.4817078, z: -52.22383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1969187412110142302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948766110672343337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869b14449e17547459146c003ed88b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEquipmentCooldownLevel: 1
+  currentSpeedLevel: 1
+  currentJumpHeightLevel: 1
+  currentReloadLevel: 1
+  currentmaxAmmoLevel: 1
+  currentWeaponMagazineLevel: 2
+  currentRecursiveBashLevel: 1
+  currentArmorLevel: 1
+  currentFleshLevel: 1
+  currentEnergyShieldLevel: 1
+  currentShrapnelWeaponDamageLevel: 3
+  currentEnergyWeaponDamageLevel: 1
+  currentHeavyWeaponDamageLevel: 1
+  currentMeleeWeaponDamageLevel: 1
+  currentGrenadeDamageLevel: 1
+  currentTotalEnemyCreditsLevel: 1
+  currentXPGainedLevel: 1
+  equipmentCooldownModifiers:
+  - 1
+  - 0.95
+  - 0.9
+  - 0.75
+  - 0.6
+  - 0.4
+  speedModifiers:
+  - 1
+  - 1.05
+  - 1.15
+  - 1.25
+  - 1.5
+  - 2
+  jumpingHeightModifiers:
+  - 1
+  - 1.25
+  - 1.5
+  - 2
+  - 2.5
+  - 3
+  reloadTimeModifiers:
+  - 1
+  - 0.95
+  - 0.9
+  - 0.8
+  - 0.7
+  - 0.5
+  maxAmmunitionModifiers:
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 2.25
+  weaponMagazineModifiers:
+  - 1
+  - 1.05
+  - 1.1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  recursiveBashModifiers:
+  - 1
+  - 1.1
+  - 1.2
+  - 1.4
+  - 1.7
+  - 2
+  armorModifiers:
+  - 1
+  - 1.2
+  - 1.4
+  - 1.6
+  - 1.8
+  - 2
+  - 2.5
+  - 3
+  fleshModifiers:
+  - 1
+  - 1.05
+  - 1.1
+  - 1.2
+  - 1.35
+  - 1.5
+  - 2
+  - 2.5
+  energyShieldModifiers:
+  - 1
+  - 1.05
+  - 1.1
+  - 1.25
+  - 1.5
+  - 2
+  - 2.5
+  - 3
+  shrapnelWeaponDamageModifiers:
+  - 1
+  - 1.1
+  - 1.3
+  - 1.5
+  - 1.75
+  - 2
+  energyWeaponDamageModifiers:
+  - 1
+  - 1.1
+  - 1.3
+  - 1.5
+  - 1.75
+  - 2
+  heavyWeaponDamageModifiers:
+  - 1
+  - 1.1
+  - 1.3
+  - 1.5
+  - 1.75
+  - 2
+  meleeWeaponDamageModifiers:
+  - 1
+  - 1.1
+  - 1.3
+  - 1.5
+  - 1.75
+  - 2
+  grenadeDamageModifiers:
+  - 1
+  - 1.1
+  - 1.3
+  - 1.5
+  - 1.75
+  - 2
+  totalEnemyCreditsModifiers:
+  - 1
+  - 0.97
+  - 0.94
+  - 0.88
+  - 0.8
+  - 0.7
+  - 0.6
+  - 0.4
+  xpGainedModifiers:
+  - 1
+  - 1.2
+  - 1.5
+  - 2
+  - 2.5
+  - 3

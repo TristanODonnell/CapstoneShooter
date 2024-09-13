@@ -1723,6 +1723,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09d49ca82b724f145af3b76823dd136c, type: 3}
+--- !u!1 &1883641854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1883641856}
+  - component: {fileID: 1883641855}
+  m_Layer: 0
+  m_Name: Round Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1883641855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883641854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b85625e61524587c1e3fdf437e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnManager: {fileID: 0}
+  EnemyTypesList: {fileID: 0}
+  highTierEnemies: []
+  lowTierEnemies: []
+  currentRound: 0
+  currentRoundCredits: 0
+  roundCreditMultiplier: 0
+  highTierPercentage: 0
+  enemySpawnDelayTime: 0
+  spawnChanceMultiplier: 0
+  roundFinishTimerValue: 0
+  enemyCreditModifier: 0
+  spawnedEnemies: []
+--- !u!4 &1883641856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883641854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.35043, y: 2.4817078, z: -52.22383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1902582012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1175214297970513656, guid: f18a7d129d1d0c84187843b9fb55f17b,
@@ -1904,6 +1961,7 @@ MonoBehaviour:
   xpRequiredForNextLevel: 0
   xpGainPerWave: 0
   xpMultiplier: 1
+  xpPassiveMultiplier: 0
 --- !u!4 &1948274469
 Transform:
   m_ObjectHideFlags: 0
@@ -2267,3 +2325,4 @@ SceneRoots:
   - {fileID: 1750763046}
   - {fileID: 549788351}
   - {fileID: 1948274469}
+  - {fileID: 1883641856}

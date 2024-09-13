@@ -483,7 +483,6 @@ GameObject:
   - component: {fileID: 6519115802940064383}
   - component: {fileID: 6576053233215072034}
   - component: {fileID: 2001258778796343695}
-  - component: {fileID: 529518353722779152}
   - component: {fileID: 8680911425828354541}
   - component: {fileID: 4129678702875310515}
   - component: {fileID: 8616827764196862292}
@@ -493,6 +492,8 @@ GameObject:
   - component: {fileID: 659764644062308712}
   - component: {fileID: 4159032662921158955}
   - component: {fileID: 8885450184161055222}
+  - component: {fileID: 223032032774429785}
+  - component: {fileID: 10854852850206360}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -572,19 +573,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedPlayerData: {fileID: 0}
-  abilityBehaviour: {fileID: 0}
-  grenadeManager: {fileID: 0}
-  healthSystem: {fileID: 0}
-  hitBox: {fileID: 0}
-  skillTree: {fileID: 0}
+  healthSystem: {fileID: 659764644062308712}
+  hitBox: {fileID: 911240226784932234}
   look: {fileID: 2174882120291665293}
   move: {fileID: 8616827764196862292}
   shoot: {fileID: 4129678702875310515}
-  grenade: {fileID: 8680911425828354541}
-  equipment: {fileID: 529518353722779152}
   passive: {fileID: 2001258778796343695}
+  recursiveBashBehavior: {fileID: 223032032774429785}
   gravitational: {fileID: 6576053233215072034}
   jumpForce: 0
+  grenadeManager: {fileID: 10854852850206360}
+  grenade: {fileID: 8680911425828354541}
+  abilityBehaviour: {fileID: 6519115802940064383}
   myCamera: {fileID: 1681489009076498514}
   interactableFilter:
     serializedVersion: 2
@@ -645,23 +645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedPassive: {fileID: 0}
---- !u!114 &529518353722779152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296928949807555558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edfeeefe8e9b1842a5fd788b2ee19fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attachedEquipmentModel1: {fileID: 0}
-  playerEquipmentData1: {fileID: 0}
-  attachedEquipmentModel2: {fileID: 0}
-  playerEquipmentData2: {fileID: 0}
-  equipmentPosition: {fileID: 8999154444275611782}
 --- !u!114 &8680911425828354541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a702ef1e0003e47886de465aea3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 0
+  upwardForce: 0
+  grenadeManager: {fileID: 0}
+  myCamera: {fileID: 0}
 --- !u!114 &4129678702875310515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,10 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39aac2deb180dae47b6af567d051dddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedModifier: {fileID: 0}
-  speed:
-    baseSpeed: 5
-    multiplier: 1
+  speed: 0
   sprintMultiplier: 2
   walkMultiplier: 1
   controller: {fileID: 4064175703137294824}
@@ -845,3 +829,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &223032032774429785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56beb6150a5459447ba6cc3f76574d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootBehavior: {fileID: 0}
+  meleeDamage: 0
+--- !u!114 &10854852850206360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296928949807555558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9aa606ef43e3349bf9a2aed5ffa8b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadeCounts: 
+  grenadeBehavior: {fileID: 0}
+  currentGrenade: {fileID: 0}
+  currentIndex: 0

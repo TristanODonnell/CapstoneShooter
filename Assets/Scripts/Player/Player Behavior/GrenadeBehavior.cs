@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using throwables;
+using throwables.Items;
 using UnityEngine;
 
 
@@ -23,8 +24,19 @@ public class GrenadeBehavior : MonoBehaviour
             float powerIncrease = 1f;
             Vector3 forceVector = new Vector3(direction.x, upwardForce, direction.z);
 
-            var myGrenade = grenade.Throw(thrower, pivotPoint, direction, force, powerIncrease);
+            float grenadeModifier = GetGrenadeDamageModifier();
+            float modifiedPowerIncrease = powerIncrease * grenadeModifier;
+            var myGrenade = grenade.Throw(thrower, pivotPoint, direction, force, modifiedPowerIncrease);
+            float damageModifier = GetGrenadeDamageModifier();
             
         }
+    }
+
+    public float GetGrenadeDamageModifier()
+    {
+        int currentGrenadeLevel = ModifierManager.Singleton.currentGrenadeDamageLevel;
+        float grenadeModifier = ModifierManager.Singleton.grenadeDamageModifiers[currentGrenadeLevel - 1];
+
+        return grenadeModifier;
     }
 }

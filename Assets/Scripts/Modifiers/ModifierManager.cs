@@ -26,7 +26,7 @@ public class ModifierManager : MonoBehaviour
     public int currentReloadLevel = 1; //DONE
     public int currentmaxAmmoLevel = 1; //DONE
     public int currentWeaponMagazineLevel = 2; //DONE
-    public int currentRecursiveBashLevel = 1;//wait----------------
+    public int currentRecursiveBashLevel = 1;//done----------------
     public int currentArmorLevel = 1;//Done
     public int currentFleshLevel = 1;//Done
     public int currentEnergyShieldLevel = 1;//Done
@@ -34,8 +34,8 @@ public class ModifierManager : MonoBehaviour
     public int currentEnergyWeaponDamageLevel = 1; //done
     public int currentHeavyWeaponDamageLevel = 1; //done
     public int currentMeleeWeaponDamageLevel = 1; //done
-    public int currentGrenadeDamageLevel = 1;//wait-----------------------
-    public int currentTotalEnemyCreditsLevel = 1;//wait------------------
+    public int currentGrenadeDamageLevel = 1;//done
+    public int currentTotalEnemyCreditsLevel = 1;//done
     public int currentXPGainedLevel = 1;//done
 
     public List<float> equipmentCooldownModifiers = new List<float> { 1.0f, 0.95f, 0.90f, 0.75f, 0.60f, 0.40f }; //equipmentcooldown
