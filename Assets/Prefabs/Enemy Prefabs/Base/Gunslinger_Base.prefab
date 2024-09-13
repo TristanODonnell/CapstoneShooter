@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e15b46e0a203128429c553d168a5a753,
         type: 3}
       propertyPath: m_Name
-      value: Gunslinger_BAse
+      value: Gunslinger_Base
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -112,6 +112,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7077222711394029584}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e15b46e0a203128429c553d168a5a753,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1505775554310876515}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e15b46e0a203128429c553d168a5a753,
         type: 3}
       insertIndex: -1
@@ -1213,6 +1217,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7668807535739116315}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1505775554310876515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398422443290568266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e397ba6b98367b84bb6cb1f255e69a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 907154861247411598}
+  enemyName: Gunslinger_
+  creditCost: 50
+  spawnChance: 0.2
+  enemyPrefab: {fileID: 7398422443290568266}
+  enemyTier: 1
 --- !u!114 &907154861247411598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,10 +1386,11 @@ MonoBehaviour:
   escape_distanceToNode: 3
   escape_throwGrenadeTime:
     maximumCount: 3
-  escape_GrenadesLeft: 0
-  escape_grenade: {fileID: 0}
-  escape_grenadePivot: {fileID: 0}
-  escape_grenadeThrowForce: 0
+  escape_GrenadesLeft: 1
+  escape_grenade: {fileID: -4376358050426264432, guid: 7fcd4e49c167f6f4e8c334c943ba0584,
+    type: 3}
+  escape_grenadePivot: {fileID: 7077222711394029584}
+  escape_grenadeThrowForce: 9.69
   fight_holdTrigger:
     maximumCount: 1
   fight_releaseTrigger:

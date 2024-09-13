@@ -230,6 +230,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 802b1107f0ffd3a4a8db6062ff323d43,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: -3725212435646053868}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 802b1107f0ffd3a4a8db6062ff323d43,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6476777328567968596}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 802b1107f0ffd3a4a8db6062ff323d43,
         type: 3}
@@ -255,6 +259,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 405338493494931790}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 802b1107f0ffd3a4a8db6062ff323d43,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6803914683490673222}
     - targetCorrespondingSourceObject: {fileID: -1004892688045956960, guid: 802b1107f0ffd3a4a8db6062ff323d43,
         type: 3}
       insertIndex: -1
@@ -778,6 +786,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8813716589215083157}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3725212435646053868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543879741825669060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e397ba6b98367b84bb6cb1f255e69a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 6476777328567968596}
+  enemyName: Maggot_
+  creditCost: 30
+  spawnChance: 0.8
+  enemyPrefab: {fileID: 8543879741825669060}
+  enemyTier: 1
 --- !u!114 &6476777328567968596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +853,7 @@ MonoBehaviour:
   ragdoll: {fileID: 5410012210574427525, guid: f6ef2610b643b0847825a4af5a8a3188, type: 3}
   health: {fileID: 6476777328567968596}
   eyes: {fileID: 4574002145499401431}
-  gun: {fileID: 0}
+  gun: {fileID: -6803914683490673222}
   state_Base: {fileID: 5089989742253712669}
   state_detection: {fileID: 405338493494931790}
   detectionAttempt_Timer:
@@ -940,6 +966,21 @@ MonoBehaviour:
     maximumCount: 8
   stopDistance: 1
   rotationPerSecond: 720
+--- !u!114 &-6803914683490673222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8543879741825669060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
+  missAngle: 10
+  enemy: {fileID: 4197841202200645633}
 --- !u!1 &8591225487299078948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 966785754663453105, guid: 802b1107f0ffd3a4a8db6062ff323d43,

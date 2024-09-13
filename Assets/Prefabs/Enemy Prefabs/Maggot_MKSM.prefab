@@ -94,11 +94,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4197841202200645633, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
+    - target: {fileID: -6803914683490673222, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
         type: 3}
-      propertyPath: gun
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6803914683490673222, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
+        type: 3}
+      propertyPath: weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 6418167404476515537}
+      objectReference: {fileID: 405030900811843415}
     - target: {fileID: 8543879741825669060, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
         type: 3}
       propertyPath: m_Name
@@ -161,32 +166,8 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 978933233589399028}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8543879741825669060, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6418167404476515537}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83bcf69a34904d64cb6a2dd8bc4f8350, type: 3}
---- !u!1 &4213783474155487899 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8543879741825669060, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,
-    type: 3}
-  m_PrefabInstance: {fileID: 5542709468285883743}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6418167404476515537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4213783474155487899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 405030900811843415}
 --- !u!4 &7064663182896678914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3378000269522083165, guid: 83bcf69a34904d64cb6a2dd8bc4f8350,

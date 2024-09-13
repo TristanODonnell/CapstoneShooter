@@ -63,11 +63,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turret_AR
       objectReference: {fileID: 0}
-    - target: {fileID: 5808444065765372657, guid: d030a62e5bcae95469a26cc91b19e1bc,
+    - target: {fileID: 5056671264586356539, guid: d030a62e5bcae95469a26cc91b19e1bc,
         type: 3}
-      propertyPath: gun
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056671264586356539, guid: d030a62e5bcae95469a26cc91b19e1bc,
+        type: 3}
+      propertyPath: weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 7517905277967148206}
+      objectReference: {fileID: 3660629316826934176}
+    - target: {fileID: 5056671264586356539, guid: d030a62e5bcae95469a26cc91b19e1bc,
+        type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 922926485743146388}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -79,11 +89,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8223453837373550726}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1894709121090234044, guid: d030a62e5bcae95469a26cc91b19e1bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7517905277967148206}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d030a62e5bcae95469a26cc91b19e1bc, type: 3}
 --- !u!4 &1967809177239033726 stripped
 Transform:
@@ -91,27 +97,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3661907900385348583}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2925912854797020507 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1894709121090234044, guid: d030a62e5bcae95469a26cc91b19e1bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3661907900385348583}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7517905277967148206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2925912854797020507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 3660629316826934176}
-  - {fileID: 922926485743146388}
 --- !u!1001 &5635826061132294310
 PrefabInstance:
   m_ObjectHideFlags: 0

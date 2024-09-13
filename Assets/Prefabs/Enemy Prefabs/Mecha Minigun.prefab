@@ -8,6 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5112310872235888041, guid: f17da4705390e4a449e03ddf17f7c5ec,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5112310872235888041, guid: f17da4705390e4a449e03ddf17f7c5ec,
+        type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 665759600614915889}
+    - target: {fileID: -5112310872235888041, guid: f17da4705390e4a449e03ddf17f7c5ec,
+        type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 5805202684792201964}
     - target: {fileID: 2775405245300974568, guid: f17da4705390e4a449e03ddf17f7c5ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,11 +78,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mecha Minigun
       objectReference: {fileID: 0}
-    - target: {fileID: 8570405808112571742, guid: f17da4705390e4a449e03ddf17f7c5ec,
-        type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 478197380478549767}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -79,11 +89,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2830128098656958080}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3301113174532290898, guid: f17da4705390e4a449e03ddf17f7c5ec,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 478197380478549767}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f17da4705390e4a449e03ddf17f7c5ec, type: 3}
 --- !u!4 &697583550937845474 stripped
 Transform:
@@ -97,27 +103,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 854515739949758033}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2743872466822926083 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3301113174532290898, guid: f17da4705390e4a449e03ddf17f7c5ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 854515739949758033}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &478197380478549767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2743872466822926083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 665759600614915889}
-  - {fileID: 5805202684792201964}
 --- !u!1001 &4603110287017586888
 PrefabInstance:
   m_ObjectHideFlags: 0

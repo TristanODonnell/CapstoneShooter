@@ -300,6 +300,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: -5640686230608088945}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1345855183452054674}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b172d9c2f8700b847b1292e0bd6cd8be,
         type: 3}
@@ -856,6 +860,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6772140131989709669}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5640686230608088945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5853008533798575668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e397ba6b98367b84bb6cb1f255e69a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 1345855183452054674}
+  enemyName: General_
+  creditCost: 100
+  spawnChance: 0.5
+  enemyPrefab: {fileID: 5853008533798575668}
+  enemyTier: 0
 --- !u!114 &1345855183452054674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,6 +1074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons: []
+  missAngle: 10
+  enemy: {fileID: 8010974436405211086}
 --- !u!4 &6517202258425578638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b172d9c2f8700b847b1292e0bd6cd8be,

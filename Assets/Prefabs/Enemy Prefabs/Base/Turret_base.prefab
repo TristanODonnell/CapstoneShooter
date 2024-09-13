@@ -285,6 +285,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00829f12f35a04643a141ac100d51312,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5317520543163924648}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00829f12f35a04643a141ac100d51312,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5055096542908913295}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00829f12f35a04643a141ac100d51312,
         type: 3}
@@ -310,6 +314,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7694705639418109228}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00829f12f35a04643a141ac100d51312,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5056671264586356539}
     - targetCorrespondingSourceObject: {fileID: -214367505623113037, guid: 00829f12f35a04643a141ac100d51312,
         type: 3}
       insertIndex: -1
@@ -421,6 +429,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1624165839627066349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5317520543163924648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894709121090234044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e397ba6b98367b84bb6cb1f255e69a0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 5055096542908913295}
+  enemyName: Turret_
+  creditCost: 80
+  spawnChance: 0.5
+  enemyPrefab: {fileID: 1894709121090234044}
+  enemyTier: 0
 --- !u!114 &5055096542908913295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +502,7 @@ MonoBehaviour:
   ragdoll: {fileID: 117918580135974347, guid: 206324b587c57e5498766de9913c3ccf, type: 3}
   health: {fileID: 5055096542908913295}
   eyes: {fileID: 3117899677914772997}
-  gun: {fileID: 0}
+  gun: {fileID: 5056671264586356539}
   state_Base: {fileID: 789487998170569999}
   state_detection: {fileID: 7694705639418109228}
   detectionAttempt_Timer:
@@ -588,6 +614,21 @@ MonoBehaviour:
     maximumCount: 3
   gunfire_CancelDetection:
     maximumCount: 6
+--- !u!114 &5056671264586356539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894709121090234044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
+  missAngle: 10
+  enemy: {fileID: 5808444065765372657}
 --- !u!1 &2093827932236110616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8393311878264995595, guid: 00829f12f35a04643a141ac100d51312,
