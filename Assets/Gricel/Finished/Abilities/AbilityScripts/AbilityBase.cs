@@ -16,7 +16,7 @@ namespace Abilities
 			ability.gravitation = gravitation;
 			ability.transform.position = controller.transform.position;
 			ability.transform.rotation = controller.transform.rotation;
-			ability.transform.parent = controller.transform.parent;
+			ability.transform.parent = controller.transform;
 			return ability;
 		}
 		public void AbilityCustomizeKey(KeyCode key) => button = key;
@@ -32,6 +32,8 @@ namespace Abilities
 			}
 		}
 
+		public bool AbiltyKeyPressed() => Input.GetKey(button);
+		public bool AbiltyKeyReleased() => Input.GetKeyUp(button);
 
 		public abstract void Ability_CooldownOverride(float multiplier = 1f);
 		protected abstract bool CanBeUsed();

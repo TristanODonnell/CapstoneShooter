@@ -17,7 +17,7 @@ namespace Abilities
 		protected override bool CanBeUsed()
 		{
 			var bursts = jet_bursts > 0;
-			return bursts;
+			return bursts && !controller.isGrounded;
 		}
 
 		protected override void UsePress()

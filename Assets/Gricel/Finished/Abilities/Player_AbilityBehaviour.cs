@@ -12,6 +12,49 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	public CharacterController controller;
 	public GravitationalBehaviour gravitation;
 
+	private enum StartAbility
+	{
+		nothing,
+		jetburst,
+		teleporter,
+		dash,
+		groundpound,
+		extraBatery,
+		jetpack
+	}
+	[SerializeField] private StartAbility startAbility;
+
+	private void Start()
+	{
+		var ability = abilitySelected;
+		switch (startAbility)
+		{
+			case StartAbility.nothing:
+				ability = null;
+				break;
+			case StartAbility.jetburst:
+				ability = abilityReferences.jetburst;
+				break;
+			case StartAbility.teleporter:
+				ability = abilityReferences.teleporter;
+				break;
+			case StartAbility.dash:
+				ability = abilityReferences.dash;
+				break;
+			case StartAbility.groundpound:
+				ability = abilityReferences.groundPound;
+				break;
+			case StartAbility.extraBatery:
+				ability = abilityReferences.extraBatery;
+				break;
+			case StartAbility.jetpack:
+				ability = abilityReferences.jetpack;
+				break;
+		}
+		if (ability)
+			SetAbility(ability);
+	}
+
 	[System.Serializable]
 	public class AbilityReferences
 	{
@@ -25,7 +68,8 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	public AbilityReferences abilityReferences = new();
 
 
-	public Abilities.AbilityBase abilitySelected;
+	[HideInInspector]
+	private Abilities.AbilityBase abilitySelected;
 	public void SetAbility(AbilityBase ability)
 	{
 		if (abilitySelected)

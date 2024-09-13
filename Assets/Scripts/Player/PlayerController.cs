@@ -398,13 +398,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void CheckJumpInput()
     {
-        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Player jumped");
-            gravitational.Jump(jumpForce);
+            var rc = Physics.RaycastAll(transform.position + Vector3.up, Vector3.down, 2.5f);
+            var canJump = false;
+            foreach (var item in rc)
+            {
+                if(!item.collider.GetComponentInParent<PlayerController>())
+                {
+                    canJump = true;
+                    break;
+                }
+            }
+            if(canJump)
+                gravitational.Jump(jumpForce);
         }
     }
 

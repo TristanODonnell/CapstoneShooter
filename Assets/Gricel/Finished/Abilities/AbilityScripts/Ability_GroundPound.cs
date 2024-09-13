@@ -55,6 +55,8 @@ namespace Abilities
 					e.GetComponent<GravitationalBehaviour>().Jump(0.4f);
 				}
 			}
+			isGroundPounding = false;
+
 		}
 
 		private void GP_Fall()
@@ -62,7 +64,7 @@ namespace Abilities
 			gravitation.Jump(0f);
 			controller.Move(Vector3.down * Time.deltaTime * damageMultiplier * damageMultiplier);
 
-			damageMultiplier += Time.deltaTime;
+			damageMultiplier += Time.deltaTime *gravitation.currentGravity *2f;
 		}
 
 		private void Start() => cooldown_OriginalTime = cooldown.maximumCount;

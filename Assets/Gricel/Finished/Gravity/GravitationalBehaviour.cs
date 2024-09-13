@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravitationalBehaviour : MonoBehaviour
 {
 	public float currentGravity = -9.81f;
-	[SerializeField] private CharacterController characterController;
+	public CharacterController characterController;
 	private float countGravity;
 	private float jumpPower;
 	private float fallTime;

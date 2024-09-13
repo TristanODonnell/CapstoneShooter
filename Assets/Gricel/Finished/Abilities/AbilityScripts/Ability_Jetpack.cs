@@ -9,7 +9,8 @@ namespace Abilities
 		private float flyTimeMaxOriginal = 8f;
 		private float flyTime;
 		[SerializeField] private GravityZone gravity;
-		private float buttonPressed = 0.2f;
+		private float wasPressed = 0f;
+		private bool hasLanded;
 
 		public override void Ability_CooldownOverride(float multiplier)
 		{
@@ -21,19 +22,29 @@ namespace Abilities
 		private void Start()
 		{
 			flyTimeMaxOriginal = flyTimeMax;
-			gravity.enabled = false;
 		}
 		protected override void UseHold()
 		{
-			buttonPressed = Mathf.Clamp(buttonPressed + Time.deltaTime, 0f, 1f);
+			if (flyTime <= 0f) return;
 			flyTime -= Time.deltaTime;
+			wasPressed = Time.deltaTime * 2f;
+			hasLanded = false;
 		}
 		private void Update()
 		{
-			gravity.enabled = buttonPressed > 0.1f;
-			buttonPressed -= Time.deltaTime * 0.5f;
-			if (!gravity.enabled && flyTime < flyTimeMax && controller.isGrounded)
+			gravity.transform.localPosition = AbiltyKeyPressed() && wasPressed > 0f ? Vector3.zero : Vector3.down * 1000f;
+
+			if (controller.isGrounded) hasLanded = true;
+
+			if (flyTime < flyTimeMax && hasLanded)
 				flyTime += Time.deltaTime;
+
+			if (wasPressed > 0f)
+			{
+				wasPressed -= Time.deltaTime;
+				if (wasPressed <= 0f)
+					gravitation.Jump(1f);
+			}
 		}
 
 	}
