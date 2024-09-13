@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Abilities;
+using throwables;
 using UnityEngine;
 
 public class ClassSelectManager : MonoBehaviour
@@ -37,8 +39,10 @@ public class ClassSelectManager : MonoBehaviour
 
     public void AssignPlayerToController(PlayerData playerData)
     {
-        player = Instantiate(playerPrefab);
+        player = Instantiate(playerPrefab, SpawnManager.Singleton.playerSpawn.position, Quaternion.identity);
         PlayerController playerController = player.GetComponent<PlayerController>();
+        PassiveBehavior passiveBehavior = playerController.GetComponent<PassiveBehavior>();
+        passiveBehavior.Initialize();
         playerController.AssignPlayerData(playerData);
     }
 
@@ -49,8 +53,8 @@ public class ClassSelectManager : MonoBehaviour
     {
         selectedPlayerData.playerWeaponData.Clear();
         selectedPlayerData.playerPassiveData = null;
-        selectedPlayerData.playerEquipmentData.Clear();
-        selectedPlayerData.playerGrenadeSelect = null;
+        selectedPlayerData.playerAbilityReference = null;
+        
     }
 
     public void ChooseWeapon(int weaponIndex)
@@ -75,27 +79,20 @@ public class ClassSelectManager : MonoBehaviour
         selectedPlayerData.playerPassiveData = passiveData;
     }
 
-    public void ChooseEquipment(int equipmentIndex)
-    {
-        EquipmentData equipmentData = DataManager.Singleton.equipment[equipmentIndex];
-        if (selectedPlayerData.playerEquipmentData.Count < 2)
-        {
-            selectedPlayerData.playerEquipmentData.Add(equipmentData);
-        }
-        else
-        {
-            Debug.LogError("Maximum number of equipment reached!");
-        }
-         
 
+    public void ChooseAbility(int abilityIndex)
+    {
+        AbilityBase chosenAbility = DataManager.Singleton.abilities[abilityIndex];
+
+        selectedPlayerData.playerAbilityReference = chosenAbility;
     }
      
     
     public void ChooseGrenade(int grenadeIndex)  
     {
-     //   GrenadeData grenadeData = DataManager.Singleton.grenades[grenadeIndex];
+        ThrowableItem chosenGrenade = DataManager.Singleton.grenades[grenadeIndex];
         grenadeManager.currentIndex = grenadeIndex;
-      //  grenadeManager.currentGrenade = grenadeData;
+        grenadeManager.currentGrenade = chosenGrenade;
         grenadeManager.grenadeCounts[grenadeIndex] = 2;
 
         for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)

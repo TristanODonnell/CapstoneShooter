@@ -41,7 +41,7 @@ public class ShootBehavior : MonoBehaviour
         switch (weaponName)
         {
             case "Marksman Rifle":
-            case "Hitscan Sniper Test":
+            case "Sniper":
             case "Blazing Falcon":
             case "Grenade Launcher":
             case "PumpShotgun":
@@ -76,6 +76,7 @@ public class ShootBehavior : MonoBehaviour
 
     public void SetUpWeaponAmmo(WeaponData weapon)
     {
+        Debug.Log("Setting up ammo for: " + weapon.WeaponName);
 
         int currentReloadLevel = ModifierManager.Singleton.currentReloadLevel;
         int currentMaxAmmoLevel = ModifierManager.Singleton.currentmaxAmmoLevel;
@@ -122,7 +123,7 @@ public class ShootBehavior : MonoBehaviour
     }
     public void SetUpWeaponDamage(WeaponData weapon)
     {
-        Debug.Log("SetUpWeaponDamage called for weapon: " + weapon.WeaponName);
+        Debug.Log("Setting up damage for: " + weapon.WeaponName);
 
         int currentShrapnelWeaponDamageLevel = ModifierManager.Singleton.currentShrapnelWeaponDamageLevel;
         int currentEnergyWeaponDamageLevel = ModifierManager.Singleton.currentEnergyWeaponDamageLevel;

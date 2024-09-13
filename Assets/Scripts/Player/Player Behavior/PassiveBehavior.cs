@@ -23,6 +23,11 @@ public class PassiveBehavior : MonoBehaviour
     public XPSystem xpSystem { get; private set; }
     private void Start()
     {
+       
+
+    }
+    public void Initialize()
+    {
         player = GetComponent<PlayerController>();
         hitBox = GetComponent<Hitbox>();
         health = GetComponent<HealthSystem>();
@@ -32,11 +37,7 @@ public class PassiveBehavior : MonoBehaviour
         gravitational = GetComponent<GravitationalBehaviour>();
         dataManager = DataManager.Singleton;
         xpSystem = XPSystem.Singleton;
-
-        PassiveAttribute currentPassiveAttribute = GetCurrentPassiveAttribute();
-        Debug.Log("Current passive attribute: " + currentPassiveAttribute.GetType().Name);
     }
-
     public void SwapPassive(PassiveData newPassive)
     {
         Vector3 dropPosition = transform.position + transform.forward * 2f;
@@ -52,7 +53,7 @@ public class PassiveBehavior : MonoBehaviour
         ApplyPassiveEffects(newPassiveAttribute);
     }
     
-    private PassiveAttribute GetCurrentPassiveAttribute()
+    public PassiveAttribute GetCurrentPassiveAttribute()
     {
         if (_currentPassiveAttribute == null)
         {

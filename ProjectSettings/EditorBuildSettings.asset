@@ -8,19 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scripts/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Start + Menu Navigation.unity
-    guid: 94d0189f9fc167041976900c1b569a24
   - enabled: 1
-    path: Assets/Scripts/Scenes/Asteroid TEST Arena.unity
-    guid: 1ebd0692c0fbfff498577539823514d9
+    path: Assets/Scripts/Scenes/Final Scenes/Game Select Scene.unity
+    guid: 46fd03298bea59c42908b1d1789c5ecd
   - enabled: 1
-    path: Assets/Scripts/Scenes/Asteroid TEST Nuclear.unity
-    guid: c2fe4281e22f9954882b58c7a633d102
-  - enabled: 1
-    path: Assets/Scripts/Scenes/Menu Selection Scene.unity
-    guid: 40c6d6478ea46214596c5f37e7fb2b29
-  - enabled: 1
-    path: Assets/Scripts/Scenes/Test Convoy.unity
-    guid: 826a1cfe6e2632443b7d72b44015fb38
+    path: Assets/Scripts/Scenes/Final Scenes/Asteroid Arena Scene.unity
+    guid: 9be090233b278b04b9e90c353d9786c9
   m_configObjects: {}

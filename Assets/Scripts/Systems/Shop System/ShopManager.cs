@@ -25,7 +25,7 @@ public class ShopManager : MonoBehaviour
     }
     private void Start()
     {
-        CurrencyManager.singleton.SetTotalCurrency(5000); //testing
+        //CurrencyManager.singleton.SetTotalCurrency(5000); //testing
     }
      
     public void BuyWeapon(int weaponIndex)
@@ -46,8 +46,9 @@ public class ShopManager : MonoBehaviour
 
     public void BuyEquipment(int equipmentIndex)
     {
+        /*
         //do the selection via assigned from button and data manager list
-        EquipmentData purchasedEquipmentData = DataManager.Singleton.equipment[equipmentIndex];
+       // EquipmentData purchasedEquipmentData = DataManager.Singleton.equipment[equipmentIndex];
         int equipmentItemCost = purchasedEquipmentData.ItemCost;
         if (canAffordPurchase(equipmentItemCost))
         {
@@ -58,6 +59,7 @@ public class ShopManager : MonoBehaviour
         {
             UnityEngine.Debug.Log("Not enough currency to buy ");
         }
+        */
     }
 
     public void BuyPassive(int passiveIndex)

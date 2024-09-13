@@ -44,7 +44,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2a60fb59d89bb45835bfc56d2e9697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons: []
+  weapons:
+  - {fileID: 11400000, guid: 3521c8fc4d311a14eab7b03a7ca97434, type: 2}
+  - {fileID: 11400000, guid: decd490a020130b4da57b4966b1dc579, type: 2}
+  - {fileID: 11400000, guid: d6d46309f2594d344be7461708dd9fbe, type: 2}
+  - {fileID: 11400000, guid: 0e3be4976b531f144a4c45dbfe55791c, type: 2}
+  - {fileID: 11400000, guid: 4c752cb9d82aa1a4aa4a3cb5e63eeb4e, type: 2}
+  - {fileID: 11400000, guid: 5a591b5076c5254418842e8f9be32fdc, type: 2}
+  - {fileID: 11400000, guid: c3c36168ea9f3bc46974f5ef1a03e8df, type: 2}
+  - {fileID: 11400000, guid: 7b5cf028526b3a14795f2755449ff0a2, type: 2}
+  - {fileID: 11400000, guid: e0a18b1359226044e90a837e859b3db0, type: 2}
+  - {fileID: 11400000, guid: e46b24adca9a7974b925510989909a55, type: 2}
+  - {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
+  - {fileID: 11400000, guid: 81bcf8fd4f9aae249ba75e06ce8fa20d, type: 2}
+  - {fileID: 11400000, guid: e6ebd46bb99965e4ab0c1a355dfa0695, type: 2}
+  - {fileID: 11400000, guid: 41298def74eec9943b3ee830bf3f17fd, type: 2}
+  - {fileID: 11400000, guid: 4a4891f7b41063d4c8cf0768389fc96b, type: 2}
+  - {fileID: 11400000, guid: eed3c511c863e8a4f8031e132ada05c6, type: 2}
+  - {fileID: 11400000, guid: 86bdb46be84b2b7409502fd4ca5a2b9f, type: 2}
+  - {fileID: 11400000, guid: 207697d7fc8820f4d8ea4c4c1a45f8b7, type: 2}
+  - {fileID: 11400000, guid: af7543d4b6854e343b9922d92543a18b, type: 2}
   equipment: []
-  passive: []
-  grenades: []
+  passive:
+  - {fileID: 11400000, guid: d6cb3245034961a45a95381ddec33aa9, type: 2}
+  - {fileID: 11400000, guid: cbd2a39b2e495b74096118b8eab3d5a7, type: 2}
+  - {fileID: 11400000, guid: b99abbe1c12afaf48bc76ecec69f8bf5, type: 2}
+  - {fileID: 11400000, guid: a8639ec996190794eb413184af00f775, type: 2}
+  - {fileID: 11400000, guid: 5fe1348324c79c44ea9a53bd61c62671, type: 2}
+  - {fileID: 11400000, guid: 9327497d8b17a2b40a4d7d7c4414f947, type: 2}
+  - {fileID: 11400000, guid: b0c24ce8c360123468bb3c5036e94852, type: 2}
+  - {fileID: 11400000, guid: 6d0206398b5f7894db7e662da5075a06, type: 2}
+  grenades:
+  - {fileID: -1792675703426109479, guid: 359ea196f53db17428b426628f6d0284, type: 3}
+  - {fileID: -7701650103986277295, guid: 5b48780bd384f564ebd431f4e428f4cd, type: 3}
+  - {fileID: -4376358050426264432, guid: 7fcd4e49c167f6f4e8c334c943ba0584, type: 3}
+  - {fileID: 6157723901755927148, guid: b8062094fab182648980150a5a1b1d0a, type: 3}
+  - {fileID: -7504040214088935230, guid: ea4c3e7405efc4943a3eba71ab78a909, type: 3}
+  - {fileID: 8462608582421451863, guid: bd5075dc11bc7c545afcaa708a944ca6, type: 3}

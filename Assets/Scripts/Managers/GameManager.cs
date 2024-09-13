@@ -46,11 +46,12 @@ public class GameManager : MonoBehaviour
     }
     public void LoadArenaMode() 
     {
-        string sceneName = "Asteroid TEST Arena"; 
+        string sceneName = "Asteroid Arena Scene"; 
         LoadScene(sceneName);
 
         SceneManager.sceneLoaded += (scene, mode) =>
         {
+            spawnManager.GetPlayerSpawn();
             spawnManager.GetSpawnPoints();
             InitializeArenaMode();
             ClassSelectManager.Singleton.AssignPlayerToController(ClassSelectManager.Singleton.selectedPlayerData);
