@@ -28,7 +28,6 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	{
 		if (hasStarted)
 			return;
-		hasStarted = true;
 		var ability = abilitySelected;
 		switch (startAbility)
 		{
@@ -75,6 +74,7 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	private Abilities.AbilityBase abilitySelected;
 	public void SetAbility(AbilityBase ability)
 	{
+		hasStarted = true;
 		if (abilitySelected)
 			Destroy(abilitySelected.gameObject);
 		abilitySelected = Abilities.AbilityBase.Ability_Set(ability, controller, gravitation);
