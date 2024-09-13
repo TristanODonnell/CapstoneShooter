@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb35efb75b5e8b43806607a462eb6d4, type: 3}
-  m_Name: Frag Grenade
+  m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
+  m_Name: Slow Jumper Kit
   m_EditorClassIdentifier: 
-  grenadeName: Frag Grenade
-  worldGrenadeModel: {fileID: 0}
+  passiveName: 
+  itemCost: 0
+  worldPassiveModel: {fileID: 0}
+  passiveType: 0

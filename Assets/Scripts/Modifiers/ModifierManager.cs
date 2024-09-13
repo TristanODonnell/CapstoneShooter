@@ -20,12 +20,12 @@ public class ModifierManager : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-    public int currentEquipmentCooldownLevel =1; //wait------------------
+    public int currentEquipmentCooldownLevel =1; //next
     public int currentSpeedLevel = 1; //done
     public int currentJumpHeightLevel = 1; //done
     public int currentReloadLevel = 1; //DONE
     public int currentmaxAmmoLevel = 1; //DONE
-    public int currentWeaponMagazineLevel = 2; //DONE
+    public int currentWeaponMagazineLevel = 1; //DONE
     public int currentRecursiveBashLevel = 1;//done----------------
     public int currentArmorLevel = 1;//Done
     public int currentFleshLevel = 1;//Done

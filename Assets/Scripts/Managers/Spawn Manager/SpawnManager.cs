@@ -7,8 +7,36 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    
+    public static SpawnManager Singleton
+    {
+        get; private set;
+    }
+    private void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private Transform[] spawnPointTransforms;
+    public Transform playerSpawn;
+
+    public Transform GetPlayerSpawn()
+    {
+        GameObject playerSpawnObject = GameObject.FindWithTag("Player Spawn");
+        if (playerSpawnObject != null)
+        {
+            playerSpawn = playerSpawnObject.transform;
+        }
+        
+        return playerSpawn;
+    }
     public void GetSpawnPoints()
     {
         SpawnPoint[] spawnPoints = GameObject.FindObjectsOfType<SpawnPoint>();
@@ -45,4 +73,6 @@ public class SpawnManager : MonoBehaviour
         }
         
     }
+
+    
 }

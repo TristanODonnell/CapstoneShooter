@@ -48,26 +48,9 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        shoot.currentWeaponIndex = 0;
-        shoot.ChangeWeapon(shoot.currentWeaponIndex);
-        for (int i = 0; i <     shoot.weapons.Count; i++)
-        {
-            shoot.SetUpWeaponAmmo(shoot.weapons[i]); // Set up ammo for each weapon
-        }
-        
-        grenadeManager = GameManager.Singleton.GetComponent<GrenadeManager>();
+        grenadeManager = GrenadeManager.instance;
 
-        SetPlayerAbility();
-        SetPlayerHealthModifier();
-        SetPlayerJumpModifier();
     }
-
-    private void SetPlayerAbility()
-    {
-
-        abilityBehaviour.SetAbility(abilityBehaviour.abilityReferences.jetburst);
-    }
-
 
     public void ModifierInputTest()
     {
@@ -170,7 +153,7 @@ public class PlayerController : MonoBehaviour
         CheckShootInput();
         CheckSprintInput();
         CheckGrenadeInput();
-        
+        CheckRecursiveBashInput();
         
         CheckJumpInput();
         CheckLookInput();
@@ -191,17 +174,30 @@ public class PlayerController : MonoBehaviour
 
     public void AssignPlayerData(PlayerData playerData)
     {
+        Debug.Log("AssignPlayerData called");
+        Debug.Log("playerData.playerWeaponData: " + playerData.playerWeaponData);
+        Debug.Log("playerData.playerWeaponData.Count: " + playerData.playerWeaponData.Count);
         attachedPlayerData = playerData;
-        for (int i = 0; i < 3; i++)
-        {
-            shoot.weapons.Add(playerData.playerWeaponData[i]);
-            shoot.SetUpWeaponAmmo(shoot.weapons[i]);
-        }
-        //equipment.playerEquipmentData1 = playerData.playerEquipmentData[0];
-        //equipment.playerEquipmentData2 = playerData.playerEquipmentData[1];
+        //initialize passive onto passivebehavior
         passive.attachedPassive = playerData.playerPassiveData;
-
-    }
+        //apply the passive
+        PassiveAttribute currentPassiveAttribute = passive.GetCurrentPassiveAttribute();
+        passive.ApplyPassiveEffects(currentPassiveAttribute);
+        Debug.Log("Current passive attribute: " + currentPassiveAttribute.GetType().Name);
+        //initializing chosen player weapons
+        for (int i = 0; i < playerData.playerWeaponData.Count; i++)
+        {
+            WeaponData clonedWeapon = Instantiate(playerData.playerWeaponData[i]);
+            shoot.SetUpWeaponAmmo(clonedWeapon);
+            shoot.SetUpWeaponDamage(clonedWeapon);
+            clonedWeapon.totalAmmo = clonedWeapon.maxAmmo; 
+            shoot.weapons.Add(clonedWeapon);
+        }
+        shoot.ChangeWeapon(0);
+        //initialize chosen Ability Base onto behavior
+        abilityBehaviour.abilitySelected = playerData.playerAbilityReference;
+        
+    } 
 
     private void CheckRecursiveBashInput()
     {

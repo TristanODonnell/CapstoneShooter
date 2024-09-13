@@ -7,6 +7,7 @@ TagManager:
   - Weapon
   - Equipment
   - Enemy
+  - Player Spawn
   layers:
   - Default
   - TransparentFX

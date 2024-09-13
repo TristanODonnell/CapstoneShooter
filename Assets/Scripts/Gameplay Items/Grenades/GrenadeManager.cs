@@ -10,20 +10,38 @@ public class GrenadeManager : MonoBehaviour
     public DataManager Singleton { get { return DataManager.Singleton; } }
     public int[] grenadeCounts;
     
-   public GrenadeBehavior grenadeBehavior;
+   private GrenadeBehavior grenadeBehavior;
 
     public ThrowableItem currentGrenade;
     public int currentIndex = 0;
+    public static GrenadeManager instance
+    {
+        get; private set;
+    }
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+    }
     private void Start() 
     {
-        grenadeCounts = new int[DataManager.Singleton.grenades.Count];
-        for (int i = 0; i < grenadeCounts.Length; i++)
-        {
-            grenadeCounts[i] = 10;
-            Debug.Log($"Initializing grenade count for type {DataManager.Singleton.grenades[i].name} to 0");
-        }
-        currentGrenade = Singleton.grenades.ElementAt(0);
+       // grenadeCounts = new int[DataManager.Singleton.grenades.Count];
+        //for (int i = 0; i < grenadeCounts.Length; i++)
+      //  {
+      //      grenadeCounts[i] = 10;
+       //     Debug.Log($"Initializing grenade count for type {DataManager.Singleton.grenades[i].name} to 0");
+      //  }
+      //  currentGrenade = Singleton.grenades.ElementAt(0);
     }
 
     public void AddGrenade(ThrowableItem grenadeType, int count = 1)
@@ -90,7 +108,7 @@ public class GrenadeManager : MonoBehaviour
                 if (grenadeBehavior != null)
                 {
                     Debug.Log("grenadeBehavior is not null, throwing grenade"); 
-
+                    grenadeBehavior = ClassSelectManager.Singleton.player.gameObject.GetComponent<GrenadeBehavior>();
                     grenadeBehavior.ThrowGrenade(currentGrenade);
                     RemoveGrenade(currentGrenade);
                     //ADD IF GREATER OR EQUAL TO !, CAN THROW 
