@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
         }
         shoot.ChangeWeapon(0);
         //initialize chosen Ability Base onto behavior
-        abilityBehaviour.SetAbility(playerData.playerAbilityReference);
+        //abilityBehaviour.SetAbility(playerData.playerAbilityReference);
         
     } 
 
