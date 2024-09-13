@@ -48,4 +48,4 @@ MonoBehaviour:
   dash_chargesMax: 2
   dash_cooldown:
     maximumCount: 0.6
-  dash_speed: 12
+  dash_speed: 23.9
