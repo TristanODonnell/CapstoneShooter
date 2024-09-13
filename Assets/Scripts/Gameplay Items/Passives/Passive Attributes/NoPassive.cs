@@ -11,11 +11,11 @@ public class NoPassive : PassiveAttribute
 
     public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+        //double check past passive values erase
     }
 
     public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+        //double check next passive changes values
     }
 }

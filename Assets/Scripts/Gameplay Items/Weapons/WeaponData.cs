@@ -11,8 +11,7 @@ public class WeaponData : ScriptableObject, IInteractable
     public string weaponName;
     public enum WeaponCategory { Shrapnel, Energy, Heavy, Melee }
     public enum WeaponType { Projectile, Hitscan, Melee }
-    public enum BulletType { Standard, Penetrating, Explosive }
-    public enum ObjectPoolType { Shrapnel, Energy}
+    public enum BulletType { Standard, Explosive }
     public WeaponCategory weaponCategory;
     public WeaponType weaponType;
     [SerializeField] public ProtectionValues ProtectionValues;
@@ -35,7 +34,7 @@ public class WeaponData : ScriptableObject, IInteractable
     [Header("Projectile Specific Parameters")]
     public GameObject projectileVisualPrefab;
     public GameObject objectPoolGameObject;
-    public ObjectPoolType objectPoolType;
+    
     public BulletType bulletType;
     public float bulletScale;
 

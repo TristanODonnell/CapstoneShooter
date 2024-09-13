@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7849552867276411789}
   - component: {fileID: 7484991652281784155}
   m_Layer: 14
-  m_Name: Shrapnel bullet test
+  m_Name: Projectile Pooled Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

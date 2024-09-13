@@ -24,7 +24,7 @@ public class RoundManager : MonoBehaviour
     public int spawnChanceMultiplier;
     public int roundFinishTimerValue;
 
-    
+    public float enemyCreditModifier;
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     private bool isRoundEnded = false;
     
@@ -106,7 +106,12 @@ public class RoundManager : MonoBehaviour
     }
     private int CalculateRoundCredits(int roundNumber)
     {
-        return roundNumber * roundCreditMultiplier;
+        int baseCredits = roundNumber * roundCreditMultiplier;
+        SetEnemyCreditsModifier();
+        int modifiedCredits = (int)(baseCredits * enemyCreditModifier);
+
+        currentRoundCredits = modifiedCredits;
+        return currentRoundCredits;
     }
 
     private bool isSpawningEnemies = false;
@@ -243,7 +248,13 @@ public class RoundManager : MonoBehaviour
         // }
     }
 
+    public void SetEnemyCreditsModifier()
+    {
+        int currentTotalEnemyCreditsLevel = ModifierManager.Singleton.currentTotalEnemyCreditsLevel;
+        enemyCreditModifier = ModifierManager.Singleton.totalEnemyCreditsModifiers[currentTotalEnemyCreditsLevel-1];
 
+
+    }
 
 
 

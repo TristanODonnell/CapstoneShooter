@@ -9,32 +9,34 @@ using static gricel.HealthSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Initialization")]
     public PlayerData attachedPlayerData;
 
 
-    
+    [Header("Player Health")]
     public HealthSystem healthSystem;
     public Hitbox hitBox;
 
-    
-    public GrenadeManager grenadeManager;
-    public GrenadeBehavior grenade;
-    public Player_AbilityBehaviour abilityBehaviour;
+
     [Header("Player Behavior")]
     public LookBehavior look;
     public MovementBehavior move;
     public ShootBehavior shoot;
     public PassiveBehavior passive;
-
-
+    public RecursiveBashBehavior recursiveBashBehavior;
     public GravitationalBehaviour gravitational;
     public float jumpForce;
-    
-    
 
+    public GrenadeManager grenadeManager;
+    public GrenadeBehavior grenade;
+    public Player_AbilityBehaviour abilityBehaviour;
+
+    [Header("Camera/Interactions")]
     [SerializeField] private Camera myCamera;
     [SerializeField] private LayerMask interactableFilter;
     public IInteractable selectedInteraction;
+
+    [Header("Shop Settings")]
     [SerializeField] private ShopBehavior shop;
     private bool isShopOpen = false;
     public int totalPlayerCurrency;
@@ -75,6 +77,11 @@ public class PlayerController : MonoBehaviour
             SetPlayerJumpModifier();
         }
     }
+    public void SetJumpPassiveModifier(float jumpModifier)
+    {
+        float modifiedJump = jumpModifier * jumpForce;
+        jumpForce = modifiedJump;
+    }
     public void SetPlayerJumpModifier()
     {
         int currentJumpLevel = ModifierManager.Singleton.currentJumpHeightLevel;
@@ -84,7 +91,7 @@ public class PlayerController : MonoBehaviour
         float modifiedJumpForce = jumpForce * jumpModifier;
         jumpForce = modifiedJumpForce;
     }
-    public void SetHealthPassiveModifier(float armorHealthPercentage, float fleshHealthPercentage, float energyHealthPercentage, float totalHealthMultiplier = 200f)
+    public void SetHealthPassiveModifier(float armorHealthPercentage, float armorModifier, float fleshHealthPercentage, float fleshModifier, float energyHealthPercentage, float energyShieldModifier, float totalHealthMultiplier = 200f)
     {
         if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
         {
@@ -103,9 +110,9 @@ public class PlayerController : MonoBehaviour
             totalHealth += health.health_Max;
         }
         totalHealth *= totalHealthMultiplier;
-        float armorHealth = totalHealth * armorHealthPercentage;
-        float fleshHealth = totalHealth * fleshHealthPercentage;
-        float energyHealth = totalHealth * energyHealthPercentage;
+        float armorHealth = totalHealth * armorHealthPercentage * armorModifier;
+        float fleshHealth = totalHealth * fleshHealthPercentage * fleshModifier;
+        float energyHealth = totalHealth * energyHealthPercentage * energyShieldModifier;
         foreach (var health in healthSystem.healthBars)
         {
             switch (health.protection)
@@ -196,6 +203,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void CheckRecursiveBashInput()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            recursiveBashBehavior.UseRecursiveBash();
+        }
+    }
     private void PassiveInteract()
     {
         {

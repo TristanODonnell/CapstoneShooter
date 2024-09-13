@@ -10,6 +10,7 @@ public class XPSystem : MonoBehaviour
     public int xpRequiredForNextLevel;
     public int xpGainPerWave;
     [SerializeField] private float xpMultiplier;
+    [SerializeField] private float xpPassiveMultiplier;
     public static XPSystem Singleton
     {
         get; private set;
@@ -29,21 +30,21 @@ public class XPSystem : MonoBehaviour
     private void Start()
     {
         // Set the initial XP required for the next level
-        xpRequiredForNextLevel = 100; // Example value
+      //  xpRequiredForNextLevel = 100; // Example value
 
         // Set the initial XP gain per level
-        xpGainPerWave = 50; // Example value
+      //  xpGainPerWave = 50; // Example value
 
-        SetXPModifier();
-        playerLevel = 1;
-        currentXP = 0;
+       // SetXPModifier();
+       // playerLevel = 1;
+       // currentXP = 0;
 
-        AddXP(4000);
+      //  AddXP(4000);
     }
 
     public void AddXP(int xp)
     {
-        currentXP += (int)(xp * xpMultiplier) ;
+        currentXP += (int)(xp * xpMultiplier * xpPassiveMultiplier) ;
 
         // Check if the player has leveled up
         while (currentXP >= xpRequiredForNextLevel)
@@ -72,7 +73,10 @@ public class XPSystem : MonoBehaviour
     }
 
 
-    
+    public void SetPassiveXPMultiplier(float multiplier)
+    {
+        xpPassiveMultiplier = multiplier;
+    }
 }
 
 

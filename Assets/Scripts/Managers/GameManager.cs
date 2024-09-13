@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
    
     public SpawnManager spawnManager;
     public RoundManager roundManager;
-    public ConvoyDefenseManager convoyDefenseManager;
+    //public ConvoyDefenseManager convoyDefenseManager;
     public string[] scenesList;
-    public GrenadeManager grenadeManager;
+    
 
     public static GameManager Singleton
     {
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
 
 
-
+    /*
 
     //holding off for now 
     public void LoadConvoyDefenseMode()
@@ -89,7 +89,8 @@ public class GameManager : MonoBehaviour
         
 
     }
-
+    */
+    /*
     public void InitializeConvoyDefenseMode()
     {
         
@@ -107,4 +108,5 @@ public class GameManager : MonoBehaviour
         //nuclear override UI 
     }
 
+    */
 }
