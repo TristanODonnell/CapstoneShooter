@@ -25,8 +25,11 @@ public class ShootBehavior : MonoBehaviour
     public WeaponData currentWeapon;
     public GameObject currentWeaponModel;
     public WeaponLogic currentWeaponLogic;
-    //public ObjectPool shrapnelObjectPool;
-    //public ObjectPool energyObjectPool;
+
+    private float weaponDamagePassive = 1f;
+    private float weaponReloadPassive = 1f;
+    private float weaponMagazinePassive = 1f;
+    private float weaponMaxAmmoPassive = 1f;
     void Start()
     {
 
@@ -51,7 +54,6 @@ public class ShootBehavior : MonoBehaviour
             case "Machine Revolver":
             case "Minigun":
                 return new AutomaticWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
-
             case "Light Dagger":
             case "Machete":
             case "ShovelAxe":
@@ -103,17 +105,20 @@ public class ShootBehavior : MonoBehaviour
         float magazineSizeModifier = ModifierManager.Singleton.weaponMagazineModifiers[currentWeaponMagazineLevel - 1];
 
         //set up modified values
-        weapon.reloadTime *= reloadTimeModifier;
-        weapon.maxAmmo = (int)(weapon.maxAmmo * maxAmmoModifier);
-        weapon.magazineSize = (int)(weapon.magazineSize * magazineSizeModifier);
+        weapon.reloadTime *= reloadTimeModifier * weaponReloadPassive;
+        weapon.maxAmmo = (int)(weapon.maxAmmo * maxAmmoModifier * weaponMaxAmmoPassive);
+        weapon.magazineSize = (int)(weapon.magazineSize * magazineSizeModifier * weaponMagazinePassive);
 
         weapon.currentMagazineAmmo = weapon.magazineSize;
     }
 
 
-    public void SetWeaponPassive(WeaponData weapon)
+    public void SetWeaponPassive( float weaponDamagePassiveModifier, float weaponMagazinePassiveModifier, float weaponReloadPassiveModifier, float weaponMaxAmmoPassiveModifier)
     {
-
+        weaponDamagePassive = weaponDamagePassiveModifier;
+        weaponReloadPassive = weaponReloadPassiveModifier;
+        weaponMagazinePassive = weaponMagazinePassiveModifier;
+        weaponMaxAmmoPassive = weaponMaxAmmoPassiveModifier;
     }
     public void SetUpWeaponDamage(WeaponData weapon)
     {
@@ -145,19 +150,19 @@ public class ShootBehavior : MonoBehaviour
         {
             case WeaponCategory.Shrapnel:
                 Debug.Log("Applying Shrapnel damage modifier: " + shrapnelDamageModifier);
-                weapon.ProtectionValues = weapon.ProtectionValues * shrapnelDamageModifier;
+                weapon.ProtectionValues = weapon.ProtectionValues * shrapnelDamageModifier * weaponDamagePassive;
                 break;
             case WeaponCategory.Energy:
                 Debug.Log("Applying Energy damage modifier: " + energyDamageModifier);
-                weapon.ProtectionValues = weapon.ProtectionValues * energyDamageModifier;
+                weapon.ProtectionValues = weapon.ProtectionValues * energyDamageModifier * weaponDamagePassive;
                 break;
             case WeaponCategory.Heavy:
                 Debug.Log("Applying Heavy damage modifier: " + heavyDamageModifier);
-                weapon.ProtectionValues = weapon.ProtectionValues * heavyDamageModifier;
+                weapon.ProtectionValues = weapon.ProtectionValues * heavyDamageModifier * weaponDamagePassive;
                 break;
             case WeaponCategory.Melee:
                 Debug.Log("Applying Melee damage modifier: " + meleeDamageModifier);
-                weapon.ProtectionValues = weapon.ProtectionValues * meleeDamageModifier;
+                weapon.ProtectionValues = weapon.ProtectionValues * meleeDamageModifier * weaponDamagePassive;
                 break;
         }
 

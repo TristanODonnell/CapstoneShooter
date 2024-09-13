@@ -79,35 +79,39 @@ public class GrenadeManager : MonoBehaviour
      
     public void ThrowGrenade()
     {
-        Debug.Log("ThrowGrenade called"); // Add this line
+        Debug.Log("ThrowGrenade called"); 
         int index = Singleton.grenades.IndexOf(currentGrenade);
         if (index != -1)
         {
-            Debug.Log("Current grenade found in Singleton.grenades at index " + index); // Add this line
+            Debug.Log("Current grenade found in Singleton.grenades at index " + index); 
             if (grenadeCounts[index] > 0)
             {
-                Debug.Log("Grenade count at index " + index + " is greater than 0"); // Add this line
+                Debug.Log("Grenade count at index " + index + " is greater than 0"); 
                 if (grenadeBehavior != null)
                 {
-                    Debug.Log("grenadeBehavior is not null, throwing grenade"); // Add this line
+                    Debug.Log("grenadeBehavior is not null, throwing grenade"); 
+
                     grenadeBehavior.ThrowGrenade(currentGrenade);
                     RemoveGrenade(currentGrenade);
                     //ADD IF GREATER OR EQUAL TO !, CAN THROW 
                 }
                 else
                 {
-                    Debug.LogError("grenadeBehavior is null"); // Add this line
+                    Debug.LogError("grenadeBehavior is null");
                 }
             }
             else
             {
-                Debug.Log("Grenade count at index " + index + " is 0 or less"); // Add this line
+                Debug.Log("Grenade count at index " + index + " is 0 or less");
             }
         }
         else
         {
-            Debug.LogError("Current grenade not found in Singleton.grenades"); // Add this line
+            Debug.LogError("Current grenade not found in Singleton.grenades");
         }
     }
+
+   
+
 
 }

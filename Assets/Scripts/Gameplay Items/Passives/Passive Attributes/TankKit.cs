@@ -14,13 +14,13 @@ public class TankKit : PassiveAttribute
     {
 
         passiveBehavior.movement.SetPassiveModifier(0.90f);
-        passiveBehavior.player.SetHealthPassiveModifier(0.30f, 0.10f, 0.60f); 
+        passiveBehavior.player.SetHealthPassiveModifier(0.30f, 1.0f, 0.10f, 1.0f, 0.60f, 1.00f, 1.00f); 
         
     }
 
     public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
         passiveBehavior.movement.SetPassiveModifier(1.0f);
-        passiveBehavior.player.SetHealthPassiveModifier(0.15f, 0.35f, 0.50f);
+        passiveBehavior.player.SetHealthPassiveModifier(0.15f, 1.0f, 0.35f, 1.0f, 0.50f, 1.0f, 1.00f);
     }
 }

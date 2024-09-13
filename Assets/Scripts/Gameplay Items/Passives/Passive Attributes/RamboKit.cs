@@ -15,16 +15,13 @@ public class RamboKit : PassiveAttribute
 
     public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        passiveBehavior.player.SetHealthPassiveModifier(0.00f, 0.00f, 1.00f, 0.75f);
-        
-        //   passiveBehavior.dataManager.ApplyMagSizeModifiers(1.5f);
-        //   passiveBehavior.dataManager.ApplyReloadTimeModifiers(1.5f);
+        passiveBehavior.player.SetHealthPassiveModifier(0.00f, 1.0f, 0.00f, 10f, 1.00f, 1.00f, 0.75f);
+        passiveBehavior.shoot.SetWeaponPassive( 1.5f, 1.5f, .50f, 1.00f);
     }
 
     public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        passiveBehavior.player.SetHealthPassiveModifier(0.15f, 0.35f, 0.50f, 1.00f);
-        // passiveBehavior.dataManager.ResetMagSizeModifiers();
-        //  passiveBehavior.dataManager.ResetReloadTimeModifiers();
+        passiveBehavior.player.SetHealthPassiveModifier(0.15f, 1.0f, 0.35f, 1.0f, 0.50f, 1.0f, 1.00f);
+        passiveBehavior.shoot.SetWeaponPassive(1.0f, 1.0f, 1.0f, 1.00f);
     }
 }
