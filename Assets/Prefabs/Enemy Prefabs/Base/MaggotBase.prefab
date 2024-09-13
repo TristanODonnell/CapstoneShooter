@@ -854,6 +854,7 @@ MonoBehaviour:
   health: {fileID: 6476777328567968596}
   eyes: {fileID: 4574002145499401431}
   gun: {fileID: -6803914683490673222}
+  enemyCosts: {fileID: -3725212435646053868}
   state_Base: {fileID: 5089989742253712669}
   state_detection: {fileID: 405338493494931790}
   detectionAttempt_Timer:

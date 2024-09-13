@@ -13,11 +13,6 @@ public class Enemy : MonoBehaviour, ILootSource
     public GameObject enemyPrefab;
     public EnemyTier enemyTier;
     public enum EnemyTier { High, Low }
-
-    private void Update()
-    {
-        Die();
-    }
     public Enemy(string name, int creditCost, GameObject prefab)
     {
         enemyName = name;
@@ -27,31 +22,8 @@ public class Enemy : MonoBehaviour, ILootSource
 
 
 
-
-
-
-
-
-
-
-    
-    
-
     public void SpawnLoot()
     {
-        
-    }
-
-    public void Die() 
-    {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            
-            Destroy(gameObject);
-            healthSystem.onDeath.Invoke();
-            
-        }
-        
         
     }
 

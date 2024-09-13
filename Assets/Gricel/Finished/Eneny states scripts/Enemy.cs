@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OtherEnemy = Enemy;
 namespace gricel
 {
     public class Enemy : MonoBehaviour
@@ -13,6 +14,7 @@ namespace gricel
         [SerializeField] public gricel.HealthSystem health;
         [SerializeField] private Transform eyes;
         [SerializeField] public EnemyGun gun;
+        [SerializeField] private OtherEnemy enemyCosts;
 
 
 
@@ -232,6 +234,7 @@ namespace gricel
 
         private void Death()
         {
+            enemyCosts.SpawnLoot();
             ragdoll.Spawn(transform);
             Destroy(gameObject);
         }

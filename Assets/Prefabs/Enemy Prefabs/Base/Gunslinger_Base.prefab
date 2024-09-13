@@ -144,6 +144,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7957844432084044068}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e15b46e0a203128429c553d168a5a753,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1035803182822100435}
     - targetCorrespondingSourceObject: {fileID: 435366414910075120, guid: e15b46e0a203128429c553d168a5a753,
         type: 3}
       insertIndex: -1
@@ -1284,7 +1288,8 @@ MonoBehaviour:
   ragdoll: {fileID: 561700843462690990, guid: 036df78034d5a1141916c79324236ba1, type: 3}
   health: {fileID: 907154861247411598}
   eyes: {fileID: 7077222711394029584}
-  gun: {fileID: 0}
+  gun: {fileID: 1035803182822100435}
+  enemyCosts: {fileID: 1505775554310876515}
   state_Base: {fileID: 4102646067629454181}
   state_detection: {fileID: 7957844432084044068}
   detectionAttempt_Timer:
@@ -1397,6 +1402,21 @@ MonoBehaviour:
     maximumCount: 5
   path_lookForEscape:
     maximumCount: 3
+--- !u!114 &1035803182822100435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398422443290568266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
+  missAngle: 10
+  enemy: {fileID: 4610755474902925759}
 --- !u!1 &7811397483867155435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 435366414910075120, guid: e15b46e0a203128429c553d168a5a753,

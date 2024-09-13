@@ -623,6 +623,7 @@ MonoBehaviour:
   health: {fileID: 2407866634661683011}
   eyes: {fileID: 6783304678238473664}
   gun: {fileID: 1111530869694542008}
+  enemyCosts: {fileID: -1289740794284759245}
   state_Base: {fileID: 3619811384938507304}
   state_detection: {fileID: 1067438640630722007}
   detectionAttempt_Timer:
