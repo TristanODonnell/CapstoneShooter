@@ -11,7 +11,7 @@ public class Player_AbilityBehaviour : MonoBehaviour
 {
 	public CharacterController controller;
 	public GravitationalBehaviour gravitation;
-
+	private bool hasStarted = false;
 	private enum StartAbility
 	{
 		nothing,
@@ -26,8 +26,9 @@ public class Player_AbilityBehaviour : MonoBehaviour
 
 	private void Start()
 	{
-		if (abilitySelected != null)
+		if (hasStarted)
 			return;
+		hasStarted = true;
 		var ability = abilitySelected;
 		switch (startAbility)
 		{
