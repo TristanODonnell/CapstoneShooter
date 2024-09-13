@@ -26,6 +26,8 @@ public class Player_AbilityBehaviour : MonoBehaviour
 
 	private void Start()
 	{
+		if (abilitySelected)
+			return;
 		var ability = abilitySelected;
 		switch (startAbility)
 		{
