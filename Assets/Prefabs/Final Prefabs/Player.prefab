@@ -399,7 +399,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 120
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -484,7 +484,6 @@ GameObject:
   - component: {fileID: 6576053233215072034}
   - component: {fileID: 2001258778796343695}
   - component: {fileID: 8680911425828354541}
-  - component: {fileID: 3709818788491460102}
   - component: {fileID: 4129678702875310515}
   - component: {fileID: 8616827764196862292}
   - component: {fileID: 2174882120291665293}
@@ -581,8 +580,8 @@ MonoBehaviour:
   passive: {fileID: 2001258778796343695}
   recursiveBashBehavior: {fileID: 223032032774429785}
   gravitational: {fileID: 6576053233215072034}
-  jumpForce: 4
-  grenadeManager: {fileID: 3709818788491460102}
+  jumpForce: 0
+  grenadeManager: {fileID: 0}
   grenade: {fileID: 8680911425828354541}
   abilityBehaviour: {fileID: 6519115802940064383}
   myCamera: {fileID: 1681489009076498514}
@@ -605,7 +604,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4064175703137294824}
   gravitation: {fileID: 6576053233215072034}
-  startAbility: 0
   abilityReferences:
     jetburst: {fileID: -5175714637659395522, guid: 8848a3bca080fe149ac8fcded10991fe,
       type: 3}
@@ -618,6 +616,7 @@ MonoBehaviour:
       type: 3}
     jetpack: {fileID: 4858017524980985109, guid: 9fe1a8702caa9014896773d9c8fad478,
       type: 3}
+  abilitySelected: {fileID: 0}
 --- !u!114 &6576053233215072034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2fa776dd7bba84a8af75aeee33274f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachedPassive: {fileID: 11400000, guid: 4af9496235954784f8e5f04fcb36d84b, type: 2}
+  attachedPassive: {fileID: 0}
 --- !u!114 &8680911425828354541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,25 +656,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4a702ef1e0003e47886de465aea3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 400
-  upwardForce: 5
-  grenadeManager: {fileID: 3709818788491460102}
-  myCamera: {fileID: 1681489009076498514}
---- !u!114 &3709818788491460102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8296928949807555558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9aa606ef43e3349bf9a2aed5ffa8b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenadeCounts: 000000000000000000000000000000000000000000000000
-  currentGrenade: {fileID: 0}
-  currentIndex: 0
+  force: 0
+  upwardForce: 0
+  grenadeManager: {fileID: 0}
+  myCamera: {fileID: 0}
 --- !u!114 &4129678702875310515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -691,10 +675,7 @@ MonoBehaviour:
   weaponTip: {fileID: 5125429162439390344}
   weaponPosition: {fileID: 7693768260532702039}
   isReloading: 0
-  weapons:
-  - {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
-  - {fileID: 11400000, guid: eed3c511c863e8a4f8031e132ada05c6, type: 2}
-  - {fileID: 11400000, guid: af7543d4b6854e343b9922d92543a18b, type: 2}
+  weapons: []
   lookBehavior: {fileID: 2174882120291665293}
   currentWeaponIndex: 0
   currentWeapon: {fileID: 0}
@@ -729,7 +710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookSensitivity: 150
   myCamera: {fileID: 1681489009076498514}
-  shootBehavior: {fileID: 4129678702875310515}
+  shootBehavior: {fileID: 0}
 --- !u!143 &4064175703137294824
 CharacterController:
   m_ObjectHideFlags: 0
@@ -785,18 +766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBars:
   - protection: 0
-    health_Max: 40
-    healthRegenPerS: 11
-    OnDepleted:
-      m_PersistentCalls:
-        m_Calls: []
-  - protection: 1
-    health_Max: 40
-    healthRegenPerS: 11
-    OnDepleted:
-      m_PersistentCalls:
-        m_Calls: []
-  - protection: 2
     health_Max: 40
     healthRegenPerS: 11
     OnDepleted:

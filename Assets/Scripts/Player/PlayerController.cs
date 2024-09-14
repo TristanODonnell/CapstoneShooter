@@ -403,7 +403,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            var rc = Physics.RaycastAll(transform.position + Vector3.up, Vector3.down, 1.1f);
+            var rc = Physics.RaycastAll(transform.position + Vector3.up, Vector3.down, 2.5f);
             var canJump = false;
             foreach (var item in rc)
             {
