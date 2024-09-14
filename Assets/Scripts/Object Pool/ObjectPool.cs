@@ -13,6 +13,7 @@ public class ObjectPool : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         for (int i = 0; i < poolSize; i++)
         {
             PooledObject tempObject = Instantiate(pooledObject, transform);

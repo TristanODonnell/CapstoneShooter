@@ -13,20 +13,17 @@ public class CurrencyManager : MonoBehaviour
         if (singleton == null)
         {
             singleton = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (singleton != this)
         {
             Destroy(gameObject);
         }
     }
-    public int totalCurrency {  get; private set; }
+    public int totalCurrency; 
     public int currencyAdded { get; private set; }
 
-    public void SetTotalCurrency(int value)
-    {
-        totalCurrency = value;
-    }
-
+    
     public void AddCurrency(int amount)
     {
         totalCurrency += amount;

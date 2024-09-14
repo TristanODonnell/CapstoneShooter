@@ -20,7 +20,72 @@ public class ModifierManager : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-    public int currentEquipmentCooldownLevel =1; //next
+    public enum SkillTreeType
+    {
+        Ability,
+        Speed,
+        JumpHeight,
+        Reload,
+        MaxAmmo,
+        WeaponMagazineSize,
+        RecursiveBash,
+        ArmorHealth,
+        FleshHealth,
+        EnergyShield,
+        ShrapnelDamage,
+        EnergyDamage,
+        HeavyDamage,
+        MeleeDamage,
+        GrenadeDamage,
+        EnemyNumbers,
+        XPGained,
+    }
+    public void UpdateSkillTreeType(SkillTreeType skillTreeType)
+    {
+        Debug.Log("Updating skill tree type: " + skillTreeType);
+        switch (skillTreeType)
+        {
+            case SkillTreeType.Ability:
+                currentAbilityCooldownLevel++;
+                break;
+            case SkillTreeType.Speed:
+                currentSpeedLevel++;
+                break;
+            case SkillTreeType.JumpHeight:
+                currentJumpHeightLevel++; break;
+            case SkillTreeType.Reload:
+                currentReloadLevel++; break;
+            case SkillTreeType.MaxAmmo:
+                currentmaxAmmoLevel++; break;
+            case SkillTreeType.WeaponMagazineSize:
+                currentWeaponMagazineLevel++; break;
+            case SkillTreeType.RecursiveBash:
+                currentRecursiveBashLevel++; break;
+            case SkillTreeType.ArmorHealth:
+                currentArmorLevel++; break;
+            case SkillTreeType.FleshHealth:
+                currentFleshLevel++; break;
+            case SkillTreeType.EnergyShield:
+                currentEnergyShieldLevel++; break;
+            case SkillTreeType.ShrapnelDamage:
+                currentShrapnelWeaponDamageLevel++; break;
+            case SkillTreeType.EnergyDamage:
+                currentEnergyWeaponDamageLevel++; break;
+            case SkillTreeType.HeavyDamage:
+                currentHeavyWeaponDamageLevel++; break;
+            case SkillTreeType.MeleeDamage:
+                currentMeleeWeaponDamageLevel++; break;
+            case SkillTreeType.GrenadeDamage:
+                currentGrenadeDamageLevel++; break;
+            case SkillTreeType.EnemyNumbers:
+                currentTotalEnemyCreditsLevel++; break;
+            case SkillTreeType.XPGained:
+                currentXPGainedLevel++; break;
+            default:
+                break;
+        }
+    }
+    public int currentAbilityCooldownLevel =1; //next
     public int currentSpeedLevel = 1; //done
     public int currentJumpHeightLevel = 1; //done
     public int currentReloadLevel = 1; //DONE
@@ -30,7 +95,7 @@ public class ModifierManager : MonoBehaviour
     public int currentArmorLevel = 1;//Done
     public int currentFleshLevel = 1;//Done
     public int currentEnergyShieldLevel = 1;//Done
-    public int currentShrapnelWeaponDamageLevel = 3; //done
+    public int currentShrapnelWeaponDamageLevel = 1; //done
     public int currentEnergyWeaponDamageLevel = 1; //done
     public int currentHeavyWeaponDamageLevel = 1; //done
     public int currentMeleeWeaponDamageLevel = 1; //done
@@ -38,7 +103,7 @@ public class ModifierManager : MonoBehaviour
     public int currentTotalEnemyCreditsLevel = 1;//done
     public int currentXPGainedLevel = 1;//done
 
-    public List<float> equipmentCooldownModifiers = new List<float> { 1.0f, 0.95f, 0.90f, 0.75f, 0.60f, 0.40f }; //equipmentcooldown
+    public List<float> abilityCooldownModifiers = new List<float> { 1.0f, 0.95f, 0.90f, 0.75f, 0.60f, 0.40f }; //equipmentcooldown
     public List<float> speedModifiers = new List<float> { 1.0f, 1.05f, 1.15f, 1.25f, 1.50f, 2.00f }; //speed
     public List<float> jumpingHeightModifiers = new List<float> { 1.0f, 1.25f, 1.5f, 2.0f, 2.5f, 3.0f }; //jumpheight
     public List<float> reloadTimeModifiers = new List<float> { 1.0f, 0.95f, 0.90f, 0.80f, 0.70f, 0.50f }; //reloadtime
