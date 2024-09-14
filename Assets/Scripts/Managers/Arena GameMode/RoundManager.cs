@@ -14,6 +14,8 @@ public class RoundManager : MonoBehaviour
     public EnemyTypesList EnemyTypesList;
     public List<GameObject> highTierEnemies;
     public List<GameObject> lowTierEnemies;
+
+    [Header("Current Round Values")]
     public int currentRound = 0;
     public int currentRoundCredits;
 
@@ -88,11 +90,13 @@ public class RoundManager : MonoBehaviour
     
     private void EndRound()
     {
+        Debug.Log("EndRound called");
         isSpawningEnemies = false; 
         StopCoroutine(SpawnEnemiesCoroutine());
         spawnedEnemies.Clear();
+        Debug.Log("spawnedEnemies list cleared");
         StartCoroutine(WaitForRoundToEnd());
-        Debug.Log("Cleared");
+        Debug.Log("WaitForRoundToEnd coroutine started");
     }
     private IEnumerator WaitForRoundToEnd()
     {
