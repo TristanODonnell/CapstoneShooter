@@ -13,20 +13,26 @@ MonoBehaviour:
   m_Name: Marksman Rifle
   m_EditorClassIdentifier: 
   weaponName: Marksman Rifle
+  weaponCategory: 0
   weaponType: 0
   ProtectionValues:
     unprotected: 500
     energyShield: 10
     armor: 6
     stun: 2
+  originalProtectionValues:
+    unprotected: 0
+    energyShield: 0
+    armor: 0
+    stun: 0
   currentMagazineAmmo: 20
   totalAmmo: 1000
   magazineSize: 20
   maxAmmo: 1000
   reloadTime: 3
+  originalReloadTime: 3
   originalMagazineSize: 20
   originalMaxAmmo: 1000
-  originalReloadTime: 3
   weaponModel: {fileID: 919132149155446097, guid: 0cf157e2957649d48a95548be01e3947,
     type: 3}
   worldWeapon: {fileID: 2197341519502528375, guid: 3275b0218055f624fb14180cc89989b2,
@@ -36,7 +42,6 @@ MonoBehaviour:
     type: 3}
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
-  objectPoolType: 0
   bulletType: 0
   bulletScale: 0.1
   verticalRecoil: 5
@@ -50,6 +55,9 @@ MonoBehaviour:
   penetrationPerHit: 5
   burstSize: 0
   burstDelay: 0
+  riotShieldCollider: {fileID: 0}
   explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0
+  v_crosshair: {fileID: 21300000, guid: b46180284252bc446aa40ce3a3affbcb, type: 3}
+  v_Icon: {fileID: 21300000, guid: 1e82e1080e6c8954482520f68127b7ee, type: 3}

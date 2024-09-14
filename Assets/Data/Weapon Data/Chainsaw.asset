@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
   weaponName: Chainsaw
+  weaponCategory: 0
   weaponType: 2
   ProtectionValues:
     unprotected: 10
+    energyShield: 0
+    armor: 0
+    stun: 0
+  originalProtectionValues:
+    unprotected: 0
     energyShield: 0
     armor: 0
     stun: 0
@@ -24,9 +30,9 @@ MonoBehaviour:
   magazineSize: 100
   maxAmmo: 100
   reloadTime: 1
+  originalReloadTime: 1
   originalMagazineSize: 100
   originalMaxAmmo: 100
-  originalReloadTime: 1
   weaponModel: {fileID: 919132149155446097, guid: 8595e8acbc89aac4b928efe10c613535,
     type: 3}
   worldWeapon: {fileID: 5700079142070317025, guid: 015e0a4e2d826754bbed5b2ef8e157e4,
@@ -34,7 +40,6 @@ MonoBehaviour:
   ObjectPool: {fileID: 0}
   projectileVisualPrefab: {fileID: 0}
   objectPoolGameObject: {fileID: 0}
-  objectPoolType: 0
   bulletType: 0
   bulletScale: 0
   verticalRecoil: 0
@@ -48,6 +53,9 @@ MonoBehaviour:
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  riotShieldCollider: {fileID: 0}
   explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0
+  v_crosshair: {fileID: 21300000, guid: c8b3aac406854c44fa0130113c85368b, type: 3}
+  v_Icon: {fileID: 21300000, guid: 7d6f8bbcf7f271d40a342c1eb0b25546, type: 3}

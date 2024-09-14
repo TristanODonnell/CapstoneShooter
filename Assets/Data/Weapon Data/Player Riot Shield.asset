@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Player Riot Shield
   m_EditorClassIdentifier: 
   weaponName: Player Riot Shield
+  weaponCategory: 0
   weaponType: 2
   ProtectionValues:
     unprotected: 40
+    energyShield: 0
+    armor: 0
+    stun: 0
+  originalProtectionValues:
+    unprotected: 0
     energyShield: 0
     armor: 0
     stun: 0
@@ -24,9 +30,9 @@ MonoBehaviour:
   magazineSize: 50
   maxAmmo: 50
   reloadTime: 50
+  originalReloadTime: 50
   originalMagazineSize: 50
   originalMaxAmmo: 50
-  originalReloadTime: 50
   weaponModel: {fileID: 919132149155446097, guid: 657b9d9f095bfa64d9109747b6f6caea,
     type: 3}
   worldWeapon: {fileID: 2490364257951202562, guid: 6362bc22f87eeb84ab32a3561ef7ec91,
@@ -34,7 +40,6 @@ MonoBehaviour:
   ObjectPool: {fileID: 0}
   projectileVisualPrefab: {fileID: 0}
   objectPoolGameObject: {fileID: 0}
-  objectPoolType: 0
   bulletType: 0
   bulletScale: 0
   verticalRecoil: 0
@@ -53,3 +58,5 @@ MonoBehaviour:
   explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0
+  v_crosshair: {fileID: 21300000, guid: fcc8c0938d5d35a4ca0cdea42410c05d, type: 3}
+  v_Icon: {fileID: 21300000, guid: d2fb9a7839a540a4c9c4d7e7920178d7, type: 3}

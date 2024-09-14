@@ -20,11 +20,19 @@ MonoBehaviour:
     energyShield: 5
     armor: 5
     stun: 5
+  originalProtectionValues:
+    unprotected: 0
+    energyShield: 0
+    armor: 0
+    stun: 0
   currentMagazineAmmo: 5
   totalAmmo: 5086
   magazineSize: 5
   maxAmmo: 10000
   reloadTime: 5
+  originalReloadTime: 0
+  originalMagazineSize: 0
+  originalMaxAmmo: 0
   weaponModel: {fileID: 919132149155446097, guid: 6a9ee56e64678264492e813ec0c6370a,
     type: 3}
   worldWeapon: {fileID: 8706930617933202707, guid: 0340a68bdde53db45a727de90676627b,
@@ -49,3 +57,5 @@ MonoBehaviour:
   explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0
+  v_crosshair: {fileID: 21300000, guid: a847bc2ca9e0f6c4fad3f3769490ec26, type: 3}
+  v_Icon: {fileID: 21300000, guid: 22da39166fd319145b97b6cba8cab674, type: 3}

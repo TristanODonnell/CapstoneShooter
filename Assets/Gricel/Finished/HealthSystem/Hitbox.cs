@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
 	[SerializeField]
-	private BoxCollider collider;
+	private BoxCollider hb_collider;
 	[SerializeField]
 	public gricel.HealthSystem health;
 	[SerializeField]
@@ -14,19 +14,19 @@ public class Hitbox : MonoBehaviour
 	{
 		if (!health)
 			health = GetComponentInParent<gricel.HealthSystem>();
-		if (!collider)
+		if (!hb_collider)
 		{
-			collider = gameObject.GetComponent<BoxCollider>();
-			if (collider)
+			hb_collider = gameObject.GetComponent<BoxCollider>();
+			if (hb_collider)
 			{
-				collider.isTrigger = true;
+				hb_collider.isTrigger = true;
 				return;
 			}
 			var renderer = GetComponentInChildren<Renderer>(true);
 
-			collider = gameObject.AddComponent<BoxCollider>();
-			collider.size = renderer.transform.rotation * renderer.bounds.size;
-			collider.isTrigger = true;
+			hb_collider = gameObject.AddComponent<BoxCollider>();
+			hb_collider.size = renderer.transform.rotation * renderer.bounds.size;
+			hb_collider.isTrigger = true;
 		}
 	}
 

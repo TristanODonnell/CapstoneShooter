@@ -67,10 +67,13 @@ public class WeaponData : ScriptableObject, IInteractable
     [Header("Explosive Bullet Settings")]
     public float explosionRadius;
 
-    [Header("Shop Settings")]
+    [Header("Shop Settings")] 
     public int itemCost;
     public int ammoRefillCost;
 
+    [Header("Visual Settings")]
+    public Sprite v_crosshair;
+    public Sprite v_Icon;
 
 
     public int AmmoRefillCost => ammoRefillCost;

@@ -20,11 +20,19 @@ MonoBehaviour:
     energyShield: 5
     armor: 5
     stun: 5
+  originalProtectionValues:
+    unprotected: 0
+    energyShield: 0
+    armor: 0
+    stun: 0
   currentMagazineAmmo: 40
   totalAmmo: 50
   magazineSize: 40
   maxAmmo: 2000
   reloadTime: 5
+  originalReloadTime: 0
+  originalMagazineSize: 0
+  originalMaxAmmo: 0
   weaponModel: {fileID: 919132149155446097, guid: 85e3bceead0189343902bc33fce5b6ff,
     type: 3}
   worldWeapon: {fileID: 5323353297967709619, guid: 09d49ca82b724f145af3b76823dd136c,
@@ -32,7 +40,6 @@ MonoBehaviour:
   ObjectPool: {fileID: 0}
   projectileVisualPrefab: {fileID: 0}
   objectPoolGameObject: {fileID: 0}
-  objectPoolType: 0
   bulletType: 0
   bulletScale: 0
   verticalRecoil: 2
@@ -50,3 +57,5 @@ MonoBehaviour:
   explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0
+  v_crosshair: {fileID: 21300000, guid: 70dcdf02d398c15469d064b8e4ad12b7, type: 3}
+  v_Icon: {fileID: 21300000, guid: d9c13dd162ed48547b09701bcffda558, type: 3}
