@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3013676709320991439}
   - component: {fileID: 139375420867081086}
-  m_Layer: 0
+  - component: {fileID: -8234996823425773128}
+  - component: {fileID: 2812735111325827176}
+  - component: {fileID: -6198159237554415930}
+  m_Layer: 8
   m_Name: Chainsaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: 4c752cb9d82aa1a4aa4a3cb5e63eeb4e, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &-8234996823425773128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700079142070317025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 11400000, guid: 4c752cb9d82aa1a4aa4a3cb5e63eeb4e, type: 2}
+  currentWorldWeapon: {fileID: 5700079142070317025}
+  groundTotalAmmo: 0
+--- !u!65 &2812735111325827176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700079142070317025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.61951363, y: 1, z: 2.089223}
+  m_Center: {x: -0.06364995, y: 0, z: 0.9043119}
+--- !u!65 &-6198159237554415930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5700079142070317025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 2.61665}
+  m_Center: {x: 0, y: 0, z: 0.80832505}
 --- !u!1 &8982339388432556401
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5217256593488354970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chainsaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8595e8acbc89aac4b928efe10c613535,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6078126214913587448}
   - component: {fileID: 3495633815753039129}
-  m_Layer: 0
+  - component: {fileID: -386977711213583622}
+  - component: {fileID: 6122529470614944562}
+  - component: {fileID: 4215574742853666529}
+  m_Layer: 8
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: af7543d4b6854e343b9922d92543a18b, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &-386977711213583622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846165507701985046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 11400000, guid: af7543d4b6854e343b9922d92543a18b, type: 2}
+  currentWorldWeapon: {fileID: 846165507701985046}
+  groundTotalAmmo: 0
+--- !u!65 &6122529470614944562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846165507701985046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2690184, y: 1.2418795, z: 3.26051}
+  m_Center: {x: 0.031122535, y: 0.12093973, z: 0.9319935}
+--- !u!65 &4215574742853666529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846165507701985046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2495556, z: 4.039855}
+  m_Center: {x: 0, y: 0.12477791, z: 0.9355906}
 --- !u!1 &1503677030064670010
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1796960347782201329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8ab1683caca553d49a865ffa404ebea5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

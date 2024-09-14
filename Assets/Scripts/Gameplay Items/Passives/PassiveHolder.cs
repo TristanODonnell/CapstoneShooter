@@ -18,6 +18,7 @@ public class PassiveHolder : MonoBehaviour, IInteractable
     public void Interact(PlayerController player, PassiveData passiveData)
     {
         player.passive.SwapPassive(passiveData);
+        
     }
 
     public void OnHoverEnter()

@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
     [Header("Player Health")]
     public HealthSystem healthSystem;
     public Hitbox hitBox;
-
+    public float originalFleshHealth;
+    public float originalArmorHealth;
+    public float originalEnergyHealth;
 
     [Header("Player Behavior")]
     public LookBehavior look;
@@ -49,17 +51,25 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         grenadeManager = GrenadeManager.instance;
-
-    }
-
-    public void ModifierInputTest()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
+        foreach (var health in healthSystem.healthBars)
         {
-            SetPlayerHealthModifier();
-            SetPlayerJumpModifier();
+            switch (health.protection)
+            {
+                case Health.HealthT.unprotected:
+                    originalFleshHealth = health.health_Max;
+                    break;
+                case Health.HealthT.armor:
+                    originalArmorHealth = health.health_Max;
+                    break;
+                case Health.HealthT.energyShield:
+                    originalEnergyHealth = health.health_Max;
+                    break;
+            }
         }
+        SetHealthModifier(0.15f, 1.0f, 0.35f, 1.0f, 0.50f, 1.0f, 1.00f);
     }
+    
+    
     public void SetJumpPassiveModifier(float jumpModifier)
     {
         float modifiedJump = jumpModifier * jumpForce;
@@ -74,18 +84,48 @@ public class PlayerController : MonoBehaviour
         float modifiedJumpForce = jumpForce * jumpModifier;
         jumpForce = modifiedJumpForce;
     }
-    public void SetHealthPassiveModifier(float armorHealthPercentage, float armorModifier, float fleshHealthPercentage, float fleshModifier, float energyHealthPercentage, float energyShieldModifier, float totalHealthMultiplier = 200f)
+    public void SetHealthModifier(float armorHealthPercentage, float armorModifier, float fleshHealthPercentage, float fleshModifier, float energyHealthPercentage, float energyShieldModifier, float totalHealthMultiplier)
     {
+
         if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
         {
             Debug.LogError("healthSystem or healthBars is not ready!");
             return;
         }
-        if (armorHealthPercentage + fleshHealthPercentage + energyHealthPercentage != 1.0f)
+        
+        Debug.Log("Health percentages:");
+        Debug.Log("  Armor: " + armorHealthPercentage * 100f + "%");
+        Debug.Log("  Flesh: " + fleshHealthPercentage * 100f + "%");
+        Debug.Log("  Energy: " + energyHealthPercentage * 100f + "%");
+        Debug.Log("Modifiers:");
+        Debug.Log("  Armor: " + armorModifier);
+        Debug.Log("  Flesh: " + fleshModifier);
+        Debug.Log("  Energy: " + energyShieldModifier);
+        foreach (var health in healthSystem.healthBars)
         {
-            Debug.LogError("Health percentages do not add up to 100%");
-            return;
+            switch (health.protection)
+            {
+                case Health.HealthT.unprotected:
+                    health.health_Max = originalFleshHealth;
+                    break;
+                case Health.HealthT.armor:
+                    health.health_Max = originalArmorHealth;
+                    break;
+                case Health.HealthT.energyShield:
+                    health.health_Max = originalEnergyHealth;
+                    break;
+            }
         }
+        //SKILLTREE MODIFIERS applied
+        int currentArmorLevel = ModifierManager.Singleton.currentArmorLevel;
+        int currentFleshLevel = ModifierManager.Singleton.currentFleshLevel;
+        int currentEnergyShieldLevel = ModifierManager.Singleton.currentEnergyShieldLevel;
+
+        float armorSkillTree = ModifierManager.Singleton.armorModifiers[currentArmorLevel - 1];
+        float fleshSkillTree = ModifierManager.Singleton.fleshModifiers[currentFleshLevel - 1];
+        float energyShieldSkillTree = ModifierManager.Singleton.energyShieldModifiers[currentEnergyShieldLevel - 1];
+        Debug.Log("Modifiers: armor=" + armorSkillTree + ", flesh=" + fleshSkillTree + ", energyShield=" + energyShieldSkillTree);
+
 
         float totalHealth = 0f;
         foreach (var health in healthSystem.healthBars)
@@ -93,11 +133,12 @@ public class PlayerController : MonoBehaviour
             totalHealth += health.health_Max;
         }
         totalHealth *= totalHealthMultiplier;
-        float armorHealth = totalHealth * armorHealthPercentage * armorModifier;
-        float fleshHealth = totalHealth * fleshHealthPercentage * fleshModifier;
-        float energyHealth = totalHealth * energyHealthPercentage * energyShieldModifier;
+        float armorHealth = totalHealth * armorHealthPercentage * armorModifier * armorSkillTree;
+        float fleshHealth = totalHealth * fleshHealthPercentage * fleshModifier * fleshSkillTree;
+        float energyHealth = totalHealth * energyHealthPercentage * energyShieldModifier * energyShieldSkillTree;
         foreach (var health in healthSystem.healthBars)
         {
+            Debug.Log("Before modification: health_Max = " + health.health_Max);
             switch (health.protection)
             {
                 case Health.HealthT.unprotected:
@@ -110,45 +151,13 @@ public class PlayerController : MonoBehaviour
                     health.health_Max = energyHealth;
                     break;
             }
-        }
-    }
-    public void SetPlayerHealthModifier() // -- worked on input but not Start 
-    {
-        if (healthSystem == null || healthSystem.healthBars == null || healthSystem.healthBars.Length == 0)
-        {
-            Debug.LogError("healthSystem or healthBars is not ready!");
-            return;
-        }
-        int currentArmorLevel = ModifierManager.Singleton.currentArmorLevel;
-        int currentFleshLevel = ModifierManager.Singleton.currentFleshLevel;
-        int currentEnergyShieldLevel = ModifierManager.Singleton.currentEnergyShieldLevel;
-
-        float armorModifier = ModifierManager.Singleton.armorModifiers[currentArmorLevel - 1];
-        float fleshModifier = ModifierManager.Singleton.fleshModifiers[currentFleshLevel - 1];
-        float energyShieldModifier = ModifierManager.Singleton.energyShieldModifiers[currentEnergyShieldLevel - 1];
-        Debug.Log("Modifiers: armor=" + armorModifier + ", flesh=" + fleshModifier + ", energyShield=" + energyShieldModifier);
-        foreach (var health in healthSystem.healthBars)
-        {
-            Debug.Log("Before modification: health_Max = " + health.health_Max);
-            switch (health.protection)
-            {
-                case Health.HealthT.unprotected:
-                    health.health_Max *= fleshModifier;
-                    break;
-                case Health.HealthT.energyShield:
-                    health.health_Max *= energyShieldModifier;
-                    break;
-                case Health.HealthT.armor:
-                    health.health_Max *= armorModifier;
-                    break;
-            }
             Debug.Log("After modification: health_Max = " + health.health_Max);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        ModifierInputTest();
+        
         CheckMoveInput();
         CheckShootInput();
         CheckSprintInput();
@@ -231,8 +240,9 @@ public class PlayerController : MonoBehaviour
                         {
                             if (selectedInteraction != null)
                             {
-                                selectedInteraction.Interact(this, passiveHolder.mypassiveData);
                                 Destroy(passiveHolder.gameObject);
+                                selectedInteraction.Interact(this, passiveHolder.mypassiveData);
+                                
                             }
 
                         }

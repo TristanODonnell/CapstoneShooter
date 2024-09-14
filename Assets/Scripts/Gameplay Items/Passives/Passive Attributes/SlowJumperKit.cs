@@ -11,13 +11,13 @@ public class SlowJumperKit : PassiveAttribute
     //Increases the jumping strength by 150% Reduces the speed to 75%
     public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        passiveBehavior.movement.SetPassiveModifier(0.75f);
+        passiveBehavior.movement.SetPlayerSpeedModifier(0.75f);
         passiveBehavior.player.SetJumpPassiveModifier(1.5f);
     }
 
     public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        passiveBehavior.movement.SetPassiveModifier(1.0f);
+        passiveBehavior.movement.SetPlayerSpeedModifier(1.0f);
         passiveBehavior.player.SetJumpPassiveModifier(1.0f);
     }
 }

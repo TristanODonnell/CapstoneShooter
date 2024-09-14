@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class MovementBehavior : MonoBehaviour
 {
+    public float originalSpeed;
     public float speed;
 
     [SerializeField] private float sprintMultiplier;
@@ -15,7 +16,8 @@ public class MovementBehavior : MonoBehaviour
 
     private void Start()
     {
-        SetPlayerSpeedModifier();
+        speed = originalSpeed;
+        SetPlayerSpeedModifier(1);
     }
     public void MovePlayer()
     {
@@ -35,20 +37,17 @@ public class MovementBehavior : MonoBehaviour
         this.isSprinting = isSprinting;
     }
 
-    public void SetPlayerSpeedModifier()
+    public void SetPlayerSpeedModifier(float speedModifier)
     {
+        speed = originalSpeed;
         int currentSpeedLevel = ModifierManager.Singleton.currentSpeedLevel;
 
-        float speedModifier = ModifierManager.Singleton.speedModifiers[currentSpeedLevel - 1];
+        float speedSkillTree = ModifierManager.Singleton.speedModifiers[currentSpeedLevel - 1];
 
-        float modifiedSpeed = speedModifier * speed;
+        float modifiedSpeed = speedSkillTree * speedModifier * speed;
         speed = modifiedSpeed;
     }    
 
-    public void SetPassiveModifier(float speedModifier)
-    {
-        float modifiedSpeed = speedModifier * speed;
-        speed = modifiedSpeed;
-    }
+    
 
 }

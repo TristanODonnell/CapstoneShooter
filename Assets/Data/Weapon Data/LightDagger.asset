@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LightDagger
   m_EditorClassIdentifier: 
   weaponName: Light Dagger
+  weaponCategory: 0
   weaponType: 2
   ProtectionValues:
     unprotected: 10
@@ -20,20 +21,19 @@ MonoBehaviour:
     armor: 0
     stun: 0
   currentMagazineAmmo: 100
-  totalAmmo: 0
+  totalAmmo: 100
   magazineSize: 100
-  maxAmmo: 0
-  reloadTime: 0
-  originalMagazineSize: 100
-  originalMaxAmmo: 0
-  originalReloadTime: 0
+  maxAmmo: 100
+  reloadTime: 100
   weaponModel: {fileID: 919132149155446097, guid: 2db8e1ab9c53dbd49aaa1e9f924f6499,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 5073827014280007513, guid: 6092146813e915e478df32d21b2d5173,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
@@ -41,7 +41,11 @@ MonoBehaviour:
   range: 0
   fireRate: 0
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

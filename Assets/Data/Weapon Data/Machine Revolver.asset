@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Machine Revolver
   m_EditorClassIdentifier: 
   weaponName: Machine Revolver
+  weaponCategory: 0
   weaponType: 2
   ProtectionValues:
     unprotected: 0
@@ -24,16 +25,15 @@ MonoBehaviour:
   magazineSize: 0
   maxAmmo: 0
   reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
   weaponModel: {fileID: 919132149155446097, guid: 8b6e59f64b30c2b43a978877f0238d79,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 115152727676638554, guid: 5511b7ce346a6f54697fbb320c6f1652,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
@@ -41,5 +41,11 @@ MonoBehaviour:
   range: 0
   fireRate: 0
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

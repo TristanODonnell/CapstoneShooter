@@ -739,7 +739,7 @@ PrefabInstance:
     - target: {fileID: 4745302848536429251, guid: 2527d39371f008843871e0891e8f2647,
         type: 3}
       propertyPath: scenesList.Array.data[1]
-      value: Asteroid Arena Scene
+      value: AsteroidBase
       objectReference: {fileID: 0}
     - target: {fileID: 7334346657572785357, guid: 2527d39371f008843871e0891e8f2647,
         type: 3}

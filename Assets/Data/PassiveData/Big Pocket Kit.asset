@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passiveName: 
   itemCost: 0
-  worldPassiveModel: {fileID: 0}
-  passiveType: 0
+  worldPassiveModel: {fileID: 655148740914922170, guid: be54347283009654a83432cfad0eb177,
+    type: 3}
+  passiveType: 5

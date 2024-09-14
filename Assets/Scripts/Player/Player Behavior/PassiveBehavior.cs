@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using gricel;
+using Unity.VisualScripting;
 using UnityEngine;
 using static gricel.HealthSystem;
 using static PassiveData;
@@ -11,42 +12,38 @@ public class PassiveBehavior : MonoBehaviour
 {
      private PassiveAttribute _currentPassiveAttribute;
     public PassiveData attachedPassive;
-     
-    public PlayerController player { get; private set; }
-    public Hitbox hitBox { get; private set; }
-    public HealthSystem health { get; private set; }
-    public MovementBehavior movement { get; private set; }
-    public ShootBehavior shoot { get; private set; }
-    public EquipmentBehavior equipment { get; private set; }
-    public GravitationalBehaviour gravitational { get; private set; }
-    public DataManager dataManager { get; private set; }
-    public XPSystem xpSystem { get; private set; }
+
+    public PlayerController player;
+    public Hitbox hitBox;
+    public HealthSystem health;
+    public MovementBehavior movement;
+    public ShootBehavior shoot;
+    public GravitationalBehaviour gravitational;
+    
     private void Start()
     {
-       
+        PassiveAttribute oldPassiveAttribute = CreatePassiveAttribute(attachedPassive);
+        ApplyPassiveEffects(oldPassiveAttribute);
 
     }
     public void Initialize()
     {
-        player = GetComponent<PlayerController>();
-        hitBox = GetComponent<Hitbox>();
-        health = GetComponent<HealthSystem>();
-        movement = GetComponent<MovementBehavior>();
-        shoot = GetComponent<ShootBehavior>();
-        equipment = GetComponent<EquipmentBehavior>();
-        gravitational = GetComponent<GravitationalBehaviour>();
-        dataManager = DataManager.Singleton;
-        xpSystem = XPSystem.Singleton;
+        
+        
     }
     public void SwapPassive(PassiveData newPassive)
     {
+        Debug.Log("Swapping passive from " + attachedPassive + " to " + newPassive);
+        PassiveAttribute oldPassiveAttribute = CreatePassiveAttribute(attachedPassive);
+        RemovePassiveEffects(oldPassiveAttribute);
         Vector3 dropPosition = transform.position + transform.forward * 2f;
         Quaternion dropRotation = transform.rotation;
-
+        
         GameObject droppedPassive = Instantiate(attachedPassive.GetWorldPassive(), dropPosition, dropRotation);
 
+        attachedPassive = null;
         attachedPassive = newPassive;
-        RemovePassiveEffects(GetCurrentPassiveAttribute());
+        Debug.Log("Attached passive set to " + attachedPassive);
 
         PassiveAttribute newPassiveAttribute = CreatePassiveAttribute(attachedPassive);
 
@@ -86,7 +83,7 @@ public class PassiveBehavior : MonoBehaviour
             default:
                 throw new ArgumentException("Unsupported passive type", nameof(passiveData));
         }
-    }
+    } 
 
     public void ApplyPassiveEffects(PassiveAttribute passiveAttribute)
     {
@@ -95,6 +92,7 @@ public class PassiveBehavior : MonoBehaviour
 
     public void RemovePassiveEffects(PassiveAttribute passiveAttribute)
     {
+        Debug.Log("Removing passive effects from " + passiveAttribute);
         passiveAttribute.RemoveEffects(this);
     }
 

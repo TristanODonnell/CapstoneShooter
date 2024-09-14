@@ -129,7 +129,14 @@ public class GrenadeManager : MonoBehaviour
         }
     }
 
-   
+    public void OnTriggerEnter(Collider other)
+    {
+        ThrowableItem grenade = other.GetComponent<ThrowableItem>();
+        int index = DataManager.Singleton.grenades.IndexOf(grenade);
+
+            AddGrenade(grenade, 1);
+            Destroy(gameObject);
+    }
 
 
 }

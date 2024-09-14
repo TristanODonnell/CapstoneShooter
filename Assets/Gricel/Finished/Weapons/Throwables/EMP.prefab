@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7041299059217938412}
   - component: {fileID: -966742573735865638}
   - component: {fileID: -7701650103986277295}
-  - component: {fileID: 3301032411576101120}
+  - component: {fileID: 857110163380258922}
   m_Layer: 0
   m_Name: EMP
   m_TagString: Untagged
@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwable_rigidbody: {fileID: -966742573735865638}
+  powerIncrease: 0
   iddleTime:
     maximumCount: 2.79
   explosion: {fileID: 3511738219578827153, guid: a04be85737bbcaa47bfcd250181516aa,
@@ -86,7 +87,7 @@ MonoBehaviour:
     stun: 2
   explosion_radius: 10.64
   explosion_duration: 2.1
---- !u!65 &3301032411576101120
+--- !u!65 &857110163380258922
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,12 +102,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.28, y: 0.85, z: 0.3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.64181006, y: 1, z: 0.6424335}
+  m_Center: {x: 0.008352816, y: 0, z: -0.014532208}
 --- !u!1001 &489638317724997932
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,20 +13,26 @@ MonoBehaviour:
   m_Name: Rocket Launcher
   m_EditorClassIdentifier: 
   weaponName: RocketLauncher
+  weaponCategory: 0
   weaponType: 0
   ProtectionValues:
-    unprotected: 10
-    energyShield: 0
-    armor: 0
-    stun: 0
-  currentMagazineAmmo: 10
+    unprotected: 1
+    energyShield: 1
+    armor: 1
+    stun: 1
+  originalProtectionValues:
+    unprotected: 1
+    energyShield: 1
+    armor: 1
+    stun: 1
+  currentMagazineAmmo: 5
   totalAmmo: 1000
-  magazineSize: 10
-  maxAmmo: 1000
+  magazineSize: 5
+  maxAmmo: 500
   reloadTime: 1
-  originalMagazineSize: 10
-  originalMaxAmmo: 1000
   originalReloadTime: 1
+  originalMagazineSize: 5
+  originalMaxAmmo: 500
   weaponModel: {fileID: 919132149155446097, guid: fd2ac8ff659263a46afd261af2bf2558,
     type: 3}
   worldWeapon: {fileID: 4596841790794293450, guid: 661c11503fc22534aadf4fac6b696b4e,
@@ -36,7 +42,6 @@ MonoBehaviour:
     type: 3}
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
-  objectPoolType: 0
   bulletType: 2
   bulletScale: 0.5
   verticalRecoil: 0

@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8756335717236279024}
   - component: {fileID: 188133204346622309}
-  m_Layer: 0
+  - component: {fileID: 6164849850808943145}
+  - component: {fileID: 6286554843435615000}
+  - component: {fileID: 1540298802417175427}
+  m_Layer: 8
   m_Name: BarrelShotGunx2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: decd490a020130b4da57b4966b1dc579, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &6164849850808943145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803538909067964040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 11400000, guid: decd490a020130b4da57b4966b1dc579, type: 2}
+  currentWorldWeapon: {fileID: 803538909067964040}
+  groundTotalAmmo: 0
+--- !u!65 &6286554843435615000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803538909067964040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.83500755, y: 1.2185638, z: 2.8512132}
+  m_Center: {x: -0.082496226, y: 0.10928187, z: 0.78436816}
+--- !u!65 &1540298802417175427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803538909067964040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49679565, y: 1.2410111, z: 2.2493312}
+  m_Center: {x: -0.04918611, y: 0.12050587, z: 0.7996391}
 --- !u!1 &8252680654309896093
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7633560702120052580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BarrelShotGunx2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b0e8dd5b28e83c74aaeb687c3cf3084d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

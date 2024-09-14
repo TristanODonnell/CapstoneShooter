@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7145102158082901691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7503807960960851697}
   - component: {fileID: 4562245070304410426}
-  m_Layer: 0
+  - component: {fileID: -5922449262553682242}
+  - component: {fileID: 5209460811334162400}
+  - component: {fileID: 7512276696198778424}
+  m_Layer: 8
   m_Name: Blazing Falcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +89,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: d6d46309f2594d344be7461708dd9fbe, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &-5922449262553682242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706930617933202707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 11400000, guid: d6d46309f2594d344be7461708dd9fbe, type: 2}
+  currentWorldWeapon: {fileID: 8706930617933202707}
+  groundTotalAmmo: 0
+--- !u!65 &5209460811334162400
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706930617933202707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1.5263281}
+  m_Center: {x: 0, y: 0, z: 0.21884552}
+--- !u!65 &7512276696198778424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8706930617933202707}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5975627, y: 1, z: 1.1145685}
+  m_Center: {x: 0.036226213, y: 0, z: 0.2666105}
 --- !u!1001 &8350621136354145746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Blazing Falcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a9ee56e64678264492e813ec0c6370a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
