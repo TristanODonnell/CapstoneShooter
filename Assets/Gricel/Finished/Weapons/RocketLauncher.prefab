@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4303990242672897384}
   - component: {fileID: 7455035809986800382}
-  m_Layer: 0
+  - component: {fileID: -7020047006172737691}
+  - component: {fileID: 5745541545631051228}
+  - component: {fileID: -6434278836091891478}
+  m_Layer: 8
   m_Name: RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: eed3c511c863e8a4f8031e132ada05c6, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &-7020047006172737691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596841790794293450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 0}
+  currentWorldWeapon: {fileID: 0}
+  groundTotalAmmo: 0
+--- !u!65 &5745541545631051228
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596841790794293450}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.4005933, y: 1.1213212, z: 3.476481}
+  m_Center: {x: -0.04460676, y: 0.0606606, z: 0.09676719}
+--- !u!65 &-6434278836091891478
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596841790794293450}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.1310813, z: 3.8399243}
+  m_Center: {x: 0, y: 0.065540776, z: 0.1536057}
 --- !u!1 &7385041614686970402
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8620777389502446561}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +213,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RocketLauncher
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd2ac8ff659263a46afd261af2bf2558,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

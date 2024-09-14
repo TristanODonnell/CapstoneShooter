@@ -15,6 +15,7 @@ public class WeaponData : ScriptableObject, IInteractable
     public WeaponCategory weaponCategory;
     public WeaponType weaponType;
     [SerializeField] public ProtectionValues ProtectionValues;
+    [SerializeField] public ProtectionValues originalProtectionValues;
     public ProtectionValues GetProtectionValues() { return ProtectionValues; }
 
     [Header("Gameplay Variable Ammo Fields")]
@@ -23,7 +24,12 @@ public class WeaponData : ScriptableObject, IInteractable
     public int magazineSize;
     public int maxAmmo;
     public float reloadTime;
-   
+
+    [Header("Original Ammo Values")]
+    public float originalReloadTime;
+    public int originalMagazineSize;
+    public int originalMaxAmmo;
+
     [Header("Game Object Assignment")]
     public GameObject weaponModel;
     public GameObject worldWeapon;

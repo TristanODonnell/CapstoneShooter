@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadArenaMode() 
     {
-        string sceneName = "Asteroid Arena Scene"; 
+        string sceneName = "AsteroidBase"; 
         LoadScene(sceneName);
 
         SceneManager.sceneLoaded += (scene, mode) =>

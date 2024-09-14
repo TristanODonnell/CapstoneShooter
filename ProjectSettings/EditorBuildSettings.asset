@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scripts/Scenes/Final Scenes/Game Select Scene.unity
     guid: 46fd03298bea59c42908b1d1789c5ecd
   - enabled: 1
-    path: Assets/Scripts/Scenes/Final Scenes/Asteroid Arena Scene.unity
-    guid: 9be090233b278b04b9e90c353d9786c9
+    path: Assets/Gricel/In progress/AsteroidBase/AsteroidBase.unity
+    guid: 63ed18709f0f1bd438bb97272723c7d2
   m_configObjects: {}

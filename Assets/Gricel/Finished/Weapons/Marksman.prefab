@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5572457537261025010}
   - component: {fileID: -5840709508794851798}
   - component: {fileID: -8019709600803229797}
+  - component: {fileID: -8520270834350491645}
   m_Layer: 8
   m_Name: Marksman
   m_TagString: Untagged
@@ -88,7 +89,6 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: 6c8c68da6afaeaf48807f54480e7316a, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
 --- !u!114 &-5840709508794851798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +123,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.38734174, y: 1.2608428, z: 2.0902624}
+  m_Center: {x: 0.029677898, y: 0.13042164, z: 0.5361692}
+--- !u!65 &-8520270834350491645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2197341519502528375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2626574, z: 2.6959333}
+  m_Center: {x: 0, y: 0.13132867, z: 0.6736367}
 --- !u!1001 &8148825682035912984
 PrefabInstance:
   m_ObjectHideFlags: 0

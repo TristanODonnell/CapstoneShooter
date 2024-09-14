@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   weaponName: Hitscan Sniper Test
+  weaponCategory: 0
   weaponType: 1
   ProtectionValues:
     unprotected: 0
@@ -24,18 +25,15 @@ MonoBehaviour:
   magazineSize: 0
   maxAmmo: 500
   reloadTime: 1
-  originalMagazineSize: 0
-  originalMaxAmmo: 500
-  originalReloadTime: 1
   weaponModel: {fileID: 919132149155446097, guid: 8ab1683caca553d49a865ffa404ebea5,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 3704450478042210213, guid: 5c859add61bac994b8fedd43e38aa1ff,
+  worldWeapon: {fileID: 846165507701985046, guid: 88bf298c36264684282b8e0651d8dc6a,
     type: 3}
-  projectilePrefab: {fileID: 3766763127949734870, guid: b0665eb0f8742e843b89e1160f414cb4,
-    type: 3}
-  poolSize: 30
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
@@ -43,5 +41,11 @@ MonoBehaviour:
   range: 150
   fireRate: 30
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

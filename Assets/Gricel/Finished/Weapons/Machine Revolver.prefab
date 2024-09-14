@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3975180468529420123}
   - component: {fileID: 2278137876203410620}
-  m_Layer: 0
+  - component: {fileID: 2828577312906951191}
+  - component: {fileID: -7771150147834021340}
+  - component: {fileID: 6665617512580209875}
+  m_Layer: 8
   m_Name: Machine Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,63 @@ MonoBehaviour:
   currentWeaponIndex: 0
   currentWeapon: {fileID: 11400000, guid: e46b24adca9a7974b925510989909a55, type: 2}
   currentWeaponModel: {fileID: 0}
-  currentObjectPool: {fileID: 0}
+--- !u!114 &2828577312906951191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115152727676638554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79bf7b65df6e4b24e929282b15cf69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myweaponData: {fileID: 11400000, guid: e46b24adca9a7974b925510989909a55, type: 2}
+  currentWorldWeapon: {fileID: 115152727676638554}
+  groundTotalAmmo: 0
+--- !u!65 &-7771150147834021340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115152727676638554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.51930124, y: 1.1190412, z: 1.7069556}
+  m_Center: {x: 0.007620603, y: 0.059520602, z: 0.6426622}
+--- !u!65 &6665617512580209875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115152727676638554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.1138699, z: 2.2175865}
+  m_Center: {x: 0, y: 0.056935012, z: 0.608793}
 --- !u!1 &4569089203415529399
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7133989527071404178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Machine Revolver
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b6e59f64b30c2b43a978877f0238d79,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

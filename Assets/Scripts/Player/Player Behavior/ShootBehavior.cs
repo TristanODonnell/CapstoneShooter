@@ -105,12 +105,18 @@ public class ShootBehavior : MonoBehaviour
         float maxAmmoModifier = ModifierManager.Singleton.maxAmmunitionModifiers[currentMaxAmmoLevel - 1];
         float magazineSizeModifier = ModifierManager.Singleton.weaponMagazineModifiers[currentWeaponMagazineLevel - 1];
 
+
+        weapon.reloadTime = weapon.originalReloadTime;
+        weapon.maxAmmo = weapon.originalMaxAmmo;
+        weapon.magazineSize = weapon.originalMagazineSize;
         //set up modified values
         weapon.reloadTime *= reloadTimeModifier * weaponReloadPassive;
         weapon.maxAmmo = (int)(weapon.maxAmmo * maxAmmoModifier * weaponMaxAmmoPassive);
         weapon.magazineSize = (int)(weapon.magazineSize * magazineSizeModifier * weaponMagazinePassive);
 
         weapon.currentMagazineAmmo = weapon.magazineSize;
+
+
     }
 
 
@@ -120,9 +126,16 @@ public class ShootBehavior : MonoBehaviour
         weaponReloadPassive = weaponReloadPassiveModifier;
         weaponMagazinePassive = weaponMagazinePassiveModifier;
         weaponMaxAmmoPassive = weaponMaxAmmoPassiveModifier;
+
+        foreach (WeaponData weapon in weapons)
+        {
+            SetUpWeaponAmmo(weapon);
+            SetUpWeaponDamage(weapon);
+        }
     }
     public void SetUpWeaponDamage(WeaponData weapon)
     {
+        weapon.ProtectionValues = weapon.originalProtectionValues;
         Debug.Log("Setting up damage for: " + weapon.WeaponName);
 
         int currentShrapnelWeaponDamageLevel = ModifierManager.Singleton.currentShrapnelWeaponDamageLevel;

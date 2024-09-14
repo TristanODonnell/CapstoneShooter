@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BarrelShotgunx2
   m_EditorClassIdentifier: 
   weaponName: BarrelShotgunx2
+  weaponCategory: 0
   weaponType: 0
   ProtectionValues:
     unprotected: 90.4
@@ -24,16 +25,15 @@ MonoBehaviour:
   magazineSize: 4
   maxAmmo: 24
   reloadTime: 1.8
-  originalMagazineSize: 4
-  originalMaxAmmo: 24
-  originalReloadTime: 2.49
   weaponModel: {fileID: 919132149155446097, guid: b0e8dd5b28e83c74aaeb687c3cf3084d,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 803538909067964040, guid: 16d4fcc8fa2b8e44788b4b48cc375056,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 2.63
   horizontalRecoil: 0
   recoilResetSpeed: 0.28
@@ -41,5 +41,11 @@ MonoBehaviour:
   range: 17.76
   fireRate: 0.8
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GrenadeLauncher
   m_EditorClassIdentifier: 
   weaponName: Grenade Launcher
+  weaponCategory: 0
   weaponType: 0
   ProtectionValues:
     unprotected: 0
@@ -24,16 +25,15 @@ MonoBehaviour:
   magazineSize: 0
   maxAmmo: 0
   reloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
-  originalReloadTime: 0
   weaponModel: {fileID: 919132149155446097, guid: 9f735e99094b62b4e98a4bc7de9af349,
     type: 3}
-  worldWeapon: {fileID: 0}
-  reticle: {fileID: 0}
-  weaponVisual: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  poolSize: 0
+  worldWeapon: {fileID: 3271944093499689857, guid: 9f7b65ba1d96d9d4cbea580037d6e2d6,
+    type: 3}
+  ObjectPool: {fileID: 0}
+  projectileVisualPrefab: {fileID: 0}
+  objectPoolGameObject: {fileID: 0}
+  bulletType: 0
+  bulletScale: 0
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
@@ -41,5 +41,11 @@ MonoBehaviour:
   range: 0
   fireRate: 0
   adsZoomLevel: 0
+  penetration: 0
+  penetrationPerHit: 1
+  burstSize: 0
+  burstDelay: 0
+  riotShieldCollider: {fileID: 0}
+  explosionRadius: 0
   itemCost: 0
   ammoRefillCost: 0

@@ -83,7 +83,6 @@ public class ClassSelectManager : MonoBehaviour
     public void ChooseAbility(int abilityIndex)
     {
         AbilityBase chosenAbility = DataManager.Singleton.abilities[abilityIndex];
-
         selectedPlayerData.playerAbilityReference = chosenAbility;
     }
      

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2339927932107416914}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,9 @@ GameObject:
   - component: {fileID: 8521198517440962991}
   - component: {fileID: 6234314225872638274}
   - component: {fileID: 9096459648501484014}
-  m_Layer: 0
+  - component: {fileID: 4715761036193099808}
+  - component: {fileID: -327826585583051881}
+  m_Layer: 8
   m_Name: BurstCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +104,48 @@ MonoBehaviour:
   myweaponData: {fileID: 11400000, guid: 0e3be4976b531f144a4c45dbfe55791c, type: 2}
   currentWorldWeapon: {fileID: 6768899903094093715}
   groundTotalAmmo: 0
+--- !u!65 &4715761036193099808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768899903094093715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.33708733, y: 1, z: 2.2214985}
+  m_Center: {x: -0.00769642, y: 0, z: 0.4927209}
+--- !u!65 &-327826585583051881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768899903094093715}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 2.687912}
+  m_Center: {x: 0, y: 0, z: 0.5412986}
 --- !u!1001 &3040535570234406137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BurstCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48743fcf7ab15ea4bab22bcb7d2671f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

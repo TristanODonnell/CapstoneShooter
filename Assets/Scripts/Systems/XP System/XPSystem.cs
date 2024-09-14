@@ -10,7 +10,7 @@ public class XPSystem : MonoBehaviour
     public int xpRequiredForNextLevel;
     public int xpGainPerWave;
     [SerializeField] private float xpMultiplier;
-    [SerializeField] private float xpPassiveMultiplier;
+    [SerializeField] private float xpPassiveMultiplier = 1f;
     public static XPSystem Singleton
     {
         get; private set;
@@ -75,7 +75,10 @@ public class XPSystem : MonoBehaviour
 
     public void SetPassiveXPMultiplier(float multiplier)
     {
+        xpPassiveMultiplier = 1f;
+        Debug.Log("Before setting xpPassiveMultiplier: " + xpPassiveMultiplier);
         xpPassiveMultiplier = multiplier;
+        Debug.Log("After setting xpPassiveMultiplier: " + xpPassiveMultiplier);
     }
 }
 

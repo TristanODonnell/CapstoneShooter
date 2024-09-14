@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwable_rigidbody: {fileID: 8298132274144135892}
+  powerIncrease: 0
   damage:
     unprotected: 137.2
     energyShield: 36.4
@@ -122,8 +123,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06, y: 0.74, z: 0.13}
-  m_Center: {x: 0, y: 0.4711449, z: 0}
+  m_Size: {x: 0.5055903, y: 1.3653771, z: 0.96298987}
+  m_Center: {x: -0.007920027, y: 0.46051532, z: -0.0065799654}
 --- !u!1001 &8984487848468378511
 PrefabInstance:
   m_ObjectHideFlags: 0
