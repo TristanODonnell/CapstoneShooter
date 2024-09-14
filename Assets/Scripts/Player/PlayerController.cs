@@ -176,9 +176,6 @@ public class PlayerController : MonoBehaviour
         WeaponInteract();
         PassiveInteract();
         CurrentGrenadeSelectInput();
-
-
-        totalPlayerCurrency = CurrencyManager.singleton.totalCurrency;
     }
 
     public void AssignPlayerData(PlayerData playerData)

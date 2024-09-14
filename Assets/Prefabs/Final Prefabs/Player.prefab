@@ -574,6 +574,9 @@ MonoBehaviour:
   attachedPlayerData: {fileID: 0}
   healthSystem: {fileID: 659764644062308712}
   hitBox: {fileID: 911240226784932234}
+  originalFleshHealth: 0
+  originalArmorHealth: 0
+  originalEnergyHealth: 0
   look: {fileID: 2174882120291665293}
   move: {fileID: 8616827764196862292}
   shoot: {fileID: 4129678702875310515}
@@ -604,6 +607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 4064175703137294824}
   gravitation: {fileID: 6576053233215072034}
+  startAbility: 0
   abilityReferences:
     jetburst: {fileID: -5175714637659395522, guid: 8848a3bca080fe149ac8fcded10991fe,
       type: 3}
@@ -616,7 +620,6 @@ MonoBehaviour:
       type: 3}
     jetpack: {fileID: 4858017524980985109, guid: 9fe1a8702caa9014896773d9c8fad478,
       type: 3}
-  abilitySelected: {fileID: 0}
 --- !u!114 &6576053233215072034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,6 +647,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedPassive: {fileID: 0}
+  player: {fileID: 8457631081482580195}
+  hitBox: {fileID: 911240226784932234}
+  health: {fileID: 659764644062308712}
+  movement: {fileID: 8616827764196862292}
+  shoot: {fileID: 4129678702875310515}
+  gravitational: {fileID: 6576053233215072034}
 --- !u!114 &8680911425828354541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -692,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39aac2deb180dae47b6af567d051dddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalSpeed: 5
   speed: 5
   sprintMultiplier: 2
   walkMultiplier: 1
@@ -771,6 +781,18 @@ MonoBehaviour:
     OnDepleted:
       m_PersistentCalls:
         m_Calls: []
+  - protection: 0
+    health_Max: 40
+    healthRegenPerS: 11
+    OnDepleted:
+      m_PersistentCalls:
+        m_Calls: []
+  - protection: 0
+    health_Max: 40
+    healthRegenPerS: 11
+    OnDepleted:
+      m_PersistentCalls:
+        m_Calls: []
   regenDelay_Max: 6
   stunMax: 0.8
   stunWeakness: 1
@@ -840,5 +862,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56beb6150a5459447ba6cc3f76574d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootBehavior: {fileID: 0}
+  shootBehavior: {fileID: 4129678702875310515}
   meleeDamage: 0

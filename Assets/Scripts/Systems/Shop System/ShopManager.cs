@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
         if (singleton == null)
         {
             singleton = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -113,11 +114,30 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void BuySkillTreeTier(SkillTreeButton button)
+    {
+        SkillTreeButton skillTreeButton = button.GetComponent<SkillTreeButton>();
+        float skillTreePurchaseCost = skillTreeButton.itemCost;
+        if (skillTreeButton != null)
+        {
+            if(canAffordPurchase((int)skillTreePurchaseCost))
+            {
+                CurrencyManager.singleton.SubtractCurrency((int)skillTreePurchaseCost);
+                ModifierManager.SkillTreeType currentType = skillTreeButton.skillTreeType;
+                UnityEngine.Debug.Log("Buying skill tree tier: " + currentType);
+                ModifierManager.Singleton.UpdateSkillTreeType(currentType);
+                
+            }
+            else
+            {
+                UnityEngine.Debug.Log("Not enough currency to buy ");
+                return;
+            }
+        }
+    }
     private bool canAffordPurchase(int itemCost)
     {
-        int playerCurrency = CurrencyManager.singleton.totalCurrency;
-
-        return playerCurrency >= itemCost;
+        return CurrencyManager.singleton.totalCurrency >= itemCost;
     }
 
     public void OpenShop()
