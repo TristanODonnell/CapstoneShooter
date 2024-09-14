@@ -21,7 +21,7 @@ namespace Abilities
 		protected override bool CanBeUsed() => flyTime > 0f;
 		private void Start()
 		{
-			flyTimeMaxOriginal = flyTimeMax;
+			flyTime = flyTimeMaxOriginal = flyTimeMax;
 		}
 		protected override void UseHold()
 		{

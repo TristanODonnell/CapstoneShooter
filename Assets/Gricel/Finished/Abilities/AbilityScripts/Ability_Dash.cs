@@ -22,7 +22,7 @@ namespace Abilities
 			dash_charges = dash_chargesOg = dash_chargesMax;
 			dash_cooldownMax = dash_cooldown.maximumCount;
 		}
-		protected override void UseHold()
+		protected override void UsePress()
 		{
 			var dir = Vector3.zero ;
 			dir.x = Input.GetAxisRaw("Horizontal");
@@ -43,6 +43,7 @@ namespace Abilities
 			dash_Movement = dir.normalized;
 
 			dash_NormalMovement = 1f;
+			gravitation.Jump(0f);
 		}
 
 		private void Update()
@@ -61,12 +62,11 @@ namespace Abilities
 				velocity *= dash_NormalMovement;
 			velocity *= dash_speed;
 			velocity *= Time.deltaTime;
-
+			velocity = controller.transform.rotation * velocity;
 			controller.Move(velocity);
 
 			dash_NormalMovement -= Time.deltaTime;
 
-			gravitation.Jump(0f);
 		}
 
 		public override void Ability_CooldownOverride(float multiplier = 1)
