@@ -25,5 +25,6 @@ namespace Abilities
 		}
 		private void Update() => cooldown.CountdownReturn();
 
+		public override float Ability_Normalized() => cooldown.normalized;
 	}
 }

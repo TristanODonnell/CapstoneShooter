@@ -43,9 +43,9 @@ public class EnemyGun : MonoBehaviour
 
 
 				if(Quaternion.Angle(weapon.weaponTip.rotation, enemy.transform.rotation) <  180f)
-					weapon.StartShooting();
+					weapon.StartShooting(false);
 			}
-			else weapon.StopShooting();
+			else weapon.StopShooting(false);
 		}
 	}
 }

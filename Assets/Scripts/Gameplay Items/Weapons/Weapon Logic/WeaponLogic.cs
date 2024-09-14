@@ -38,15 +38,15 @@ public abstract class WeaponLogic
         isReloading = true;
         shootBehavior.StartCoroutine(ReloadCoroutine());
     }
-    public virtual void StartShooting(Transform transform)
+    public virtual void StartShooting(Transform transform, bool useAmmo = true)
     {
          
     }
-    public virtual void Shooting(Transform transform )
+    public virtual void Shooting(Transform transform, bool useAmmo = true)
     {
 
     }
-    public virtual void StopShooting(Transform transform )
+    public virtual void StopShooting(Transform transform, bool useAmmo = true)
     {
 
     }

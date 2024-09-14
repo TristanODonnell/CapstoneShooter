@@ -17,7 +17,7 @@ public class SemiAutoWeapon : WeaponLogic
     {
         base.ReloadLogic();
     }
-    public override void StartShooting(Transform transform)
+    public override void StartShooting(Transform transform, bool useAmmo = true)
     {
         if (Time.time - lastFireTime < currentWeaponData.fireRate)
         {
@@ -39,15 +39,21 @@ public class SemiAutoWeapon : WeaponLogic
                     return; // Exit if the object pool is not initialized
                 }
                 ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, this.shooter);
-                ApplyRecoil();
-                currentWeaponData.currentMagazineAmmo -= 1;
+                if (useAmmo)
+                {
+                    ApplyRecoil();
+                    currentWeaponData.currentMagazineAmmo -= 1;
+                }
                 
             }
             else if (currentWeaponData.weaponType == WeaponData.WeaponType.Hitscan)
             {
                 HitscanWeaponFire(transform.position, transform.rotation, currentWeaponData.range);
-                ApplyRecoil();
-                currentWeaponData.currentMagazineAmmo -= 1;
+                if (useAmmo)
+                {
+                    ApplyRecoil();
+                    currentWeaponData.currentMagazineAmmo -= 1;
+                }
                 
             }
             
@@ -58,13 +64,13 @@ public class SemiAutoWeapon : WeaponLogic
             }
 
     }
-    public override void Shooting(Transform transform)
+    public override void Shooting(Transform transform, bool useAmmo = true)
     {
         //nothing for holding down semi auto
     }
-    public override void StopShooting(Transform transform)
+    public override void StopShooting(Transform transform, bool useAmmo = true)
     {
-        if (currentWeaponData.currentMagazineAmmo <= 0)
+        if (currentWeaponData.currentMagazineAmmo <= 0 && useAmmo)
         {
             ReloadLogic();
         }

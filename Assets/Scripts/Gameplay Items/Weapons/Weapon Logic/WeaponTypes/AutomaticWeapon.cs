@@ -18,7 +18,7 @@ public class AutomaticWeapon : WeaponLogic
     {
         base.ReloadLogic();
     }
-    public override void StartShooting(Transform transform)
+    public override void StartShooting(Transform transform, bool useAmmo = true)
     {
         isFiring = true;
         lastFireTime = Time.time;
@@ -34,24 +34,30 @@ public class AutomaticWeapon : WeaponLogic
                     return; // Exit if the object pool is not initialized
                 }
                 ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
-                ApplyRecoil();
-                currentWeaponData.currentMagazineAmmo -= 1;
+                if (useAmmo)
+                {
+                    ApplyRecoil();
+                    currentWeaponData.currentMagazineAmmo -= 1;
+                }
             }
             else if (currentWeaponData.weaponType == WeaponData.WeaponType.Hitscan)
             {
                 HitscanWeaponFire(transform.position, transform.rotation, currentWeaponData.range);
-                ApplyRecoil();
-                currentWeaponData.currentMagazineAmmo -= 1;
+                if (useAmmo)
+                {
+                    ApplyRecoil();
+                    currentWeaponData.currentMagazineAmmo -= 1;
+                }
             }
             
         }
-        else if (currentWeaponData.currentMagazineAmmo <= 0)
+        else if (currentWeaponData.currentMagazineAmmo <= 0 && useAmmo)
         {
             StopShooting(transform);
         }
          
     }
-    public override void Shooting(Transform transform )
+    public override void Shooting(Transform transform, bool useAmmo = true)
     {
         if (isFiring)
         {
@@ -68,14 +74,20 @@ public class AutomaticWeapon : WeaponLogic
                             return; // Exit if the object pool is not initialized
                         }
                         ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
-                        ApplyRecoil();
-                        currentWeaponData.currentMagazineAmmo -= 1;
+                        if (useAmmo)
+                        {
+                            ApplyRecoil();
+                            currentWeaponData.currentMagazineAmmo -= 1;
+                        }
                     }
                     else if (currentWeaponData.weaponType == WeaponData.WeaponType.Hitscan)
                     {
                         HitscanWeaponFire(transform.position, transform.rotation, currentWeaponData.range);
-                        ApplyRecoil();
-                        currentWeaponData.currentMagazineAmmo -= 1;
+                        if (useAmmo)
+                        {
+                            ApplyRecoil();
+                            currentWeaponData.currentMagazineAmmo -= 1;
+                        }
                     }
                 }
             }
@@ -86,10 +98,10 @@ public class AutomaticWeapon : WeaponLogic
             StopShooting(transform);
         }
     }
-    public override void StopShooting(Transform transform)
+    public override void StopShooting(Transform transform, bool useAmmo = true)
     {
         isFiring = false;
-        if (currentWeaponData.currentMagazineAmmo <= 0)
+        if (currentWeaponData.currentMagazineAmmo <= 0 && useAmmo)
         {
             ReloadLogic();
         }

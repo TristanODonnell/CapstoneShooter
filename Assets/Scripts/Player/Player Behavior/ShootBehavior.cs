@@ -335,19 +335,19 @@ public class ShootBehavior : MonoBehaviour
             }
         }
     }
-    public void StartShooting()
+    public void StartShooting(bool useAmmo = true)
     {
 
-        currentWeaponLogic.StartShooting(weaponTip);
+        currentWeaponLogic.StartShooting(weaponTip, useAmmo);
     }
-    public void Shooting()
+    public void Shooting(bool useAmmo = true)
     {
-        currentWeaponLogic.Shooting(weaponTip);
+        currentWeaponLogic.Shooting(weaponTip, useAmmo);
 
     }
-    public void StopShooting()
-    {
-        currentWeaponLogic.StopShooting(weaponTip);
+    public void StopShooting(bool useAmmo = true)
+	{
+		currentWeaponLogic.StopShooting(weaponTip, useAmmo);
     }
     public void Reloading()
     {

@@ -14,7 +14,7 @@ public class BurstWeapon : WeaponLogic
         this.shooter = shooter;
     }
     
-    public override void StartShooting(Transform transform)
+    public override void StartShooting(Transform transform, bool useAmmo = true)
     {
         Debug.Log("StartShooting called");
         if (Time.time - lastFireTime < currentWeaponData.fireRate)
@@ -30,12 +30,12 @@ public class BurstWeapon : WeaponLogic
                 return; // Exit if the object pool is not initialized
             }
             isFiringBurst = true;
-            shootBehavior.StartCoroutine(FireBurstAndWait(transform));
+            shootBehavior.StartCoroutine(FireBurstAndWait(transform, useAmmo));
         }
         else if (currentWeaponData.weaponType == WeaponData.WeaponType.Hitscan)
         {
             isFiringBurst = true;
-            shootBehavior.StartCoroutine(FireBurstAndWait(transform));
+            shootBehavior.StartCoroutine(FireBurstAndWait(transform, useAmmo));
         }
         else if (currentWeaponData.currentMagazineAmmo <= 0)
         {
@@ -43,7 +43,7 @@ public class BurstWeapon : WeaponLogic
         }
     }
 
-    public IEnumerator FireBurstAndWait(Transform transform)
+    public IEnumerator FireBurstAndWait(Transform transform, bool useAmmo)
     {
         for (int i = 0; i < currentWeaponData.burstSize; i++)
         {
@@ -55,8 +55,11 @@ public class BurstWeapon : WeaponLogic
             {
                 HitscanWeaponFire(transform.position, transform.rotation, currentWeaponData.range);
             }
-            ApplyRecoil();
-            currentWeaponData.currentMagazineAmmo -= 1;
+            if (useAmmo)
+            {
+                ApplyRecoil();
+                currentWeaponData.currentMagazineAmmo -= 1;
+            }
 
             yield return new WaitForSeconds(currentWeaponData.burstDelay);
         }
@@ -74,13 +77,13 @@ public class BurstWeapon : WeaponLogic
     {
         base.ReloadLogic();
     }
-    public override void Shooting(Transform transform)
+    public override void Shooting(Transform transform, bool useAmmo = true)
     {
         //nothing for holding down semi auto
     }
-    public override void StopShooting(Transform transform)
+    public override void StopShooting(Transform transform, bool useAmmo = true)
     {
-        if (currentWeaponData.currentMagazineAmmo <= 0)
+        if (currentWeaponData.currentMagazineAmmo <= 0 && useAmmo)
         {
             ReloadLogic();
         }

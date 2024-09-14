@@ -75,5 +75,7 @@ namespace Abilities
 			cooldown.maximumCount = cooldown_OriginalTime / multiplier;
 			cooldown.Countdown_ForceSeconds(0);
 		}
+
+		public override float Ability_Normalized() => cooldown.normalized;
 	}
 }

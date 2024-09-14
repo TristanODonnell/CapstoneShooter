@@ -75,5 +75,7 @@ namespace Abilities
 			dash_chargesMax = (byte)Mathf.RoundToInt(multiplier * ((float)dash_chargesOg));
 			dash_cooldown.maximumCount = dash_cooldownMax / multiplier;
 		}
+
+		public override float Ability_Normalized()=>(float)dash_charges / (float)dash_chargesMax;
 	}
 }

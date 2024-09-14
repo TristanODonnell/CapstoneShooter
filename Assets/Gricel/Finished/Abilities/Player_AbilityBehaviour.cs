@@ -80,6 +80,14 @@ public class Player_AbilityBehaviour : MonoBehaviour
 		abilitySelected = Abilities.AbilityBase.Ability_Set(ability, controller, gravitation);
 	}
 
+	public float Ability_NormalCooldown()
+	{
+		if (abilitySelected)
+			return abilitySelected.Ability_Normalized();
+		return 0;
+	}
+
+
 	// Update is called once per frame
 	void Update()
     {

@@ -14,6 +14,8 @@ namespace Abilities
 			jet_burstsMax = Mathf.RoundToInt((float)jet_burstsMaxOg * multiplier);
 		}
 
+		public override float Ability_Normalized() => (float)jet_bursts / (float)jet_burstsMax;
+
 		protected override bool CanBeUsed()
 		{
 			var bursts = jet_bursts > 0;

@@ -47,5 +47,6 @@ namespace Abilities
 			}
 		}
 
+		public override float Ability_Normalized() => flyTime / flyTimeMaxOriginal;
 	}
 }

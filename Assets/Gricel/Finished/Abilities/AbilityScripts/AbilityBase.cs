@@ -32,6 +32,8 @@ namespace Abilities
 			}
 		}
 
+		public abstract float Ability_Normalized();
+
 		public bool AbiltyKeyPressed() => Input.GetKey(button);
 		public bool AbiltyKeyReleased() => Input.GetKeyUp(button);
 

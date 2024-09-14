@@ -58,5 +58,12 @@ namespace Abilities
 			cooldown.maximumCount = cooldownMax / multiplier;
 			cooldown.Countdown_ForceSeconds(0);
 		}
+
+		public override float Ability_Normalized()
+		{
+
+
+			return LookDirectionRaycast(out var p)? cooldown.normalized : 0f;
+		}
 	}
 }
