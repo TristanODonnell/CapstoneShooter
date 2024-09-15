@@ -113,5 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 32
+  icon: {fileID: 21300000, guid: 473a572ccace19a4fb0153bf43a25643, type: 3}
   flyTimeMax: 8
   gravity: {fileID: 3882247483566109824}

@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 32
+  icon: {fileID: 21300000, guid: caabcb1e3eab2fd4f8a7aacf57d7c30e, type: 3}
   jet_burstsMax: 3
   jet_jumpPower: 1

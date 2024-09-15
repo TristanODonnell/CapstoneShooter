@@ -316,38 +316,6 @@ public class ShootBehavior : MonoBehaviour
         ChangeWeapon(currentWeaponIndex);
     }
 
-    //Ammo Pickup
-    public void OnTriggerEnter(Collider other)
-    {
-        
-        WeaponHolder weaponHolder = other.GetComponent<WeaponHolder>();
-        if (weaponHolder != null )
-        {
-            foreach(WeaponData weapon in weapons) 
-            {
-                if (weaponHolder.myweaponData == weapon)
-                {
-                    Debug.Log("same weapon triggered");
-                    int groundTotalAmmo = weaponHolder.groundTotalAmmo;
-
-                    while (groundTotalAmmo > 0 && weapon.totalAmmo < weapon.maxAmmo)
-                    {
-                        int ammoToTransfer = Mathf.Min(weapon.maxAmmo - weapon.totalAmmo, groundTotalAmmo);
-                        weapon.totalAmmo += ammoToTransfer;
-                        groundTotalAmmo -= ammoToTransfer;
-
-                        weaponHolder.groundTotalAmmo = groundTotalAmmo;
-                    }
-
-                    if (groundTotalAmmo <= 0)
-                    {
-                        Destroy(other.gameObject);
-                    }
-                    break;
-                }
-            }
-        }
-    }
     public void StartShooting(bool useAmmo = true)
     {
 

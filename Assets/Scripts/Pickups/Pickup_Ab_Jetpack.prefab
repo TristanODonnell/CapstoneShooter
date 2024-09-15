@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2443624080022235605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1172067382038512576, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: prefabAbility
+      value: 
+      objectReference: {fileID: 4858017524980985109, guid: 9fe1a8702caa9014896773d9c8fad478,
+        type: 3}
+    - target: {fileID: 3875264245075824818, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 473a572ccace19a4fb0153bf43a25643,
+        type: 3}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5038201016818235261, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597837573373652306, guid: 3a15d4f50547af643bcf2b652356d557,
+        type: 3}
+      propertyPath: m_Name
+      value: Pickup_Ab_Jetpack
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a15d4f50547af643bcf2b652356d557, type: 3}

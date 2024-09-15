@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 113
+  icon: {fileID: 21300000, guid: 12e46402fa9d5d747ac2c867c312639d, type: 3}
   dash_chargesMax: 2
   dash_cooldown:
     maximumCount: 0.6

@@ -94,11 +94,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1035803182822100435, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035803182822100435, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 3352391605088137938}
+    - target: {fileID: 1505775554310876515, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: lootItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505775554310876515, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: lootItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 140224532237406754, guid: d915cc3cd0a7a4741a2736e265df0fe1,
+        type: 3}
+    - target: {fileID: 1505775554310876515, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: lootItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 140224532237406754, guid: d915cc3cd0a7a4741a2736e265df0fe1,
+        type: 3}
     - target: {fileID: 4610755474902925759, guid: b698494c93f3bae43aee99d63b2b08ca,
         type: 3}
       propertyPath: gun
       value: 
-      objectReference: {fileID: 8269800762780684442}
+      objectReference: {fileID: 4925810183546613091}
     - target: {fileID: 7398422443290568266, guid: b698494c93f3bae43aee99d63b2b08ca,
         type: 3}
       propertyPath: m_Name
@@ -193,3 +220,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 3352391605088137938}
+  missAngle: 10
+  enemy: {fileID: 0}
+--- !u!114 &4925810183546613091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1035803182822100435, guid: b698494c93f3bae43aee99d63b2b08ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 5333413981981286576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3217942610299848442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd42d6b366074845bb149586d23d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

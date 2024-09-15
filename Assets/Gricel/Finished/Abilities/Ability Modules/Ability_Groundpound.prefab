@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 113
+  icon: {fileID: 21300000, guid: 2ea7b71b01f0353428407ae4b7caeee4, type: 3}
   cooldown:
     maximumCount: 28.49
   damagePerFallTime:
