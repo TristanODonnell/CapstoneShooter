@@ -2,38 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PassiveHolder : MonoBehaviour, IInteractable
+public class ShopLocation : MonoBehaviour, IInteractable
+
 {
-    public PassiveData mypassiveData;
-
     public void Interact(PlayerController player, WeaponHolder weaponHolder)
-    {
-        
-    } 
-
-    public void Interact(PlayerController player, EquipmentData equipmentData)
-    {
-        
-    }
-    public void Interact(PlayerController player, PassiveData passiveData)
-    {
-        player.passive.SwapPassive(passiveData);
-        
-    }
-
-    public void Interact(PlayerController player, ShopLocation shopLocation)
     {
         throw new System.NotImplementedException();
     }
 
+    public void Interact(PlayerController player, EquipmentData equipmentData)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Interact(PlayerController player, ShopLocation shopLocation)
+    {
+        if(ShopManager.singleton.isShopOpen == false)
+        {
+            ShopManager.singleton.OpenShop();
+            Debug.Log("Shop opened");
+        }
+        
+    }
+
     public void OnHoverEnter()
     {
-        Debug.Log("Passive Pickup Available");
+        Debug.Log("Open Shop Here");
     }
 
     public void OnHoverExit()
     {
-        
+       
     }
 
     // Start is called before the first frame update

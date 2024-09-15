@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class ShopBehavior : MonoBehaviour
 {
+
     public void OpenShopMenu()
     {
-        if(ShopManager.singleton.isShopOpen == false)
-        {
-            ShopManager.singleton.OpenShop();
-        }
+       
         
     }
 

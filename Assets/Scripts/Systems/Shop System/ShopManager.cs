@@ -8,6 +8,8 @@ using static ShopManager;
 
 public class ShopManager : MonoBehaviour
 {
+    private PlayerController playerController;
+    public GameObject shopMenu;
     private PlayerController player;
     public static ShopManager singleton;
     public ItemSpawner itemSpawner;
@@ -26,9 +28,13 @@ public class ShopManager : MonoBehaviour
     }
     private void Start()
     {
+       
         //CurrencyManager.singleton.SetTotalCurrency(5000); //testing
     }
-     
+    private void Update()
+    {
+        CloseShop();
+    }
     public void BuyWeapon(int weaponIndex)
     {
         //do the selection via assigned from button and data manager list
@@ -45,12 +51,12 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void BuyEquipment(int equipmentIndex)
+    public void BuyAbility(int equipmentIndex)
     {
         /*
         //do the selection via assigned from button and data manager list
        // EquipmentData purchasedEquipmentData = DataManager.Singleton.equipment[equipmentIndex];
-        int equipmentItemCost = purchasedEquipmentData.ItemCost;
+        int abilityItemCost = purchasedEquipmentData.ItemCost;
         if (canAffordPurchase(equipmentItemCost))
         {
             itemSpawner.SpawnEquipment(purchasedEquipmentData);
@@ -116,17 +122,26 @@ public class ShopManager : MonoBehaviour
 
     public void BuySkillTreeTier(SkillTreeButton button)
     {
+        
         SkillTreeButton skillTreeButton = button.GetComponent<SkillTreeButton>();
-        float skillTreePurchaseCost = skillTreeButton.itemCost;
+        if (ModifierManager.Singleton.IsMaxLevel(button.skillTreeType))
+        {
+            return;
+        }
+        int currentLevel = ModifierManager.Singleton.GetCurrentLevel(button.skillTreeType);
         if (skillTreeButton != null)
         {
-            if(canAffordPurchase((int)skillTreePurchaseCost))
+            if(canAffordPurchase((int)skillTreeButton.itemCost))
             {
-                CurrencyManager.singleton.SubtractCurrency((int)skillTreePurchaseCost);
+                CurrencyManager.singleton.SubtractCurrency((int)skillTreeButton.itemCost);
                 ModifierManager.SkillTreeType currentType = skillTreeButton.skillTreeType;
                 UnityEngine.Debug.Log("Buying skill tree tier: " + currentType);
                 ModifierManager.Singleton.UpdateSkillTreeType(currentType);
-                
+
+                if (ModifierManager.Singleton.IsMaxLevel(currentType))
+                {
+                    skillTreeButton.DisableButton();
+                }
             }
             else
             {
@@ -135,6 +150,8 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
+
+    
     private bool canAffordPurchase(int itemCost)
     {
         return CurrencyManager.singleton.totalCurrency >= itemCost;
@@ -143,15 +160,32 @@ public class ShopManager : MonoBehaviour
     public void OpenShop()
     {
         isShopOpen = true;
+        shopMenu.SetActive(true); 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
         //OPEN UI Shop here, ititialize anything
         //have buttons active here 
     }
 
     public void CloseShop()
     {
-        isShopOpen = false;
+        if (isShopOpen)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                shopMenu.SetActive(false);
+                isShopOpen = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                
+            }
+        }
+        
+
         //Disable shop, disable anything here 
     }
 
+    
 
 }

@@ -590,7 +590,7 @@ MonoBehaviour:
   myCamera: {fileID: 1681489009076498514}
   interactableFilter:
     serializedVersion: 2
-    m_Bits: 6400
+    m_Bits: 137472
   shop: {fileID: 4159032662921158955}
   totalPlayerCurrency: 0
 --- !u!114 &6519115802940064383
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 8885450184161055222}
+  hb_collider: {fileID: 8885450184161055222}
   health: {fileID: 659764644062308712}
   damagePercentage: 1
 --- !u!114 &659764644062308712

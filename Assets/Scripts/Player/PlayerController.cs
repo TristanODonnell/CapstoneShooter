@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask interactableFilter;
     public IInteractable selectedInteraction;
 
-    [Header("Shop Settings")]
-    [SerializeField] private ShopBehavior shop;
+  
+   
     private bool isShopOpen = false;
-    public int totalPlayerCurrency;
+    
 
     private void Awake()
     {
@@ -170,11 +170,12 @@ public class PlayerController : MonoBehaviour
         CheckReloadInput();
         
         ChangeWeaponInput();
-        CheckShopInput();
+
 
 //EquipmentInteract();
         WeaponInteract();
         PassiveInteract();
+        ShopInteract();
         CurrentGrenadeSelectInput();
     }
 
@@ -212,6 +213,47 @@ public class PlayerController : MonoBehaviour
             recursiveBashBehavior.UseRecursiveBash();
         }
     }
+
+    private void ShopInteract()
+    {
+        Ray ray = new Ray(myCamera.transform.position, myCamera.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 2f, interactableFilter))
+        {
+            ShopLocation shopLocation = hit.collider.gameObject.GetComponent<ShopLocation>();
+            if (shopLocation != null)
+            {
+                IInteractable interactable = shopLocation.GetComponent<IInteractable>();
+                if (interactable != null)
+                {
+                    selectedInteraction = interactable;
+                    selectedInteraction.OnHoverEnter();
+                }
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+
+                    {
+                        if (selectedInteraction != null)
+                        {
+                            selectedInteraction.Interact(this, shopLocation); 
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+        else if (selectedInteraction != null)
+        {
+            selectedInteraction.OnHoverExit();
+            selectedInteraction = null;
+        }
+    }
+
     private void PassiveInteract()
     {
         {
@@ -354,23 +396,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void CheckShopInput()
-    {
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            shop.OpenShopMenu();
-            isShopOpen = true;
-            //Debug.Log("shop opened");
-        }
-        else 
-        {
-            shop.CloseShopMenu();
-            isShopOpen = false;
-            //Debug.Log("shop closed");
-        }
-
-
-    }
+    
 
     private void ChangeWeaponInput()
     {
@@ -523,5 +549,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
 }

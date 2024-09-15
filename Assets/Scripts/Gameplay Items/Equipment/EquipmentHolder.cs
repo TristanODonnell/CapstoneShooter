@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentHolder : MonoBehaviour,  IInteractable
+public class EquipmentHolder : MonoBehaviour, IInteractable
 {
     public EquipmentData myequipmentData;
 
@@ -28,6 +28,11 @@ public class EquipmentHolder : MonoBehaviour,  IInteractable
         // player.equipmentSwapPrompt.replaceEquipment1Button.gameObject.SetActive(true);
         // player.equipmentSwapPrompt.replaceEquipment2Button.gameObject.SetActive(true);
 
+    }
+
+    public void Interact(PlayerController player, ShopLocation shopLocation)
+    {
+        throw new System.NotImplementedException();
     }
 
     public void OnHoverEnter()

@@ -14,6 +14,7 @@ public interface IInteractable
         
     }
 
+    public void Interact(PlayerController player, ShopLocation shopLocation);
     
     public void OnHoverEnter();
 

@@ -9,9 +9,9 @@ public class ItemSpawner : MonoBehaviour
         Instantiate(weaponData.GetWorldWeapon(), new Vector3(0, 0, 0), Quaternion.identity);
     }
 
-    public void SpawnEquipment(EquipmentData equipmentData)
+    public void SpawnAbility()
     {
-        Instantiate(equipmentData.GetWorldEquipment(), new Vector3(0, 0, 0), Quaternion.identity);
+        //Instantiate(, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     public void SpawnPassive(PassiveData passiveData)
