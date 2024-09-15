@@ -13,7 +13,8 @@ namespace throwables
 		protected gricel.HealthSystem thrower;
 		public throwables.ThrowableItem Throw(gricel.HealthSystem thrower, Vector3 position, Vector3 direction, float force, float powerIncrease = 1f)
 		{
-			var g = Instantiate(this);
+			Debug.Log("Instantiated Grenade");
+			var g = Instantiate(gameObject).GetComponent<ThrowableItem>();
 			g.transform.position = position;
 			g.transform.forward = direction;
 			g.throwable_rigidbody.AddForce(force * direction);

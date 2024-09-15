@@ -35,7 +35,7 @@ MonoBehaviour:
   originalMaxAmmo: 100
   weaponModel: {fileID: 919132149155446097, guid: 8595e8acbc89aac4b928efe10c613535,
     type: 3}
-  worldWeapon: {fileID: 5700079142070317025, guid: 015e0a4e2d826754bbed5b2ef8e157e4,
+  worldWeapon: {fileID: 3205326218009921427, guid: 2e01f4b9498fca24e9886905c294b426,
     type: 3}
   ObjectPool: {fileID: 0}
   projectileVisualPrefab: {fileID: 0}

@@ -69,8 +69,11 @@ public class Weapon_Pickup : Pickup
 
 				if(destroyForever)
 					player.PickUpWeapon(weaponHolder);
-				if(!destroyForever)
-					player.ChangeWeapon(player.weapons.IndexOf(weaponHolder.myweaponData));
+				if (!destroyForever)
+				{
+					player.currentWeapon.Interact(player.GetComponent<PlayerController>(), weaponHolder);
+					//player.ChangeWeapon(player.weapons.IndexOf(weaponHolder.myweaponData));
+				}
 				weaponHolder.myweaponData = oldPlayerData;
 
 				if (destroyForever)
