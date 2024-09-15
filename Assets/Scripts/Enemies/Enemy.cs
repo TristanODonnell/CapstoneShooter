@@ -15,7 +15,8 @@ public class Enemy : MonoBehaviour, ILootSource
     public enum EnemyTier { High, Low }
 
 
-    public GameObject[] lootItems;
+    [SerializeField] private PickUp_ScriptableObject pickupTable;
+    [SerializeField] private byte pickUpsToSpawn = 2;
     public Enemy(string name, int creditCost, GameObject prefab)
     {
         enemyName = name;
@@ -27,14 +28,20 @@ public class Enemy : MonoBehaviour, ILootSource
 
     public void SpawnLoot()
     {
-        float RV() => Random.Range(-1f, 1f);
-        Vector3 R() => Vector3.right * RV() + Vector3.up * RV() + Vector3.forward * RV();
+        float R() => Random.Range(-1f, 1f);
+        Vector3 RandomVector() => R() * Vector3.right + R() * Vector3.forward;
 
-        foreach (var item in lootItems)
+        try
         {
-            var c = Instantiate(item);
-            c.transform.position = transform.position + Vector3.up*3f + R();
+            while(pickUpsToSpawn > 0)
+            {
+                pickUpsToSpawn--;
+                if (Random.value > 0.5f)
+                    pickUpsToSpawn--;
+                pickupTable.Pickup_Spawn(transform.position + Vector3.up * 3f + RandomVector() * 2f);
+            }
         }
+        catch { }
     }
 
     

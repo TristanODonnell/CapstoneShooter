@@ -16,10 +16,10 @@ MonoBehaviour:
   weaponCategory: 0
   weaponType: 2
   ProtectionValues:
-    unprotected: 10
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 33
+    energyShield: 50
+    armor: 42
+    stun: 1
   originalProtectionValues:
     unprotected: 0
     energyShield: 0
@@ -31,8 +31,8 @@ MonoBehaviour:
   maxAmmo: 100
   reloadTime: 100
   originalReloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalMagazineSize: 30
+  originalMaxAmmo: 30
   weaponModel: {fileID: 919132149155446097, guid: 2db8e1ab9c53dbd49aaa1e9f924f6499,
     type: 3}
   worldWeapon: {fileID: 5073827014280007513, guid: 6092146813e915e478df32d21b2d5173,
@@ -41,14 +41,14 @@ MonoBehaviour:
   projectileVisualPrefab: {fileID: 0}
   objectPoolGameObject: {fileID: 0}
   bulletType: 0
-  bulletScale: 0
+  bulletScale: 3
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
   bulletSpeed: 0
-  range: 0
-  fireRate: 0
-  adsZoomLevel: 0
+  range: 8
+  fireRate: 0.3
+  adsZoomLevel: 8
   penetration: 0
   penetrationPerHit: 1
   burstSize: 0

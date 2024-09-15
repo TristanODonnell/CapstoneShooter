@@ -59,7 +59,7 @@ public class Weapon_Pickup : Pickup
 				var oldPlayerData = player.currentWeapon;
 
 				var destroyForever = true;
-				if (player.weapons.Count >= 2 && oldPlayerData)
+				if (player.weapons.Count >= 3 && oldPlayerData)
 				{
 					weaponModel.GetComponent<MeshRenderer>().material = player.currentWeapon.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
 					weaponModel.GetComponent<MeshFilter>().mesh = player.currentWeapon.weaponModel.GetComponent<MeshFilter>().sharedMesh;
@@ -67,13 +67,18 @@ public class Weapon_Pickup : Pickup
 					player.weapons.RemoveAt(player.currentWeaponIndex);
 				}
 
-				player.weapons.Add(weaponHolder.myweaponData);
-
-				player.ChangeWeapon(player.currentWeaponIndex);
+				if(destroyForever)
+					player.PickUpWeapon(weaponHolder);
+				if(!destroyForever)
+					player.ChangeWeapon(player.weapons.IndexOf(weaponHolder.myweaponData));
 				weaponHolder.myweaponData = oldPlayerData;
 
 				if (destroyForever)
+				{
+					player.currentWeapon.currentMagazineAmmo = player.currentWeapon.originalMagazineSize;
+					player.currentWeapon.totalAmmo = player.currentWeapon.originalMagazineSize;
 					Destroy(gameObject);
+				}
 			}
 			catch { }
 		}

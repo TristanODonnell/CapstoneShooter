@@ -16,10 +16,10 @@ MonoBehaviour:
   weaponCategory: 0
   weaponType: 2
   ProtectionValues:
-    unprotected: 10
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 28.79
+    energyShield: 21.46
+    armor: 12.38
+    stun: 0.56
   originalProtectionValues:
     unprotected: 0
     energyShield: 0
@@ -39,16 +39,17 @@ MonoBehaviour:
     type: 3}
   ObjectPool: {fileID: 0}
   projectileVisualPrefab: {fileID: 0}
-  objectPoolGameObject: {fileID: 0}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
   bulletType: 0
-  bulletScale: 0
+  bulletScale: 0.43
   verticalRecoil: 0
   horizontalRecoil: 0
   recoilResetSpeed: 0
   bulletSpeed: 0
-  range: 1
-  fireRate: 1
-  adsZoomLevel: 0
+  range: 2.79
+  fireRate: 0.17
+  adsZoomLevel: 0.24
   penetration: 1
   penetrationPerHit: 1
   burstSize: 0

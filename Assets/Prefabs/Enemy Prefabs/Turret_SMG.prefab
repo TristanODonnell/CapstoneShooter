@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: weapons.Array.data[1]
       value: 
       objectReference: {fileID: 6487769600368224771}
+    - target: {fileID: 5317520543163924648, guid: d030a62e5bcae95469a26cc91b19e1bc,
+        type: 3}
+      propertyPath: pickUpsToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

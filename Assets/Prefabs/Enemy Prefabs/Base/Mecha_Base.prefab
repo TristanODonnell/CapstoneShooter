@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 6973956685796819826}
+  hb_collider: {fileID: 6973956685796819826}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &6973956685796819826
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 3905095190831528507}
+  hb_collider: {fileID: 3905095190831528507}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &3905095190831528507
@@ -426,6 +426,8 @@ MonoBehaviour:
   spawnChance: 0.2
   enemyPrefab: {fileID: 3301113174532290898}
   enemyTier: 0
+  pickupTable: {fileID: 11400000, guid: e9a31a112c8a6f5449ae08a1f246b845, type: 2}
+  pickUpsToSpawn: 2
 --- !u!114 &8969275712243535865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 7844684759755258356}
+  hb_collider: {fileID: 7844684759755258356}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &7844684759755258356
@@ -654,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1840212083862497821}
+  hb_collider: {fileID: 1840212083862497821}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &1840212083862497821
@@ -696,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 8597333199708644794}
+  hb_collider: {fileID: 8597333199708644794}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &8597333199708644794
@@ -738,7 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 8966536708391805176}
+  hb_collider: {fileID: 8966536708391805176}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &8966536708391805176
@@ -780,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 4512716660115911336}
+  hb_collider: {fileID: 4512716660115911336}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &4512716660115911336
@@ -822,7 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1656279661135573461}
+  hb_collider: {fileID: 1656279661135573461}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &1656279661135573461
@@ -864,7 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 1692849642278024553}
+  hb_collider: {fileID: 1692849642278024553}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &1692849642278024553
@@ -906,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956cdc7f56e82724a8439046b3d65e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collider: {fileID: 310925000411941256}
+  hb_collider: {fileID: 310925000411941256}
   health: {fileID: 8969275712243535865}
   damagePercentage: 1
 --- !u!65 &310925000411941256

@@ -35,8 +35,8 @@ public class UI_AWeapon : MonoBehaviour
 	{
         ui_weaponIcon.gameObject.SetActive(true);
         ui_weaponIcon.sprite = playerWeapon.currentWeapon.v_Icon;
-        ui_weaponMagazine.text = playerWeapon.currentWeapon.totalAmmo + "";
-        ui_weaponAmmo.text = playerWeapon.currentWeapon.currentMagazineAmmo + "";
+        ui_weaponMagazine.text = playerWeapon.currentWeapon.currentMagazineAmmo + "";
+        ui_weaponAmmo.text = playerWeapon.currentWeapon.totalAmmo + "";
 	}
 
 	private void A_TryLocateWeapon()

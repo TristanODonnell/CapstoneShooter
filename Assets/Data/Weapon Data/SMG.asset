@@ -30,25 +30,27 @@ MonoBehaviour:
   magazineSize: 40
   maxAmmo: 2000
   reloadTime: 5
-  originalReloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalReloadTime: 0.6
+  originalMagazineSize: 18
+  originalMaxAmmo: 108
   weaponModel: {fileID: 919132149155446097, guid: 85e3bceead0189343902bc33fce5b6ff,
     type: 3}
   worldWeapon: {fileID: 5323353297967709619, guid: 09d49ca82b724f145af3b76823dd136c,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 0}
-  objectPoolGameObject: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 1895d26232b2a644b96f539f636e82ef,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
   bulletType: 0
-  bulletScale: 0
-  verticalRecoil: 2
-  horizontalRecoil: 2
-  recoilResetSpeed: 0
+  bulletScale: 0.23
+  verticalRecoil: 0.5
+  horizontalRecoil: 0.1
+  recoilResetSpeed: 0.1
   bulletSpeed: 25
   range: 50
-  fireRate: 0.05
-  adsZoomLevel: 0
+  fireRate: 0.04444445
+  adsZoomLevel: 2
   penetration: 0
   penetrationPerHit: 1
   burstSize: 0
