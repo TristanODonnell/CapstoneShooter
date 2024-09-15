@@ -8,6 +8,7 @@ namespace Abilities
 		protected CharacterController controller;
 		protected GravitationalBehaviour gravitation;
 		[SerializeField] private KeyCode button;
+		public Sprite icon;
 
 		public static AbilityBase Ability_Set(AbilityBase reference, CharacterController controller, GravitationalBehaviour gravitation)
 		{

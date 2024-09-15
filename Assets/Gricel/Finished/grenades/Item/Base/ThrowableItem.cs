@@ -9,6 +9,7 @@ namespace throwables
 	{
 		[SerializeField] protected Rigidbody throwable_rigidbody;
 		[HideInInspector] public float powerIncrease;
+		public Sprite icon;
 		protected gricel.HealthSystem thrower;
 		public throwables.ThrowableItem Throw(gricel.HealthSystem thrower, Vector3 position, Vector3 direction, float force, float powerIncrease = 1f)
 		{

@@ -58,14 +58,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28773582, g: 0.7821835, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37a5644951617954a984050a5d7f4fb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e69ba130adbcd1d48995bb7b3cfae5b9, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3f1c64fcebc38479fdd423bd2a827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui_Scope: {fileID: 7876033142159480742}
+  ui_Crosshair: {fileID: 8583903261569725822}
 --- !u!1 &785367101346762009
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4931555bb874564891aa4a0a7c0c255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ability: {fileID: 7705059526292229045}
 --- !u!1 &1588817073570948204
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +606,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458f2ba53e0bfb49b4971690c31d4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui_healthbars:
+  - {fileID: 1129924407746291980}
+  - {fileID: 2487881873498086792}
+  - {fileID: 4100306379256409941}
+  - {fileID: 3195448479933164779}
+  - {fileID: 7508085310454512291}
+  - {fileID: 8332224734178841549}
+  uiC_EnergyShield: {r: 0, g: 0.9528302, b: 0.9528302, a: 1}
+  uiC_Flesh: {r: 0.4528302, g: 0.20154269, b: 0.19010323, a: 1}
+  uiC_Armor: {r: 0.2931538, g: 0.2280616, b: 0.38679248, a: 1}
 --- !u!1 &3447314988894080313
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0085092fb0e254140b051c6b409ea7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui_Icon: {fileID: 5492954208030338483}
+  ui_Ammount: {fileID: 3263236562514925549}
 --- !u!1 &6981646151826229541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5182440660138776832}
+  - component: {fileID: 2723729793113295112}
   m_Layer: 0
   m_Name: WeaponHeld
   m_TagString: Untagged
@@ -1330,6 +1346,21 @@ RectTransform:
   m_AnchoredPosition: {x: 89, y: -63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2723729793113295112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8954975436561840155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeee377ddd8c5424a8cd1646b0f632a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui_weaponIcon: {fileID: 3520929445383937638}
+  ui_weaponMagazine: {fileID: 6281028700590269124}
+  ui_weaponAmmo: {fileID: 1796528437558411933}
 --- !u!1 &9118733957883671076
 GameObject:
   m_ObjectHideFlags: 0

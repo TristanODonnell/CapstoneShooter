@@ -70,8 +70,7 @@ public class Player_AbilityBehaviour : MonoBehaviour
 	public AbilityReferences abilityReferences = new();
 
 
-	[HideInInspector]
-	private Abilities.AbilityBase abilitySelected;
+	public Abilities.AbilityBase abilitySelected { get; private set; }
 	public void SetAbility(AbilityBase ability)
 	{
 		hasStarted = true;

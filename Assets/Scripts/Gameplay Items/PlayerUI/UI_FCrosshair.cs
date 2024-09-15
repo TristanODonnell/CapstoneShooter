@@ -16,13 +16,12 @@ public class UI_FCrosshair : MonoBehaviour
 		
 		var player = FindObjectOfType<PlayerController>();
 		if (player != null)
-		{
 			player_shootBehaviour = player.GetComponentInChildren<ShootBehavior>();
-		}
 	}
 	void PlayerFight()
 	{
 		ui_Scope.gameObject.SetActive(Input.GetMouseButton(1));
+		ui_Crosshair.gameObject.SetActive(true);
 		ui_Crosshair.sprite = player_shootBehaviour.currentWeapon.v_crosshair;
 	}
 
