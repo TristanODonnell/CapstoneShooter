@@ -133,5 +133,10 @@ public class WeaponData : ScriptableObject, IInteractable
     {
         throw new System.NotImplementedException();
     }
+
+    public void Interact(PlayerController player, ShopLocation shopLocation)
+    {
+        throw new NotImplementedException();
+    }
 }
  
