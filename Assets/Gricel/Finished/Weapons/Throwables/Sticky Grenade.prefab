@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwable_rigidbody: {fileID: 5151347741666187977}
   powerIncrease: 0
+  icon: {fileID: 21300000, guid: d7943fb956aab2546948cdb3544b7e53, type: 3}
   damage:
     unprotected: 70
     energyShield: 30

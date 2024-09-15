@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwable_rigidbody: {fileID: -2491784591575821529}
   powerIncrease: 0
+  icon: {fileID: 21300000, guid: 22efe4db42d51794f9e70ca8b0e32110, type: 3}
   openSeq_duration: 0.5
   destroyTime:
     maximumCount: 30

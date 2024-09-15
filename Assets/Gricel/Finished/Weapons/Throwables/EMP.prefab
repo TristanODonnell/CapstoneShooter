@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwable_rigidbody: {fileID: -966742573735865638}
   powerIncrease: 0
+  icon: {fileID: 21300000, guid: 730d10aa1395a464c80c0c05c21adfc6, type: 3}
   iddleTime:
     maximumCount: 2.79
   explosion: {fileID: 3511738219578827153, guid: a04be85737bbcaa47bfcd250181516aa,

@@ -44,23 +44,24 @@ public class GrenadeManager : MonoBehaviour
       //  currentGrenade = Singleton.grenades.ElementAt(0);
     }
 
-    public void AddGrenade(ThrowableItem grenadeType, int count = 1)
+    public bool AddGrenade(ThrowableItem grenadeType, int count = 1)
     {
         int index = Singleton.grenades.IndexOf(grenadeType);
         if (index != -1)
         {
-            if (grenadeCounts[index] + count <= 2)
+            if (grenadeCounts[index] + count < 2)
             {
                 grenadeCounts[index] += count;
             }
-            else
+            if(grenadeCounts[index] >= 2)
             {
                 grenadeCounts[index] = 2;
+                return false;
             }
             
         }
         
-        
+        return true;
         
    }
     public void GrenadeRefill()
