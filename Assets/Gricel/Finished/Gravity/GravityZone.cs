@@ -14,14 +14,32 @@ public class GravityZone : MonoBehaviour
 	}
 	[SerializeField]
 	private float gravity;
+	private List<GravitationalBehaviour> inside = new();
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.TryGetComponent<GravitationalBehaviour>(out var gravitationalItem))
+		{
+			if(!inside.Contains(gravitationalItem))
+				inside.Add(gravitationalItem);
 			gravitationalItem.currentGravity = gravity;
+		}
 	}
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.TryGetComponent<GravitationalBehaviour>(out var gravitationalItem))
+		{
+
+			if (inside.Contains(gravitationalItem))
+				inside.Remove(gravitationalItem);
 			gravitationalItem.currentGravity = SceneGravity.GlobalGravity;
+		}
+	}
+	private void OnDestroy()
+	{
+		foreach (var item in inside)
+		{
+			item.currentGravity = SceneGravity.GlobalGravity;
+		}
 	}
 }
