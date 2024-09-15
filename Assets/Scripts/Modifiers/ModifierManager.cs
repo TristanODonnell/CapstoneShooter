@@ -85,6 +85,91 @@ public class ModifierManager : MonoBehaviour
                 break;
         }
     }
+    public int GetCurrentLevel(SkillTreeType type)
+    {
+        switch (type)
+        {
+            case SkillTreeType.Ability:
+                return currentAbilityCooldownLevel;
+            case SkillTreeType.Speed:
+                return currentSpeedLevel;
+
+            case SkillTreeType.JumpHeight:
+                return currentJumpHeightLevel; 
+            case SkillTreeType.Reload:
+                return currentReloadLevel;
+            case SkillTreeType.MaxAmmo:
+                return currentmaxAmmoLevel; 
+            case SkillTreeType.WeaponMagazineSize:
+                return currentWeaponMagazineLevel;
+            case SkillTreeType.RecursiveBash:
+                return currentRecursiveBashLevel;
+            case SkillTreeType.ArmorHealth:
+                return currentArmorLevel; 
+            case SkillTreeType.FleshHealth:
+                return currentFleshLevel;
+            case SkillTreeType.EnergyShield:
+                return currentEnergyShieldLevel;
+            case SkillTreeType.ShrapnelDamage:
+                return currentShrapnelWeaponDamageLevel;
+            case SkillTreeType.EnergyDamage:
+                return currentEnergyWeaponDamageLevel;
+            case SkillTreeType.HeavyDamage:
+                return currentHeavyWeaponDamageLevel;
+            case SkillTreeType.MeleeDamage:
+                return currentMeleeWeaponDamageLevel;
+            case SkillTreeType.GrenadeDamage:
+                return currentGrenadeDamageLevel;
+            case SkillTreeType.EnemyNumbers:
+                return currentTotalEnemyCreditsLevel;
+            case SkillTreeType.XPGained:
+                return currentXPGainedLevel;
+            default:
+                return 0;
+        }
+    }
+    public bool IsMaxLevel(SkillTreeType type)
+    {
+        switch (type)
+        {
+            case SkillTreeType.Ability:
+                return currentAbilityCooldownLevel >= abilityCooldownModifiers.Count;
+            case SkillTreeType.Speed:
+                return currentSpeedLevel >= speedModifiers.Count;
+            case SkillTreeType.JumpHeight:
+                return currentJumpHeightLevel >= jumpingHeightModifiers.Count;
+            case SkillTreeType.Reload:
+                return currentReloadLevel >= reloadTimeModifiers.Count;
+            case SkillTreeType.MaxAmmo:
+                return currentmaxAmmoLevel >= maxAmmunitionModifiers.Count;
+            case SkillTreeType.WeaponMagazineSize:
+                return currentWeaponMagazineLevel >= weaponMagazineModifiers.Count;
+            case SkillTreeType.RecursiveBash:
+                return currentRecursiveBashLevel >= recursiveBashModifiers.Count;
+            case SkillTreeType.ArmorHealth:
+                return currentArmorLevel >= armorModifiers.Count;
+            case SkillTreeType.FleshHealth:
+                return currentFleshLevel >= fleshModifiers.Count;
+            case SkillTreeType.EnergyShield:
+                return currentEnergyShieldLevel >= energyShieldModifiers.Count;
+            case SkillTreeType.ShrapnelDamage:
+                return currentShrapnelWeaponDamageLevel >= shrapnelWeaponDamageModifiers.Count;
+            case SkillTreeType.EnergyDamage:
+                return currentEnergyWeaponDamageLevel >= energyWeaponDamageModifiers.Count;
+            case SkillTreeType.HeavyDamage:
+                return currentHeavyWeaponDamageLevel >= heavyWeaponDamageModifiers.Count;
+            case SkillTreeType.MeleeDamage:
+                return currentMeleeWeaponDamageLevel >= meleeWeaponDamageModifiers.Count;
+            case SkillTreeType.GrenadeDamage:
+                return currentGrenadeDamageLevel >= grenadeDamageModifiers.Count;
+            case SkillTreeType.EnemyNumbers:
+                return currentTotalEnemyCreditsLevel >= totalEnemyCreditsModifiers.Count;
+            case SkillTreeType.XPGained:
+                return currentXPGainedLevel >= xpGainedModifiers.Count;
+            default:
+                return false;
+        }
+    }
     public int currentAbilityCooldownLevel =1; //next
     public int currentSpeedLevel = 1; //done
     public int currentJumpHeightLevel = 1; //done

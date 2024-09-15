@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SkillTreeButton : MonoBehaviour
 {
 
-    public float itemCost;
+    public int itemCost;
     public ModifierManager.SkillTreeType skillTreeType;
-
+    public TextMeshProUGUI costText;
     public void OnClick()
     {
         ShopManager.singleton.BuySkillTreeTier(this);
@@ -15,6 +16,7 @@ public class SkillTreeButton : MonoBehaviour
 
     public void DisableButton()
     {
-
+        gameObject.SetActive(false);
     }
+    
 }

@@ -116,17 +116,26 @@ public class ShopManager : MonoBehaviour
 
     public void BuySkillTreeTier(SkillTreeButton button)
     {
+        
         SkillTreeButton skillTreeButton = button.GetComponent<SkillTreeButton>();
-        float skillTreePurchaseCost = skillTreeButton.itemCost;
+        if (ModifierManager.Singleton.IsMaxLevel(button.skillTreeType))
+        {
+            return;
+        }
+        int currentLevel = ModifierManager.Singleton.GetCurrentLevel(button.skillTreeType);
         if (skillTreeButton != null)
         {
-            if(canAffordPurchase((int)skillTreePurchaseCost))
+            if(canAffordPurchase((int)skillTreeButton.itemCost))
             {
-                CurrencyManager.singleton.SubtractCurrency((int)skillTreePurchaseCost);
+                CurrencyManager.singleton.SubtractCurrency((int)skillTreeButton.itemCost);
                 ModifierManager.SkillTreeType currentType = skillTreeButton.skillTreeType;
                 UnityEngine.Debug.Log("Buying skill tree tier: " + currentType);
                 ModifierManager.Singleton.UpdateSkillTreeType(currentType);
-                
+
+                if (ModifierManager.Singleton.IsMaxLevel(currentType))
+                {
+                    skillTreeButton.DisableButton();
+                }
             }
             else
             {
@@ -135,6 +144,8 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
+
+    
     private bool canAffordPurchase(int itemCost)
     {
         return CurrencyManager.singleton.totalCurrency >= itemCost;
