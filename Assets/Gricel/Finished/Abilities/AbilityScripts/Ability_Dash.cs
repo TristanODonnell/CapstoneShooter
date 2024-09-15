@@ -17,7 +17,7 @@ namespace Abilities
 		bool isCurrentlyDashing => dash_NormalMovement > 0f;
 		bool hasCharges => dash_charges > 0;
 
-		protected override bool CanBeUsed() => !isCurrentlyDashing && hasCharges;
+		protected override bool CanBeUsed() => hasCharges;
 		private void Start() { 
 			dash_charges = dash_chargesOg = dash_chargesMax;
 			dash_cooldownMax = dash_cooldown.maximumCount;
@@ -40,8 +40,8 @@ namespace Abilities
 			if (dir.magnitude == 0f)
 				dir.z = 1f;
 
-			dash_Movement = dir.normalized;
-
+			dash_Movement += dir.normalized;
+			dash_charges--;
 			dash_NormalMovement = 1f;
 			gravitation.Jump(0f);
 		}
@@ -76,6 +76,14 @@ namespace Abilities
 			dash_cooldown.maximumCount = dash_cooldownMax / multiplier;
 		}
 
-		public override float Ability_Normalized()=>(float)dash_charges / (float)dash_chargesMax;
+		public override float Ability_Normalized()
+		{
+			if(dash_charges == dash_chargesMax)
+				return 1f;
+
+			float dC = (int)dash_charges + dash_cooldown.normalized;
+			float dM = (int)dash_chargesMax;
+			return dC / dM;
+		}
 	}
 }

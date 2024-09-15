@@ -13,6 +13,7 @@ namespace Abilities
 		[SerializeField] private ProtectionValues damagePerFallTime;
 		[SerializeField] private float radiusPerFallTime;
 		float damageMultiplier;
+		float lastY = 0;
 		protected override bool CanBeUsed() => timeOnAir.mReviseCountdownIsOver && cooldown.mReviseCountdownIsOver;
 		protected override void UsePress()
 		{
@@ -62,7 +63,10 @@ namespace Abilities
 		private void GP_Fall()
 		{
 			gravitation.Jump(0f);
+			lastY = transform.position.y;
 			controller.Move(Vector3.down * Time.deltaTime * damageMultiplier * damageMultiplier);
+			if (lastY <= transform.position.y)
+				GP_Punch();
 
 			damageMultiplier += Time.deltaTime *gravitation.currentGravity *2f;
 		}

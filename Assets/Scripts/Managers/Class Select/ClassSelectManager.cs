@@ -89,19 +89,23 @@ public class ClassSelectManager : MonoBehaviour
     
     public void ChooseGrenade(int grenadeIndex)  
     {
-        ThrowableItem chosenGrenade = DataManager.Singleton.grenades[grenadeIndex];
-        grenadeManager.currentIndex = grenadeIndex;
-        grenadeManager.currentGrenade = chosenGrenade;
-        grenadeManager.grenadeCounts[grenadeIndex] = 2;
-
-        for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)
+        try
         {
-            grenadeManager.grenadeCounts[i] = 0;
-        }
-        grenadeManager.grenadeCounts[grenadeIndex] = 2;
+            ThrowableItem chosenGrenade = DataManager.Singleton.grenades[grenadeIndex];
+            grenadeManager.currentIndex = grenadeIndex;
+            grenadeManager.currentGrenade = chosenGrenade;
+            grenadeManager.grenadeCounts[grenadeIndex] = 2;
 
-      //  Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
-        Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
+            for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)
+            {
+                grenadeManager.grenadeCounts[i] = 0;
+            }
+            grenadeManager.grenadeCounts[grenadeIndex] = 2;
+
+            //  Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
+            Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
+        }
+        catch { }
     }
 
     

@@ -307,6 +307,7 @@ public class ShootBehavior : MonoBehaviour
     }
     public void NextWeapon()
     {
+        if (weapons.Count == 0) return;
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Count;
         ChangeWeapon(currentWeaponIndex);
     }
