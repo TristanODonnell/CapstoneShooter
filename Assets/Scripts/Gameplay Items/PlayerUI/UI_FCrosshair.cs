@@ -32,6 +32,11 @@ public class UI_FCrosshair : MonoBehaviour
 			PlayerDoesNotWork();
 			return;
 		}
+		if(player_shootBehaviour.currentWeapon == null)
+		{
+			PlayerDoesNotWork();
+			return;
+		}
 		PlayerFight();
 	}
 }

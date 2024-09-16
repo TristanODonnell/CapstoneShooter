@@ -480,13 +480,19 @@ public class PlayerController : MonoBehaviour
 
     private void CheckAimDownSightInput()
     {
-        if (Input.GetMouseButton(1) && !look.IsAimingDownSight())
+        try
         {
-            look.AimDownSightStart();
+            if (Input.GetMouseButton(1) && !look.IsAimingDownSight())
+                look.AimDownSightStart();
+
+            if (Input.GetMouseButtonUp(1) && look.IsAimingDownSight())
+                look.AimDownSightEnd();
         }
-        if (Input.GetMouseButtonUp(1) && look.IsAimingDownSight())
-        {
-            look.AimDownSightEnd();
+        catch {
+            look = FindObjectOfType<LookBehavior>();
+            if(!look)
+                look = gameObject.AddComponent<LookBehavior>();
+
         }
     }
     

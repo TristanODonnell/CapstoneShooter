@@ -12,6 +12,15 @@ public class Ability_Pickup : Pickup
 	private Camera playerController;
 	protected override bool TryPickUp(Collider other)
 	{
+		var player = other.GetComponent<Player_AbilityBehaviour>();
+
+		if (!player.abilitySelected)
+		{
+			player.SetAbility(prefabAbility);
+			Destroy(gameObject);
+			return true;
+		}
+
 		return false;
 	}
 
@@ -26,13 +35,14 @@ public class Ability_Pickup : Pickup
 
 	private void FixedUpdate()
 	{
-		if(playerIsInside && Input.GetKey(KeyCode.Return))
+		if(playerIsInside && Input.GetKey(KeyCode.F))
 		{
 			if (keyPressed) return;
 			try
 			{
 				var player = FindObjectOfType<Player_AbilityBehaviour>();
 				var sel = prefabAbility;
+
 
 				AbilityBase[] allabilities =
 				{

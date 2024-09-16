@@ -10,7 +10,16 @@ public class UI_BGrenades : MonoBehaviour
 {
     GrenadeManager manager;
     ThrowableItem grenade => manager.currentGrenade;
-    int ammount => DataManager.Singleton.grenades.IndexOf(grenade);
+    int ammount { get {
+            try
+            {
+                return manager.grenadeCounts[DataManager.Singleton.grenades.IndexOf(grenade)];
+            }
+            catch {
+                return 0;
+            }
+       }
+    }
     [SerializeField] private Image ui_Icon;
     [SerializeField] private Text ui_Ammount;
 

@@ -16,9 +16,9 @@ MonoBehaviour:
   weaponCategory: 0
   weaponType: 0
   ProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
+    unprotected: 70.11
+    energyShield: 93.73
+    armor: 117.85
     stun: 0
   originalProtectionValues:
     unprotected: 0
@@ -30,31 +30,33 @@ MonoBehaviour:
   magazineSize: 0
   maxAmmo: 0
   reloadTime: 0
-  originalReloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalReloadTime: 2.8
+  originalMagazineSize: 8
+  originalMaxAmmo: 16
   weaponModel: {fileID: 919132149155446097, guid: 9f735e99094b62b4e98a4bc7de9af349,
     type: 3}
-  worldWeapon: {fileID: 3271944093499689857, guid: 9f7b65ba1d96d9d4cbea580037d6e2d6,
+  worldWeapon: {fileID: 3205326218009921427, guid: 6c68de2429cad5a45a4a5f8a72634821,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 0}
-  objectPoolGameObject: {fileID: 0}
-  bulletType: 0
-  bulletScale: 0
-  verticalRecoil: 0
-  horizontalRecoil: 0
-  recoilResetSpeed: 0
-  bulletSpeed: 0
-  range: 0
-  fireRate: 0
+  projectileVisualPrefab: {fileID: 919132149155446097, guid: cef773c4b9057dc4aa4a8e042107e5bc,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
+  bulletType: 1
+  bulletScale: 0.95
+  verticalRecoil: 0.42
+  horizontalRecoil: 0.12
+  recoilResetSpeed: 0.19
+  bulletSpeed: 22.65
+  range: 32
+  fireRate: 0.7
   adsZoomLevel: 0
   penetration: 0
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
   riotShieldCollider: {fileID: 0}
-  explosionRadius: 0
+  explosionRadius: 6.59
   itemCost: 0
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 15bb60e4f67600244b3c6053f39d99b7, type: 3}

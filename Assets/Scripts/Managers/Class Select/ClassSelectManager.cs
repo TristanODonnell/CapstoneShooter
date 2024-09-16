@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Abilities;
 using throwables;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ClassSelectManager : MonoBehaviour
 {
@@ -11,10 +10,7 @@ public class ClassSelectManager : MonoBehaviour
     public GameObject player;
     public PlayerData selectedPlayerData;
     public GrenadeManager grenadeManager;
-    public Button goToPassivePage;
-    public Button goToAbilityPage;
-    public Button goToGrenadePage;
-    public Button goToGameSelectPage;
+
     public static ClassSelectManager Singleton
     {
         get; private set;
@@ -68,14 +64,10 @@ public class ClassSelectManager : MonoBehaviour
         if (selectedPlayerData.playerWeaponData.Count < 3 )
         {
             selectedPlayerData.playerWeaponData.Add(weaponData);
-            if (selectedPlayerData.playerWeaponData.Count == 3)
-            {
-                goToPassivePage.gameObject.SetActive(true);
-            }
         }
-        else if (selectedPlayerData.playerWeaponData.Count >= 3)
+        else
         {
-            goToPassivePage.gameObject.SetActive(true);
+            Debug.LogError("Maximum number of weapons reached!");
         }
 
     }
@@ -85,7 +77,6 @@ public class ClassSelectManager : MonoBehaviour
     {
         PassiveData passiveData = DataManager.Singleton.passive[passiveIndex];
         selectedPlayerData.playerPassiveData = passiveData;
-        goToAbilityPage.gameObject.SetActive(true);
     }
 
 
@@ -93,25 +84,28 @@ public class ClassSelectManager : MonoBehaviour
     {
         AbilityBase chosenAbility = DataManager.Singleton.abilities[abilityIndex];
         selectedPlayerData.playerAbilityReference = chosenAbility;
-        goToGrenadePage.gameObject.SetActive(true);
     }
      
     
     public void ChooseGrenade(int grenadeIndex)  
     {
-        ThrowableItem chosenGrenade = DataManager.Singleton.grenades[grenadeIndex];
-        grenadeManager.currentIndex = grenadeIndex;
-        grenadeManager.currentGrenade = chosenGrenade;
-        grenadeManager.grenadeCounts[grenadeIndex] = 2;
-
-        for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)
+        try
         {
-            grenadeManager.grenadeCounts[i] = 0;
+            ThrowableItem chosenGrenade = DataManager.Singleton.grenades[grenadeIndex];
+            grenadeManager.currentIndex = grenadeIndex;
+            grenadeManager.currentGrenade = chosenGrenade;
+            grenadeManager.grenadeCounts[grenadeIndex] = 2;
+
+            for (int i = 0; i < grenadeManager.grenadeCounts.Length; i++)
+            {
+                grenadeManager.grenadeCounts[i] = 0;
+            }
+            grenadeManager.grenadeCounts[grenadeIndex] = 2;
+
+            //  Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
+            Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
         }
-        grenadeManager.grenadeCounts[grenadeIndex] = 2;
-        goToGameSelectPage.gameObject.SetActive(true);
-        //  Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
-        Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
+        catch { }
     }
 
     

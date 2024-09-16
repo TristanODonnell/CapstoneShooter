@@ -32,7 +32,7 @@ public class UI_CHealth : MonoBehaviour
 	{
 		for (int i = 0; i < ui_healthbars.Length; i++)
 		{
-			if (playerHealth.healthBars.Length >= i)
+			if (playerHealth.healthBars.Length <= i)
 				C_HealthbarFailed(i);
 			else
 				C_HealhbarUpdate(i);

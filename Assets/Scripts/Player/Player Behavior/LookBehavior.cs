@@ -15,7 +15,6 @@ public class LookBehavior : MonoBehaviour
     private float zoomSensitivity = 0.5f;
     private void Start()
     {
-        
     }
     public void RotatePlayer()
     {
@@ -40,12 +39,19 @@ public class LookBehavior : MonoBehaviour
     }
     public void AimDownSightStart()
     {
-        if (!isAimingDownSight)
+        try
         {
-            adsZoomLevel = shootBehavior.currentWeapon.adsZoomLevel / zoomSensitivity;
-            originalFieldOfView = myCamera.fieldOfView; // Store the original field of view
-            myCamera.fieldOfView = adsZoomLevel; // Set the camera's field of view to the ADS zoom level
-            isAimingDownSight = true; // Set the flag to true
+            if (!isAimingDownSight)
+            {
+                adsZoomLevel = shootBehavior.currentWeapon.adsZoomLevel / zoomSensitivity;
+                originalFieldOfView = myCamera.fieldOfView; // Store the original field of view
+                myCamera.fieldOfView = adsZoomLevel; // Set the camera's field of view to the ADS zoom level
+                isAimingDownSight = true; // Set the flag to true
+            }
+        }
+        catch
+        {
+            
         }
     }
 

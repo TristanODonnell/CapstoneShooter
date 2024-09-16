@@ -583,7 +583,7 @@ MonoBehaviour:
   passive: {fileID: 2001258778796343695}
   recursiveBashBehavior: {fileID: 223032032774429785}
   gravitational: {fileID: 6576053233215072034}
-  jumpForce: 0
+  jumpForce: 5
   grenadeManager: {fileID: 0}
   grenade: {fileID: 8680911425828354541}
   abilityBehaviour: {fileID: 6519115802940064383}
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookSensitivity: 150
   myCamera: {fileID: 1681489009076498514}
-  shootBehavior: {fileID: 0}
+  shootBehavior: {fileID: 4129678702875310515}
 --- !u!143 &4064175703137294824
 CharacterController:
   m_ObjectHideFlags: 0

@@ -16,10 +16,10 @@ MonoBehaviour:
   weaponCategory: 0
   weaponType: 1
   ProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 4
+    energyShield: 2.35
+    armor: 3.02
+    stun: 0.06
   originalProtectionValues:
     unprotected: 0
     energyShield: 0
@@ -30,26 +30,28 @@ MonoBehaviour:
   magazineSize: 0
   maxAmmo: 0
   reloadTime: 0
-  originalReloadTime: 0
-  originalMagazineSize: 0
-  originalMaxAmmo: 0
+  originalReloadTime: 4.43
+  originalMagazineSize: 80
+  originalMaxAmmo: 160
   weaponModel: {fileID: 919132149155446097, guid: f8367efc1fe59684a89ecd91a921f311,
     type: 3}
-  worldWeapon: {fileID: 4239243780638604273, guid: ca69a81da14349a46b477ae06a6b98c9,
+  worldWeapon: {fileID: 3205326218009921427, guid: 7c2956150fd6b4e44a73f2410babca1b,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 0}
-  objectPoolGameObject: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 1895d26232b2a644b96f539f636e82ef,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
   bulletType: 0
-  bulletScale: 0
-  verticalRecoil: 0
-  horizontalRecoil: 0
+  bulletScale: 0.28
+  verticalRecoil: 0.05
+  horizontalRecoil: 0.075
   recoilResetSpeed: 0
-  bulletSpeed: 0
-  range: 0
-  fireRate: 0
-  adsZoomLevel: 0
-  penetration: 0
+  bulletSpeed: 60
+  range: 70
+  fireRate: 0.0325
+  adsZoomLevel: 2
+  penetration: 3
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0

@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grenadeCounts: 
-  grenadeBehavior: {fileID: 0}
   currentGrenade: {fileID: 0}
   currentIndex: 0
