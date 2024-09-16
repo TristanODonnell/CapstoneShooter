@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Abilities;
 using throwables;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClassSelectManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class ClassSelectManager : MonoBehaviour
     public GameObject player;
     public PlayerData selectedPlayerData;
     public GrenadeManager grenadeManager;
+    public Button openPassiveSelect;
+    public Button openAbilitySelect;
+    public Button openGrenadeSelect;
+    public Button openGameSelect;
 
     public static ClassSelectManager Singleton
     {
@@ -64,10 +69,17 @@ public class ClassSelectManager : MonoBehaviour
         if (selectedPlayerData.playerWeaponData.Count < 3 )
         {
             selectedPlayerData.playerWeaponData.Add(weaponData);
+            if (selectedPlayerData.playerWeaponData.Count == 3)
+            {
+                openPassiveSelect.gameObject.SetActive(true);
+                Debug.LogError("Maximum number of weapons reached!");
+            }
         }
-        else
+         if (selectedPlayerData.playerWeaponData.Count > 3)
         {
+
             Debug.LogError("Maximum number of weapons reached!");
+            return;
         }
 
     }
@@ -77,6 +89,7 @@ public class ClassSelectManager : MonoBehaviour
     {
         PassiveData passiveData = DataManager.Singleton.passive[passiveIndex];
         selectedPlayerData.playerPassiveData = passiveData;
+        openAbilitySelect.gameObject.SetActive(true);
     }
 
 
@@ -84,6 +97,7 @@ public class ClassSelectManager : MonoBehaviour
     {
         AbilityBase chosenAbility = DataManager.Singleton.abilities[abilityIndex];
         selectedPlayerData.playerAbilityReference = chosenAbility;
+        openGrenadeSelect.gameObject.SetActive(true);
     }
      
     
@@ -101,7 +115,7 @@ public class ClassSelectManager : MonoBehaviour
                 grenadeManager.grenadeCounts[i] = 0;
             }
             grenadeManager.grenadeCounts[grenadeIndex] = 2;
-
+            openGameSelect.gameObject.SetActive(true);
             //  Debug.Log("Current Grenade: " + grenadeManager.currentGrenade);
             Debug.Log("Grenade Count: " + grenadeManager.grenadeCounts[grenadeIndex]);
         }

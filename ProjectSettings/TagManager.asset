@@ -28,7 +28,7 @@ TagManager:
   - Player
   - Player Riot Shield
   - Shop
-  - 
+  - Background
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 2242697849
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

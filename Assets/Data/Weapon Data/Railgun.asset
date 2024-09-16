@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Railgun
   m_EditorClassIdentifier: 
   weaponName: Railgun
-  weaponCategory: 0
+  weaponCategory: 1
   weaponType: 1
   ProtectionValues:
     unprotected: 70
@@ -21,10 +21,10 @@ MonoBehaviour:
     armor: 90
     stun: 1
   originalProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 70
+    energyShield: 70
+    armor: 90
+    stun: 1
   currentMagazineAmmo: 0
   totalAmmo: 0
   magazineSize: 0
@@ -55,6 +55,9 @@ MonoBehaviour:
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  chargeTime: 3
+  minDamage: 90
+  maxDamage: 180
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
   itemCost: 0

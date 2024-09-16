@@ -21,7 +21,7 @@ MonoBehaviour:
     armor: 0
     stun: 0
   originalProtectionValues:
-    unprotected: 0
+    unprotected: 40
     energyShield: 0
     armor: 0
     stun: 0
@@ -53,6 +53,9 @@ MonoBehaviour:
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  chargeTime: 0
+  minDamage: 0
+  maxDamage: 0
   riotShieldCollider: {fileID: 861003198885002567, guid: e23af79515fd36045bdcd0bbc9a023ef,
     type: 3}
   explosionRadius: 0

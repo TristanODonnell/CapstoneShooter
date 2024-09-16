@@ -60,6 +60,9 @@ public class WeaponData : ScriptableObject, IInteractable
     public float burstDelay;
 
     [Header("RailGun Weapon Settings")]
+    public float chargeTime;
+    public float minDamage;
+    public float maxDamage;
 
     [Header("Riot Shield Weapon Settings")]
     public GameObject riotShieldCollider;

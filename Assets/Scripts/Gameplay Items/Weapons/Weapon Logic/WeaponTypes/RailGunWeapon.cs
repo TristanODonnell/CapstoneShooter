@@ -5,6 +5,7 @@ using UnityEngine;
 public class RailGunWeapon : WeaponLogic
 {
     private bool isCharging = false;
+    public float railgunChargeLevel;
     public RailGunWeapon(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter) : base(shootBehavior, weaponData, objectPool, shooter)
     {
         currentWeaponData = weaponData;
@@ -12,8 +13,8 @@ public class RailGunWeapon : WeaponLogic
         this.shooter = shooter;
     }
     
-    /*
-    public override void StartShooting(Transform transform)
+    
+    public override void StartShooting(Transform transform, bool useAmmo = true)
     {
         if (Time.time - lastFireTime < currentWeaponData.fireRate)
         {
@@ -40,7 +41,7 @@ public class RailGunWeapon : WeaponLogic
                 else
                 {
                     // Fire a low-damage shot immediately
-                    ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, this.shooter, currentWeaponData.minDamage);
+                    ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
                     ApplyRecoil();
                     currentWeaponData.currentMagazineAmmo -= 1;
                 }
@@ -52,13 +53,13 @@ public class RailGunWeapon : WeaponLogic
         }
 
     }
-    public override void Shooting(Transform transform)
+    public override void Shooting(Transform transform, bool useAmmo = true)
     {
         if (currentWeaponData.weaponType == WeaponData.WeaponType.Projectile && currentWeaponData.chargeTime > 0 && isCharging)
         {
             // Fire the rail gun with the current charge level when the trigger is released
             float damage = Mathf.Lerp(currentWeaponData.minDamage, currentWeaponData.maxDamage, railgunChargeLevel / currentWeaponData.chargeTime);
-            ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, this.shooter);
+            ProjectileWeaponFire(transform.position, transform.rotation, currentWeaponData.range, currentWeaponData.bulletSpeed, shooter);
             ApplyRecoil();
             currentWeaponData.currentMagazineAmmo -= 1;
             railgunChargeLevel = 0f;
@@ -69,9 +70,9 @@ public class RailGunWeapon : WeaponLogic
             ReloadLogic();
         }
     }
-    public override void StopShooting(Transform transform)
+    public override void StopShooting(Transform transform, bool useAmmo = true)
     {
-        if (currentWeaponData.currentMagazineAmmo <= 0)
+        if (currentWeaponData.currentMagazineAmmo <= 0 && useAmmo)
         {
             ReloadLogic();
         }
@@ -81,5 +82,5 @@ public class RailGunWeapon : WeaponLogic
         base.ProjectileWeaponFire(position, rotation, range, bulletSpeed, shooter);
     }
     
-    */
+    
 }

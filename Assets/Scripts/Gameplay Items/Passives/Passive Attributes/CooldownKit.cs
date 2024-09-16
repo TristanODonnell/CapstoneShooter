@@ -11,11 +11,11 @@ public class CooldownKit : PassiveAttribute
 
     public override void ApplyEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void RemoveEffects(PassiveBehavior passiveBehavior)
     {
-        throw new System.NotImplementedException();
+        
     }
 }

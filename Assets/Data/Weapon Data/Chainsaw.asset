@@ -21,10 +21,10 @@ MonoBehaviour:
     armor: 12.38
     stun: 0.56
   originalProtectionValues:
-    unprotected: 0
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 28.79
+    energyShield: 21.46
+    armor: 12.38
+    stun: 0.56
   currentMagazineAmmo: 80
   totalAmmo: 100
   magazineSize: 100
@@ -54,6 +54,9 @@ MonoBehaviour:
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0
+  chargeTime: 0
+  minDamage: 0
+  maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
   itemCost: 0
