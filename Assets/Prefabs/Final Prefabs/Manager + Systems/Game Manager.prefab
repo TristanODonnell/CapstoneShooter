@@ -49,8 +49,8 @@ MonoBehaviour:
   spawnManager: {fileID: 5151406113749050224}
   roundManager: {fileID: 4406514927863873953}
   scenesList:
-  - 
-  - 
+  - Game Select Scene
+  - AsteroidBase
 --- !u!1001 &1625131049675261804
 PrefabInstance:
   m_ObjectHideFlags: 0

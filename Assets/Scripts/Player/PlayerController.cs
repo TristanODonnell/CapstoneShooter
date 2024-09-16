@@ -555,4 +555,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        Destroy(gameObject);
+        GameManager.Singleton.LoadScene("Game Select Scene");
+    }
+   
 }
