@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GrenadeLauncher
   m_EditorClassIdentifier: 
   weaponName: Grenade Launcher
-  weaponCategory: 0
+  weaponCategory: 2
   weaponType: 0
   ProtectionValues:
     unprotected: 70.11
@@ -27,9 +27,9 @@ MonoBehaviour:
     stun: 0
   currentMagazineAmmo: 0
   totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
-  reloadTime: 0
+  magazineSize: 5
+  maxAmmo: 75
+  reloadTime: 3
   originalReloadTime: 2.8
   originalMagazineSize: 8
   originalMaxAmmo: 16
@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 6.59
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 15bb60e4f67600244b3c6053f39d99b7, type: 3}
   v_Icon: {fileID: 21300000, guid: a8ea0a780a97a884ab9c73f5bdbe0869, type: 3}

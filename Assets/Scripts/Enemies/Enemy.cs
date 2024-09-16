@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour, ILootSource
     public string enemyName;
     public int creditCost;
     public float spawnChance = 1.0f;
+    public int xpToAdd;
+    public int currencyToAdd;
     public GameObject enemyPrefab;
     public EnemyTier enemyTier;
     public enum EnemyTier { High, Low }
@@ -24,7 +26,15 @@ public class Enemy : MonoBehaviour, ILootSource
         enemyPrefab = prefab;
     }
 
+    public void AddXP()
+    {
+        XPSystem.Singleton.AddXP(xpToAdd);
+    }
 
+    public void AddCurrency()
+    {
+        CurrencyManager.singleton.AddCurrency(currencyToAdd);
+    }
 
     public void SpawnLoot()
     {

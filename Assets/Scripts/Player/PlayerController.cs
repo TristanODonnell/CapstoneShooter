@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
         ChangeWeaponInput();
 
 
-//EquipmentInteract();
+
         WeaponInteract();
         PassiveInteract();
         ShopInteract();

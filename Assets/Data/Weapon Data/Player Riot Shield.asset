@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player Riot Shield
   m_EditorClassIdentifier: 
   weaponName: Player Riot Shield
-  weaponCategory: 0
+  weaponCategory: 3
   weaponType: 2
   ProtectionValues:
     unprotected: 40
@@ -59,7 +59,7 @@ MonoBehaviour:
   riotShieldCollider: {fileID: 861003198885002567, guid: e23af79515fd36045bdcd0bbc9a023ef,
     type: 3}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: fcc8c0938d5d35a4ca0cdea42410c05d, type: 3}
   v_Icon: {fileID: 21300000, guid: d2fb9a7839a540a4c9c4d7e7920178d7, type: 3}

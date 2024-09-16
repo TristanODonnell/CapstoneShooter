@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ShovelAxe
   m_EditorClassIdentifier: 
   weaponName: ShovelAxe
-  weaponCategory: 0
-  weaponType: 1
+  weaponCategory: 3
+  weaponType: 2
   ProtectionValues:
     unprotected: 26.36
     energyShield: 29.09
@@ -59,7 +59,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 53876d8f9f94d294b8745c083ea8ef89, type: 3}
   v_Icon: {fileID: 21300000, guid: 510aa576845aa664a92aa7f3ba6c6e84, type: 3}

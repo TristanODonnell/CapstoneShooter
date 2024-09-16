@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 70dcdf02d398c15469d064b8e4ad12b7, type: 3}
   v_Icon: {fileID: 21300000, guid: d9c13dd162ed48547b09701bcffda558, type: 3}

@@ -38,7 +38,7 @@ MonoBehaviour:
   worldWeapon: {fileID: 3205326218009921427, guid: 9ebf8ee43cce44e4ca9d569cfc77e136,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 6506065545221884263, guid: 6f7bb2ecfbd87ea4f963c9f7e8f9b84a,
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 1895d26232b2a644b96f539f636e82ef,
     type: 3}
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: b46180284252bc446aa40ce3a3affbcb, type: 3}
   v_Icon: {fileID: 21300000, guid: 1e82e1080e6c8954482520f68127b7ee, type: 3}

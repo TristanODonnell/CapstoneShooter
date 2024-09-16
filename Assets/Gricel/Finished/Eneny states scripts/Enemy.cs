@@ -234,6 +234,8 @@ namespace gricel
 
         private void Death()
         {
+            enemyCosts.AddCurrency();
+            enemyCosts.AddXP();
             enemyCosts.SpawnLoot();
             ragdoll.Spawn(transform);
             Destroy(gameObject);

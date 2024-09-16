@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Minigun
   m_EditorClassIdentifier: 
   weaponName: Minigun
-  weaponCategory: 0
+  weaponCategory: 2
   weaponType: 1
   ProtectionValues:
     unprotected: 4
@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: d3d21c0a6c2a8eb4fa8dad1f176d07e7, type: 3}
   v_Icon: {fileID: 21300000, guid: 9acc160945059984ca2c8d73fa1a558a, type: 3}

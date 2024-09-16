@@ -802,6 +802,8 @@ MonoBehaviour:
   enemyName: Maggot_
   creditCost: 30
   spawnChance: 0.8
+  xpToAdd: 50
+  currencyToAdd: 50
   enemyPrefab: {fileID: 8543879741825669060}
   enemyTier: 1
   pickupTable: {fileID: 11400000, guid: e9a31a112c8a6f5449ae08a1f246b845, type: 2}

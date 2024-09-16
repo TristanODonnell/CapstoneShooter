@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightDagger
   m_EditorClassIdentifier: 
   weaponName: Light Dagger
-  weaponCategory: 0
+  weaponCategory: 3
   weaponType: 2
   ProtectionValues:
     unprotected: 33
@@ -58,7 +58,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 1affc6e155f4bbd4f84ba51e29ab1d9d, type: 3}
   v_Icon: {fileID: 21300000, guid: 450574a55485f27478406324d2d7a2f4, type: 3}

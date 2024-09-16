@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chainsaw
   m_EditorClassIdentifier: 
   weaponName: Chainsaw
-  weaponCategory: 0
+  weaponCategory: 3
   weaponType: 2
   ProtectionValues:
     unprotected: 28.79
@@ -59,7 +59,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: c8b3aac406854c44fa0130113c85368b, type: 3}
   v_Icon: {fileID: 21300000, guid: 7d6f8bbcf7f271d40a342c1eb0b25546, type: 3}

@@ -94,6 +94,7 @@ public class RoundManager : MonoBehaviour
         isSpawningEnemies = false; 
         StopCoroutine(SpawnEnemiesCoroutine());
         spawnedEnemies.Clear();
+        XPSystem.Singleton.AddXP(XPSystem.Singleton.xpGainPerWave * currentRound);
         Debug.Log("spawnedEnemies list cleared");
         StartCoroutine(WaitForRoundToEnd());
         Debug.Log("WaitForRoundToEnd coroutine started");

@@ -424,6 +424,8 @@ MonoBehaviour:
   enemyName: Mecha_
   creditCost: 200
   spawnChance: 0.2
+  xpToAdd: 50
+  currencyToAdd: 50
   enemyPrefab: {fileID: 3301113174532290898}
   enemyTier: 0
   pickupTable: {fileID: 11400000, guid: e9a31a112c8a6f5449ae08a1f246b845, type: 2}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rocket Launcher
   m_EditorClassIdentifier: 
   weaponName: RocketLauncher
-  weaponCategory: 0
+  weaponCategory: 2
   weaponType: 0
   ProtectionValues:
     unprotected: 200
@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 15
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: 21514942e925a8441b90260d83a14545, type: 3}
   v_Icon: {fileID: 21300000, guid: 824eb6517fcd1354d9954b20525586a2, type: 3}

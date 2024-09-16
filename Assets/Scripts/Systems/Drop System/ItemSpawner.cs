@@ -1,22 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public void SpawnWeapon(WeaponData weaponData)
+    public Transform shopPlatformTransform;
+
+    public static ItemSpawner instance
     {
-        Instantiate(weaponData.GetWorldWeapon(), new Vector3(0, 0, 0), Quaternion.identity);
+        get; private set;
     }
 
-    public void SpawnAbility()
+    private void Awake()
     {
-        //Instantiate(, new Vector3(0, 0, 0), Quaternion.identity);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+
+    }
+    public void SpawnWeapon(WeaponData weaponData)
+    {
+
+        Instantiate(weaponData.GetWorldWeapon(), shopPlatformTransform.position, Quaternion.identity);
     }
 
     public void SpawnPassive(PassiveData passiveData)
     {
-        Instantiate(passiveData.GetWorldPassive(), new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(passiveData.GetWorldPassive(), shopPlatformTransform.position, Quaternion.identity);
     }
 
 }

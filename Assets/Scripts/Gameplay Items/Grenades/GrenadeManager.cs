@@ -68,7 +68,7 @@ public class GrenadeManager : MonoBehaviour
     {
         for (int i = 0; i < grenadeCounts.Length; i++)
         {
-            grenadeCounts[i] = 2;
+            grenadeCounts[i] = 6;
         }
     }
     

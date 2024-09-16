@@ -559,6 +559,8 @@ MonoBehaviour:
   enemyName: Protector_
   creditCost: 30
   spawnChance: 0.3
+  xpToAdd: 50
+  currencyToAdd: 50
   enemyPrefab: {fileID: 4705416146376907624}
   enemyTier: 1
   pickupTable: {fileID: 11400000, guid: e9a31a112c8a6f5449ae08a1f246b845, type: 2}

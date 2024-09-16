@@ -26,9 +26,9 @@ MonoBehaviour:
     armor: 26.9
     stun: 1.53
   currentMagazineAmmo: 5
-  totalAmmo: 5086
+  totalAmmo: 500
   magazineSize: 5
-  maxAmmo: 10000
+  maxAmmo: 500
   reloadTime: 5
   originalReloadTime: 1.84
   originalMagazineSize: 14
@@ -60,7 +60,7 @@ MonoBehaviour:
   maxDamage: 0
   riotShieldCollider: {fileID: 0}
   explosionRadius: 0
-  itemCost: 0
+  itemCost: 250
   ammoRefillCost: 0
   v_crosshair: {fileID: 21300000, guid: a847bc2ca9e0f6c4fad3f3769490ec26, type: 3}
   v_Icon: {fileID: 21300000, guid: 22da39166fd319145b97b6cba8cab674, type: 3}

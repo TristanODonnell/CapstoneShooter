@@ -12,8 +12,12 @@ public class ShopManager : MonoBehaviour
     public GameObject shopMenu;
     private PlayerController player;
     public static ShopManager singleton;
-    public ItemSpawner itemSpawner;
+   
     public bool isShopOpen;
+
+    public int grenadeRefillCost;
+    public int abilityCost;
+
     private void Awake()
     {
         if (singleton == null)
@@ -42,7 +46,7 @@ public class ShopManager : MonoBehaviour
         int weaponItemCost = purchasedWeaponData.ItemCost;
         if (canAffordPurchase(weaponItemCost))
         {
-            itemSpawner.SpawnWeapon(purchasedWeaponData);
+            ItemSpawner.instance.SpawnWeapon(purchasedWeaponData);
             CurrencyManager.singleton.SubtractCurrency(weaponItemCost);
         }
         else
@@ -51,22 +55,19 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    public void BuyAbility(int equipmentIndex)
+    public void BuyAbility(int abilityIndex)
     {
-        /*
-        //do the selection via assigned from button and data manager list
-       // EquipmentData purchasedEquipmentData = DataManager.Singleton.equipment[equipmentIndex];
-        int abilityItemCost = purchasedEquipmentData.ItemCost;
-        if (canAffordPurchase(equipmentItemCost))
+        if (canAffordPurchase(abilityCost))
         {
-            itemSpawner.SpawnEquipment(purchasedEquipmentData);
-            CurrencyManager.singleton.SubtractCurrency(equipmentItemCost);
+           playerController = FindObjectOfType<PlayerController>();
+            playerController.abilityBehaviour.SetAbility(DataManager.Singleton.abilities[abilityIndex]);
+            CurrencyManager.singleton.SubtractCurrency(abilityCost);
         }
         else
         {
             UnityEngine.Debug.Log("Not enough currency to buy ");
         }
-        */
+        
     }
 
     public void BuyPassive(int passiveIndex)
@@ -76,7 +77,7 @@ public class ShopManager : MonoBehaviour
         int passiveItemCost = purchasedPassiveData.ItemCost;
         if (canAffordPurchase(passiveItemCost))
         {
-            itemSpawner.SpawnPassive(purchasedPassiveData);
+            ItemSpawner.instance.SpawnPassive(purchasedPassiveData);
             CurrencyManager.singleton.SubtractCurrency(passiveItemCost);
         }
         else
@@ -86,20 +87,18 @@ public class ShopManager : MonoBehaviour
     }
     public int totalGrenades = 6;
     public void BuyGrenadeRefill()
-    {/*
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
-        int grenadeItemCost = DataManager.Singleton.grenades[0].ItemCost;
-        int refillCost = grenadeItemCost * totalGrenades;
-        if (canAffordPurchase(refillCost))
+    {
+
+        if (canAffordPurchase(grenadeRefillCost))
         {
-            GameManager.Singleton.grenadeManager.GrenadeRefill();
-            CurrencyManager.singleton.SubtractCurrency(refillCost);
+            GrenadeManager.instance.GrenadeRefill();
+            CurrencyManager.singleton.SubtractCurrency(grenadeRefillCost);
         }
         else
         {
             UnityEngine.Debug.Log("Not enough currency to buy ");
         }
-        */
+        
     }
 
     public void BuyAmmoRefill()
@@ -110,8 +109,9 @@ public class ShopManager : MonoBehaviour
         {
             for (int i = 0; i < player.shoot.weapons.Count; i++)
             {
+                player.shoot.SetUpWeaponAmmo(player.shoot.weapons[i]);
+                player.shoot.weapons[i].totalAmmo = player.shoot.weapons[i].maxAmmo;
                 CurrencyManager.singleton.SubtractCurrency(ammoRefillCost);
-                player.shoot.SetUpWeaponAmmo(player.shoot.weapons[i]); // Set up ammo for each weapon
             }
         }
         else

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
+    
     public static DataManager Singleton
     {
         get; private set;
