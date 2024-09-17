@@ -25,10 +25,10 @@ MonoBehaviour:
     energyShield: 90
     armor: 60
     stun: 1
-  currentMagazineAmmo: 0
-  totalAmmo: 500
-  magazineSize: 0
-  maxAmmo: 500
+  currentMagazineAmmo: 8
+  totalAmmo: 32
+  magazineSize: 32
+  maxAmmo: 1000
   reloadTime: 1
   originalReloadTime: 1.8
   originalMagazineSize: 8
@@ -47,11 +47,11 @@ MonoBehaviour:
   verticalRecoil: 1.87
   horizontalRecoil: 1.72
   recoilResetSpeed: 0
-  bulletSpeed: 30
+  bulletSpeed: 157.4
   range: 150
   fireRate: 0.6
   adsZoomLevel: 2
-  penetration: 0
+  penetration: 3.4
   penetrationPerHit: 1
   burstSize: 0
   burstDelay: 0

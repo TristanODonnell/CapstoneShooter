@@ -27,7 +27,6 @@ public class UI_EEnemyMarker : MonoBehaviour
                 ui_ClosestEnemy = enemy;
             }
         }
-        Debug.LogError("fef");
     }
 
     void Update()

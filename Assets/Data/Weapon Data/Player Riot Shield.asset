@@ -16,10 +16,10 @@ MonoBehaviour:
   weaponCategory: 3
   weaponType: 2
   ProtectionValues:
-    unprotected: 40
-    energyShield: 0
-    armor: 0
-    stun: 0
+    unprotected: 90
+    energyShield: 80
+    armor: 88
+    stun: 4
   originalProtectionValues:
     unprotected: 40
     energyShield: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
   currentMagazineAmmo: 45
   totalAmmo: 50
   magazineSize: 50
-  maxAmmo: 50
+  maxAmmo: 1000
   reloadTime: 50
   originalReloadTime: 50
   originalMagazineSize: 50

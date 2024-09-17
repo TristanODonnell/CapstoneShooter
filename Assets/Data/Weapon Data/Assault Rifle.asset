@@ -28,8 +28,8 @@ MonoBehaviour:
   currentMagazineAmmo: 44
   totalAmmo: 194
   magazineSize: 44
-  maxAmmo: 220
-  reloadTime: 0
+  maxAmmo: 1000
+  reloadTime: 1.6
   originalReloadTime: 1.6
   originalMagazineSize: 44
   originalMaxAmmo: 220

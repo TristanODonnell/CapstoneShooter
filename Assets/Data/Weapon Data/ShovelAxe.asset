@@ -25,10 +25,10 @@ MonoBehaviour:
     energyShield: 29.09
     armor: 22.3
     stun: 0.31
-  currentMagazineAmmo: 0
-  totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
+  currentMagazineAmmo: 80
+  totalAmmo: 80
+  magazineSize: 80
+  maxAmmo: 1000
   reloadTime: 0
   originalReloadTime: 0
   originalMagazineSize: 80

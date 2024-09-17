@@ -57,12 +57,14 @@ public class EnemyProjectileFML : MonoBehaviour
             return;
 
         if (other.GetComponentInParent<gricel.HealthSystem>() != null)
+        {
             if (other.TryGetComponent<PlayerController>(out var player))
             {
                 player.healthSystem.HS_Damage(eP_Damage);
                 Despawn();
             }
-        else
-			Despawn();
+			return;
+		}
+		Despawn();
 	}
 }
