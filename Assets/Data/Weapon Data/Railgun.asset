@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Railgun
   weaponCategory: 1
-  weaponType: 0
+  weaponType: 1
   ProtectionValues:
     unprotected: 70
     energyShield: 70
@@ -43,14 +43,14 @@ MonoBehaviour:
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
   bulletType: 0
-  bulletScale: 0.68
+  bulletScale: 1.6
   verticalRecoil: 6
   horizontalRecoil: 3
   recoilResetSpeed: 1
   bulletSpeed: 100
   range: 200
   fireRate: 0.2
-  adsZoomLevel: 1
+  adsZoomLevel: 5
   penetration: 2
   penetrationPerHit: 1
   burstSize: 0

@@ -36,7 +36,6 @@ public class EnemyState_TurretShootInPlace : Enemy_State
 		if (gunfire_hold.CountdownReturn())
 		{
 			gunfire_release.CountdownResetRandomized(0.4f);
-			id.gun.Shoot();
 		}
 	}
 

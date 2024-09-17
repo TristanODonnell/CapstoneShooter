@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5530861681567885153}
   - component: {fileID: 6048235389606686347}
   - component: {fileID: 4934759557596790514}
-  - component: {fileID: 8192187497797147239}
+  - component: {fileID: 307250340574158272}
   m_Layer: 0
   m_Name: Trunk
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8192187497797147239
+--- !u!65 &307250340574158272
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,8 +184,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df34bca109b8d584580406318c8a2baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body:
+  - {fileID: 4934759557596790514}
+  - {fileID: 1524137678410292700}
+  - {fileID: 5225815558579205793}
+  - {fileID: 7529543465056766963}
+  - {fileID: 2846610269654481637}
+  - {fileID: 8727068905438144506}
+  - {fileID: 6384040824733550352}
   destruction:
     maximumCount: 12
+  destruction_Update:
+    maximumCount: 0.1
 --- !u!1 &2093827932236110616
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +208,7 @@ GameObject:
   - component: {fileID: 3533204831034894459}
   - component: {fileID: 2698134890565589729}
   - component: {fileID: 1524137678410292700}
-  - component: {fileID: 1065400092186155731}
+  - component: {fileID: 3936213683207246388}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -298,7 +308,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1065400092186155731
+--- !u!65 &3936213683207246388
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,7 +341,7 @@ GameObject:
   - component: {fileID: 6134990573310237222}
   - component: {fileID: 2863648130960010656}
   - component: {fileID: 7529543465056766963}
-  - component: {fileID: 5415518278922496155}
+  - component: {fileID: 4267799333226312178}
   m_Layer: 0
   m_Name: Leg D
   m_TagString: Untagged
@@ -431,7 +441,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5415518278922496155
+--- !u!65 &4267799333226312178
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -464,7 +474,7 @@ GameObject:
   - component: {fileID: 6721301784941179699}
   - component: {fileID: 6423346843649256789}
   - component: {fileID: 5225815558579205793}
-  - component: {fileID: 4960620710945201118}
+  - component: {fileID: 2967357389965165808}
   m_Layer: 0
   m_Name: Connector
   m_TagString: Untagged
@@ -564,7 +574,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4960620710945201118
+--- !u!65 &2967357389965165808
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -597,7 +607,7 @@ GameObject:
   - component: {fileID: 5817193605180733976}
   - component: {fileID: 4243232653799207292}
   - component: {fileID: 8727068905438144506}
-  - component: {fileID: 3783726577027339005}
+  - component: {fileID: 3638615082984550115}
   m_Layer: 0
   m_Name: Leg B
   m_TagString: Untagged
@@ -697,7 +707,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3783726577027339005
+--- !u!65 &3638615082984550115
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -730,7 +740,7 @@ GameObject:
   - component: {fileID: 9119124469626667369}
   - component: {fileID: 5454752920935451453}
   - component: {fileID: 6384040824733550352}
-  - component: {fileID: 3188791758579496575}
+  - component: {fileID: 1209207034759219369}
   m_Layer: 0
   m_Name: Leg A
   m_TagString: Untagged
@@ -830,7 +840,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3188791758579496575
+--- !u!65 &1209207034759219369
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -850,7 +860,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.50000006, y: 0.99999994, z: 1.25}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.0000019073486}
 --- !u!1 &8692389111334920779
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +873,7 @@ GameObject:
   - component: {fileID: 4100951656526950443}
   - component: {fileID: 4801183178078536242}
   - component: {fileID: 2846610269654481637}
-  - component: {fileID: 6931985686788153586}
+  - component: {fileID: 4165725611206398581}
   m_Layer: 0
   m_Name: Leg C
   m_TagString: Untagged
@@ -963,7 +973,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6931985686788153586
+--- !u!65 &4165725611206398581
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -983,4 +993,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.49999997, y: 0.99999994, z: 1.25}
-  m_Center: {x: 1.1368684e-13, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

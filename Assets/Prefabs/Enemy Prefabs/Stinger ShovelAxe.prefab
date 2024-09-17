@@ -63,11 +63,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5464869603105693806, guid: a0a0de3e6a242a942a684bd9f31ef47f,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7665635548438135026, guid: a0a0de3e6a242a942a684bd9f31ef47f,
         type: 3}
       propertyPath: weapons.Array.size

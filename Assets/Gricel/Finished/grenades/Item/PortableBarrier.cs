@@ -26,7 +26,7 @@ namespace throwables
 				if(openSeq_Normalduration < 1f)
 				{
 					openSeq_Normalduration += Time.deltaTime * openSeq_NormaldurationMult;
-					transform.localScale = Vector3.one * 3f * openSeq_duration;
+					transform.localScale = Vector3.one * openSeq_duration;
 				}
 				else
 				{

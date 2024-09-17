@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Machine Revolver
   weaponCategory: 0
-  weaponType: 0
+  weaponType: 2
   ProtectionValues:
     unprotected: 30
     energyShield: 44
@@ -25,32 +25,32 @@ MonoBehaviour:
     energyShield: 44
     armor: 53
     stun: 1
-  currentMagazineAmmo: 6
-  totalAmmo: 48
-  magazineSize: 6
-  maxAmmo: 48
-  reloadTime: 0.4
+  currentMagazineAmmo: 0
+  totalAmmo: 0
+  magazineSize: 0
+  maxAmmo: 0
+  reloadTime: 0
   originalReloadTime: 0.8
   originalMagazineSize: 6
-  originalMaxAmmo: 48
+  originalMaxAmmo: 24
   weaponModel: {fileID: 919132149155446097, guid: 8b6e59f64b30c2b43a978877f0238d79,
     type: 3}
   worldWeapon: {fileID: 3205326218009921427, guid: 1ff19b32e2e2ac54490466f2250f66cc,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 05052214cd76fd74c8e9242fbf1e497b,
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 1895d26232b2a644b96f539f636e82ef,
     type: 3}
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
   bulletType: 0
-  bulletScale: 0.66
+  bulletScale: 0.87
   verticalRecoil: 3
   horizontalRecoil: 5
   recoilResetSpeed: 0.5
   bulletSpeed: 70
   range: 120
   fireRate: 0.15
-  adsZoomLevel: 0.5
+  adsZoomLevel: 4
   penetration: 5
   penetrationPerHit: 1
   burstSize: 0

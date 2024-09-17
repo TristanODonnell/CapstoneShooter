@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6200408297228304976}
   - component: {fileID: 3409988346243551498}
   - component: {fileID: 7953941622902831195}
-  - component: {fileID: 7666303639251746007}
+  - component: {fileID: 7753998020175242503}
   m_Layer: 0
   m_Name: RArm-local
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 174061429148774092}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.725, y: 2.605, z: 0.24099994}
+  m_LocalPosition: {x: -0.725, y: 2.2204514, z: 0.24099994}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7666303639251746007
+--- !u!65 &7753998020175242503
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8010540138885177166}
   - component: {fileID: 1841666496875401136}
   - component: {fileID: 3701965695951228493}
-  - component: {fileID: 3710150860747256926}
+  - component: {fileID: 3014988059766481860}
   m_Layer: 0
   m_Name: Waist-local
   m_TagString: Untagged
@@ -162,7 +162,7 @@ Transform:
   m_GameObject: {fileID: 1756672952515148731}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0, y: 1.58, z: 0.275}
+  m_LocalPosition: {x: 0, y: 1.1954513, z: 0.275}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -245,7 +245,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3710150860747256926
+--- !u!65 &3014988059766481860
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 4168584943307912797}
   - component: {fileID: 6811703550959954907}
   - component: {fileID: 2237546984838565514}
-  - component: {fileID: 5687107238272501957}
+  - component: {fileID: 8405780104352082368}
   m_Layer: 0
   m_Name: LWrist-local
   m_TagString: Untagged
@@ -295,7 +295,7 @@ Transform:
   m_GameObject: {fileID: 1934764196937066301}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 1.4250001, y: 2.605, z: 0.24100012}
+  m_LocalPosition: {x: 1.4250001, y: 2.2204514, z: 0.24100012}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5687107238272501957
+--- !u!65 &8405780104352082368
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 3809107251255878170}
   - component: {fileID: 7359678151619739046}
   - component: {fileID: 7248786372436192146}
-  - component: {fileID: 8769228421722899833}
+  - component: {fileID: 7299673474175404005}
   m_Layer: 0
   m_Name: LLeg-local
   m_TagString: Untagged
@@ -428,7 +428,7 @@ Transform:
   m_GameObject: {fileID: 2106713266300885455}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0.42824444, y: 1.4300001, z: 0.27500004}
+  m_LocalPosition: {x: 0.42824444, y: 1.0454513, z: 0.27500004}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -511,7 +511,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8769228421722899833
+--- !u!65 &7299673474175404005
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 5356155344696532160}
   - component: {fileID: 5427910034646193393}
   - component: {fileID: 1015327216491082154}
-  - component: {fileID: 1950758103297343321}
+  - component: {fileID: 3570615341312178292}
   m_Layer: 0
   m_Name: LArm-local
   m_TagString: Untagged
@@ -561,7 +561,7 @@ Transform:
   m_GameObject: {fileID: 3406281031674372435}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0.725, y: 2.605, z: 0.24100006}
+  m_LocalPosition: {x: 0.725, y: 2.2204514, z: 0.24100006}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -644,7 +644,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1950758103297343321
+--- !u!65 &3570615341312178292
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 139176183571369991}
   - component: {fileID: 8434471109025615063}
   - component: {fileID: 1378751828843114148}
-  - component: {fileID: 3749211802259450749}
+  - component: {fileID: 671060666361053870}
   m_Layer: 0
   m_Name: RWrist-local
   m_TagString: Untagged
@@ -694,7 +694,7 @@ Transform:
   m_GameObject: {fileID: 3430439669899726794}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -1.4250001, y: 2.605, z: 0.24099988}
+  m_LocalPosition: {x: -1.4250001, y: 2.2204514, z: 0.24099988}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -777,7 +777,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3749211802259450749
+--- !u!65 &671060666361053870
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 5015780323483823870}
   - component: {fileID: 6783817343661988916}
   - component: {fileID: 3158847526663201323}
-  - component: {fileID: 7406341793905590178}
+  - component: {fileID: 999008637512969652}
   m_Layer: 0
   m_Name: Head-local
   m_TagString: Untagged
@@ -827,7 +827,7 @@ Transform:
   m_GameObject: {fileID: 3437570542868930430}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0, y: 3.347877, z: 0.5169166}
+  m_LocalPosition: {x: 0, y: 2.9633284, z: 0.5169166}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -910,7 +910,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7406341793905590178
+--- !u!65 &999008637512969652
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 9006607643396601384}
   - component: {fileID: 3002298626637036787}
   - component: {fileID: 6983060351064881875}
-  - component: {fileID: 1287121223227956983}
+  - component: {fileID: 4557426089696918234}
   m_Layer: 0
   m_Name: LWing-local
   m_TagString: Untagged
@@ -960,7 +960,7 @@ Transform:
   m_GameObject: {fileID: 3541801109491014768}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0.025000013, y: 2.0372539, z: -0.16382188}
+  m_LocalPosition: {x: 0.025000013, y: 1.6527051, z: -0.16382188}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1043,7 +1043,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1287121223227956983
+--- !u!65 &4557426089696918234
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 3179056726983382425}
   - component: {fileID: 5552979784842384266}
   - component: {fileID: 8662386367385421814}
-  - component: {fileID: 3033303045608119163}
+  - component: {fileID: 4152058011197051520}
   m_Layer: 0
   m_Name: RWing-local
   m_TagString: Untagged
@@ -1093,7 +1093,7 @@ Transform:
   m_GameObject: {fileID: 3989933832746309968}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.024999974, y: 2.0372539, z: -0.16382188}
+  m_LocalPosition: {x: -0.024999974, y: 1.6527051, z: -0.16382188}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1176,7 +1176,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3033303045608119163
+--- !u!65 &4152058011197051520
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1209,7 +1209,7 @@ GameObject:
   - component: {fileID: 1426573067903929161}
   - component: {fileID: 7943854692209324269}
   - component: {fileID: 6218849891798464167}
-  - component: {fileID: 3286449295282556945}
+  - component: {fileID: 1218404652295010116}
   m_Layer: 0
   m_Name: RAnkle-local
   m_TagString: Untagged
@@ -1226,7 +1226,7 @@ Transform:
   m_GameObject: {fileID: 6176690926731826708}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.47800002, y: 0.7794053, z: 0.45}
+  m_LocalPosition: {x: -0.47800002, y: 0.3948565, z: 0.45}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1309,7 +1309,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3286449295282556945
+--- !u!65 &1218404652295010116
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1342,7 +1342,7 @@ GameObject:
   - component: {fileID: 7978076226278328356}
   - component: {fileID: 2521847888864484862}
   - component: {fileID: 6059553884540035724}
-  - component: {fileID: 6844585254995954963}
+  - component: {fileID: 7224077303380975571}
   m_Layer: 0
   m_Name: RLeg-local
   m_TagString: Untagged
@@ -1359,7 +1359,7 @@ Transform:
   m_GameObject: {fileID: 6746420498990064233}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: -0.428, y: 1.4300001, z: 0.27499998}
+  m_LocalPosition: {x: -0.428, y: 1.0454513, z: 0.27499998}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1442,7 +1442,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6844585254995954963
+--- !u!65 &7224077303380975571
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1520,8 +1520,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df34bca109b8d584580406318c8a2baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destruction:
-    maximumCount: 12
+  body:
+  - {fileID: 3701965695951228493}
+  - {fileID: 6059553884540035724}
+  - {fileID: 6218849891798464167}
+  - {fileID: 7248786372436192146}
+  - {fileID: 8329976463032152711}
+  - {fileID: 8662386367385421814}
+  - {fileID: 6983060351064881875}
+  - {fileID: 1378751828843114148}
+  - {fileID: 7953941622902831195}
+  - {fileID: 2237546984838565514}
+  - {fileID: 1015327216491082154}
+  - {fileID: 3158847526663201323}
+  - {fileID: 2991675516525485777}
 --- !u!1 &7811397483867155435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1546,7 @@ GameObject:
   - component: {fileID: 3162972891764464466}
   - component: {fileID: 8295345998103293052}
   - component: {fileID: 2991675516525485777}
-  - component: {fileID: 8549221247279869079}
+  - component: {fileID: 5103605979452776981}
   m_Layer: 0
   m_Name: Body-local
   m_TagString: Untagged
@@ -1551,7 +1563,7 @@ Transform:
   m_GameObject: {fileID: 7811397483867155435}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0, y: 1.83, z: 0.316}
+  m_LocalPosition: {x: 0, y: 1.4454513, z: 0.316}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1634,7 +1646,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8549221247279869079
+--- !u!65 &5103605979452776981
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1667,7 +1679,7 @@ GameObject:
   - component: {fileID: 347536170662568929}
   - component: {fileID: 6907911628391196525}
   - component: {fileID: 8329976463032152711}
-  - component: {fileID: 3775309171016171509}
+  - component: {fileID: 4876660636077709541}
   m_Layer: 0
   m_Name: LAnkle-local
   m_TagString: Untagged
@@ -1684,7 +1696,7 @@ Transform:
   m_GameObject: {fileID: 7994006346236933704}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00000004371139, y: -2.6765506e-24, z: 1, w: -6.123234e-17}
-  m_LocalPosition: {x: 0.47824445, y: 0.7794053, z: 0.45000005}
+  m_LocalPosition: {x: 0.47824445, y: 0.3948565, z: 0.45000005}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1767,7 +1779,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3775309171016171509
+--- !u!65 &4876660636077709541
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

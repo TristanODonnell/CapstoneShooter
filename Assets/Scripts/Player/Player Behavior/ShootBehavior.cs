@@ -46,7 +46,6 @@ public class ShootBehavior : MonoBehaviour
             case "Grenade Launcher":
             case "PumpShotgun":
             case "RocketLauncher":
-            default:
                 return new SemiAutoWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
             case "SMG":
             case "Assault Rifle":
@@ -64,9 +63,13 @@ public class ShootBehavior : MonoBehaviour
             case "Burst Cannon":
                 return new BurstWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
             case "Railgun":
-                return new SemiAutoWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+                return new RailGunWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
             case "Player Riot Shield":
                 return new RiotShieldWeapon(this, currentWeapon, currentWeapon.ObjectPool, gameObject);
+
+
+            default:
+                throw new ArgumentException("Unknown weapon name", nameof(weaponName));
         }
     }
 
@@ -225,8 +228,6 @@ public class ShootBehavior : MonoBehaviour
         Debug.Log("my weapon is now" + currentWeapon.WeaponName);
 
         ObjectPool foundObjectPool = FindObjectOfType<ObjectPool>();
-        if (foundObjectPool == null)
-            foundObjectPool = new GameObject("pool").AddComponent<ObjectPool>();
         if (currentWeapon.objectPoolGameObject != null)
         {
             currentWeapon.ObjectPool = foundObjectPool;
@@ -318,26 +319,17 @@ public class ShootBehavior : MonoBehaviour
 
     public void StartShooting(bool useAmmo = true)
     {
-        try
-        {
-            currentWeaponLogic.StartShooting(weaponTip, useAmmo);
-        }
-        catch { }
+
+        currentWeaponLogic.StartShooting(weaponTip, useAmmo);
     }
     public void Shooting(bool useAmmo = true)
     {
-        try { 
-            currentWeaponLogic.Shooting(weaponTip, useAmmo);
-	    }
-        catch { }
+        currentWeaponLogic.Shooting(weaponTip, useAmmo);
 
     }
     public void StopShooting(bool useAmmo = true)
 	{
-        try{
-            currentWeaponLogic.StopShooting(weaponTip, useAmmo);
-        }
-        catch { }
+		currentWeaponLogic.StopShooting(weaponTip, useAmmo);
     }
     public void Reloading()
     {

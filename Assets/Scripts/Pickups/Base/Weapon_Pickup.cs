@@ -23,7 +23,7 @@ public class Weapon_Pickup : Pickup
 		{
 			foreach (WeaponData weapon in player.weapons)
 			{
-				if (weaponHolder.myweaponData.v_Icon == weapon.v_Icon)
+				if (weaponHolder.myweaponData == weapon)
 				{
 					playerHasThisWeapon = true;
 					int groundTotalAmmo = weaponHolder.groundTotalAmmo;
@@ -42,15 +42,6 @@ public class Weapon_Pickup : Pickup
 					break;
 				}
 			}
-			if(player.weapons.Count < 3) {
-				var data = Instantiate(weaponHolder.myweaponData);
-				player.weapons.Add(data);
-				data.totalAmmo = data.magazineSize * 2;
-				data.currentMagazineAmmo = data.magazineSize;
-
-				player.ChangeWeapon(player.weapons.Count-1);
-				return true;
-			}
 		}
 		return false;
 	}
@@ -68,20 +59,22 @@ public class Weapon_Pickup : Pickup
 				var oldPlayerData = player.currentWeapon;
 
 				var destroyForever = true;
-				if (oldPlayerData)
+				if (player.weapons.Count >= 3 && oldPlayerData)
 				{
 					weaponModel.GetComponent<MeshRenderer>().material = player.currentWeapon.weaponModel.GetComponent<MeshRenderer>().sharedMaterial;
 					weaponModel.GetComponent<MeshFilter>().mesh = player.currentWeapon.weaponModel.GetComponent<MeshFilter>().sharedMesh;
 					destroyForever = false;
 					player.weapons.RemoveAt(player.currentWeaponIndex);
 				}
-				player.weapons.Add(Instantiate(weaponHolder.myweaponData));
 
+				if(destroyForever)
+					player.PickUpWeapon(weaponHolder);
 				if (!destroyForever)
-					player.weapons.Remove(oldPlayerData);
+				{
+					player.currentWeapon.Interact(player.GetComponent<PlayerController>(), weaponHolder);
+					//player.ChangeWeapon(player.weapons.IndexOf(weaponHolder.myweaponData));
+				}
 				weaponHolder.myweaponData = oldPlayerData;
-
-				player.ChangeWeapon(2);
 
 				if (destroyForever)
 				{

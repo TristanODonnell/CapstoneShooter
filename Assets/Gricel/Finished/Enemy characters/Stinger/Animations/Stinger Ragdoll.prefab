@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 585821418325952258}
   - component: {fileID: 8590698198455735621}
   - component: {fileID: 1496940244149616946}
-  - component: {fileID: 4711016730474892225}
+  - component: {fileID: 854301070687341311}
   m_Layer: 13
   m_Name: Tail_Sting-local
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4711016730474892225
+--- !u!65 &854301070687341311
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.35, y: 1.45, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -2.842171e-14, y: 0, z: 0}
 --- !u!1 &4254841516820432209
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1363497230407155332}
   - component: {fileID: 4616861513756598584}
   - component: {fileID: 3801212229932814973}
-  - component: {fileID: 8185654058034964225}
+  - component: {fileID: 1956035262442455290}
   m_Layer: 13
   m_Name: LLeg-local
   m_TagString: Untagged
@@ -245,7 +245,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8185654058034964225
+--- !u!65 &1956035262442455290
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 5267963121277813712}
   - component: {fileID: 4593212810374288174}
   - component: {fileID: 933550267608595576}
-  - component: {fileID: 8071261146409821728}
+  - component: {fileID: 7205184748887327272}
   m_Layer: 13
   m_Name: Waist-local
   m_TagString: Untagged
@@ -378,7 +378,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8071261146409821728
+--- !u!65 &7205184748887327272
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 5600392812361204488}
   - component: {fileID: 4099223160706642633}
   - component: {fileID: 1584007764509228747}
-  - component: {fileID: 1414130775388525080}
+  - component: {fileID: 1381850054357997175}
   m_Layer: 13
   m_Name: LWrist-local
   m_TagString: Untagged
@@ -511,7 +511,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1414130775388525080
+--- !u!65 &1381850054357997175
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,7 +531,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1.0500001, y: 0.45000002, z: 0.4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.00000047683716}
 --- !u!1 &4655821925757598420
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,8 +589,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df34bca109b8d584580406318c8a2baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body:
+  - {fileID: 933550267608595576}
+  - {fileID: 1496940244149616946}
+  - {fileID: 905556199335488056}
+  - {fileID: 917012148855689896}
+  - {fileID: 1875459343426033297}
+  - {fileID: 3801212229932814973}
+  - {fileID: 2755955874467410900}
+  - {fileID: 5298202678367259843}
+  - {fileID: 6907348483070166991}
+  - {fileID: 1584007764509228747}
+  - {fileID: 2124609180281581982}
+  - {fileID: 4562620606304838090}
+  - {fileID: 7696198587273699821}
   destruction:
     maximumCount: 12
+  destruction_Update:
+    maximumCount: 0.1
 --- !u!1 &4699244578309604916
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +619,7 @@ GameObject:
   - component: {fileID: 627036774296362420}
   - component: {fileID: 2677888158959160683}
   - component: {fileID: 5298202678367259843}
-  - component: {fileID: 2490779898244492514}
+  - component: {fileID: 4928923905097043943}
   m_Layer: 13
   m_Name: RWrist-local
   m_TagString: Untagged
@@ -703,7 +719,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &2490779898244492514
+--- !u!65 &4928923905097043943
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -736,7 +752,7 @@ GameObject:
   - component: {fileID: 2513577119144755071}
   - component: {fileID: 8785786588749708275}
   - component: {fileID: 2755955874467410900}
-  - component: {fileID: 8935981159741155951}
+  - component: {fileID: 6786229574945175874}
   m_Layer: 13
   m_Name: LAnkle-local
   m_TagString: Untagged
@@ -836,7 +852,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8935981159741155951
+--- !u!65 &6786229574945175874
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -869,7 +885,7 @@ GameObject:
   - component: {fileID: 1677287864791558315}
   - component: {fileID: 3705811695080521713}
   - component: {fileID: 905556199335488056}
-  - component: {fileID: 8722568937148823900}
+  - component: {fileID: 7614917026148411954}
   m_Layer: 13
   m_Name: Tail-local
   m_TagString: Untagged
@@ -969,7 +985,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8722568937148823900
+--- !u!65 &7614917026148411954
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1002,7 +1018,7 @@ GameObject:
   - component: {fileID: 7957702336506419873}
   - component: {fileID: 7929249661089938072}
   - component: {fileID: 2124609180281581982}
-  - component: {fileID: 5788262377331449058}
+  - component: {fileID: 7679921495086043454}
   m_Layer: 13
   m_Name: LArm-local
   m_TagString: Untagged
@@ -1102,7 +1118,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5788262377331449058
+--- !u!65 &7679921495086043454
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1135,7 +1151,7 @@ GameObject:
   - component: {fileID: 3890129285059483607}
   - component: {fileID: 5192239831021382771}
   - component: {fileID: 1875459343426033297}
-  - component: {fileID: 3636705273641973095}
+  - component: {fileID: 2401262769179486596}
   m_Layer: 13
   m_Name: RAnkle-local
   m_TagString: Untagged
@@ -1235,7 +1251,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3636705273641973095
+--- !u!65 &2401262769179486596
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1268,7 +1284,7 @@ GameObject:
   - component: {fileID: 584790602541148654}
   - component: {fileID: 536922611296829577}
   - component: {fileID: 7696198587273699821}
-  - component: {fileID: 7806257081581980240}
+  - component: {fileID: 8905452399269292178}
   m_Layer: 13
   m_Name: Chest-local
   m_TagString: Untagged
@@ -1368,7 +1384,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7806257081581980240
+--- !u!65 &8905452399269292178
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1401,7 +1417,7 @@ GameObject:
   - component: {fileID: 4945035786070912462}
   - component: {fileID: 4126972170452613708}
   - component: {fileID: 6907348483070166991}
-  - component: {fileID: 233902017228265919}
+  - component: {fileID: 4063814341336139657}
   m_Layer: 13
   m_Name: RArm-local
   m_TagString: Untagged
@@ -1501,7 +1517,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &233902017228265919
+--- !u!65 &4063814341336139657
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1534,7 +1550,7 @@ GameObject:
   - component: {fileID: 7817653245626178047}
   - component: {fileID: 8963092801629015363}
   - component: {fileID: 4562620606304838090}
-  - component: {fileID: 6929194243042759868}
+  - component: {fileID: 5537875910371676669}
   m_Layer: 13
   m_Name: Head-local
   m_TagString: Untagged
@@ -1634,7 +1650,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6929194243042759868
+--- !u!65 &5537875910371676669
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1654,7 +1670,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.7, y: 1, z: 1.0500001}
-  m_Center: {x: -2.842171e-14, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8903808808781512439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,7 +1683,7 @@ GameObject:
   - component: {fileID: 5226257296162690234}
   - component: {fileID: 346724497317626208}
   - component: {fileID: 917012148855689896}
-  - component: {fileID: 3826948088505464483}
+  - component: {fileID: 7879253001333301949}
   m_Layer: 13
   m_Name: RLeg-local
   m_TagString: Untagged
@@ -1767,7 +1783,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3826948088505464483
+--- !u!65 &7879253001333301949
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

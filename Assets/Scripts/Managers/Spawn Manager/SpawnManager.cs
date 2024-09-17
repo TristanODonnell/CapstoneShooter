@@ -45,6 +45,7 @@ public class SpawnManager : MonoBehaviour
 
         if (spawnPoints.Length == 0)
         {
+            Debug.LogError("No spawn points found!");
             return;
         }
         spawnPointTransforms = new Transform[spawnPoints.Length];
@@ -64,11 +65,14 @@ public class SpawnManager : MonoBehaviour
             Transform spawnPoint = spawnPointTransforms[randomIndex];
             GameObject spawnedEnemy = Instantiate(enemyType, spawnPoint.position, Quaternion.identity);
             return spawnedEnemy;
-		}
-		Debug.LogError("spawnPointTransforms is null!");
-		return null;
-
-	}
+        }
+        else
+        {
+            Debug.LogError("spawnPointTransforms is null!");
+            return null;
+        }
+        
+    }
 
     
 }

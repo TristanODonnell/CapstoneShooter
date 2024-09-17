@@ -6,11 +6,10 @@ namespace Explosions
 	public class Explosion : MonoBehaviour
 	{
 		private ProtectionValues damage;
-		private float radius, normalDurationMultiplier, normalDuration;
-		private bool isDisapearing;
+		private float radius, normalDurationMultiplier, normalDuration, dissapearence;
 		public Explosion Explode(Vector3 pos, ProtectionValues damage, float radius, float duration)
 		{
-			var exp = Instantiate(gameObject).GetComponent<Explosion>();
+			var exp = Instantiate(this);
 			exp.transform.position = pos;
 			exp.damage = damage;
 
@@ -20,29 +19,27 @@ namespace Explosions
 			else
 				exp.normalDurationMultiplier = 1f;
 			normalDuration = 0f;
-			isDisapearing = false;
+			dissapearence = 1f;
             return exp;
 		}
 
 		private void Update()
 		{
-			transform.localScale = Vector3.one * normalDuration * radius * 0.5f;
-			if (!isDisapearing)
+			if (normalDuration < 1f)
 				Blow();
 			else
 				Dissapear();
 		}
 		private void Blow()
 		{
-			normalDuration += Time.deltaTime * normalDurationMultiplier *4f;
-			isDisapearing = normalDuration > 1;
+			normalDuration += Time.deltaTime * normalDurationMultiplier;
+			transform.localScale = Vector3.one * normalDuration * 0.5f;
 		}
 
 		private void Dissapear()
 		{
-			normalDuration -= Time.deltaTime * normalDurationMultiplier * 3f;
-			if (normalDuration < 0)
-				Destroy(gameObject);
+			dissapearence -= Time.deltaTime * normalDurationMultiplier;
+			transform.localScale = Vector3.one * dissapearence * radius*0.5f;
 		}
 
 

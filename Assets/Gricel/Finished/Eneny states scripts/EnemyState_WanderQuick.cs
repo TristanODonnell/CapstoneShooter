@@ -13,6 +13,7 @@ public class EnemyState_WanderQuick : Enemy_State
 	{
 		path_current = PathFinderManager.GetClosestPathNode(transform.position);
 		Wander_RandomizeTarget();
+		id.movement_vision *= 0f;
 	}
 
 	public override void ActionUpdate()

@@ -17,7 +17,7 @@ namespace throwables
 			var g = Instantiate(gameObject).GetComponent<ThrowableItem>();
 			g.transform.position = position;
 			g.transform.forward = direction;
-			g.throwable_rigidbody.velocity = (force * direction);
+			g.throwable_rigidbody.AddForce(force * direction);
 			g.thrower = thrower;
 			g.OnStart();
 			g.powerIncrease = powerIncrease;

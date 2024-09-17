@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9592e6a8d658ac54b8e4645f45a66159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: 113
+  button: 101
   icon: {fileID: 21300000, guid: 6a66ae6fa121ad24a9c40a06f2127431, type: 3}
   cooldown:
     maximumCount: 49.98

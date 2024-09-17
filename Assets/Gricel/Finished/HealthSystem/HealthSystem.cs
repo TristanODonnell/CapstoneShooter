@@ -27,7 +27,7 @@ namespace gricel
             private UnityEngine.Events.UnityEvent OnDepleted;
 
             public bool H_IsDamaged() => health < health_Max;
-            public bool H_IsDepleted() => health <= 0.01f;
+            public bool H_IsDepleted() => health <= 0f;
             public void H_Start()
             {
                 health = health_Max;
@@ -38,13 +38,7 @@ namespace gricel
                     return;
                 health = Mathf.Clamp(health + healthRegenPerS * deltaTime, 0f, health_Max);
             }
-            public bool H_Damage(float damage)
-            {
-                damage = -Mathf.Abs(damage);
-                var ret = health < -damage;
-                health = Mathf.Clamp(health + damage, 0f, health_Max);
-                return ret;
-            }
+
             public void H_ModifyHealth(ref float addSub, HealthT _protection)
             {
                 if (_protection != protection || addSub == 0f || (addSub < 0f && H_IsDepleted()))
@@ -82,9 +76,9 @@ namespace gricel
         {
             bool DoExit()
             {
-                var unp = damage.unprotected <= 0f;
-                var enS = damage.energyShield <= 0f;
-                var amr = damage.armor <= 0f;
+                var unp = damage.unprotected == 0f;
+                var enS = damage.energyShield == 0f;
+                var amr = damage.armor == 0f;
                 return unp && enS && amr;
             }
 
@@ -102,29 +96,14 @@ namespace gricel
 				if (h.H_IsDepleted())
                     continue;
 
-                var ph = h.health;
-                switch (h.protection)
-                {
-                    case Health.HealthT.unprotected:
-                        if (!h.H_Damage(damage.unprotected))
-                            return;
-                        damage.unprotected -= ph;
-                        break;
-                    case Health.HealthT.energyShield:
-						if (!h.H_Damage(damage.unprotected))
-							return;
-						damage.energyShield -= ph;
-						break;
-                    case Health.HealthT.armor:
-						if (!h.H_Damage(damage.unprotected))
-							return;
-						damage.armor -= ph;
-						break;
-                }
-
+                h.H_ModifyHealth(ref damage.unprotected, Health.HealthT.unprotected);
+                h.H_ModifyHealth(ref damage.energyShield, Health.HealthT.energyShield);
+                h.H_ModifyHealth(ref damage.armor, Health.HealthT.armor);
                 if (DoExit())
                     break;
             }
+            if (healthBars[0].H_IsDepleted())
+                onDeath.Invoke();
         }
         public void HS_Damage_Indiscriminately(float damage)
         {
@@ -215,10 +194,9 @@ namespace gricel
             regenDelay = 0f;
         }
         public bool isStunned => stun > 0f;
-        public bool isDeath {  get; private set; }
+
         void Start()
         {
-            isDeath = false;
             foreach (var h in healthBars)
                 h.H_Start();
         }
@@ -233,15 +211,7 @@ namespace gricel
                 regenDelay -= Time.deltaTime;
             else
                 HS_Regenerate();
-
-            if (healthBars != null)
-                if (healthBars.Length > 0)
-                    if (healthBars[0].H_IsDepleted())
-                    {
-                        onDeath.Invoke();
-                        isDeath = true;
-                    }
-		}
+        }
     }
 
 }
