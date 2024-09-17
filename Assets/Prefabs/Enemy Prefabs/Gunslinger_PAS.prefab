@@ -73,6 +73,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7919486142178458864, guid: b698494c93f3bae43aee99d63b2b08ca,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919486142178458864, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919486142178458864, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919486142178458864, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -121,11 +136,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7919486142178458864, guid: b698494c93f3bae43aee99d63b2b08ca,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7957844432084044068, guid: b698494c93f3bae43aee99d63b2b08ca,
         type: 3}
       propertyPath: escape_grenade
       value: 
-      objectReference: {fileID: -7504040214088935230, guid: ea4c3e7405efc4943a3eba71ab78a909,
+      objectReference: {fileID: -4376358050426264432, guid: 7fcd4e49c167f6f4e8c334c943ba0584,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

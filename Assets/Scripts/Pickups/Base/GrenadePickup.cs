@@ -9,14 +9,11 @@ public class GrenadePickup : Pickup
 	protected override bool TryPickUp(Collider other)
 	{
 		if (other.GetComponent<PlayerController>() != null)
-		{
 			try
 			{
-				FindObjectOfType<GrenadeManager>().AddGrenade(prefab);
-				return true;
+				return FindObjectOfType<Player_GrenadeThrow>().TryAddGrenade(prefab);
 			}
 			catch { }
-		}
 		return false;
 	}
 }

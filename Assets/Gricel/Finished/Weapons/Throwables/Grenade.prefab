@@ -87,7 +87,7 @@ MonoBehaviour:
     energyShield: 30
     armor: 70
     stun: 2
-  explosion_radius: 11.01
+  explosion_radius: 7.87
   explosion_duration: 1.19
 --- !u!136 &6840486422961748736
 CapsuleCollider:

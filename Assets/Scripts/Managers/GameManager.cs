@@ -46,26 +46,31 @@ public class GameManager : MonoBehaviour
     }
     public void LoadArenaMode() 
     {
-        string sceneName = "AsteroidBase"; 
-        LoadScene(sceneName);
-
-        SceneManager.sceneLoaded += (scene, mode) =>
+        try
         {
-            spawnManager.GetPlayerSpawn();
-            spawnManager.GetSpawnPoints();
-            InitializeArenaMode();
-            ClassSelectManager.Singleton.AssignPlayerToController(ClassSelectManager.Singleton.selectedPlayerData);
-            
-        };
-        
+            string sceneName = "AsteroidBase";
+            LoadScene(sceneName);
+
+            SceneManager.sceneLoaded += (scene, mode) =>
+            {
+                spawnManager.GetPlayerSpawn();
+                spawnManager.GetSpawnPoints();
+                InitializeArenaMode();
+                ClassSelectManager.Singleton.AssignPlayerToController(ClassSelectManager.Singleton.selectedPlayerData);
+
+            };
+        }
+        catch { }
     }
     public void InitializeArenaMode()
     {
         //WIN CONDITION
         //reach wave 100
-
-        StartCoroutine(roundManager.RunRoundLoop());
-
+        try
+        {
+            StartCoroutine(roundManager.RunRoundLoop());
+        }
+        catch { }
 
     }
 

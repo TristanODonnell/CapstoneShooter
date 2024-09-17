@@ -25,11 +25,11 @@ MonoBehaviour:
     energyShield: 90
     armor: 55
     stun: 0
-  currentMagazineAmmo: 0
-  totalAmmo: 0
-  magazineSize: 0
-  maxAmmo: 0
-  reloadTime: 0
+  currentMagazineAmmo: 14
+  totalAmmo: 112
+  magazineSize: 14
+  maxAmmo: 112
+  reloadTime: 0.1
   originalReloadTime: 0.7
   originalMagazineSize: 14
   originalMaxAmmo: 56
@@ -50,7 +50,7 @@ MonoBehaviour:
   bulletSpeed: 60
   range: 30
   fireRate: 0.07142857
-  adsZoomLevel: 3
+  adsZoomLevel: 0.25
   penetration: 100
   penetrationPerHit: 1
   burstSize: 0

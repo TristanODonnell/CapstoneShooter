@@ -44,11 +44,15 @@ public class ClassSelectManager : MonoBehaviour
 
     public void AssignPlayerToController(PlayerData playerData)
     {
-        player = Instantiate(playerPrefab, SpawnManager.Singleton.playerSpawn.position, Quaternion.identity);
-        PlayerController playerController = player.GetComponent<PlayerController>();
-        PassiveBehavior passiveBehavior = playerController.GetComponent<PassiveBehavior>();
-        passiveBehavior.Initialize();
-        playerController.AssignPlayerData(playerData);
+        try
+        {
+            player = Instantiate(playerPrefab, SpawnManager.Singleton.playerSpawn.position, Quaternion.identity);
+            PlayerController playerController = player.GetComponent<PlayerController>();
+            PassiveBehavior passiveBehavior = playerController.GetComponent<PassiveBehavior>();
+            passiveBehavior.Initialize();
+            playerController.AssignPlayerData(playerData);
+        }
+        catch { }
     }
 
 
