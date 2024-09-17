@@ -230,14 +230,15 @@ namespace gricel
             transform.forward = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f));
             health.onDamaged.AddListener(SetAlertedState);
             health.onDeath.AddListener(Death);
+            animator = GetComponent<Animator>();
         }
 
-        private void Death()
+        public void Death()
         {
+            ragdoll.Spawn(transform);
             enemyCosts.AddCurrency();
             enemyCosts.AddXP();
             enemyCosts.SpawnLoot();
-            ragdoll.Spawn(transform);
             Destroy(gameObject);
         }
 
@@ -252,6 +253,9 @@ namespace gricel
                     SetState(state_detection);
             if(action != null)
                 action.Invoke();
+
+            if (health.isDeath)
+                Death();
 		}
     }
 }

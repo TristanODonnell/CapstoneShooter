@@ -87,7 +87,7 @@ MonoBehaviour:
     maximumCount: 3
   explosion: {fileID: 3511738219578827153, guid: 20e392dcf9144034ebd538d89905fb98,
     type: 3}
-  explosionRadius: 6.42
+  explosionRadius: 10.68
   explosionDuration: 0.03
 --- !u!65 &8470048885279587458
 BoxCollider:

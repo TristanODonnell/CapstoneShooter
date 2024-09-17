@@ -61,33 +61,41 @@ public class PassiveBehavior : MonoBehaviour
     
     private PassiveAttribute CreatePassiveAttribute(PassiveData passiveData)
     {
-        switch (passiveData.passiveType)
+        try
         {
-            case PassiveType.TankKit:
-                return new TankKit(passiveData);
-            case PassiveType.RamboKit:
-                return new RamboKit(passiveData);
-            case PassiveType.SpeedKit: 
-                return new SpeedKit(passiveData);
-            case PassiveType.CooldownKit: 
-                return new CooldownKit(passiveData);
-            case PassiveType.XPKit:
-                return new XPKit(passiveData);
-            case PassiveType.BigPocketKit:
-                return new BigPocketKit(passiveData);
-            case PassiveType.SlowJumperKit:
-                return new SlowJumperKit(passiveData);
-            case PassiveType.NoPassive:
-                return new NoPassive(passiveData);
-                
-            default:
-                throw new ArgumentException("Unsupported passive type", nameof(passiveData));
+            switch (passiveData.passiveType)
+            {
+                case PassiveType.TankKit:
+                    return new TankKit(passiveData);
+                case PassiveType.RamboKit:
+                    return new RamboKit(passiveData);
+                case PassiveType.SpeedKit:
+                    return new SpeedKit(passiveData);
+                case PassiveType.CooldownKit:
+                    return new CooldownKit(passiveData);
+                case PassiveType.XPKit:
+                    return new XPKit(passiveData);
+                case PassiveType.BigPocketKit:
+                    return new BigPocketKit(passiveData);
+                case PassiveType.SlowJumperKit:
+                    return new SlowJumperKit(passiveData);
+                default:
+                    return new NoPassive(passiveData);
+            }
+        }
+        catch
+        {
+            return null;
         }
     } 
 
     public void ApplyPassiveEffects(PassiveAttribute passiveAttribute)
     {
-        passiveAttribute.ApplyEffects(this);
+        try
+        {
+            passiveAttribute.ApplyEffects(this);
+        }
+        catch { }
     }
 
     public void RemovePassiveEffects(PassiveAttribute passiveAttribute)

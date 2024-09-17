@@ -38,19 +38,19 @@ MonoBehaviour:
   worldWeapon: {fileID: 3205326218009921427, guid: e1c28f1b644bef94ca97c649fd5edcdf,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 6506065545221884263, guid: 6f7bb2ecfbd87ea4f963c9f7e8f9b84a,
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 05052214cd76fd74c8e9242fbf1e497b,
     type: 3}
   objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
     type: 3}
   bulletType: 0
-  bulletScale: 3.24
+  bulletScale: 0.78
   verticalRecoil: 2.63
   horizontalRecoil: 3.23
   recoilResetSpeed: 0.28
   bulletSpeed: 24.39
   range: 17.4
   fireRate: 0.8
-  adsZoomLevel: 0.5
+  adsZoomLevel: 0.25
   penetration: 0
   penetrationPerHit: 1
   burstSize: 0

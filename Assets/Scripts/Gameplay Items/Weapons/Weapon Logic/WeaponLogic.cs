@@ -22,7 +22,7 @@ public abstract class WeaponLogic
     protected WeaponLogic(ShootBehavior shootBehavior, WeaponData weaponData, ObjectPool objectPool, GameObject shooter)
     {
         this.shootBehavior = shootBehavior; lookBehavior = shootBehavior.lookBehavior; this.shooter = shooter;
-    }
+	}
 
     private void OnReloadComplete()
     {
@@ -181,7 +181,8 @@ public abstract class WeaponLogic
             Hitbox hitbox = hit.transform.GetComponent<Hitbox>();
             if (hitbox != null)
             {
-                hitbox.Damage(currentWeaponData.ProtectionValues);
+                if(!hitbox.GetComponentInParent<PlayerController>())
+                    hitbox.Damage(currentWeaponData.ProtectionValues);
                 // Stop iterating as soon as we find the first valid hit
                 return;
             }

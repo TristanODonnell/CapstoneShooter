@@ -181,29 +181,33 @@ public class PlayerController : MonoBehaviour
 
     public void AssignPlayerData(PlayerData playerData)
     {
-        Debug.Log("AssignPlayerData called");
-        Debug.Log("playerData.playerWeaponData: " + playerData.playerWeaponData);
-        Debug.Log("playerData.playerWeaponData.Count: " + playerData.playerWeaponData.Count);
-        attachedPlayerData = playerData;
-        //initialize passive onto passivebehavior
-        passive.attachedPassive = playerData.playerPassiveData;
-        //apply the passive
-        PassiveAttribute currentPassiveAttribute = passive.GetCurrentPassiveAttribute();
-        passive.ApplyPassiveEffects(currentPassiveAttribute);
-        Debug.Log("Current passive attribute: " + currentPassiveAttribute.GetType().Name);
-        //initializing chosen player weapons
-        for (int i = 0; i < playerData.playerWeaponData.Count; i++)
+        try
         {
-            WeaponData clonedWeapon = Instantiate(playerData.playerWeaponData[i]);
-            shoot.SetUpWeaponAmmo(clonedWeapon);
-            shoot.SetUpWeaponDamage(clonedWeapon);
-            clonedWeapon.totalAmmo = clonedWeapon.maxAmmo; 
-            shoot.weapons.Add(clonedWeapon);
+            Debug.Log("AssignPlayerData called");
+            Debug.Log("playerData.playerWeaponData: " + playerData.playerWeaponData);
+            Debug.Log("playerData.playerWeaponData.Count: " + playerData.playerWeaponData.Count);
+            attachedPlayerData = playerData;
+            //initialize passive onto passivebehavior
+            passive.attachedPassive = playerData.playerPassiveData;
+            //apply the passive
+            PassiveAttribute currentPassiveAttribute = passive.GetCurrentPassiveAttribute();
+            passive.ApplyPassiveEffects(currentPassiveAttribute);
+            Debug.Log("Current passive attribute: " + currentPassiveAttribute.GetType().Name);
+            //initializing chosen player weapons
+            for (int i = 0; i < playerData.playerWeaponData.Count; i++)
+            {
+                WeaponData clonedWeapon = Instantiate(playerData.playerWeaponData[i]);
+                shoot.SetUpWeaponAmmo(clonedWeapon);
+                shoot.SetUpWeaponDamage(clonedWeapon);
+                clonedWeapon.totalAmmo = clonedWeapon.maxAmmo;
+                shoot.weapons.Add(clonedWeapon);
+            }
+            shoot.ChangeWeapon(0);
+            //initialize chosen Ability Base onto behavior
+            abilityBehaviour.SetAbility(playerData.playerAbilityReference);
+
         }
-        shoot.ChangeWeapon(0);
-        //initialize chosen Ability Base onto behavior
-        abilityBehaviour.SetAbility(playerData.playerAbilityReference);
-        
+        catch { }
     } 
 
     private void CheckRecursiveBashInput()
@@ -500,8 +504,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("G key pressed!");
-            grenadeManager.ThrowGrenade();
+            //Debug.Log("G key pressed!");
+            //grenadeManager.ThrowGrenade();
         }
 
     }
@@ -557,8 +561,22 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        Destroy(gameObject);
-        GameManager.Singleton.LoadScene("Game Select Scene");
-    }
-   
+        var allGameobjects = FindObjectsOfType<GameObject>(true);
+        foreach (var item in allGameobjects)
+            if(item != gameObject && !item.GetComponentInParent<PlayerController>())
+                Destroy(item.gameObject);
+
+        StartCoroutine(KeepThingsUnloadedcor());
+
+	}
+
+	IEnumerator KeepThingsUnloadedcor()
+	{
+		yield return new WaitForSeconds(0.25f);
+		Destroy(gameObject);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+		GameManager.Singleton.LoadScene("Game Select Scene");
+
+	}
 }

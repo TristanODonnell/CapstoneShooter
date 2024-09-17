@@ -159,6 +159,8 @@ public class EnemyState_Gunslinger_MediumDistanceFight : Enemy_State
 			var direction = escape_grenadePivot.forward;
 			escape_grenade.Throw(id.health, position, direction, escape_grenadeThrowForce);
 			id.UseSpecialAnimation();
+			escape_throwGrenadeTime.Countdown_Restart();
+			escape_GrenadesLeft--;
 		}
 
 	}

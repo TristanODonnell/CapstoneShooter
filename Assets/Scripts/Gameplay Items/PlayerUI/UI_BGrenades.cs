@@ -8,12 +8,12 @@ using UnityEngine.UI;
 
 public class UI_BGrenades : MonoBehaviour
 {
-    GrenadeManager manager;
-    ThrowableItem grenade => manager.currentGrenade;
+    Player_GrenadeThrow player;
+
     int ammount { get {
             try
             {
-                return manager.grenadeCounts[DataManager.Singleton.grenades.IndexOf(grenade)];
+                return player.g_currentAmmount;
             }
             catch {
                 return 0;
@@ -26,14 +26,9 @@ public class UI_BGrenades : MonoBehaviour
 
     void Update()
     {
-        if(manager == null)
+        if(player == null)
         {
 			B_TryLocateGrenadeManager();
-            return;
-        }
-        if (grenade == null)
-        {
-            B_CancelIcon();
             return;
         }
 
@@ -42,7 +37,7 @@ public class UI_BGrenades : MonoBehaviour
 
 	private void B_UpdateNumbers()
 	{
-        ui_Icon.sprite = grenade.icon;
+        ui_Icon.sprite = player.g_currentIcon;
         ui_Ammount.text = "" + ammount;
         ui_Icon.gameObject.SetActive(true);
 
@@ -57,6 +52,6 @@ public class UI_BGrenades : MonoBehaviour
 	private void B_TryLocateGrenadeManager()
 	{
         B_CancelIcon();
-        manager = FindObjectOfType<GrenadeManager>();
+        player = FindObjectOfType<Player_GrenadeThrow>();
 	}
 }

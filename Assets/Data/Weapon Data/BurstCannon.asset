@@ -50,7 +50,7 @@ MonoBehaviour:
   bulletSpeed: 100
   range: 60
   fireRate: 1
-  adsZoomLevel: 5
+  adsZoomLevel: 0.25
   penetration: 5
   penetrationPerHit: 1
   burstSize: 4

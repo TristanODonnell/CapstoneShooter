@@ -47,6 +47,10 @@ public class RoundManager : MonoBehaviour
     {
         while (true)
         {
+            if(GameManager.Singleton == null)
+            {
+                yield break;
+            }
             StartNextRound();
 
             while (spawnedEnemies.Count < 50 && currentRoundCredits >= GetMinCreditCost())
@@ -232,7 +236,6 @@ public class RoundManager : MonoBehaviour
     {
         Debug.Log("Method called");
         spawnedEnemies.Remove(enemy);
-        Destroy(enemy);
         if (spawnedEnemies.Count < 50 && currentRoundCredits > 0)
         {
             StartCoroutine(SpawnEnemiesCoroutine());

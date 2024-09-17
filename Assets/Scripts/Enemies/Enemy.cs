@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour, ILootSource
 {
-    public HealthSystem healthSystem;
     public string enemyName;
     public int creditCost;
     public float spawnChance = 1.0f;
@@ -43,11 +42,8 @@ public class Enemy : MonoBehaviour, ILootSource
 
         try
         {
-            while(pickUpsToSpawn > 0)
+            for(pickUpsToSpawn = (byte)Random.Range(0, pickUpsToSpawn); pickUpsToSpawn > 0; --pickUpsToSpawn)
             {
-                pickUpsToSpawn--;
-                if (Random.value > 0.5f)
-                    pickUpsToSpawn--;
                 pickupTable.Pickup_Spawn(transform.position + Vector3.up * 3f + RandomVector() * 2f);
             }
         }

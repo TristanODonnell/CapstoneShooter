@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Assault Rifle
   weaponCategory: 0
-  weaponType: 1
+  weaponType: 0
   ProtectionValues:
     unprotected: 7
     energyShield: 5
@@ -38,17 +38,19 @@ MonoBehaviour:
   worldWeapon: {fileID: 3205326218009921427, guid: b4695ea6339ae474f93d64d5d4f9d77e,
     type: 3}
   ObjectPool: {fileID: 0}
-  projectileVisualPrefab: {fileID: 0}
-  objectPoolGameObject: {fileID: 0}
+  projectileVisualPrefab: {fileID: 6987476402496086728, guid: 05052214cd76fd74c8e9242fbf1e497b,
+    type: 3}
+  objectPoolGameObject: {fileID: 862838683086214071, guid: f18a7d129d1d0c84187843b9fb55f17b,
+    type: 3}
   bulletType: 0
-  bulletScale: 1.24
+  bulletScale: 0.14
   verticalRecoil: 0.5
   horizontalRecoil: 0.1
   recoilResetSpeed: 1
   bulletSpeed: 20
   range: 50
   fireRate: 0.04
-  adsZoomLevel: 2
+  adsZoomLevel: 0.25
   penetration: 1
   penetrationPerHit: 1
   burstSize: 0
