@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
   m_Name: Tank Kit
   m_EditorClassIdentifier: 
-  passiveName: Tank Kit
-  itemCost: 250
+  passiveName: 
+  itemCost: 0
   worldPassiveModel: {fileID: 655148740914922170, guid: 4ba7113eb042a7648b41ec23a971968e,
     type: 3}
   passiveType: 0

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Abilities;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ShopUI : MonoBehaviour
 {
@@ -19,21 +18,6 @@ public class ShopUI : MonoBehaviour
     public GameObject skillTreeSelectPanel;
     public GameObject grenadesAndAmmoPanel;
 
-    public TextMeshProUGUI currencyDisplay;
-    private void Start()
-    {
-
-        CurrencyManager.singleton.OnCurrencyChanged.AddListener(newCurrency => UpdateCurrencyDisplay(newCurrency));
-        UpdateCurrencyDisplay(CurrencyManager.singleton.totalCurrency);
-    }
-    private void OnCurrencyChangedHandler(int newCurrency)
-    {
-        UpdateCurrencyDisplay(newCurrency);
-    }
-    public void UpdateCurrencyDisplay(int newCurrency)
-    {
-        currencyDisplay.text = "Currency: " + newCurrency.ToString();
-    }
     public void TogglePage(GameObject page)
     {
         // Set all pages to inactive
@@ -46,6 +30,8 @@ public class ShopUI : MonoBehaviour
         // Set the clicked page to active
         page.SetActive(true);
     }
+
+
     public void OnWeaponsButtonClick()
 {
     TogglePage(weaponSelectPanel);
