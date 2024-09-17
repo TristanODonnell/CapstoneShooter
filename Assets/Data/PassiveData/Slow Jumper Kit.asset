@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
   m_Name: Slow Jumper Kit
   m_EditorClassIdentifier: 
-  passiveName: 
-  itemCost: 0
+  passiveName: Slow Jumper Kit
+  itemCost: 250
   worldPassiveModel: {fileID: 655148740914922170, guid: 32c9dd591b83b4240b8cacb41eb3164a,
     type: 3}
   passiveType: 6

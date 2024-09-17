@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
   m_Name: No Passive
   m_EditorClassIdentifier: 
-  passiveName: 
-  itemCost: 0
+  passiveName: No Passive
+  itemCost: 250
   worldPassiveModel: {fileID: 655148740914922170, guid: cf9f256cb53ed614b884644c01bf4bb0,
     type: 3}
   passiveType: 7

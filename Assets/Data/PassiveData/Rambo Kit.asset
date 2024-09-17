@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ea562d9d19e09429e60cbb46a64dd8, type: 3}
   m_Name: Rambo Kit
   m_EditorClassIdentifier: 
-  passiveName: 
-  itemCost: 0
+  passiveName: Rambo Kit
+  itemCost: 250
   worldPassiveModel: {fileID: 655148740914922170, guid: 649b2f0178c264141a6c6e1fa973b5f4,
     type: 3}
   passiveType: 4

@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager singleton;
-   
-    UnityEvent<int> OnCurrencyChanged; //CAN USE FOR UI
+
+    public UnityEvent<int> OnCurrencyChanged;
     private void Awake()
     {
         if (singleton == null)
@@ -28,12 +28,12 @@ public class CurrencyManager : MonoBehaviour
     {
         totalCurrency += amount;
         currencyAdded = amount;
-       
+        OnCurrencyChanged.Invoke(totalCurrency);
     }
 
     public void SubtractCurrency(int amount)
     {
         totalCurrency -= amount;
-       
+        OnCurrencyChanged.Invoke(totalCurrency);
     }
 }
